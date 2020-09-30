@@ -1,0 +1,112 @@
+\renewcommand\thechapter{\Alph{chapter}}
+\setcounter{chapter}{3}
+\chapter{整数論}
+
+\begin{ex}
+\end{ex}
+
+
+\begin{ex}
+\end{ex}
+
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+\begin{ex}
+\end{ex}
+
+
+
+
+\begin{ex}
+    \begin{align*}
+        q_1 p_0 - p_1 q_0 & = -1
+        \\
+        q_n p_{n-1} - p_n q_{n-1}
+                          & =
+        (a_n q_{n-1} + q_{n-2}) p_{n-1} - (a_n p_{n-1} + p_{n-2}) q_{n-1}
+        =
+        (-1)(q_{n-1} p_{n-2} - p_{n-1} q_{n-2})
+    \end{align*}
+    なので, 帰納法より,
+    \begin{align*}
+        q_n p_{n-1} - p_n q_{n-1}  = (-1)^n.
+    \end{align*}
+    \par
+    $p_n, q_n$の最大公約数$g_n$として, $p_n = g_n p_n'$などと書くと,
+    \begin{align*}
+        g_n g_{n-1} \left(q_n' p_{n-1}' - p_n' q_{n-1}' \right) = (-1)^n.
+    \end{align*}
+    ここで,
+    \begin{align*}
+         & \frac{q_n' p_{n-1}' - p_n' q_{n-1}'}{p_n' p_{n-1}'}
+        =
+        \frac{q_n'}{p_n'} - \frac{q_{n-1}'}{p_{n-1}'}
+        =
+        \frac{q_n}{p_n} - \frac{q_{n-1}}{p_{n-1}}
+        \begin{cases}
+            > 0 & (n : \mathrm{even}) \\
+            < 0 & (n: \mathrm{odd})
+        \end{cases}
+        \\ &\to
+        q_n' p_{n-1}' - p_n' q_{n-1}'
+        \begin{cases}
+            > 0 & (n : \mathrm{even}) \\
+            < 0 & (n: \mathrm{odd})
+        \end{cases}
+    \end{align*}
+    であるから,
+    \begin{align*}
+        g_n g_{n-1} = 1
+    \end{align*}
+    となり, $g_n, g_{n-1}$は正の整数なので,
+    \begin{align*}
+        g_n = g_{n-1} = 1
+    \end{align*}
+    を得る.
+\end{ex}

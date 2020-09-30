@@ -1,0 +1,627 @@
+\begin{ex}
+    \label{ex7.24}
+    \begin{align*}
+        \mu_N B \sim 5 \times 10^{-26} \ J < k_B T \sim 5 \times 10^{-21} J
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.25}
+    \begin{align*}
+        \left[ j_i , j_k \right]
+         & =
+        \left[
+            \frac{ \sigma_i \otimes I + I \otimes \sigma_i}{2},
+            \frac{\sigma_k \otimes I + I \otimes \sigma_k}{2}
+            \right]                                                        \\
+         & =
+        \frac{\left[\sigma_i \otimes I,\sigma_k \otimes I \right]
+            +
+            \left[I\otimes \sigma_i , I\otimes \sigma_k \right]
+        }{4}                                                               \\
+         & =
+        i \epsilon_{ikl} \frac{\sigma_l \otimes I + I \otimes \sigma_l}{2} \\
+         & =
+        i \epsilon_{ikl}  j_l.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.26}
+    \begin{align*}
+        J^2 =
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 2 & 0 & 0 \\
+            0 & 0 & 2 & 0 \\
+            0 & 0 & 0 & 2 \\
+        \end{pmatrix},\
+        j_z = \begin{pmatrix}
+            0 & 0  & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0  & 0 & 0 \\
+            0 & 0  & 0 & 1 \\
+        \end{pmatrix}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.27}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.28}
+    (1)\
+    \begin{align*}
+        \left[ i_k, i_l\right] = i \epsilon_{klm}i_m.
+    \end{align*}
+    \par
+    (2)
+    \begin{align*}
+        \ket{2,2}, \ket{2,1}, \ket{2,0}, \ket{2,-1}, \ket{2,-2},
+        \ket{1,1}, \ket{1,0}, \ket{1,-1}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.29}
+    \begin{align*}
+        \int_0^\infty
+        \frac
+        {\sin^2\frac{\omega - \omega_0}{2}t}
+        {\left(\omega - \omega_0\right)^2}
+        \omega
+        \ dw
+        \sim
+        \int_{-\infty}^\infty
+        \frac
+        {\sin^2\frac{\omega - \omega_0}{2}t}
+        {\left(\omega - \omega_0\right)^2}
+        \omega_0
+        \ dw
+        =
+        \int_{-\infty}^\infty
+        \frac
+        {t^2\sin^2\frac{\omega - \omega_0}{2}t}
+        { 4\left(\frac{\omega - \omega_0}{2}t\right)^2}
+        \omega_0
+        \ dw
+        =
+        \int_{-\infty}^\infty
+        \frac
+        {t\sin^2 x}
+        { 2x^2}
+        \omega_0
+        \ dx
+        =
+        \frac{\pi t \omega_0}{2}.
+    \end{align*}
+    ここで, $\sim$では, 被積分関数の寄与が$\omega \sim \omega_0$で非常に大きいことを用いた. この結果を用いて,
+    \begin{align*}
+        \gamma_\mathrm{rad}
+         & =
+        \frac{d}{dt} \frac{1}{\left( 2 \pi c\right)^2}\frac{8 \pi}{3}
+        \int_0^\infty \omega^2 p_\mathrm{decay} \ d\omega
+        \\
+         & =
+        \frac{d}{dt}
+        \frac{1}{\left( 2 \pi c\right)^2}\frac{8 \pi}{3}
+        \int_0^\infty
+        \frac{\omega_0^2 \left| \braket{0|\bm{\mu}|1} \right|^2}{2 \hbar \omega \epsilon_0 c^3}
+        \frac{4\sin^2\frac{\omega - \omega_0}{2}t}{\left(\omega - \omega_0\right)^2}
+        \omega^2
+        \ d\omega                                                                                      \\
+         & = \frac{\omega_0^3  \left| \braket{0|\bm{\mu}|1} \right|^2 }{3 \pi \hbar \epsilon_0 c^5}\ .
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.30}
+    \begin{align*}
+        \frac{\gamma_\mathrm{rad}^\mathrm{ed} }{\gamma_\mathrm{rad}}
+        =
+        \frac{\left| \braket{0|\bm{\mu}_\mathrm{ed}|1} \right|^2}{\left| \braket{0|\bm{\mu}|1} \right|^2}
+        \sim
+        \frac{e^2 a_0^2 \omega_0^\mathrm{ed}}{\mu_B^2 \omega_0}
+        \sim
+        \frac{10^{-58} 10^{15}}{10^{-46} 10^{10}} = 10^{-7}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.31}
+    \begin{align*}
+        H = e^{i \frac{\pi}{2}} R_x \left( \pi\right) R_y \left( \frac{\pi}{2}\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.32}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex7.33}
+    \begin{align*}
+        i \frac{\partial}{\partial t} \ket{\phi(t)}
+         & =
+        i \frac{\partial}{\partial t} e^{\frac{i \omega Z t}{2}} \ket{ \chi(t)} \\
+         & =
+        - \frac{\omega Z}{2} e^{\frac{i \omega Z t}{2}}\ket{\chi(t)}
+        +
+        i e^{\frac{i \omega Z}{2}} \frac{\partial}{\partial t}\ket{ \chi(t)}    \\
+         & =
+        - \frac{\omega Z}{2} e^{\frac{i \omega Z}{2}} \ket{\chi(t)}
+        +
+        e^{\frac{i \omega Z}{2}} H \ket{\chi(t)}                                \\
+         & =
+        \left[e^{\frac{i \omega Z}{2}} H e^{ -\frac{i \omega Z}{2}} - \frac{\omega Z}{2} e^{\frac{i \omega Z}{2}} \right] \ket{\phi(t)}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.34}
+\end{ex}
+\begin{ex}
+    \label{ex7.35}
+    $H_{1,2}^D$の球面平均は, その定数項の寄与を除いて,
+    \begin{align*}
+         & \ \ \ \ \
+        \int_0^\pi d \theta \int_0^{2 \pi} d \phi
+        \ \sin\theta
+        \left[
+            \bm{\sigma}_1 \cdot \bm{\sigma}_2
+            -
+            3
+            \left( \bm{\sigma}_1 \cdot \bm{n}\right)
+            \left(  \bm{\sigma}_2 \cdot \bm{n}\right)
+            \right]                                        \\
+         & =
+        \int_0^\pi d \theta \int_0^{2 \pi} d \phi \
+        \sigma_{1x}\sigma_{2x}
+        \left( \sin\theta - 3 \sin^3\theta \cos^2\phi\right)
+        +
+        \sigma_{1y}\sigma_{2y}
+        \left( \sin\theta - 3 \sin^3\theta \sin^2\phi\right)
+        +
+        \sigma_{1z}\sigma_{2z}
+        \left( \sin\theta - 3 \cos^2\theta \sin\theta\right)
+        \\
+         & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+        +\sin^3\theta \sin\phi \cos\phi
+        \left( \sigma_{1x} \sigma_{2y} + \sigma_{1y}\sigma_{2x}\right)
+        +
+        \sin^3\theta \cos\theta \cos\phi
+        \left( \sigma_{1x} \sigma_{2z} + \sigma_{1z}\sigma_{2x}\right)
+        \\
+         & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+        +
+        \sin^2\theta \cos\theta \sin\phi
+        \left( \sigma_{1y} \sigma_{2z} + \sigma_{1z}\sigma_{2y}\right)
+        \\&=0
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.36}
+    \underline{$n=1$}\par
+    考えるべきは, 2準位系で, そのエネルギーを$\frac{\hbar \omega}{2}, -\frac{\hbar \omega}{2}$とする.
+    すると, 基底としてエネルギー固有状態を考えた行列表示で, $\beta \ll 1$とすると,
+    \begin{align*}
+        e^{- \beta H} \sim 1 - \beta H = 1 - \frac{\beta \hbar \omega}{2}
+        \begin{pmatrix}
+            1 & 0  \\
+            0 & -1
+        \end{pmatrix}
+    \end{align*}
+    \underline{$n=2$}\par
+    2つの2準位系;
+    \begin{align*}
+        A: & \ - \frac{\omega_A}{4} ,\ \frac{\omega_A}{4} \\
+        B: & \ - \frac{\omega_B}{4} ,\ \frac{\omega_B}{4} \\
+    \end{align*}
+    を考えると,
+    \begin{align*}
+        e^{- \beta H} \sim 1 - \beta H
+        = 1 - \beta \hbar
+        \begin{pmatrix}
+            \omega_A + \omega_B & 0                   & 0                   & 0                    \\
+            0                   & \omega_B - \omega_A & 0                   & 0                    \\
+            0                   & 0                   & \omega_A - \omega_B & 0                    \\
+            0                   & 0                   & 0                   & - \omega_A -\omega_B
+        \end{pmatrix}
+        =
+        1-
+        \frac{\beta \hbar \omega_A}{4}
+        \begin{pmatrix}
+            5 & 0 & 0  & 0  \\
+            0 & 3 & 0  & 0  \\
+            0 & 0 & -3 & 0  \\
+            0 & 0 & 0  & -5
+        \end{pmatrix}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.37}
+    まず,
+    \begin{align*}
+        H = J Z_1 \otimes Z_2
+    \end{align*}
+    のとき,
+    \begin{align*}
+        e^{-iHt} = I \otimes I \cos Jt - i Z_1 \otimes Z_2 \sin Jt
+        =
+        \begin{pmatrix}
+            e^{-i Jt} & 0       & 0       & 0        \\
+            0         & e^{iJt} & 0       & 0        \\
+            0         & 0       & e^{iJt} & 0        \\
+            0         & 0       & 0       & e^{-iJt}
+        \end{pmatrix}.
+    \end{align*}
+    次に,
+    \begin{align*}
+        \rho & =
+        \exp \left[ i \pi \frac{Y_1 \otimes I}{4} \right]
+        \frac{1}{4}
+        \left[
+            1 - \beta \hbar \omega_0 \left( Z_1 \otimes I + I \otimes Z_2\right) \right]
+        \exp \left[ -i \pi \frac{Y_1 \otimes I}{4} \right]
+        \\
+             & =
+        \frac{1}{4}
+        \left[
+            1 - \beta \hbar \omega_0 \left( - X_1 \otimes I + I \otimes Z_2\right) \right].
+    \end{align*}
+    よって,
+    \begin{align*}
+        e^{-iHt} \rho e^{iHt}
+        =
+        \frac{1}{4}
+        \begin{pmatrix}
+            1 - \beta \hbar \omega_0      & 0                              & \beta \hbar \omega_0 e^{-2iJt} & 0                             \\
+            0                             & 1+\beta \hbar \omega_0         & 0                              & \beta \hbar \omega_0 e^{2iJt} \\
+            \beta \hbar \omega_0 e^{2iJt} & 0                              & 1 - \beta \hbar \omega_0       & 0                             \\
+            0                             & \beta \hbar \omega_0 e^{-2iJt} & 0                              & 1 + \beta\hbar \omega_0
+        \end{pmatrix}.
+    \end{align*}
+    したがって,
+    \begin{align*}
+        V(t)
+         & = V_0 \ \tr \left[  e^{-iHt} \rho e^{iHt} \left( i X_1 + Y_1\right) \otimes I \right]
+        \\
+         & =   \frac{i V_0 \beta \hbar \omega_0}{2} \ \tr
+        \left[
+            \begin{pmatrix}
+                e^{2i Jt} & 0         & 0 & 0 \\
+                0         & e^{-2iJt} & 0 & 0 \\
+                0         & 0         & 0 & 0 \\
+                0         & 0         & 0 & 0
+            \end{pmatrix}
+            \right]
+        \\
+         & = i V_0 \beta \hbar \omega_0 \cos Jt.
+    \end{align*}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex7.38}
+    演習\ref{ex4.7}と同様に,
+    \begin{align*}
+        X R_z(\theta) X = R_z(-\theta)
+    \end{align*}
+    であることから,
+    \begin{align*}
+        R_x(\pi) e^{- i a Z_1 t} R_x(\pi)
+        =
+        (-iX)  R_z(2at) (-iX)
+        =
+        - R_z(-2at)
+        =
+        - e^{i a Z_1 t}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.39}
+    $R_x = R_x\left( \frac{\pi}{2}\right), \ R_y = R_y\left( \frac{\pi}{2}\right)$とする.
+    演習\ref{ex7.38}と同様に,
+    \begin{align*}
+        R_x^2 e^{- i c_y \sigma_y} R_x^2 =  -e^{i c_y  \sigma_y} \\
+        R_x^2 e^{- i c_z \sigma_z} R_x^2 =  -e^{i c_z  \sigma_z} \\
+        R_y^2 e^{- i c_x \sigma_x} R_y^2 = -e^{i c_x \sigma_x}
+    \end{align*}
+    である. このことを用いて,
+    \begin{align*}
+        H = \sum_k c_k \sigma_k
+    \end{align*}
+    に対して,
+    \begin{align*}
+        e^{-iHt} R_x^2 e^{-iHt} R_x^2             & =  -e^{-2ic_x \sigma_x t}                                   \\
+        R_y^2 e^{-iHt} R_x^2 e^{-iHt} R_x^2 R_y^2 & = - R_y^2 e^{-2ic_x \sigma_x t} R_y^2 =e^{2ic_x \sigma_x t}
+    \end{align*}
+    となるから,
+    \begin{align*}
+        R_y^2 e^{-iHt} R_x^2 e^{-iHt} R_x^2 R_y^2 e^{-iHt} R_x^2 e^{-iHt} R_x^2
+        = -e^{2ic_x \sigma_x t} e^{-2ic_x \sigma_x t}
+        =-1
+    \end{align*}
+    というようなパルス列を与えると, 系の時間発展を再収束させられる.
+\end{ex}
+
+\begin{ex}
+    \label{ex7.41}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.41}
+    \begin{align*}
+        H = a Z_1 + b Z_2 + c Z_1 Z_2
+    \end{align*}
+    のとき,
+    \begin{align*}
+        e^{-i H t}R_{x1}^2 e^{-i H t}R_{x1}^2 = -e^{-2ibZ_2 t}                    \\
+        e^{-i H t}R_{x2}^2 e^{-i H t}R_{x2}^2 = -e^{-2iaZ_1 t}                    \\
+        e^{-i H t}R_{x1}^2R_{x2}^2 e^{-i H t}R_{x1}^2R_{x2}^2 = e^{-2icZ_1 Z_2 t} \\
+    \end{align*}
+    であることと演習\ref{ex7.47}より,
+    \begin{align*}
+        e^{-i \frac{\pi}{4}} U_{CNOT}
+         & = e^{i \frac{\pi}{4}Z_2}e^{-i\frac{\pi}{4}Z_1}R_{x2} e^{-i \frac{\pi}{2} Z_1 Z_2}  R_{y2} \\
+         & =
+        e^{i H \frac{\pi}{8b}}R_{x1}^2 e^{i H \frac{\pi}{8b}}R_{x1}^2
+        e^{ - i H \frac{\pi}{8a}}R_{x2}^2 e^{ - i H \frac{\pi}{8a}}R_{x2}^2
+        R_{x2} e^{-i H \frac{\pi}{8c}}R_{x1}^2R_{x2}^2 e^{-i H \frac{\pi}{8c}}R_{x1}^2R_{x2}^2 R_{y2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.42}
+    $P$は,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \targ     & \ctrl{1} & \qw \\
+        \lstick{} & \ctrl{-1} & \targ    & \qw
+        }
+    \end{align*}
+    $P^\dagger$は,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \targ     & \qw \\
+        \lstick{} & \targ    & \ctrl{-1} & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.43}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \qw       & \ctrl{2} & \targ     & \qw \\
+        \lstick{} & \targ     & \qw      & \ctrl{-1} & \qw \\
+        \lstick{} & \ctrl{-1} & \targ    & \qw       & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.44}
+    簡単のため$n$を偶数とする.
+    Zeemann周波数$\omega$のspinが$n$個ある系の密度行列$\rho$は,
+    \begin{align*}
+        Z = e^{\beta \hbar \omega} + e^{- \beta \hbar \omega}
+    \end{align*}
+    として,
+    \begin{align*}
+        \rho
+        =
+        \frac{1}{Z^n}
+        \begin{pmatrix}
+            e^{\beta \hbar \omega} & 0                        \\
+            0                      & e^{- \beta \hbar \omega}
+        \end{pmatrix}^{\otimes n}.
+    \end{align*}
+    特に$\beta \hbar \omega \ll  1$では,
+    \begin{align*}
+        \rho \sim
+        \frac{1}{2^n}
+        \left[
+            I + \beta \hbar \omega
+            \begin{pmatrix}
+                1 & 0  \\
+                0 & -1
+            \end{pmatrix}
+            \right]^{\otimes n}.
+    \end{align*}
+    以下$O(\beta \hbar \omega)$まで考えるとする. 少し頑張って考えると, $\rho$の対角成分の$0$の個数は$2^{\frac{n}{2}+1} - 2$個, $\rho$の(0,0)成分は$\frac{n\beta \hbar \omega}{2^n}$になる. したがって,
+    式(7.163)から式(7.165)と全く同様の手続きを行えば,
+    \begin{align*}
+        \exists \tilde{P} \ \ \ \left( \tilde{P} \rho \tilde{P}^\dagger - \frac{I^{\otimes n}}{2^n} \mathrm{の上} (2^{\frac{n}{2}+1} - 2) \times (2^{\frac{n}{2}+1} - 2)\mathrm{ブロック} \right)
+        = \frac{n \beta \hbar \omega }{2^n}\underbrace{\ket{00...00}}_{2^{\frac{n}{2}+1}-2 \ qubit}\bra{00...00}.
+    \end{align*}
+    $n$が偶数の時, $\rho$の対角成分の値に注目すると$0$が一番多いので, 上に示したものが, 論理ラベルで作れる実効的純粋状態のうち最大のqubit数を持つものである.
+\end{ex}
+
+\begin{ex}
+    \label{ex7.45}
+    密度行列$\rho$は$r_{ij} \in \mathbb{R} \ (i,j = 1,2,3)$を用いて，
+    \begin{align*}
+        \rho = \frac{1}{4} \left[ I \otimes I + \sum_{i, j} r_{ij} \sigma_i \otimes \sigma_j \right]
+    \end{align*}
+    かける. この$\rho$の各係数$r_{ij}$を決めるには,
+    \begin{align*}
+        \langle \sigma_i \otimes \sigma_j \rangle = \tr \left[ \rho \sigma_i \otimes \sigma_j \right] =r_{ij}
+    \end{align*}
+    より, $\sigma_i \otimes \sigma_j$を測定すれば良い. つまり9回の測定をすれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex7.46}
+    27回測定すれば十分.
+\end{ex}
+
+\begin{ex}
+    \label{ex7.47}
+    \begin{align*}
+        R_{x2} e^{-i \frac{\pi}{4} Z_1 Z_2} R_{y2}
+         & =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & -1 & 0 & 0  \\
+            1 & 1  & 0 & 0  \\
+            0 & 0  & 1 & -1 \\
+            0 & 0  & 1 & 1
+        \end{pmatrix}
+        e^{-i\frac{\pi}{4}}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & i & 0 & 0 \\
+            0 & 0 & i & 0 \\
+            0 & 0 & 0 & 1
+        \end{pmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1  & -i & 0  & 0  \\
+            -i & 1  & 0  & 0  \\
+            0  & 0  & 1  & -i \\
+            0  & 0  & -i & 1
+        \end{pmatrix}
+        \\
+         & =
+        e^{-i \frac{\pi}{4}}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0  \\
+            0 & i & 0 & 0  \\
+            0 & 0 & 0 & -i \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+    \end{align*}
+    であり,
+    \begin{align*}
+        e^{i \frac{\pi}{4}Z_2}e^{-i\frac{\pi}{4}Z_1}R_{x2} e^{-i \frac{\pi}{4} Z_1 Z_2}  R_{y2}
+         & =
+        \begin{pmatrix}
+            e^{i\frac{\pi}{4}} & 0                   & 0                  & 0                    \\
+            0                  & e^{-i\frac{\pi}{4}} & 0                  & 0                    \\
+            0                  & 0                   & e^{i\frac{\pi}{4}} & 0                    \\
+            0                  & 0                   & 0                  & e^{ーi\frac{\pi}{4}}
+        \end{pmatrix}
+        \begin{pmatrix}
+            e^{-i\frac{\pi}{4}} & 0                   & 0                  & 0                  \\
+            0                   & e^{-i\frac{\pi}{4}} & 0                  & 0                  \\
+            0                   & 0                   & e^{i\frac{\pi}{4}} & 0                  \\
+            0                   & 0                   & 0                  & e^{i\frac{\pi}{4}}
+        \end{pmatrix}
+        e^{-i \frac{\pi}{4}}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0  \\
+            0 & i & 0 & 0  \\
+            0 & 0 & 0 & -i \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+        \\
+         & =
+        e^{-i\frac{\pi}{4}}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+        =
+        e^{-i\frac{\pi}{4}}U_{CNOT}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.48}
+    \begin{align*}
+        R_{x2} e^{-i \frac{\pi}{4} Z_1 Z_2} R_{y2}R_{y1}
+         & =
+        e^{-i\frac{\pi}{4}}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0  \\
+            0 & i & 0 & 0  \\
+            0 & 0 & 0 & -i \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1  & 0  & -1 & 0  \\
+            0  & 1  & 0  & -1 \\
+            -1 & 0  & 1  & 0  \\
+            0  & -1 & 0  & 1
+        \end{pmatrix}
+        \\
+         & =
+        \frac{e^{-i \frac{\pi}{4}}}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 0  & -1 & 0  \\
+            0 & i  & 0  & -i \\
+            0 & -i & 0  & -i \\
+            1 & 0  & 1  & 0
+        \end{pmatrix} \\
+    \end{align*}
+    より, $ R_{x2} e^{-i \frac{\pi}{4} Z_1 Z_2} R_{y2}R_{y1}$は,
+    \begin{align*}
+        \ket{00} \to \frac{\ket{00} + \ket{11}}{\sqrt{2}} \\
+        \ket{01} \to \frac{\ket{01} - \ket{10}}{\sqrt{2}} \\
+        \ket{10} \to \frac{\ket{00} - \ket{11}}{\sqrt{2}} \\
+        \ket{00} \to \frac{\ket{01} + \ket{10}}{\sqrt{2}} \\
+    \end{align*}
+    というようにBell状態を作る.
+\end{ex}
+
+\begin{ex}
+    \label{ex7.49}
+    演習\ref{ex7.47}でCNOTがいかに作れるかを示したことを思い出して,
+    \begin{align*}
+        SWAP
+         & = C(X_2) C(X_1) C(X_2)  \\
+         & = e^{-i \frac{3\pi}{4}}
+        e^{i \frac{\pi}{4}Z_2}e^{-i\frac{\pi}{4}Z_1}R_{x2} e^{-i \frac{\pi}{4} Z_1 Z_2}  R_{y2}
+        e^{i \frac{\pi}{4}Z_1}e^{-i\frac{\pi}{4}Z_2}R_{x1} e^{-i \frac{\pi}{4} Z_1 Z_2}  R_{y1}
+        e^{i \frac{\pi}{4}Z_2}e^{-i\frac{\pi}{4}Z_1}R_{x2} e^{-i \frac{\pi}{4} Z_1 Z_2}  R_{y2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.50}
+\end{ex}
+
+\begin{ex}
+    \label{ex7.51}
+    $x_0 = 3$の時だけ示す.
+    $R_{?i}$と$R_{?j}$は$i \neq j$のとき可換で, $R_x^3 = \bar{R}_x, R_y^3 = \bar{R}_y$であることを用いて,
+    \begin{align*}
+        G
+        = H^{\otimes2} P H^{\otimes2} O
+         & =
+        R_{x1}^2 \cancel{\bar{R}_{y1}}R_{x2}^2 \bcancel{\bar{R}_{y2}}
+        \cancel{R_{y1}}R_{x1}\bar{R}_{y1} \bcancel{R_{y2}}R_{x2}\bar{R}_{y2}\tau
+        R_{x1}^2 \cancel{\bar{R}_{y1}}R_{x2}^2 \bcancel{\bar{R}_{y2}}
+        \cancel{R_{y1}}\bar{R}_{x1}\bar{R}_{y1}\bcancel{R_{y2}}\bar{R}_{x2}\bar{R}_{y2} \tau
+        \\
+         & =
+        R_{x1}^2 R_{x2}^2
+        R_{x1}\bar{R}_{y1}R_{x2}\bar{R}_{y2}\tau
+        R_{x1}^2 R_{x2}^2
+        \bar{R}_{x1}\bar{R}_{y1}\bar{R}_{x2}\bar{R}_{y2} \tau
+        \\
+         & =
+        R_{x1}^3 R_{x2}^3
+        \bar{R}_{y1}\bar{R}_{y2}\tau
+        R_{x1}
+        \bar{R}_{y1}\bar{R}_{y2} \tau
+        \\
+         & =
+        \bar{R}_{x1} \bar{R}_{x2}
+        \bar{R}_{y1}R_{x2}\bar{R}_{y2}\tau
+        R_{x1} R_{x2}
+        \bar{R}_{y1}\bar{R}_{y2} \tau.
+    \end{align*}
+\end{ex}
+
+
+

@@ -1,0 +1,362 @@
+\chapter{コンピュータ科学入門}
+
+\begin{ex}
+    \label{ex3.1}
+    人間が新たな物理法則を見出すことで.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex3.2}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex3.3}
+    $<q_i, x_1, y_1, q_j, x_2, y_2, s_x, s_y>$というプログラムは, 内部状態$q_i$にあるTMが読み出しテープの$x_1$, 書き込みテープの$y_1$を読み出したとき, 内部状態を$q_j$にして, 読み出しテープを$x_2$, 書き込みテープを$y_2$に書き換え, 読み出しテープのヘッドを$s_1$, 書き込みテープのヘッドを$s_2$だけ進めることを意味する.
+    入力ビット$x$の読み出し用テープと$x$を逆順にしたビット列$y$の出力用テープを考える. 考え方は, 以下の通り.
+    \begin{enumerate}
+        \item 入力テープの右端に行くまで, 入力ヘッドを右に移動させる.
+        \item 入力テープの値を, 出力テープに書き出す. その後, 入力テープは左に, 出力テープは右に動かしていく.
+        \item 入力ヘッドが左端に着いたら終了.
+    \end{enumerate}
+    その実装は, 以下のようになる.
+    \begin{align*}
+         & <q_s, \rhd, \rhd, q_1, \rhd, \rhd, +1, 0> \\
+         & <q_1, 0, b, q_1, 0, b,+1, 0>              \\
+         & <q_1, 1, b, q_1, 1, b, +1, 0>             \\
+         & <q_1, b, b, q_2, b, b, -1, 0>             \\
+         & <q_2, 0, b, q_2, b, 0, -1, +1>            \\
+         & <q_2, 1, b, q_2, b, 1, -1, +1>            \\
+         & <q_2, \rhd, b, q_h, \rhd, b, 0, 0>
+    \end{align*}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex3.4}
+    $<q_i, x_1, y_1, q_j, x_2, y_2, s_x, s_y>$というプログラムは, 内部状態$q_i$にあるTMが読み出しテープの$x_1$, 書き込みテープの$y_1$を読み出したとき, 内部状態を$q_j$にして, 読み出しテープを$x_2$, 書き込みテープを$y_2$に書き換え, 読み出しテープのヘッドを$s_1$, 書き込みテープのヘッドを$s_2$だけ進めることを意味する.
+    入力ビット$x\  b\  y$の読み出し用テープと$x+y$の計算結果の出力用テープを考える. このとき, $x,y$の桁数が同じになるように0が補われているとする.
+    考え方は以下の通り.
+    \begin{enumerate}
+        \item 入力テープの空白にたどり着くまで, 入力ヘッドを右に移動させる.
+              そのとき, 入力テープと同じ値を出力テープに書き出しておく.
+              すると, 出力テープに$x$がコピーされているはずである.
+        \item 出力テープの左端にたどり着くまで, 入力ヘッドを左に移動させる. このとき, 入力ヘッドは動かさない. すると, 入力ヘッドの右の区画に$y$の最下位ビット, 出力ヘッドの右の区画に$x$の最下位ビットがあるはずである.
+        \item 繰り上がりのなし/あるを状態$q_3/q_4$で区別しながら, $x,y$の各桁の足し算をしていく.
+        \item 全ての桁を足し終えたとき, 状態が$q_3$なら特に何もせず, $q_4$なら出力テープの最上位ビットに1を出力して終了.
+    \end{enumerate}
+    その実装は, 以下のようになる.
+    \begin{align*}
+         & <q_s, \rhd, \rhd, q_1, \rhd, \rhd, +1, 0> \\
+         & <q_1, 0, b, q_1, b, 0,+1, +1>             \\
+         & <q_1, 1, b, q_1, b, 1, +1, +1>            \\
+         & <q_1, b, b, q_2, b, b, 0, -1>             \\
+         & <q_2, b, 0, q_2, b, 0, 0, -1>             \\
+         & <q_2, b, 1, q_2, b, 0, 1, -1>             \\
+         & <q_2, b, \rhd, q_3, b, \rhd, +1, +1>      \\
+         & <q_3, 0, 0, q_3, b, 0, +1, +1>            \\
+         & <q_3, 0, 1, q_3, b, 1, +1, +1>            \\
+         & <q_3, 1, 0, q_3, b, 1, +1, +1>            \\
+         & <q_3, 1, 1, q_4, b, 0, +1, +1>            \\
+         & <q_4, 0, 0, q_3, b, 1, +1, +1>            \\
+         & <q_4, 0, 1, q_4, b, 0, +1, +1>            \\
+         & <q_3, 1, 0, q_4, b, 0, +1, +1>            \\
+         & <q_3, 1, 1, q_4, b, 1, +1, +1>            \\
+         & <q_3, b, b, q_h, b, b, 0, 0>              \\
+         & <q_4, b, b, q_h, b, 1, 0, 0>              \\
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.5}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.6}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.7}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.8}
+    NOTについて;
+    \begin{align*}
+        \NOT\  x = x\ \NAND \ x
+    \end{align*}
+    \par
+    ANDについて;
+    \begin{align*}
+        x \ \AND \ y  = \NOT \left( x \ \NAND \ y \right)
+    \end{align*}
+    \par
+    ORについて;
+    \begin{align*}
+        x \ \OR \ y = \left( \NOT \ x \right) \NAND \left( \NOT \ y \right)
+    \end{align*}
+    XORについて;
+    \begin{align*}
+        x \ \XOR \  y = (x \ \OR \ y) \AND \left( x\ \NAND \ y\right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.9}
+    \begin{align*}
+        g(n) = \Omega{\left( f(n) \right)}
+        \mathrm{\ as\ } n \to \infty
+         & \Leftrightarrow
+        \exists{n_0} ,\exists{c>0} \ \mathrm{\ s.t.\ }
+        n \geq n_0 \Rightarrow g(n) \geq c f(n)
+        \\
+         & \Leftrightarrow
+        \exists{n_0} ,\exists{c>0} \ \mathrm{\ s.t.\ }
+        n \geq n_0 \Rightarrow f(n) \leq \frac{1}{c} g(n)
+        \\
+         & \Leftrightarrow
+        f(n) = O{\left( g(n) \right)}
+        \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.10}
+    $g(n)$が$k$次の多項式で, $k\geq l$なる正の定数$l$に対して,
+    \begin{align*}
+        \lim_{n \to \infty}  \left|\frac{g(n)}{n^l}\right| = c
+    \end{align*}
+    なる0以上の有界な定数$c$が存在する. つまり,
+    \begin{align*}
+        g(n) = O\left(n^l\right)
+        \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.11}
+    ロピタルの定理より, $k > 0$なる$k$に対して,
+    \begin{align*}
+        \lim_{n \to \infty}  \left|\frac{\log n}{n^k}\right| = \lim_{n \to \infty} \frac{1}{kn^k} =  0
+    \end{align*}
+    であるから,
+    \begin{align*}
+        \log n = O\left( n^k\right)
+        \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.12}
+    任意の$k$に対して,
+    \begin{align*}
+        \lim_{n \to \infty} \log \frac{n^k}{n^{\log n}} =  \lim_{n \to \infty}  (k-\log n) \log n = - \infty
+    \end{align*}
+    なので, $\log$の連続性から,
+    \begin{align*}
+        \lim_{n \to \infty}  \left|\frac{n^k}{n^{\log n}}\right| = 0.
+    \end{align*}
+    つまり,
+    \begin{align*}
+        n^k = O (n^{\log n}) \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+    \par
+    一方,
+    任意の$k$に対して,
+    \begin{align*}
+        \lim_{n \to \infty} \log \frac{n^{\log n}}{n^{k}} =  \lim_{n \to \infty}  (\log n - k) \log n =　\infty
+    \end{align*}
+    なので, $\log$の連続性から,
+    \begin{align*}
+        \lim_{n \to \infty}  \left|\frac{n^{\log n}}{n^k}\right| = \infty.
+    \end{align*}
+    つまり,
+    \begin{align*}
+        n^{\log n} \neq O (n^k) \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.13}
+    任意の$c \geq 1$に対して,
+    \begin{align*}
+        \lim_{n \to \infty} \log \frac{c^n}{n^{\log n}} =  \lim_{n \to \infty}  n \log c - (\log n)^2  = \infty
+    \end{align*}
+    なので, $\log$の連続性から,
+    \begin{align*}
+        \lim_{n \to \infty}  \left|\frac{c^n}{n^{\log n}}\right| = \infty.
+    \end{align*}
+    つまり,
+    \begin{align*}
+        c^n = \Omega (n^{\log n}) \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+    \par
+    一方,
+    任意の$c \geq 1$に対して,
+    \begin{align*}
+        \lim_{n \to \infty} \log \frac{n^{\log n}}{c^n} =  \lim_{n \to \infty} (\log n)^2 -  n \log c = -\infty
+    \end{align*}
+    なので, $\log$の連続性から,
+    \begin{align*}
+        \lim_{n \to \infty}  \left|\frac{n^{\log n}}{c^n}\right| = -\infty.
+    \end{align*}
+    つまり,
+    \begin{align*}
+        c^n \neq \Omega (n^{\log n}) \mathrm{\ as\ } n \to \infty.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.14}
+    \begin{align*}
+        \exists{n_1} ,\exists{c_1>0} \ \mathrm{\ s.t.\ }
+        n \geq n_1 \Rightarrow |e(n)| \leq c_1 |f(n)| \\
+        \exists{n_2} ,\exists{c_2>0} \ \mathrm{\ s.t.\ }
+        n \geq n_2 \Rightarrow |g(n)| \leq c_2 |h(n)|
+    \end{align*}
+    であるので,
+    \begin{align*}
+        n_0 = \max(n_1,n_2), \ c = c_1 c_2
+    \end{align*}
+    として,
+    \begin{align*}
+        \exists{n_0} ,\exists{c>0} \ \mathrm{\ s.t.\ }
+        n \geq n_0 \Rightarrow |e(n)g(n)| \leq c |f(n)h(n)|
+    \end{align*}
+    が成り立つので,
+    \begin{align*}
+        e(n) g(n) = O\left(f(n)h(n)\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.15}
+    「比較と交換」の演算を$k$回適用すると, 高々$2^k$個の要素が正しい順序に配列される.
+    したがって, $n!$個の可能な配列のどの配列に対しても, 正しくソートするには,
+    少なくとも$\log_2  n!$回「比較と交換」適用する必要がある. 以下では, 正しくソートするのに必要な「比較と交換」の演算の回数$N$とする. ここで,
+    $n \geq e^2$で,
+    \begin{align*}
+        N \geq \log_2  n! > \log n! \geq \int_0^1 \log x \ dx = n \log n - n \geq \frac{1}{2}n \log n
+    \end{align*}
+    が成り立つので,
+    \begin{align*}
+        \lim_{n \to \infty} \frac{N}{n \log n} > \frac{1}{2}.
+    \end{align*}
+    よって, ソーティングに必要な「比較と交換」の演算の回数は$\Omega(n \log n)$.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.16}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.17}
+    素因数分解の決定問題{\bf P}に属するとすると,  素因数分解の決定問題は, $n$を素因数分解したい数の桁数, $f(n)$を多項式として, {\bf TIME}$O\left(f(n)\right)$. また, 数$m$の素因数を見つけるには, $2$から$\sqrt{m}$の数について, 素因数分解の決定問題のアルゴリズムを施せば良い. 以上より, 数$m$の素因数を見つけるのに必要な時間計算量は, {\bf TIME}$O\left(\sqrt{m}f(\log m)\right)$. これは, $f(n)$が多項式なので, 多項式時間である.
+    \par
+    逆も同様に示せる.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.18}
+    まず, {\bf P}$=${\bf coP}であることを示す. 言語$L$を受理するTuring機械$M$考える. 言語$L$の補集合を$\bar{L}$とする. 言語$\bar{L}$を受理し, 言語$L$を拒絶するTuring機械$M'$は, Turing機械$M$で受理する入力を拒絶すれば良いだけなので, $L$と$\bar{L}$の属する計算量クラスは同じである. よって, {\bf P}$=${\bf coP}.
+    \par
+    {\bf P}$=${\bf NP}であるとすると, {\bf coP}$=${\bf coNP}. ここで, 上に示したことから, {\bf NP}$=${\bf P}$=${\bf coP}$=${\bf coNP}. ゆえに, 示したい命題の対偶が示された.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.19}
+    REACHABILITY問題を解くにあたっては, グラフに多重辺がある場合, あらかじめ1本の辺に置き換えて良い. すると, 辺の数$|E|$は$O(n^2)$となる. そこで, 深さ優先探索や幅優先探索を行えば, REACHABILITY問題を$O(|E|) = O(n^2)$で解ける.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.20}
+    連結グラフ$G$に対して,
+    「$G$がEuler閉路$C$をもつ」$\Longleftrightarrow$「$G$の各頂点の次数が偶数」
+    を示す.
+    \par
+    $\Longrightarrow)$
+    がEuler閉路$C$上の頂点に注目すると, その頂点に入る辺に対応して必ずその頂点から出る辺が1対1で対応する. よって, $G$の各頂点の次数が偶数.
+    \par
+    $\Longleftarrow)$
+    連結グラフ$G$の各頂点の次数が偶数とすると, ある頂点$v_0$から出発点として, $v_0$に到達しない限り, 到達した点には奇数本のまだ通っていない辺が必ず存在するので, 進み続けることができる. こうして得られた閉路$C$とする. グラフ$G$は連結なので, まだ通っていない辺があれば, その辺に接続する頂点$v_1$が存在する. その$v_1$を出発点として, $C$同様閉路$C_1$を得る. こうして得られた$C$と$C_1$を合わせてできる新たな閉路を$C$と置き換える. この手順を, まだ通っていない辺がなくなるまで続けることで, Euler閉路$C$を得られる.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.21}
+    $L_1$が$L_2$に, $L_2$が$L_3$に可約なので,
+    \begin{align*}
+        R(x) \in L_1 \Longleftrightarrow x \in L_2 \\
+        R'(y) \in L_2 \Longleftrightarrow y \in L_3
+    \end{align*}
+    多項式時間の演算$R,R'$が存在する. よって,
+    \begin{align*}
+        (R\circ R')(y) \in L_1 \Longleftrightarrow y \in L_3
+    \end{align*}
+    なる多項式時間の演算$R\circ R'$が存在する.
+    したがって, $L_1$は$L_3$に可約.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.22}
+    $L$が計算量クラス{\bf X}で完全だとすると
+    ,
+    {\bf X}の任意の言語$l$に対して,
+    \begin{align*}
+        R_l(x) \in L \Longleftrightarrow x \in l
+    \end{align*}
+    なる多項式時間の演算$R_l$が存在する. 加えて, $L$が$L’$に可約なので,
+    \begin{align*}
+        R(y) \in L' \Longleftrightarrow y \in L
+    \end{align*}
+    なる多項式時間の演算$R$が存在する. 以上より, {\bf X}の任意の言語$l$に対して,
+    \begin{align*}
+        (R\circ R_l)(x) \in L_1 \Longleftrightarrow x \in l
+    \end{align*}
+    なる多項式時間の演算$R\circ R_l$が存在する. よって, $L'$も計算量クラス{\bf X}で完全.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.23}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.24}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.25}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.26}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.27}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.28}
+    {\bf BPP}の元$L_1$に対して, $x_1 \in L_1$であるかを判定する確率的チューリング機械$M_1$は, その定義より多項式時間だけ計算したのち,最大で$1/4$の確率で判定を誤る.
+    一方, $0 \leq k < 1/2$として, 言語$L_2L$に対して$x_2$が$L_2$に含まれるか否かの判定を, 多項式時間だけ計算したのち, 最大で$1-k$の確率で誤る確率的チューリング機械$M_2$があるとする. このとき, $x_2 \in L_2$を入力として$M_2$を$\lceil 2 \log 4 / (2k-1)^2 \rceil$回以上用いて得られた結果(拒否or受容)のうち, より多く得られた結果を受容することで, 誤り確率を$1/4$未満に抑えることができる(定理3.3より). $M_2$を$\lceil 2 \log 4 / (2k-1)^2 \rceil$以上用いても, 計算時間が多項式時間であることには変わりないので$L_2 \in {\bf BPP}$.
+
+\end{ex}
+
+\begin{ex}
+    \label{ex3.29}
+    Fredkinゲートの真理値表より明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.30}
+    図3.14をよく見ればわかる.
+\end{ex}
+
+\begin{ex}
+    \label{ex3.31}
+\end{ex}
+
+\begin{ex}
+    \label{ex3.32}
+\end{ex}

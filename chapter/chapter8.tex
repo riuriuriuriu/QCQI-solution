@@ -1,0 +1,1153 @@
+\chapter{量子雑音と量子情報}
+
+\begin{ex}
+    \label{ex8.1}
+    \begin{align*}
+        \qo(\rho)
+        =
+        U \ket{\psi} \bra{\psi} U^\dagger
+        =
+        U \rho U^\dagger
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.2}
+    密度行列は, スペクトル分解可能;
+    \begin{align*}
+        \rho = \sum_i p_i \ket{i} \bra{i}.
+    \end{align*}
+    測定オペレータの集合$\{ M_m\}$に対し, $\rho$の測定結果が$m$である確率は,
+    \begin{align*}
+        p(m) =
+        \sum_i p(m|i) p_i
+        =
+        \sum_i \braket{i | M_m^\dagger M_m | i} p_i
+        =
+        \tr \left[ \sum_i \braket{i | M_m^\dagger M_m | i} p_i \right]
+        =
+        \tr \left[ M_m^\dagger M_m \rho\right]
+        =
+        \tr \left[M_m \rho  M_m^\dagger \right].
+    \end{align*}
+    測定後の系の状態$\rho_m$は,
+    \begin{align*}
+        \left\{ \ket{i^m} =
+        \frac{M_m \ket{i}}{\sqrt{\braket{i|M_m^\dagger M_m | i}}},
+        p(i|m)
+        \right\}
+    \end{align*}
+    というアンサンブルで,
+    \begin{align*}
+        \rho_m
+        =
+        \sum_i p(i|m) \ket{i^m} \bra{i^m}
+        =
+        \sum_i
+        \frac{p(m|i) p_i}{p(m)}
+        \frac{M_m \ket{i} \bra{i} M_m^\dagger}
+        {\braket{i|M_m^\dagger M_m | i}}
+        =
+        \sum_i p(i|m) \ket{i^m} \bra{i^m}
+        =
+        \sum_i
+        \frac{p_i M_m \ket{i} \bra{i} M_m^\dagger}{p(m)}
+        =
+        \frac{M_m \rho M_M^\dagger}
+        {\tr\left[ M_m \rho M_m^\dagger\right]}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.3}
+    ABの初期状態$\rho_A \otimes \rho_B = \rho =
+        \sum_{a,b} p_{ab} \ket{a} \ket{b}$,
+    CDの初期状態$\ket{0_C}\bra{0_C} \otimes \ket{0_D}\bra{0_D}$
+    として,
+    \begin{align*}
+        \qo\left(\rho\right)
+         & =
+        \tr_{A \otimes D}
+        \left[
+            U \rho \otimes \ket{0_C}\bra{0_C} \otimes \ket{0_D}\bra{0_D} U^\dagger
+            \right]
+        \\
+         & =
+        \sum_{a,a', b, d'}
+        p_{ab}
+        \bra{a'} \otimes \bra{d'}
+        \left(
+        U \ket{a} \bra{a} \otimes \ket{b}\bra{b} \otimes \ket{0}\bra{0} \otimes \ket{0}\bra{0} U^\dagger
+        \right)
+        \ket{a'} \otimes \ket{d'}
+        \\
+         & =
+        \sum_{a,a', b, d'}
+        p_{ab}
+        \bra{a'} \otimes \bra{d'}
+        U
+        \ket{0_C} \otimes \ket{0_D}
+        \ket{a}\bra{a} \otimes \ket{b}\bra{b}
+        \bra{0_C} \otimes \bra{0_D}
+        U^\dagger
+        \ket{a'} \otimes \ket{d'}
+        \\
+         & =
+        \sum_{a',d'}
+        \bra{a'} \otimes \bra{d'}
+        U
+        \ket{0_C} \otimes \ket{0_D}
+        \rho
+        \bra{0_C} \otimes \bra{0_D}
+        U^\dagger
+        \ket{a'} \otimes \ket{d'} =
+        \sum_{a,d}
+        E_{ad}
+        \rho
+        E_{ad}^\dagger.
+    \end{align*}
+    ただし,
+    \begin{align*}
+        E_{ad} = \bra{a'} \otimes \bra{d'}
+        U
+        \ket{0_C} \otimes \ket{0_D}
+    \end{align*}
+    で, ADでの完全性条件より,
+    \begin{align*}
+        \sum_{a,d}
+        E_{ad}
+        E_{ad}^\dagger
+         & =
+        \sum_{a,d}
+        \bra{a'} \otimes \bra{d'}
+        U
+        \ket{0_C} \otimes \ket{0_D}
+        \bra{0_C} \otimes \bra{0_D}
+        U^\dagger
+        \ket{a'} \otimes \ket{d'}
+        \\
+         & =
+        \sum_{a,d}
+        \bra{0_C} \otimes \bra{0_D}
+        U^\dagger
+        \ket{a'} \otimes \ket{d'}
+        \bra{a'} \otimes \bra{d'}
+        U
+        \ket{0_C} \otimes \ket{0_D}
+        \\
+         & =
+        \bra{0_C} \otimes \bra{0_D}
+        U^\dagger
+        U
+        \ket{0_C} \otimes \ket{0_D} = I_{AB}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.4}
+    環境の初期状態$\ket{0}$として,
+    \begin{align*}
+        E_k
+        = \braket{k | U | 0}
+        = \braket{k | P_0 \otimes I + P_1 \otimes X | 0}
+        = P_0 \braket{k|0} + P_1 \braket{k|1}.
+    \end{align*}
+    なので, 量子演算は,
+    \begin{align*}
+        \qo (\rho)
+        = \sum_{k = 0, 1} E_k \rho E_k^\dagger
+        = P_0 \rho P_0 + P_1 \rho P_1.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.5}
+    環境の初期状態$\ket{0}$として,
+    \begin{align*}
+        E_k
+        = \braket{k | U | 0}
+        = \frac{X}{\sqrt{2}} \braket{k|0} + \frac{Y}{\sqrt{2}} \braket{k|1}.
+    \end{align*}
+    なので, 量子演算は,
+    \begin{align*}
+        \qo (\rho)
+        = \sum_{k = 0, 1} E_k \rho E_k^\dagger
+        = \frac{X \rho X + Y \rho Y}{2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.6}
+    \par
+    \underline{
+        $\qo, \mathcal{F} :
+            Map(\mathbb{C}^n, \mathbb{C}^n) \to  Map(\mathbb{C}^n, \mathbb{C}^n)$
+        のとき
+    }
+    \par
+    演算要素$\{\qof_k \in Map(\mathbb{C}^n, \mathbb{C}^n)\}, \{\qo_k \in Map(\mathbb{C}^n, \mathbb{C}^n) \}$として,
+    \begin{align*}
+        \mathcal{F} \left( \rho \right) = \sum_k \qof_k \rho \qof_k^\dagger \in Map(\mathbb{C}^n, \mathbb{C}^n)
+    \end{align*}
+    なので,
+    \begin{align*}
+        \qo \circ \qof \left( \rho \right)
+        =
+        \qo \left( \qof \left( \rho \right) \right)
+        =
+        \sum_{k, l} \qo_l \qof_k \rho \qof_k^\dagger \qo_l^\dagger
+    \end{align*}
+    となり, $\qo \circ \qof$は演算要素$\{ \qof_k \qo_l \}$をもつ量子演算.
+    \par
+    \underline{
+        $\qo, \mathcal{F} :
+            Map(\mathbb{C}^n, \mathbb{C}^n) \to  Map(\mathbb{C}^m, \mathbb{C}^m)$
+        のとき
+    }
+    \par
+    わからない.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.7}
+    \begin{align*}
+        \qo_m \left( \rho \right)
+        =
+        \tr_E \left( M_m U \rho \otimes \sigma U^\dagger M_m^\dagger \right)
+    \end{align*}
+    として, Qの終状態は,
+    \begin{align*}
+        \frac{\qo_m \left( \rho \right)}{\tr \left[ \qo_m(\rho)\right]}
+    \end{align*}
+    で,
+    \begin{align*}
+        \sigma = \sum_j q_j \ket{j}\bra{j}
+    \end{align*}
+    ならば,
+    \begin{align*}
+        \qo_m \left( \rho \right)
+        =
+        \sum_{jk} q_j \bra{e_k} M_m U \rho \otimes \ket{j}\bra{j} U^\dagger M_m^\dagger \ket{e_k}
+        =
+        \sum_{j,k}E_{jk} \rho E_{jk}^\dagger.
+    \end{align*}
+    ここで,
+    \begin{align*}
+        E_{jk} = \sqrt{q_j} \braket{e_k | M_m U | j}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.8}
+    $\{E_k\}_{k=0}^{n+1}$は,
+    \begin{align*}
+        \sum_{k=0}^{n+1} E_k^\dagger E_k = I, \   \sum_{k=0}^{n} E_k^\dagger E_k < I
+    \end{align*}
+    を満たすとする. 正規直交基底$\{ \ket{e_k} \}_{k=0}^{n+1}$で張られるHilbert空間$E'$と主システムのHilbert空間$Q$とする. ここで, 任意の$\ket{\psi} \in Q$に対して, $U: Q \otimes E' \to Q \otimes E'$;
+    \begin{align*}
+        U \ket{\psi} \ket{e_0} = \sum_{k=0}^{n+1} E_k \ket{\psi} \ket{e_k} \\
+        U \ket{\psi} \ket{e_i} = \ket{\psi} \ket{e_i} \ (i \neq 0 )
+    \end{align*}
+    なるオペレータを考えると, 式(8.38)同様に, 任意の$\ket{\psi}, \ket{\phi} \in Q$に対して,
+    \begin{align*}
+        \bra{\psi}\bra{e_i} U^\dagger U \ket{\phi} \ket{e_j}= \braket{\psi|\phi} \braket{e_i|e_j}
+    \end{align*}
+    が成り立つので$U$はユニタリ. この$U$によって, 主システムの終状態が,
+    \begin{align*}
+        \tr_{E'} \left[ U \rho \otimes \ket{e_0} \bra{e_0} U^\dagger \right]
+        =
+        \sum_{i=0}^{n+1}
+        \bra{e_i}
+        \left[
+            \sum_{j,k=0}^{n+1} E_j \rho E_k^\dagger \otimes \ket{e_j} \bra{e_k}
+            \right]
+        \ket{e_i}
+        =
+        \sum_{i=0}^{n} E_i \rho E_i^\dagger
+    \end{align*}
+    とオペレータ和表現でかける.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.9}
+    \begin{align*}
+        \qo_m \left( \rho \right)
+         & = \tr_{env} \left[ P_m U \left(\rho \otimes \ket{e_0} \bra{e_0} \right) U^\dagger P_m\right] \\
+         & =
+        \sum_{m',k'}
+        \braket{
+            m', k'
+            |P_m U \left(\rho \otimes \ket{e_0} \bra{e_0} \right) U^\dagger P_m|
+            m', k'
+        }
+        \\
+         & =
+        \sum_{m',k',l,l'}
+        \braket{m', k'|m,l}
+        \braket{
+            m,l
+            |P_m U \left(\rho \otimes \ket{e_0} \bra{e_0} \right) U^\dagger P_m|
+            m', l'
+        }
+        \braket{m', l'|m',k'}
+        \\
+         & =
+        \sum_{k}
+        \braket{
+            m,k
+            |U \left(\rho \otimes \ket{e_0} \bra{e_0} \right) U^\dagger |
+            m, k
+        }
+        \\
+         & =
+        \sum_{i,k}
+        p_i
+        \braket{
+            m,k
+            |U \ket{i}\bra{i} \otimes \ket{e_0}\bra{e_0} U^\dagger |
+            m, k
+        }
+        \\
+         & =
+        \sum_{i,k, m', k', m'', k''}
+        p_i
+        \braket{
+            m,k
+            |
+            \Big( E_{m'k'} \ket{i} \otimes \ket{m',k'} \Big)
+            \Big( \bra{i} E_{m''k''}^\dagger \otimes \bra{m'',k''} \Big)
+            |
+            m, k
+        }
+        \\
+         & =
+        \sum_{i,k}
+        p_i
+        E_{mi} \ket{i}
+        \bra{i} E_{mi}^\dagger
+        =
+        \sum_{k}
+        E_{mk} \rho E_{mk}^\dagger
+    \end{align*}
+    なので, 測定後の状態は,
+    \begin{align*}
+        \frac{\qo_m \left(\rho\right)}
+        {\tr\left[ \qo_m\left(\rho\right)\right]}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.10}
+    \begin{align*}
+        W_{jk} = \tr[ E_j^\dagger E_k] = \tr[ E_k E_j^\dagger] = \tr[ E_k^\dagger E_j]^*
+        = W_{kj}^*
+    \end{align*}
+    なので, $W_{jk}$はHermite. ここで, 独立な$\{E_i\}_{i=1}^{d^2}$を選ぶことで, $i>d^2$に対して,
+    \begin{align*}
+        E_i = \sum_{i=1}^{d^2} c_j E_j
+    \end{align*}
+    と書けるはずなので,
+    \begin{align*}
+        W_{ik} = \tr\left[E_i^\dagger E_k\right] = \sum_{j=1}^{d^2} c_i W_{jk}
+    \end{align*}
+    つまり, $\mathrm{rank} W \leq d^2$. したがって, $W$はユニタリ$u$で対角化可能で, 対角行列$u^\dagger W u$の対角成分の非ゼロ要素は$\mathrm{rank}W$個;
+    \begin{align*}
+        \sum_{j,k} u_{ij} W_{jk} u^\dagger_{kn}
+        =
+        \sum_{j,k}
+        u_{ij} \tr\left[ E_j^\dagger E_k\right] u^\dagger_{kn}
+        =
+        \sum_{j,k, l, m}
+        u_{ij} e_{lm}^{j*} e_{lm}^k u_{nk}^*
+        \equiv
+        \sum_{l,m}
+        f_{lm}^{i*} f_{lm}^{n}
+        \propto
+        \begin{cases}
+            \delta_{in} & ( 1 \leq i, n \leq \mathrm{rank} W) \\
+            0           & (\mathrm{otherwise})
+        \end{cases}
+    \end{align*}
+    したがって,
+    \begin{align*}
+        \qo \left( \rho \right)
+        =
+        \sum_{k=1}^M E_k \rho E_k^\dagger
+    \end{align*}
+    の$(i,j)$成分は,
+    \begin{align*}
+        \qo \left( \rho \right)_{ij}
+         & =
+        \sum_{k=1}^M
+        \sum_{l,m = 1}^d e_{il}^k \rho_{lm} {e_{jm}^{k*}}                  \\
+         & =
+        \sum_{p,n, k=1}^M
+        \sum_{l,m = 1}^d e_{il}^k \rho_{lm} {e_{jm}^{k*}}  u_{np} u_{kp}^* \\
+         & =
+        \sum_{p,n, k=1}^M
+        \sum_{l,m = 1}^d e_{il}^k \rho_{lm} {e_{jm}^{n*}}  u_{np} u_{kp}^* \\
+         & =
+        \sum_{p=1}^{M}
+        \sum_{l,m = 1}^d f_{il}^{p} \rho_{lm} f_{jm}^{p*}                  \\
+         & =
+        \sum_{p=1}^{\mathrm{rank}W}
+        \sum_{l,m = 1}^d f_{il}^{p} \rho_{lm} f_{jm}^{p*}                  \\
+    \end{align*}
+    となるので, $f_{ij}^k$を行列要素として持つ
+    \begin{align*}
+        \qof_k : Map(\mathbb{C}^{\mathrm{rank}W}, \mathbb{C}^{\mathrm{rank}W}) \to Map(\mathbb{C}^{\mathrm{rank}W}, \mathbb{C}^{\mathrm{rank}W})
+    \end{align*}
+    を定義すると,
+    \begin{align*}
+        \qo\left( \rho \right) = \sum_{p=1}^{\mathrm{rank}W} \qof_p \rho \qof_p^\dagger.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.11}
+    演習\ref{ex8.10}で,
+    \begin{align*}
+        W_{jk} = \tr\left( E_j^\dagger E_k\right)
+    \end{align*}
+    なる行列$W$のrankが$dd'$以下になるところ以外は全く同様.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.12}
+    行列$M$の極分解
+    \begin{align*}
+        M = U |M|
+    \end{align*}
+    に対して, $U$は直交行列なので行列式が$\pm1$に限られる. そこで,
+    \begin{align*}
+        det U = 1  & \to O = U, \ S = |M|  \\
+        det U = -1 & \to O = -U, \ S = -|M|
+    \end{align*}
+    とすることで, 行列式が1であるように$O$を取ることができて,
+    \begin{align*}
+        M = OS
+    \end{align*}
+    と書ける.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.13}
+    演習\ref{ex4.8}より明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.14}
+    演習\ref{ex8.12}で見たように, $det S$は正とは限らない.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.15}
+    \begin{align*}
+        X \ket{\pm} & = \pm \ket{\pm}  \\
+        Y \ket{\pm} & = \mp i\ket{\mp} \\
+        Z \ket{\pm} & = \ket{\mp}
+    \end{align*}
+    なので,
+    \begin{align*}
+        \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2}
+    \end{align*}
+    に対して,
+    \begin{align*}
+        \braket{\pm | \rho | \pm}
+        =
+        \frac{I + \braket{ \pm| \bm{r} \cdot \bm{\sigma} |\pm}}{2}
+        =
+        \frac{I \pm r_x}{2}.
+    \end{align*}
+    したがって,
+    \begin{align*}
+        \qo\left( \rho \right)
+        =
+        \sum_{i = \pm} \ket{i}\bra{i} \rho \ket{i}\bra{i}
+        =
+        \frac{1 + r_x}{2} \ket{+}\bra{+} + \frac{1 - r_x}{2} \ket{-}\bra{-}
+        =
+        \frac{I + r_x X}{2}
+    \end{align*}
+    なので, この量子演算の作用をBlochk球面上で表すと,
+    \begin{align*}
+        \bm{r} =
+        \begin{pmatrix}
+            r_x \\
+            r_y \\
+            r_z
+        \end{pmatrix}
+        \longrightarrow
+        \bm{r}' =
+        \begin{pmatrix}
+            r_x \\
+            0   \\
+            0
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.16}
+    $p\neq 0$として,
+    \begin{align*}
+        E_0 =
+        \sqrt{1-p}
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix}
+    \end{align*}
+    とする. 演算集合$\{ E_0 \}$で定義される量子演算はトレース非保存で,
+    \begin{align*}
+        \qo \left( \rho\right)
+        =
+        E_0 \rho E_0^\dagger
+        =
+        (1-p)X \rho X
+        =
+        \frac{1-p}{2} I
+        +
+        \frac{1-p}{2}
+        \left( r_x X - r_y Y - r_z Z\right)
+    \end{align*}
+    となる. これはBloch球表示できない.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.17}
+    \begin{align*}
+        \qo \left( A \right)
+        =
+        \frac{A + XAX + YAY + ZAZ}{4}
+    \end{align*}
+    として,
+    \begin{align*}
+        \qo(I) = I,\ \qo(X) = \qo(Y) = \qo(Z)
+    \end{align*}
+    なので,
+    \begin{align*}
+        \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2}
+    \end{align*}
+    に対して,
+    \begin{align*}
+        \qo ( \rho) = \frac{1}{2}\qo ( I ) = \frac{I}{2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.18}
+    量子演算$\qo$;
+    \begin{align*}
+        \qo \left( \rho \right)
+        = \sum_k E_k \rho E_k^\dagger
+    \end{align*}
+    は,
+    \begin{align*}
+        \sum_k E_k^\dagger E_k \le I
+    \end{align*}
+    を満たす演算要素$\{ E_k\}$で定義される. したがって,
+    \begin{align*}
+        \tr \left[ \qo \left( \rho^{n} \right)\right]
+        =
+        \sum_k  \tr \left[ E_k \rho^n E_k^\dagger \right]
+        =
+        \sum_k  \tr \left[\rho^n E_k^\dagger E_k \right]
+        \le \tr(\rho^n) .
+    \end{align*}
+\end{ex}
+\begin{ex}
+    \label{ex8.19}
+    $\rho$を対角化する$d$次元Hilbert空間の正規直交基底$\{ \ket{1}, \ket{2}, ... , \ket{d}\}$とすると,
+    \begin{align*}
+        \frac{I}{d}
+        =
+        \frac{1}{d} \sum_i \ket{i}\bra{i} \tr\rho
+        =
+        \frac{1}{d} \sum_{i,j} \ket{i}\bra{i} \braket{j | \rho | j}
+        =
+        \frac{1}{d} \sum_{i,j} \ket{i}\braket{j | \rho | j}\bra{i}
+    \end{align*}
+    なので,
+    \begin{align*}
+        \qo \left( \rho\right)
+         & =
+        p \frac{I}{d} + (1-p) \rho                           \\
+         & =
+        \frac{p}{d} \sum_{i,j} \ket{i}\braket{j | \rho | j}\bra{i}
+        +
+        (1-p) \sum_{i,j} \ket{j}\braket{j | \rho | i}\bra{i} \\
+         & =
+        \frac{p}{d} \sum_{i,j} \ket{i}\braket{j | \rho | j}\bra{i}
+        +
+        (1-p) \sum_{i} \ket{i}\braket{i | \rho | i}\bra{i}   \\
+         & =
+        \frac{p}{d} \sum_{i \neq j} \ket{i}\braket{j | \rho | j}\bra{i}
+        +
+        \left( 1 - \frac{d-1}{d}p\right) \sum_{i} \ket{i}\braket{i | \rho | i}\bra{i}
+    \end{align*}
+    なので, 演算要素は,
+    \begin{align*}
+        \left\{ \sqrt{\frac{p}{d} }\ket{i} \bra{j} \middle| 1 \le i, j \le d, \ i \neq j\right\}
+        +
+        \left\{
+        \sqrt{ 1 - \frac{d-1}{d}p} \ket{i}\bra{i} \middle| 1 \le i \le d
+        \right\}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.20}
+    問題の図の回路の作用$U$として,
+    \begin{align*}
+        U \equiv C_1 \left[ X \right] C_2\left[ R_y(\theta)\right]
+        =
+        \begin{pmatrix}
+            1 & 0 & 0                     & 0                       \\
+            0 & 0 & \sin \frac{\theta}{2} & \cos \frac{\theta}{2}   \\
+            0 & 0 & \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\
+            0 & 1 & 0                     & 0
+        \end{pmatrix}.
+    \end{align*}
+    第1qubitの初期状態$\rho_\mathrm{in}$を
+    \begin{align*}
+        \rho_\mathrm{in}
+        =
+        \begin{pmatrix}
+            a   & b \\
+            b^* & c
+        \end{pmatrix}
+    \end{align*}
+    として, 初期状態は,
+    \begin{align*}
+        \rho_\mathrm{in} \otimes \ket{0}\bra{0}
+        =
+        \begin{pmatrix}
+            a   & 0 & b & 0 \\
+            0   & 0 & 0 & 0 \\
+            b^* & 0 & c & 0 \\
+            0   & 0 & 0 & 0
+        \end{pmatrix}.
+    \end{align*}
+    ゆえに, 終状態は,
+    \begin{align*}
+        U  \rho_\mathrm{in} \otimes \ket{0}\bra{0} U^\dagger
+        =
+        \begin{pmatrix}
+            a                         & b \sin\frac{\theta}{2}                        & b \cos \frac{\theta}{2}                       & 0 \\
+            b^* \sin \frac{\theta}{2} & c \sin^2 \frac{\theta}{2}                     & c \sin \frac{\theta}{2} \cos \frac{\theta}{2} & 0 \\
+            b^* \cos \frac{\theta}{2} & c \sin \frac{\theta}{2} \cos \frac{\theta}{2} & c \cos^2 \frac{\theta}{2}                     & 0 \\
+            0                         & 0                                             & 0                                             & 0
+        \end{pmatrix}.
+    \end{align*}
+    したがって, 第1qubitの終状態$\rho_\mathrm{out}$は,
+    \begin{align*}
+        \rho_\mathrm{out}
+        =
+        \tr_\mathrm{2nd\ qubit} \left[U  \rho_\mathrm{in} \otimes \ket{0}\bra{0} U^\dagger\right]
+        =
+        \begin{pmatrix}
+            a + c \sin^2 \frac{\theta}{2} & b \cos\frac{\theta}{2}   \\
+            b^* \cos \frac{\theta}{2}     & c \cos^2\frac{\theta}{2}
+        \end{pmatrix}.
+    \end{align*}
+    演習\ref{ex8.22}より,
+    \begin{align*}
+        \rho_\mathrm{out} = \qo_\mathrm{AD}\left( \rho_\mathrm{in} \otimes \ket{0} \bra{0}\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.21}
+    (1)\ \par
+    (2) \
+    \begin{align*}
+        \sum_{k=0}^{\infty} E_k^\dagger E_k
+         & =
+        \sum_{k=0}^{\infty}
+        \sum_{l=k}^{\infty}
+        \sum_{m=k}^{\infty}
+        \sqrt{{}_l C_k}\sqrt{{}_m C_k}
+        \sqrt{\left(1- \gamma\right)^{l-k}\gamma^k}
+        \sqrt{\left(1- \gamma\right)^{m-k}\gamma^k}
+        \ket{l}\braket{l-k|m-k}\bra{m}
+        \\
+         & =
+        \sum_{k=0}^{\infty}
+        \sum_{m=k}^{\infty}
+        {}_m C_k
+        \left(1- \gamma\right)^{l-k}\gamma^k
+        \ket{m}\bra{m}
+    \end{align*}
+    なので, 全ての$\ket{n}$に対して,
+    \begin{align*}
+        \sum_{k=0}^{\infty} E_k^\dagger E_k \ket{n} =
+        \sum_{k=0}^{\infty}
+        \sum_{m=k}^{\infty}
+        {}_m C_k
+        \left(1- \gamma\right)^{l-k}\gamma^k
+        \ket{m}\braket{m|n}
+        =
+        \sum_{k=0}^{\infty}
+        {}_n C_k
+        \left(1- \gamma\right)^{l-k}\gamma^k
+        \ket{n}
+        =
+        \ket{n}
+    \end{align*}
+    だから,
+    \begin{align*}
+        \sum_{k=0}^{\infty} E_k^\dagger E_k = I.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.22}
+    振幅ダンピングの演算要素;
+    \begin{align*}
+        E_0 =
+        \begin{pmatrix}
+            1 & 0                \\
+            0 & \sqrt{1- \gamma}
+        \end{pmatrix}
+        ,
+        E_1 =
+        \begin{pmatrix}
+            1 & \sqrt{\gamma} \\
+            0 & 0
+        \end{pmatrix}
+    \end{align*}
+    として,
+    \begin{align*}
+        \qo_\mathrm{AD} \left(\rho\right)
+        =
+        E_0 \rho E_0^\dagger + E_1 \rho E_1^\dagger
+        =
+        \begin{pmatrix}
+            a + \left(1-a\right) \gamma & b \sqrt{1-\gamma}      \\
+            b^*\sqrt{1- \gamma}         & c\left(1-\gamma\right)
+        \end{pmatrix}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.23}
+    振幅ダンピングの演算要素;
+    \begin{align*}
+        E_0 =
+        \begin{pmatrix}
+            1 & 0                \\
+            0 & \sqrt{1- \gamma}
+        \end{pmatrix}
+        ,
+        E_1 =
+        \begin{pmatrix}
+            1 & \sqrt{\gamma} \\
+            0 & 0
+        \end{pmatrix}
+    \end{align*}
+    とする.
+    単一qubitの初期状態が2重軌道qubit;
+    \begin{align*}
+        \rho
+        = \ket{\psi} \bra{\psi}
+        =
+        \left| a \right|^2 \ket{01} \bra{01}
+        + a b^* \ket{01} \bra{10}
+        + a^* b \ket{10} \bra{01}
+        + \left| b \right|^2 \ket{10} \bra{10}
+    \end{align*}
+    でかけるとする. すると,
+    \begin{align*}
+        \left( \qo_\mathrm{AD} \otimes I \right)
+        \left( \rho\right)
+        =
+        \left| a \right|^2 & \ket{0}\bra{0} \otimes \ket{1}\bra{1}
+        + a^* b \sqrt{1 - \gamma} \ket{1}\bra{0} \otimes \ket{0}\bra{1}
+        + ab^* \sqrt{1- \gamma} \ket{0}\bra{0} \otimes \ket{1}\bra{0}
+        \\
+                           & +  \left| b \right|^2 \left( 1 - \gamma \right)  \ket{1}\bra{1} \otimes \ket{0}\bra{0}
+        + \gamma \left| b \right|^2 \ket{0}\bra{0} \otimes \ket{0} \bra{0}
+    \end{align*}
+    となり,
+    \begin{align*}
+        \left( \qo_\mathrm{AD} \otimes \qo_\mathrm{AD} \right)
+        \left( \rho\right)
+        =
+        \left| a \right|^2 \left( 1- \gamma \right) & \ket{0}\bra{0} \otimes \ket{1}\bra{1}
+        + a^* b\left( 1- \gamma\right) \ket{1}\bra{0} \otimes \ket{0}\bra{1}
+        + ab^* \left( 1- \gamma\right) \ket{0}\bra{0} \otimes \ket{1}\bra{0}
+        \\
+                                                    & +  \left| b \right|^2 \left( 1 - \gamma \right)  \ket{1}\bra{1} \otimes \ket{0}\bra{0}
+        + \gamma \left| b \right|^2 \ket{0}\bra{0} \otimes \ket{0} \bra{0}
+        + \gamma \left| a \right|^2 \ket{0}\bra{0} \otimes \ket{0} \bra{0}.
+    \end{align*}
+    つまり,
+    \begin{align*}
+        \left( \qo_\mathrm{AD} \otimes \qo_\mathrm{AD} \right)
+        \left( \rho\right)
+        =
+        \left( 1 - \gamma \right) \rho + \gamma \ket{0}\bra{0} \otimes \ket{0}\bra{0}
+        =
+        E_0^{\mathrm{dr}} \rho E_0^{\mathrm{dr}} + E_1^{\mathrm{dr}} \rho E_1^{\mathrm{dr}}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.24}
+    振幅ダンピングの演算要素
+    \begin{align*}
+        E_0 =
+        \begin{pmatrix}
+            1 & 0                \\
+            0 & \sqrt{1- \gamma}
+        \end{pmatrix}
+        ,
+        E_1 =
+        \begin{pmatrix}
+            1 & \sqrt{\gamma} \\
+            0 & 0
+        \end{pmatrix}
+    \end{align*}
+    とする.
+    $\delta = 0$のJaynes-Cummings相互作用の時間発展$U$
+    \begin{align*}
+        U =
+        \ket{0}\bra{0} \otimes \ket{0} \bra{0}
+        +
+        \cos gt \left(
+        \ket{0}\bra{0} \otimes \ket{1} \bra{1} + \ket{1}\bra{1} \otimes \ket{0} \bra{0}
+        \right)
+        +
+        -i \sin gt \left(
+        \ket{0}\bra{1} \otimes \ket{1} \bra{0} + \ket{1}\bra{0} \otimes \ket{0} \bra{1}
+        \right)
+    \end{align*}
+    で, 初期状態は $ \rho = \ket{ \mathrm{field}} \otimes \ket{\mathrm{atom}} = \ket{0} \otimes \ket{1}$
+    とすると,
+    \begin{align*}
+        \qo \left( \rho\right)
+         & =
+        \tr_\mathrm{field} \left[ U \rho U^\dagger \right]   \\
+         & =
+        \tr_\mathrm{field} \left[
+            \cos^2 gt  \ket{0}\bra{0} \otimes \ket{1} \bra{1}
+            +
+            \sin^2 gt  \ket{1}\bra{1} \otimes \ket{0} \bra{0}
+            \right]                                          \\
+         & =
+        \cos^2 gt \ket{1}\bra{1} + \sin^2 gt \ket{0} \bra{0} \\
+         & =E_0 \rho E_0^\dagger + E_1 \rho E_1^\dagger.
+    \end{align*}
+    最後の等式では, $\gamma = \sin^2 gt$とした.
+\end{ex}
+
+\begin{ex}
+    \label{ex8.25}
+    \begin{align*}
+        p = \frac{e^{- \beta E_0}}{e^{- \beta E_0} + e^{- \beta E_1}}
+    \end{align*}
+    を$\beta$について解いて,
+    \begin{align*}
+        \beta = \frac{\log\frac{p}{1-p}}{E_1 - E_0}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.26}
+    問題の図の回路の作用$U$として,
+    \begin{align*}
+        U \equiv C_1\left[ R_y(\theta)\right]
+        =
+        \begin{pmatrix}
+            1 & 0 & 0                     & 0                       \\
+            0 & 1 & 0                     & 0                       \\
+            0 & 0 & \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\
+            0 & 0 & \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+        \end{pmatrix}.
+    \end{align*}
+    第1qubitの初期状態$\rho_\mathrm{in}$を
+    \begin{align*}
+        \rho_\mathrm{in}
+        =
+        \begin{pmatrix}
+            a   & b \\
+            b^* & c
+        \end{pmatrix}
+    \end{align*}
+    として, 初期状態は,
+    \begin{align*}
+        \rho_\mathrm{in} \otimes \ket{0}\bra{0}
+        =
+        \begin{pmatrix}
+            a   & 0 & b & 0 \\
+            0   & 0 & 0 & 0 \\
+            b^* & 0 & c & 0 \\
+            0   & 0 & 0 & 0
+        \end{pmatrix}.
+    \end{align*}
+    ゆえに, 終状態は,
+    \begin{align*}
+        U  \rho_\mathrm{in} \otimes \ket{0}\bra{0} U^\dagger
+        =
+        \begin{pmatrix}
+            a                         & 0 & b \cos\frac{\theta}{2}                      & b \sin \frac{\theta}{2}                     \\
+            0                         & 0 & 0                                           & 0                                           \\
+            b^* \cos \frac{\theta}{2} & 0 & c \cos^2 \frac{\theta}{2}                   & c \sin\frac{\theta}{2}\cos \frac{\theta}{2} \\
+            b^* \sin \frac{\theta}{2} & 0 & c \sin\frac{\theta}{2}\cos \frac{\theta}{2} & c \sin^2 \frac{\theta}{2}
+        \end{pmatrix}.
+    \end{align*}
+    したがって, 第1qubitの終状態$\rho_\mathrm{out}$は,
+    \begin{align*}
+        \rho_\mathrm{out}
+        =
+        \tr_\mathrm{2nd\ qubit} \left[U  \rho_\mathrm{in} \otimes \ket{0}\bra{0} U^\dagger\right]
+        =
+        \begin{pmatrix}
+            a                         & b \cos\frac{\theta}{2} \\
+            b^* \cos \frac{\theta}{2} & c
+        \end{pmatrix}.
+    \end{align*}
+    \par
+    一方, 
+    位相ダンピングの演算要素
+    \begin{align*}
+        E_0 =
+        \begin{pmatrix}
+            1 & 0                \\
+            0 & \sqrt{1- \lambda}
+        \end{pmatrix}
+        ,
+        E_1 =
+        \begin{pmatrix}
+            0 & 0 \\
+            0 & \sqrt{\lambda}
+        \end{pmatrix}
+    \end{align*}
+    として,
+    \begin{align*}
+        E_0 \rho_\mathrm{in} E_0^\dagger + E_1 \rho_\mathrm{in} E_1^\dagger = 
+        \begin{pmatrix}
+            a & b \sqrt{1 - \lambda} \\
+            b^* \sqrt{1 - \lambda} & c
+        \end{pmatrix}.
+    \end{align*}
+    \par
+    ゆえに, $\lambda = \sin^2 \frac{\theta}{2}$として,
+    \begin{align*}
+        \rho_\mathrm{out} = E_0 \rho_\mathrm{in} E_0^\dagger + E_1 \rho_\mathrm{in} E_1^\dagger.
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex8.27}
+    \begin{align*}
+        u =
+        \begin{pmatrix}
+            \sqrt{\alpha}     & \frac{\sqrt{\alpha} \left( 1 - \sqrt{1 - 1- \lambda}\right)}{\sqrt{\lambda}}       \\
+            \sqrt{1 - \alpha} & - \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - 1- \lambda}\right)}{\sqrt{\lambda}}
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.28}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex8.29}
+    \underline{振幅ダンピング}
+    \begin{align*}
+        \qo \left( I \right)
+        =
+        E_0 E_0^\dagger + E_1 E_1^\dagger
+        =
+        \begin{pmatrix}
+            1 + \gamma & 0          \\
+            0          & 1 - \gamma
+        \end{pmatrix}
+    \end{align*}
+    \underline{位相ダンピング, 分極解消}
+    \begin{align*}
+        \qo \left( I \right)
+        = I
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.30}
+    初期状態$\rho_\mathrm{init}$は,
+    \begin{align*}
+        \rho_\mathrm{init}
+        =
+        \begin{pmatrix}
+            a   & b     \\
+            b^* & 1 - a
+        \end{pmatrix}.
+    \end{align*}
+    コヒーレンス劣化を考えると, 時刻$t$での状態は,
+    \begin{align*}
+        \rho\left(t\right)
+        =
+        \begin{pmatrix}
+            \left(a - a_0 \right) e^{ - \frac{t}{T_1}} + a_0 & b e^{-\frac{t}{T_2}}                                   \\
+            b^* e^{-\frac{t}{T_2}}                           & - \left(a - a_0 \right) e^{ - \frac{t}{T_1}} + 1 - a_0
+        \end{pmatrix} \tag{$\star$} .
+    \end{align*}
+    \par
+    \underline{振幅ダンピング(AD)によるコヒーレンス劣化} \ \par
+    式(8.112)より,
+    \begin{align*}
+        \qo_\mathrm{AD}\left( \rho_\mathrm{init} \right)
+        =
+        \begin{pmatrix}
+            1 - \left(1-a\right)\left(1-\gamma\right) & b \sqrt{1-\gamma}                     \\
+            b^* \sqrt{1-\gamma}                       & \left(1-a\right)\left(1-\gamma\right)
+        \end{pmatrix}
+    \end{align*}
+    で, \ $\sqrt{1-\gamma} = e^{- \frac{t}{T_2}}$とすると,
+    \begin{align*}
+        \qo_\mathrm{AD}\left( \rho_\mathrm{init} \right)
+        =
+        \begin{pmatrix}
+            1 - \left(1-a\right)e^{- \frac{2t}{T_2}} & b e^{- \frac{t}{T_2}}                \\
+            b^* e^{- \frac{t}{T_2} }                 & \left(1-a\right)e^{- \frac{2t}{T_2}}
+        \end{pmatrix}
+    \end{align*}
+    この式と$(\star)$で$a_0 = 1$とした式を比べて,
+    \begin{align*}
+        T_1 = \frac{T_2}{2}.
+    \end{align*}
+
+    \underline{振幅ダンピング(AD)と位相ダンピング(PD)両方によるコヒーレンス劣化} \ \par
+    \begin{align*}
+        \qo_\mathrm{PD}
+        \left(
+        \qo_\mathrm{AD}\left( \rho_\mathrm{init} \right)
+        \right)
+        =
+        \begin{pmatrix}
+            1 - \left( 1 - \gamma_\mathrm{AD}\right)\left(1-a\right)        & b \sqrt{1 - \lambda_\mathrm{PD}} \sqrt{1 - \gamma_\mathrm{AD}} \\
+            b^* \sqrt{1 - \lambda_\mathrm{PD}}\sqrt{1 - \gamma_\mathrm{AD}} & \left( 1 - \gamma_\mathrm{AD}\right)\left(1-a\right)           \\
+        \end{pmatrix}
+    \end{align*}
+    で,
+    \begin{align*}
+        1-\gamma_\mathrm{AD} = e^{- \frac{t}{T_1}}
+        , \ \sqrt{1- \lambda_\mathrm{PD}} \sqrt{1-\gamma_\mathrm{AD}} = e^{- \frac{t}{T_2}}
+    \end{align*}
+    とすると$(\star)$で$a_0 = 1$とした式に一致する. このとき,
+    \begin{align*}
+        e^{- \frac{t}{T_2}}
+        = \sqrt{1- \lambda_\mathrm{PD}} \sqrt{1-\gamma_\mathrm{AD}}
+        =  \sqrt{1- \lambda_\mathrm{PD}} e^{- \frac{t}{2 T_1}} \leq e^{-\frac{t}{2T_1}}
+        \to
+        T_1 \geq \frac{T_2}{2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex8.31}
+    考える系のHamiltonian;
+    \begin{align*}
+        H = \chi a^\dagger a \left( b + b^\dagger\right)
+        =  \chi N_a \left( b + b^\dagger\right)
+    \end{align*}
+    の時間発展演算子$U$は,
+    \begin{align*}
+        U = e^{ - i H t} = e^{ - i \chi t N_a \left( b + b^\dagger\right) }.
+    \end{align*}
+    ここで,
+    \begin{align*}
+        \left[ - i \chi t N_A b^\dagger,  - i \chi t N_A b\right] = \left( \chi t\right)^2 N_a
+    \end{align*}
+    であることと, Baker-Campbell-Hausdorfの公式;
+    \begin{align*}
+        \left[ A, B\right] = \mathrm{c \ number} \to e^{A+B} = e^{- \frac{c}{2}} e^A e^B
+    \end{align*}
+    を用いて,
+    \begin{align*}
+        U
+        = e^{ - i \chi t N_a \left( b + b^\dagger\right) }
+        = e^{ - \frac{\left( \chi t\right)^2}{2}N_a^2} e^{- i \chi t N_a b^\dagger}e^{ i \chi t N_a b}.
+    \end{align*}
+    系の初期状態
+    $\ket{ \psi_0} = \ket{\mathrm{system}} \otimes \ket{\mathrm{environment}}$
+    を
+    \begin{align*}
+        \ket{\psi_0} = \sum_n c_n \ket{n} \otimes \ket{0}
+    \end{align*}
+    とすると, 時刻$t$での系の状態は,
+    \begin{align*}
+        U \ket{\psi_0}
+         & =
+        \sum_n c_n
+        e^{- \frac{\left( \chi t\right)^2}{2}N_a^2}
+        e^{- i \chi t N_a b^\dagger}
+        e^{ i \chi t N_a b}
+        \ket{n} \otimes \ket{0} \\
+         & =
+        \sum_n c_n
+        e^{ - \frac{\left( \chi t\right)^2}{2}N_a^2}
+        e^{- i \chi t N_a b^\dagger}
+        \ket{n} \otimes \ket{0} \\
+         & =
+        \sum_n \sum_k c_n
+        e^{ - \frac{\left( \chi t\right)^2}{2}N_a^2}
+        \frac{\left( - i \chi t N_a b^\dagger \right)^k}{k!}
+        \ket{n} \otimes \ket{0} \\
+         & =
+        \sum_n \sum_k c_n
+        e^{- \frac{\left( \chi t\right)^2}{2}N_a^2}
+        \frac{\left( - i \chi t n \right)^k}{ \sqrt{k!}}
+        \ket{n} \otimes \ket{k} \\
+         & =
+        \sum_n \sum_k c_n
+        e^{- \frac{\left( \chi t\right)^2}{2}n^2}
+        \frac{\left( - i \chi t n \right)^k}{ \sqrt{k!}}
+        \ket{n} \otimes \ket{k} \\
+    \end{align*}
+    となる. 時刻$t$での系の状態を密度行列$\rho$でかくと,
+    \begin{align*}
+        \rho
+        =
+        U \ket{\psi_0} \bra{\psi_0} U ^\dagger
+         & =
+        \sum_{n,m} \sum_{k,l}
+        c_n c_m^*
+        e^{\frac{\left( \chi t\right)^2}{2} \left( n^2 + m^2\right)}
+        \frac{\left( - i \chi t n \right)^k}{ \sqrt{k!}}
+        \frac{\left(  i \chi t n \right)^l}{ \sqrt{l!}}
+        \ket{n}\bra{m} \otimes \ket{k}\bra{l}.
+    \end{align*}
+    よって, 時刻$t$での主システムの状態は,
+    \begin{align*}
+        \tr_\mathrm{env} \rho
+         & =
+        \sum_{n,m}\sum_{k}
+        c_n c_m^*
+        e^{ - \frac{\left( \chi t\right)^2}{2} \left( n^2 + m^2\right)}
+        \frac{\left( - i \chi t n \right)^k}{ \sqrt{k!}}
+        \frac{\left(  i \chi t m \right)^k}{ \sqrt{k!}}
+        \ket{n}\bra{m} \\
+         & =
+        \sum_{n,m}
+        c_n c_m^*
+        e^{ - \frac{\left( \chi t\right)^2}{2} \left( n^2 + m^2\right)}
+        e^{\chi t m n}
+        \ket{n}\bra{m} \\
+         & =
+        \sum_{n,m}
+        c_n c_m^*
+        e^{ - \frac{\left( \chi t\right)^2}{2} \left( n^2 + m^2\right)}
+        e^{ \left( \chi t \right)^2 m n}
+        \ket{n}\bra{m} \\
+         & =
+        \sum_{n,m}
+        c_n c_m^*
+        e^{ - \frac{\left( \chi t\right)^2}{2} \left( m - n \right)^2}
+        \ket{n}\bra{m}.
+    \end{align*}
+\end{ex}

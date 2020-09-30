@@ -1,0 +1,1137 @@
+\chapter{量子回路}
+
+\begin{ex}
+    \label{ex4.1}
+    $X$の固有値, 固有ベクトルは,
+    \begin{align*}
+        \ket{\lambda_X = +1} & = \frac{\ket{0} + \ket{1}}{\sqrt{2}} = \cos\frac{\pi}{4} \ket{0} + \sin\frac{\pi}{4} \ket{1}           \\
+        \ket{\lambda_X = -1} & = \frac{\ket{0} - \ket{1}}{\sqrt{2}} = \cos\frac{\pi}{4} \ket{0} + e^{i \pi}\sin\frac{\pi}{4} \ket{1}.
+    \end{align*}
+
+    $Y$の固有値, 固有ベクトルは,
+    \begin{align*}
+        \ket{\lambda_Y = +1} & = \frac{\ket{0} -i \ket{1}}{\sqrt{2}} = \cos\frac{\pi}{4} \ket{0} +e^{i \frac{3 \pi}{2}} \sin\frac{\pi}{4} \ket{1} \\
+        \ket{\lambda_Y = -1} & = \frac{\ket{0} +i \ket{1}}{\sqrt{2}} = \cos\frac{\pi}{4} \ket{0} + e^{i \frac{\pi}{2}}\sin\frac{\pi}{4} \ket{1}.
+    \end{align*}
+
+    $Z$の固有値, 固有ベクトルは,
+    \begin{align*}
+        \ket{\lambda_Z = +1} & = \ket{0} = \cos0 \ket{0} +\sin0\ket{1}                            \\
+        \ket{\lambda_Z = -1} & = \ket{1} = \cos\frac{\pi}{2} \ket{0} + \sin\frac{\pi}{2} \ket{1}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.2}
+    \begin{align*}
+        \exp(iAx)
+         & = \sum_{k} \frac{1}{k!} (iAx)^k                                 \\
+         & = \sum_{k:\mathrm{even}} \frac{1}{k!} (-1)^{\frac{k}{2}} (Ax)^k
+        +
+        i \sum_{k:\mathrm{odd}} \frac{1}{k!} (-1)^{\frac{k-1}{2}} (Ax)^k
+        \\
+         & = I \sum_{k:\mathrm{even}} \frac{1}{k!} (-1)^{\frac{k}{2}} x^k
+        +
+        i A \sum_{k:\mathrm{odd}} \frac{1}{k!} (-1)^{\frac{k-1}{2}} x^k
+        \\
+         & = (\cos x) I + (i\sin x) A.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.3}
+    \begin{align*}
+        R_z\left( \frac{\pi}{4}\right) = e^{ - i \frac{\pi}{8}} T .
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.4}
+    \begin{align*}
+        d
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.5}
+    Pauli行列の反交換関係;
+    \begin{align*}
+        \left\{\sigma_i ,\sigma_j \right\} = 2\delta_{ij} I
+    \end{align*}
+    より,
+    \begin{align*}
+        \left( \bm{n} \cdot \bm{\sigma}\right)^2
+        = \left( \sum_i n_i \sigma_i \right)^2
+        = \sum_{i,j} n_i n_j \sigma_i \sigma_j
+        = \sum_i n_i^2 \sigma_i^2 + \sum_{i< j} n_i n_j \left\{\sigma_i ,\sigma_j \right\}
+        =
+        I.
+    \end{align*}
+    よって, 演習\ref{ex4.2}より,
+    \begin{align*}
+        R_{\bm{n}}(\theta)
+        =
+        \exp\left(- i \theta \frac{\bm{n} \cdot \bm{\sigma}}{2}\right)
+        =
+        \left(\cos \frac{\theta}{2}\right) I - i\left(\sin \frac{\theta}{2}\right) \bm{n} \cdot \bm{\sigma}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.6}
+    $\bm{n}$が$z$軸に平行になるような座標系が常に取れるので, $\bm{n} = (0,0,1)$のときだけ示せば十分である.
+    \par
+    Bloch球上の$\bm{\lambda}$に対応する状態$\ket{\lambda}$を
+    \begin{align*}
+        \ket{\lambda}
+        = \cos\frac{\theta_\lambda}{2} \ket{0} + e^{i \phi_\lambda} \sin\frac{\theta_\lambda}{2} \ket{1}
+    \end{align*}
+    とすると,
+    \begin{align*}
+        R_z(\theta) \ket{\lambda}
+         & =
+        \left[
+            \left(\cos \frac{\theta}{2} \right) I -  i\left(\sin \frac{\theta}{2}\right) Z
+            \right]
+        \left[
+            \cos\frac{\theta_\lambda}{2} \ket{0} + e^{i \phi_\lambda} \sin\frac{\theta_\lambda}{2} \ket{1}
+            \right] \\
+         & =
+        \cos \frac{\theta_\lambda}{2}
+        \left[
+            \cos \frac{\theta}{2} -  i\sin \frac{\theta}{2}
+            \right]
+        \ket{0}
+        +
+        e^{i \phi_\lambda} \sin\frac{\theta_\lambda}{2}
+        \left[
+            \cos \frac{\theta}{2} +  i\sin \frac{\theta}{2}
+            \right]
+        \ket{1}     \\
+         & =
+        e^{-i\frac{\theta}{2}} \cos \frac{\theta_\lambda}{2}\ket{0}
+        +
+        e^{i \left(\phi_\lambda + \frac{\theta}{2} \right)} \sin\frac{\theta_\lambda}{2}
+        \ket{1}     \\
+         & =
+        e^{-i\frac{\theta}{2}}
+        \left[
+            \cos \frac{\theta_\lambda}{2}
+            \ket{0}
+            +
+            e^{i \left(\phi_\lambda + \theta \right)} \sin\frac{\theta_\lambda}{2}
+            \ket{1}
+            \right]
+    \end{align*}
+    となり, $\ket{\lambda}$に$R_z(\theta)$を作用させることでえられる状態は, Bloch球上で$\bm{\lambda}$を$z$軸周りで$\theta$回転させたベクトルに対応していることが言えた.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.7}
+    \begin{align*}
+        XY + YX = 0 \ \to \  XYX = -XXY = -Y
+    \end{align*}
+    であること式(4.7)を用いて,
+    \begin{align*}
+        X R_y(\theta) X
+        =
+        X e^{-i\theta \frac{Y}{2}} X
+        =
+        X
+        \left[
+            \left(\cos \frac{\theta}{2}\right) I + i\left(\sin \frac{\theta}{2}\right) Y
+            \right]
+        X
+        =
+        \left(\cos \frac{\theta}{2}\right) I - i\left(\sin \frac{\theta}{2}\right) Y
+        =
+        e^{i\theta \frac{Y}{2}}
+        =
+        R_y(-\theta).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.8}
+    (1)\
+    $\mu = 0, 1, 2, 3$, $i = 1,2 ,3$を走るとする.
+    任意の$2\times 2$複素行列$U$は, ${I,X,Y,Z}$の線形結合でかける;
+    \begin{align*}
+        U = t_0 I + t_1 X + t_2 Y + t_3 Z.
+    \end{align*}
+    $U$がユニタリであるための必要十分条件は,\ $t_\mu$の偏角を$\theta_\mu$とすると,
+    \begin{align*}
+        U U^\dagger = 1
+         & \Longleftrightarrow \sum_{\mu=0}^4|t_\mu|^2 = 1 , t_0\bar{t}_i + \bar{t}_0 t_i =0                                                         \\
+         & \Longleftrightarrow \sum_{\mu=0}^4|t_\mu|^2 = 1 ,\ |t_0| |t_i| \left( e^{i(\theta_0 - \theta_i)} + e^{-i(\theta_0 - \theta_i)}\right) = 0
+    \end{align*}
+    まず, $|t_\mu| \neq 0$を考えると, $U$がユニタリであるための必要十分条件は,
+    \begin{align*}
+        \exists_{\theta \in \mathbb{R} }\  \mathrm{s.t.}\  |t_0| = \cos\frac{\theta}{2} ,\  \sum_{i=1}^3|t_i|^2 = \sin\frac{\theta}{2}, \
+        \exists_{n \in \mathbb{Z} }\  \mathrm{s.t.}\ \theta_0 = \theta_i + \frac{2n+1}{2} \pi
+    \end{align*}
+    と書き換えられる. ひとつめの条件は, $\bm{n} = (n_1,n_2,n_3)$を単位ベクトルとすれば,
+    \begin{align*}
+        |t_i| = n_i \sin\frac{\theta}{2}
+    \end{align*}
+    と書けるとして良い. 以上より, $\forall_\mu \ |t_\mu| \neq 0$のとき,
+    \begin{align*}
+        U = t_0 I + t_1 X + t_2 Y + t_3 Z
+    \end{align*}
+    がユニタリであるための必要十分条件は,
+    $\theta \in \mathbb{R}$, $n\in \mathbb{Z}$,\ $\bm{n}$を単位ベクトルとして,
+    \begin{align*}
+        t_0 = \cos\frac{\theta}{2}e^{i \theta_0}, t_i =  n_i\sin\frac{\theta}{2} e^{i \theta_0 - \frac{2n +1}{2} \pi}
+    \end{align*}
+    であることである. これは, $\exists_\mu \ |t_\mu| = 0$でも成立. よって, 任意の任意の$2\times 2$のユニタリ行列$U$は,
+    \begin{align*}
+        U = e^{i \theta_0}
+        \left[ \cos\frac{\theta}{2} \pm i \sin\frac{\theta}{2} \left(\bm{n} \cdot \bm{\sigma}\right)
+            \right]
+    \end{align*}
+    で表せる. $\theta_0 = \alpha$と書き換えて, $\pm$の符号は$\bm{n}$に入れてやれば,
+    \begin{align*}
+        U = e^{i \theta_0}
+        \left[ \cos\frac{\theta}{2} - i \sin\frac{\theta}{2} \left(\bm{n} \cdot \bm{\sigma}\right)
+            \right]
+        =  e^{i \alpha} R_{\bm{n}}(\theta).
+    \end{align*}
+    \par
+    (2)\
+    \begin{align*}
+        H = \frac{X+Z}{\sqrt{2}}
+    \end{align*}
+    なことを思い出せば,
+    \begin{align*}
+        \alpha = - \frac{\pi}{2},\  \theta = \pi, \ \bm{n} =  \left( \frac{1}{\sqrt{2}},0,\frac{1}{\sqrt{2}} \right).
+    \end{align*}
+    \par
+    (3)\
+    \begin{align*}
+        S = \frac{1+i}{2}I + \frac{1-i}{2}Z
+    \end{align*}
+    なので,
+    \begin{align*}
+        \alpha = - \frac{\pi}{4},\  \theta = \frac{\pi}{2}, \ \bm{n} =  \left( 0,0,1 \right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.9}
+    $2\times 2$行列$U = (\bm{u_1}, \bm{u_2})$がユニタリであるための必要十分条件は, $U$の各列に対する内積の条件が,
+    \begin{align*}
+        (\bm{u_i}, \bm{u_j}) = \delta_{ij}
+    \end{align*}
+    を満たすことで, 式(4.12)はこれを満たす. さらに, $2\times 2$ユニタリ行列の独立な自由度は$4$で, 式(4.12)はこのことも満たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.10}
+    \begin{align*}
+        U = e^{i\alpha} R_x(\beta) R_y(\gamma) R_x(\delta).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.11}
+    定理4.1では単一qビットに働く任意のオペレーター$U$が,
+    \begin{align*}
+        U = e^{i \alpha} R_z(\beta)R_y(\gamma)R_z(\delta)
+    \end{align*}
+    で表せることを示した. これは, 任意のBloch球面上での回転が, 適当な$\beta, \gamma, \delta$を選ぶことで, $z$軸周りに回転角$\delta$で回転し, $y$軸周りに回転角$\gamma$で回転し, $z$軸周りの回転角$\beta$することによって, 一意に特徴付けられることを示している. 回転は幾何学的な操作なので, 回転軸を$y,z$に限らず, 互いに直交する$\bm{n}, \bm{m}$としても, 同様の主張が成立することがわかる. つまり, 単一qビットに働く任意のオペレーター$U_1$が,
+    \begin{align*}
+        U_1 = e^{i \alpha_1} R_{\bm{n}}(\beta_1)R_{\bm{m}}(\gamma_1)R_{\bm{n}}(\beta_2)
+    \end{align*}
+    で表せる. 上式は, とある軸$\bm{a_1}$周りの$\theta_1$回転を表すオペレータとも解釈できる. 同様に, とある軸$\bm{a_2}$周りの$\theta_2$回転を表すオペレータ$U_2$は,
+    \begin{align*}
+        U_2 = e^{i \alpha_2} R_{\bm{m}}(\beta_2)R_{\bm{n}}(\gamma_3)R_{\bm{n}}(\beta_3)
+    \end{align*}
+    と表せる. 同様に$U_3, \ U_4 \dots$も作れる.とある軸$\bm{a}$周りに$\theta$回転させるという操作$U$は, 軸$\bm{a_1}$周りの$\theta_1$回転 $\to$ 軸$\bm{a_2}$周りの$\theta_2$回転$\to$軸$\bm{a_3}$周りの$\theta_3$回転$\to ...$といういくつかの回転操作に分解できるので,
+    \begin{align*}
+        U = U_1 U_2 U_3 ... = e^{i \alpha} R_{\bm{n}}(\beta_1)R_{\bm{m}}(\gamma_1)R_{\bm{n}}(\beta_2)R_{\bm{m}}(\beta_2)R_{\bm{n}}(\gamma_3)R_{\bm{n}}(\gamma_4) ...
+    \end{align*}
+    の形で書けるはずである.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.12}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex4.13}
+    \begin{align*}
+        H = \frac{X + Z}{\sqrt{2}}
+    \end{align*}
+    なので, $X^2=Z^2=1, \{X,Z\} = 0$を用いて,
+    \begin{align*}
+        HXH = \frac{XXX + XXZ + ZXX + ZXZ}{2} = Z.
+    \end{align*}
+    同様に,
+    \begin{align*}
+        HYH & = \frac{XYX + XYZ + ZYX + ZYZ}{2} = -Y. \\
+        HZH & = \frac{ZZZ + ZZX + XZZ + XZX}{2}= X.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.14}
+    演習\ref{ex4.2}, \ref{ex4.3}, \ref{ex4.13}の結果を用いて,
+    \begin{align*}
+        HTH
+         & =
+        e^{i \frac{\pi}{8}}HR_z\left( \frac{\pi}{4}\right) H   \\
+         & =
+        e^{i \frac{\pi}{8}}H
+        \left[
+            I  \cos\frac{\pi}{4} + i Z \sin\frac{\pi}{4}
+            \right] H
+        \\
+         & =
+        e^{i \frac{\pi}{8}}
+        \left[
+            I  \cos\frac{\pi}{4} + i X \sin\frac{\pi}{4}
+            \right]
+        \\
+         & =e^{i \frac{\pi}{8}}R_x\left( \frac{\pi}{4}\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.15}
+    (1)\
+    演習\ref{ex2.43}の結果を用いて,
+    \begin{align*}
+        \left( \bm{n_2} \cdot \bm{\sigma }\right)\left( \bm{n_1} \cdot \bm{\sigma }\right)
+        =
+        \sum_{i,j} n_{1j} n_{2i} \sigma_i \sigma_j
+        =
+        \sum_{i,j} n_{1j} n_{2i}
+        \left(
+        \delta_{ij} I  + i \sum_k \epsilon_{ijk}\sigma_k
+        \right)
+        =
+        \left( \bm{n_1} \cdot \bm{n_2}\right) I -i \left( \bm{n_1} \times \bm{n_2}\right) \cdot \bm{\sigma}.
+    \end{align*}
+    この関係式を用いると,
+    \begin{align*}
+        R_{\bm{n_2}}(\beta_2)R_{\bm{n_1}}(\beta_1)
+         & =
+        \left[
+            \left(\cos \frac{\beta_1}{2}\right) I - i\left(\sin \frac{\beta_1}{2}\right) \bm{n_2} \cdot \bm{\sigma}
+            \right]
+        \left[
+            \left(\cos \frac{\beta_2}{2}\right) I - i\left(\sin \frac{\beta_2}{2}\right) \bm{n_1} \cdot \bm{\sigma}
+            \right]
+        \\
+         & =
+        \left(\cos \frac{\beta_1}{2}\cos \frac{\beta_2}{2}\right) I
+        - i\left(\sin \frac{\beta_1}{2}\cos \frac{\beta_2}{2}\right) \bm{n_2} \cdot \bm{\sigma}
+        \\
+         & \ \ \ \ \
+        -i
+        \left(\sin \frac{\beta_2}{2}\cos \frac{\beta_1}{2}\right) \bm{n_1} \cdot \bm{\sigma}
+        -
+        \left(\sin \frac{\beta_1}{2}\sin \frac{\beta_2}{2} \right)\left( \bm{n_1} \cdot \bm{\sigma }\right)\left( \bm{n_2} \cdot \bm{\sigma }\right)
+        \\
+         & =
+        \left(
+        \cos \frac{\beta_1}{2}\cos \frac{\beta_2}{2}
+        -
+        \sin \frac{\beta_1}{2} \sin\frac{\beta_2}{2} \bm{n_1} \cdot \bm{n_2}
+        \right) I
+        \\
+         & \ \ \ \ \ -i
+        \left(
+        \sin \frac{\beta_1}{2}\cos \frac{\beta_2}{2} \bm{n_1}
+        +
+        \sin \frac{\beta_2}{2}\cos \frac{\beta_1}{2} \bm{n_2}
+        -
+        \sin \frac{\beta_1}{2} \sin\frac{\beta_2}{2} \bm{n_1} \times \bm{n_2}
+        \right)
+        \cdot \bm{\sigma}.
+    \end{align*}
+    一方,
+    \begin{align*}
+        R_{\bm{n_{12}}}(\beta_{12}) =
+        \left(\cos \frac{\beta_{12}}{2}\right) I - i\left(\sin \frac{\beta_{12}}{2}\right) \bm{n_{12}} \cdot \bm{\sigma}.
+    \end{align*}
+    $R_{\bm{n_{12}}}(\beta_{12}) = R_{\bm{n_2}}(\beta_2)R_{\bm{n_1}}(\beta_1)$であることと, $I,X,Y,Z$が互いに一次独立であることから,
+    \begin{align*}
+        \cos \frac{\beta_{12}}{2}
+         & = \cos \frac{\beta_1}{2}\cos \frac{\beta_2}{2}
+        -
+        \sin \frac{\beta_1}{2} \sin\frac{\beta_2}{2} \bm{n_1} \cdot \bm{n_2} \\
+        \sin \frac{\beta_{12}}{2}\bm{n_{12}}
+         & ＝
+        \sin \frac{\beta_1}{2}\cos \frac{\beta_2}{2} \bm{n_1}
+        +
+        \sin \frac{\beta_2}{2}\cos \frac{\beta_1}{2} \bm{n_2}
+        -
+        \sin \frac{\beta_1}{2} \sin\frac{\beta_2}{2} \bm{n_1} \times \bm{n_2}.
+    \end{align*}
+    \par
+    (2)\
+    (1)より明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.16}
+    \begin{align*}
+        H \otimes I
+        =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            I & I  \\
+            I & -I
+        \end{pmatrix}
+        \
+        \mathrm{と}
+        \
+        I \otimes H
+        =
+        \begin{pmatrix}
+            H & H \\
+            H & H
+        \end{pmatrix}
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex4.17}
+    \begin{align*}
+        \begin{pmatrix}
+            I & O \\
+            O & H
+        \end{pmatrix}
+        \begin{pmatrix}
+            I & O \\
+            O & Z
+        \end{pmatrix}
+        \begin{pmatrix}
+            I & O \\
+            O & H
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            I & O   \\
+            O & HZH
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+        \end{pmatrix}
+    \end{align*}
+    つまり,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \qw      & \ctrl{1} & \qw      & \qw & \raisebox{-2.0em}{=} & \lstick{} & \ctrl{1} & \qw \\
+        \lstick{} & \gate{H} & \gate{Z} & \gate{H} & \qw &                      & \lstick{} & \targ    & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.18}
+    いずれのゲートも, 計算基底で,
+    \begin{align*}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0  \\
+            0 & 1 & 0 & 0  \\
+            0 & 0 & 1 & 0  \\
+            0 & 0 & 0 & -1 \\
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.19}
+    任意の密度行列$\rho = (\rho_{ij})$を
+    \begin{align*}
+        \rho =
+        \begin{pmatrix}
+            A & B \\
+            C & D
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \rho_{11} & \rho_{12} & \rho_{13} & \rho_{14} \\
+            \rho_{21} & \rho_{22} & \rho_{23} & \rho_{24} \\
+            \rho_{31} & \rho_{32} & \rho_{33} & \rho_{34} \\
+            \rho_{41} & \rho_{42} & \rho_{43} & \rho_{44}
+        \end{pmatrix}
+    \end{align*}
+    と書く. $\rho$に対応する混合状態にCNOTゲート$U$を作用させると,
+    \begin{align*}
+        U \rho U^\dagger
+        =
+        \begin{pmatrix}
+            I & O \\
+            O & X
+        \end{pmatrix}
+        \begin{pmatrix}
+            A & B \\
+            C & D
+        \end{pmatrix}
+        \begin{pmatrix}
+            I & O \\
+            O & X
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            A  & BX  \\
+            XC & XDX
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \rho_{11} & \rho_{12} & \rho_{14} & \rho_{13} \\
+            \rho_{21} & \rho_{22} & \rho_{24} & \rho_{23} \\
+            \rho_{33} & \rho_{34} & \rho_{44} & \rho_{43} \\
+            \rho_{31} & \rho_{32} & \rho_{34} & \rho_{33}
+        \end{pmatrix}
+    \end{align*}
+    となり, 題意が示された.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.20}
+
+    CNOTゲート$U$として, 計算基底では,
+    \begin{align*}
+        (H \otimes H) U (H \otimes H)
+         & =
+        \frac{1}{2}
+        \begin{pmatrix}
+            H & H  \\
+            H & -H
+        \end{pmatrix}
+        \begin{pmatrix}
+            I & O \\
+            O & X
+        \end{pmatrix}
+        \begin{pmatrix}
+            H & H  \\
+            H & -H
+        \end{pmatrix}
+        \\
+         & =
+        \frac{1}{2}
+        \begin{pmatrix}
+            I + HXH & I - HXH \\
+            I - HXH & I + HXH
+        \end{pmatrix}
+        \\
+         & =
+        \frac{1}{2}
+        \begin{pmatrix}
+            I + Z & I - Z \\
+            I - Z & I + Z
+        \end{pmatrix}
+        \\
+         & =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+        \end{pmatrix}
+    \end{align*}
+    つまり,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \gate{H} & \ctrl{1} & \gate{H} & \qw & \raisebox{-2.0em}{=} & \lstick{} & \targ     & \qw \\
+        \lstick{} & \gate{H} & \targ    & \gate{H} & \qw &                      & \lstick{} & \ctrl{-1} & \qw
+        }
+    \end{align*}
+    \par
+    ここで,
+    \begin{align*}
+        (H \otimes H) U (H \otimes H) \ket{+}\ket{+}
+         & =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 \\ 1 \\ 1 \\ 1
+        \end{pmatrix}
+        =
+        \ket{+}\ket{+}
+    \end{align*}
+    であることと, 先に示した回路の同等性を用いて,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{+}} & \targ     & \qw & \ket{+} \\
+        \lstick{\ket{+}} & \ctrl{-1} & \qw & \ket{+}
+        }
+    \end{align*}
+    つまり,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{+}} & \ctrl{1} & \qw & \ket{+} \\
+        \lstick{\ket{+}} & \targ    & \qw & \ket{+}
+        }
+    \end{align*}
+    を得る. 同様に,
+    \begin{align*}
+        (H \otimes H) U (H \otimes H) \ket{+}\ket{-}
+         & =\ket{+}\ket{-}
+        \\
+        (H \otimes H) U (H \otimes H) \ket{-}\ket{+}
+         & =\ket{-}\ket{-}
+        \\
+        (H \otimes H) U (H \otimes H) \ket{-}\ket{-}
+         & =\ket{-}\ket{+}
+    \end{align*}
+    であることと, 先に示した回路の同等性から,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{+}} & \ctrl{1} & \qw & \ket{-} \\
+        \lstick{\ket{-}} & \targ    & \qw & \ket{-}
+        }
+        \ \ \ \ \ \ \ \ \ \
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{-}} & \ctrl{1} & \qw & \ket{-} \\
+        \lstick{\ket{+}} & \targ    & \qw & \ket{+}
+        }
+        \ \ \ \ \ \ \ \ \ \
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{-}} & \ctrl{1} & \qw & \ket{+} \\
+        \lstick{\ket{-}} & \targ    & \qw & \ket{-}
+        }
+    \end{align*}
+    を得る.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.21}
+    $V$が$V^2 = U $なるユニタリゲートとすると,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{x_1}}  & \qw      & \ctrl{1} & \qw              & \ctrl{1} & \ctrl{2} & \qw \\
+        \lstick{\ket{x_2}}  & \ctrl{1} & \targ    & \ctrl{1}         & \targ    & \qw      & \qw \\
+        \lstick{\ket{\psi}} & \gate{V} & \qw      & \gate{V^\dagger} & \qw      & \gate{V} & \qw
+        }
+    \end{align*}
+    の標的ビットは,
+    \begin{align*}
+        \begin{cases}
+            I \                 & (x_1,x_2) = (0,0) \\
+            VV^\dagger = I \    & (x_1,x_2) = (0,1) \\
+            V^\dagger V = I  \  & (x_1,x_2) = (1,0) \\
+            VV = U \            & (x_1,x_2) = (1,1) \\
+        \end{cases}
+    \end{align*}
+    となり, これは上記の回路が制御$C^2(U)$ゲートであることを示している.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.22}
+    まず,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \qw      & \ctrl{1} & \qw      & \qw & \raisebox{-3.0em}{=} & \lstick{} & \ctrl{1} & \ctrl{2} & \qw \\
+        \lstick{} & \ctrl{1} & \targ    & \ctrl{1} & \qw &                      & \lstick{} & \targ    & \qw      & \qw \\
+        \lstick{} & \targ    & \qw      & \targ    & \qw &                      & \lstick{} & \qw      & \targ    & \qw
+        }
+    \end{align*}
+    である. なせなら, 左辺の回路の入力$\ket{a}\ket{b}\ket{c}$として,
+    \begin{align*}
+        \ket{a}\ket{b}\ket{c} \rightarrow \ket{a}\ket{b}\ket{b \oplus c} \rightarrow \ket{a}\ket{a \oplus b}\ket{b \oplus c} \rightarrow  \ket{a}\ket{a \oplus b}\ket{a \oplus b \oplus b \oplus c} = \ket{a}\ket{a \oplus b}\ket{a \oplus c}
+    \end{align*}
+    であるからである. さらに,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \qw      & \ctrl{1} & \ctrl{2} & \qw & \raisebox{-3.0em}{=} & \lstick{} & \ctrl{1} & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \targ    & \qw      & \qw &                      & \lstick{} & \targ    & \ctrl{1} & \qw \\
+        \lstick{} & \targ    & \qw      & \targ    & \qw &                      & \lstick{} & \qw      & \targ    & \qw
+        }
+    \end{align*}
+    である. なせなら, 左辺の回路の入力$\ket{a}\ket{b}\ket{c}$として,
+    \begin{align*}
+        \ket{a}\ket{b}\ket{c} \rightarrow \ket{a}\ket{b}\ket{b \oplus c} \rightarrow \ket{a}\ket{a \oplus b}\ket{b \oplus c} \rightarrow  \ket{a}\ket{a \oplus b}\ket{a \oplus b \oplus c}
+    \end{align*}
+    であるからである.
+    \par
+    系4.2から, 任意の制御$V$が, $ABC=I$なるユニタリ$A,B,C$で,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \qw & \raisebox{-3.0em}{=} & \lstick{} & \qw      & \ctrl{1} & \qw      & \ctrl{1} & \gate{位相} & \qw \\
+        \lstick{} & \gate{V} & \qw &                      & \lstick{} & \gate{C} & \targ    & \gate{B} & \targ    & \gate{A}    & \qw \\
+        }
+    \end{align*}
+    と書けることと,  演習\ref{ex4.21}から 任意の$C^2(U)$は, $V^2 = U$なるユニタリ$V$を用いて,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \qw & \raisebox{-3.0em}{=} & \lstick{} & \qw      & \ctrl{1} & \qw              & \ctrl{1} & \ctrl{2} & \qw \\
+        \lstick{} & \ctrl{1} & \qw &                      & \lstick{} & \ctrl{1} & \targ    & \ctrl{1}         & \targ    & \qw      & \qw \\
+        \lstick{} & \gate{U} & \qw &                      & \lstick{} & \gate{V} & \qw      & \gate{V^\dagger} & \qw      & \gate{V} & \qw
+        }
+    \end{align*}
+    つまり,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \qw      & \raisebox{-4.0em}{=} &
+        \lstick{} & \qw      & \qw      & \qw                  & \qw      & \qw      & \ctrl{1} & \qw              & \qw      & \qw              & \qw      & \qw              & \ctrl{1} & \qw      & \ctrl{2} & \qw         & \ctrl{2} & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw      &                      &
+        \lstick{} & \qw      & \ctrl{1} & \gate{位相}          & \ctrl{1} & \qw      & \targ    & \qw              & \ctrl{1} & \gate{位相}      & \ctrl{1} & \qw              & \targ    & \qw      & \qw      & \gate{位相} & \qw      & \qw      & \qw \\
+        \lstick{} & \gate{U} & \qw      &                      &
+        \lstick{} & \gate{C} & \targ    & \gate{B}             & \targ    & \gate{A} & \qw      & \gate{A^\dagger} & \targ    & \gate{B^\dagger} & \targ    & \gate{C^\dagger} & \qw      & \gate{C} & \targ    & \gate{B}    & \targ    & \gate{A} & \qw
+        }
+    \end{align*}
+    と書ける.
+    $A,C$のユニタリ性より,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \qw      & \raisebox{-4.0em}{=} &
+        \lstick{} & \qw      & \qw      & \qw                  & \qw      & \ctrl{1} & \qw      & \qw              & \qw      & \ctrl{1} & \ctrl{2} & \qw         & \ctrl{2} & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw      &                      &
+        \lstick{} & \qw      & \ctrl{1} & \gate{位相}          & \ctrl{1} & \targ    & \ctrl{1} & \gate{位相}      & \ctrl{1} & \targ    & \qw      & \gate{位相} & \qw      & \qw      & \qw \\
+        \lstick{} & \gate{U} & \qw      &                      &
+        \lstick{} & \gate{C} & \targ    & \gate{B}             & \targ    & \qw      & \targ    & \gate{B^\dagger} & \targ    & \qw      & \targ    & \gate{B}    & \targ    & \gate{A} & \qw
+        }
+    \end{align*}
+    はじめに示した回路の等価性より,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \qw      & \raisebox{-4.0em}{=} &
+        \lstick{} & \qw      & \qw      & \qw                  & \ctrl{1} & \ctrl{2} & \qw              & \ctrl{1} & \qw      & \qw         & \ctrl{2} & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw      &                      &
+        \lstick{} & \qw      & \ctrl{1} & \gate{位相}          & \targ    & \qw      & \gate{位相}      & \targ    & \ctrl{1} & \gate{位相} & \qw      & \qw      & \qw \\
+        \lstick{} & \gate{U} & \qw      &                      &
+        \lstick{} & \gate{C} & \targ    & \gate{B}             & \qw      & \targ    & \gate{B^\dagger} & \qw      & \targ    & \gate{B}    & \targ    & \gate{A} & \qw
+        }
+    \end{align*}
+    以上より, 任意の$C^2(U)$は, 単一qビットゲート8個とCNOTゲート6個で構築可能.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.23}
+    問題の意味がわからない.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.24}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{a}} & \qw      & \qw      & \qw              & \ctrl{2} & \qw      & \qw      & \qw              & \ctrl{2} & \qw              & \ctrl{1} & \qw              & \ctrl{1} & \gate{T} & \qw \\
+        \lstick{\ket{b}} & \qw      & \ctrl{1} & \qw              & \qw      & \qw      & \ctrl{1} & \qw              & \qw      & \gate{T^\dagger} & \targ    & \gate{T^\dagger} & \targ    & \gate{S} & \qw \\
+        \lstick{\ket{c}} & \gate{H} & \targ    & \gate{T^\dagger} & \targ    & \gate{T} & \targ    & \gate{T^\dagger} & \targ    & \gate{T}         & \gate{H} & \qw              & \qw      & \qw      & \qw
+        }
+    \end{align*}
+    という回路$U$は,
+    \begin{align*}
+        U \ket{a} \otimes \ket{b} \otimes \ket{c}
+        =
+        T \ket{a}
+        \otimes T^\dagger X^a T^\dagger X^a  S\ket{b}
+        \otimes H \left( X^b T^\dagger X^a T \right)^2H \ket{c}
+    \end{align*}
+    で定義されている. ここで, 計算基底では,
+    \begin{align*}
+        T^\dagger X^a T^\dagger X^a  S
+        =
+        \begin{cases}
+            \begin{pmatrix}
+                1 & 0 \\
+                0 & 1
+            \end{pmatrix}
+            =I
+             & (a = 0)
+            \\
+            e^{-i \frac{\pi}{4}}
+            \begin{pmatrix}
+                1 & 0 \\
+                0 & i
+            \end{pmatrix}
+            = e^{-i \frac{\pi}{4}} S
+             & (a = 1)
+        \end{cases}
+        \\
+        H \left( X^b T^\dagger X^a T \right)^2H
+        =
+        \begin{cases}
+            \begin{pmatrix}
+                1 & 0 \\
+                0 & 1
+            \end{pmatrix}
+            =I    & (ab = 0)
+            \\
+            -i
+            \begin{pmatrix}
+                0 & 1 \\
+                1 & 0
+            \end{pmatrix}
+            =-i X & (ab = 1)
+        \end{cases}
+    \end{align*}
+    であることと,
+    \begin{align*}
+        T\ket{0} = \ket{0} , \ T\ket{1} = e^{ i \frac{\pi}{4}}\ket{1} ,\
+        S\ket{0} = \ket{0} , \ S\ket{1} = i\ket{1}
+    \end{align*}
+    であることを用いて,
+    \begin{align*}
+        U \ket{a} \otimes \ket{b} \otimes \ket{c}
+         & =
+        \begin{cases}
+            T \ket{0} \otimes I \ket{b} \otimes  I \ket{c}                       & (a=0)     \\
+            T \ket{1} \otimes e^{-i \frac{\pi}{4}} S \ket{0} \otimes I \ket{c}   & (a=1,b=0) \\
+            T \ket{1} \otimes e^{-i \frac{\pi}{4}} S \ket{1} \otimes -iX \ket{c} & (a=1,b=1)
+        \end{cases}
+        \\
+         & =
+        \begin{cases}
+            \ket{0} \otimes \ket{b} \otimes \ket{c}   & (a=0)     \\
+            \ket{1} \otimes  \ket{0} \otimes \ket{c}  & (a=1,b=0) \\
+            \ket{1} \otimes \ket{0} \otimes X \ket{c} & (a=1,b=1)
+        \end{cases}
+    \end{align*}
+    を得る. これは, $U$がToffoliゲートであることを示している.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex4.25}
+    (1)\
+    Fredkinゲートは, がToffoliゲート3つで,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1}       & \qw & \raisebox{-3.0em}{=} & \lstick{} & \ctrl{1} & \qw         & \ctrl{1} & \qw         & \ctrl{1} & \qw \\
+        \lstick{} & \qswap    \qwx & \qw &                      & \lstick{} & \ctrl{1} & \qswap      & \ctrl{1} & \qswap      & \ctrl{1} & \qw \\
+        \lstick{} & \qswap    \qwx & \qw &                      & \lstick{} & \targ    & \qswap \qwx & \targ    & \qswap \qwx & \targ    & \qw
+        }
+    \end{align*}
+    と書ける.
+    \par
+    (2)\
+    Fredkinゲートは
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1}       & \qw & \raisebox{-3.0em}{=} & \lstick{} & \qw       & \ctrl{1} & \qw       & \qw \\
+        \lstick{} & \qswap         & \qw &                      & \lstick{} & \targ     & \ctrl{1} & \targ     & \qw \\
+        \lstick{} & \qswap    \qwx & \qw &                      & \lstick{} & \ctrl{-1} & \targ    & \ctrl{-1} & \qw
+        }
+    \end{align*}
+    と書ける. なぜなら, 上の回路の入力$\ket{a}\ket{b}\ket{c}$として,
+    \begin{align*}
+        \ket{a}\ket{b}\ket{c} & \xrightarrow{\CNOT} \ket{a}\ket{b \oplus c} \ket{c} \xrightarrow{\Tof} \ket{a} \ket{b \oplus c} \ket{ab \oplus ac \oplus c}
+        \\
+                              & \xrightarrow{\CNOT} \ket{a} \ket{ab \oplus ac \oplus b} \ket{ab \oplus ac \oplus c}
+        =
+        \begin{cases}
+            \ket{a}\ket{b}\ket{c} & (a = 0) \\
+            \ket{a}\ket{c}\ket{b} & (a = 1)
+        \end{cases}
+    \end{align*}
+    となるからである.
+    \par
+    (3)(4)\
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1}             & \qw       & \raisebox{-3.0em}{=} & \lstick{} & \qw       & \qw               & \ctrl{1}         & \qw              & \ctrl{1}  & \ctrl{2} & \qw       & \qw
+        \\
+        \lstick{} & \qswap               & \qw       &                      & \lstick{} & \targ     & \ctrl{1}          & \targ            & \ctrl{1}         & \targ     & \qw      & \targ     & \qw
+        \\
+        \lstick{} & \qswap    \qwx       & \qw       &                      & \lstick{} & \ctrl{-1} & \gate{V}          & \qw              & \gate{V^\dagger} & \qw       & \gate{V} & \ctrl{-1} & \qw
+        }
+                  &
+        \Qcircuit @C=1em @R=1em {
+                  & \raisebox{-3.0em}{=} & \lstick{} & \qw                  & \qw       & \ctrl{2}  & \ctrl{1}          & \qw              & \ctrl{1}         & \qw       & \qw                        \\
+                  &                      & \lstick{} & \targ                & \ctrl{1}  & \qw       & \targ             & \ctrl{1}         & \targ            & \targ     & \qw                        \\
+                  &                      & \lstick{} & \ctrl{-1}            & \gate{V}  & \gate{V}  & \qw               & \gate{V^\dagger} & \qw              & \ctrl{-1} & \qw
+        }
+        \\
+                  &
+        \Qcircuit @C=1em @R=1em {
+                  & \raisebox{-3.0em}{=} & \lstick{} & \qw                  & \qw       & \ctrl{2}  & \ctrl{1}          & \qw              & \qw              & \ctrl{1}  & \qw                        \\
+                  &                      & \lstick{} & \targ                & \ctrl{1}  & \qw       & \targ             & \ctrl{1}         & \targ            & \targ     & \qw                        \\
+                  &                      & \lstick{} & \ctrl{-1}            & \gate{V}  & \gate{V}  & \qw               & \gate{V^\dagger} & \ctrl{-1}        & \qw       & \qw
+        }
+        \\
+                  &
+        \Qcircuit @C=1em @R=1em {
+                  & \raisebox{-3.0em}{=} & \lstick{} & \qw                  & \ctrl{2}  & \ctrl{1}  & \qw               & \ctrl{1}         & \qw                                                       \\
+                  &                      & \lstick{} & \multigate{1}{\ }    & \qw       & \targ     & \multigate{1}{\ } & \targ            & \qw                                                       \\
+                  &                      & \lstick{} & \ghost{\ }           & \gate{V}  & \qw       & \ghost{\ }        & \qw              & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.26}
+    準備として,
+    \begin{align*}
+        R_y(\theta) X^c R_y(\phi) =
+        \begin{cases}
+            R_y(\theta + \phi)         & (c=0) \\
+            \begin{pmatrix}
+                - \sin \frac{\theta - \phi}{2} & \cos\frac{\theta - \phi}{2} \\
+                \cos \frac{\theta - \phi}{2}   & \sin\frac{\theta - \phi}{2}
+            \end{pmatrix} & (c=1)
+        \end{cases}.
+    \end{align*}
+    問題の回路$U$は, 以下で定義されている;
+    \begin{align*}
+        U \ket{c_1} \otimes \ket{c_2}\otimes\ket{t}
+         & = \ket{c_1} \otimes\ket{c_2}\otimes
+        R_y \left(\frac{\pi}{4}\right)
+        X^{c_2}
+        R_y \left(\frac{\pi}{4}\right)
+        X^{c_1}
+        R_y \left(-\frac{\pi}{4}\right)
+        X^{c_2}
+        R_y \left(-\frac{\pi}{4}\right)
+        \\
+         & =
+        \begin{cases}
+            \ket{c_1}\otimes \ket{c_2}\otimes I \ket{t}
+            =
+            \ket{c_1}\otimes \ket{c_2}\otimes \ket{t}    & (c_1 = 0, c_2 = 0) \\
+            \ket{c_1}\otimes \ket{c_2}\otimes I \ket{t}
+            =
+            \ket{c_1}\otimes \ket{c_2}\otimes  \ket{t}   & (c_1 = 0, c_2 = 1) \\
+            -\ket{c_1}\otimes \ket{c_2}\otimes Z \ket{t} & (c_1 = 1, c_2 = 0) \\
+            \ket{c_1}\otimes \ket{c_2}\otimes X \ket{t}  & (c_1 = 1, c_2 = 1) \\
+        \end{cases}
+        \\
+         & =
+        e^{i \theta(c_1 ,c_2, t)} \ket{c_1} \ket{c_2} \ket{t \oplus c_1 \cdot c_2} .
+    \end{align*}
+    ここで,
+    \begin{align*}
+        \theta(c_1, c_2, t) =
+        \begin{cases}
+            \pi & ( c_1 = 1, c_2 = 0, t = 0) \\
+            0   & (\mathrm{otherwise})
+        \end{cases}
+    \end{align*}
+    とした.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.27}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.28}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1} & \qw & \raisebox{-6.0em}{=} & \lstick{} & \ctrl{1} & \ctrl{1} & \qw              & \ctrl{1} & \qw & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw &                      & \lstick{} & \ctrl{1} & \ctrl{1} & \qw              & \ctrl{1} & \qw & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw &                      & \lstick{} & \ctrl{1} & \ctrl{1} & \qw              & \ctrl{1} & \qw & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw &                      & \lstick{} & \ctrl{2} & \ctrl{1} & \qw              & \ctrl{1} & \qw & \qw      & \qw \\
+        \lstick{} & \ctrl{1} & \qw &                      & \lstick{} & \qw      & \targ    & \ctrl{1}         & \targ    & \qw & \ctrl{1} & \qw \\
+        \lstick{} & \gate{U} & \qw &                      & \lstick{} & \gate{V} & \qw      & \gate{V^\dagger} & \qw      & \qw & \gate{V} & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \begin{ex}
+        \label{ex4.29}\label{ex4.30}
+        詳しいことは, \url{https://arxiv.org/pdf/0708.3274.pdf}.
+        ここでは, 概略を述べる.
+        \par
+        まず, $C^n(X)$については下図のように, $C^{\lfloor n/2 \rfloor}(X), C^{ n - \lfloor n/2 \rfloor}(X)$と作業ビット1つで作れる. そこで, $C^n(X)$を作るのに必要なToffoliゲート, CNOTゲートの数の総和$x_n$として,
+        \begin{align*}
+            x_n = 2x_{\lfloor n/2 \rfloor} + 2x_{n - \lfloor n/2 \rfloor} \sim 4 x_{n/2} \to x_n
+            = O\left( 4^{\log n} \right) = O(n).
+        \end{align*}
+        \begin{align*}
+            \Qcircuit @C=1em @R=1em {
+            \lstick{}        & \ctrl{1} & \qw & \raisebox{-6.0em}{=} & \lstick{} & \ctrl{1} & \qw      & \ctrl{1} & \qw      & \qw \\
+            \lstick{}        & \ctrl{1} & \qw &                      & \lstick{} & \ctrl{3} & \qw      & \ctrl{3} & \qw      & \qw \\
+            \lstick{}        & \ctrl{1} & \qw &                      & \lstick{} & \qw      & \ctrl{1} & \qw      & \ctrl{1} & \qw \\
+            \lstick{}        & \ctrl{2} & \qw &                      & \lstick{} & \qw      & \ctrl{2} & \qw      & \ctrl{2} & \qw \\
+            \lstick{\ket{0}} & \qw      & \qw &                      & \lstick{} & \targ    & \ctrl{1} & \targ    & \ctrl{1} & \qw \\
+            \lstick{}        & \targ    & \qw &                      & \lstick{} & \qw      & \targ    & \qw      & \targ    & \qw
+            }
+        \end{align*}
+        このことと, $C^n(U)$は$C^{n-1}(V), C^{n-1}(X),C^{n-1}(X), C^1(V),C^1(V^\dagger)$
+        で作れること(演習\ref{ex4.28}と同様)から, $C^n(U)$を作るのに必要なToffoliゲート, CNOTゲート, 単一qビットの数の総和$y_n$として,
+        \begin{align*}
+            y_n = y_{n-1} + O(n) \to y_n = O(n^2).
+        \end{align*}
+    \end{ex}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.31}
+    \begin{align*}
+        C X_1 C \ket{a} \ket{b}
+         & = X_1 \ket{a} X_2^a X_2^{\bar{a}} \ket{b}
+        = X_1 \ket{a} X_2^{a + \bar{a}} \ket{b}
+        =X_1 \ket{a} X_2 \ket{b}
+        \\
+        C Y_1 C \ket{a} \ket{b}
+         & = Y_1 \ket{a} X_2^a X_2^{\bar{a}} \ket{b}
+        = Y_1 \ket{a} X_2^{a + \bar{a}} \ket{b}
+        =Y_1 \ket{a} X_2 \ket{b}
+        \\
+        C Z_1 C \ket{a} \ket{b}
+         & = Z_1 \ket{a} X_2^a X_2^{{a}} \ket{b}
+        = Z_1 \ket{a} X_2^{a +{a}}\ket{b}
+        =Z_1 \ket{a} I \ket{b}
+        \\
+        C X_2 C \ket{a} \ket{b}
+         & = I \ket{a} X_2^a X_2 X_2^a \ket{b}
+        = I\ket{a} X_2^{a +{a} + 1}\ket{b}
+        = I \ket{a} X_2 \ket{b}
+        \\
+        C Y_2 C \ket{a} \ket{b}
+         & = I \ket{a} X_2^a Y_2 X_2^a \ket{b}
+        = (-1)^a \ket{a} Y_2 X_2^a  X_2^a \ket{b}
+        = Z_1 \ket{a} Y_2 \ket{b}
+        \\
+        C Z_2 C \ket{a} \ket{b}
+         & = I \ket{a} X_2^a Z_2 X_2^a \ket{b}
+        = (-1)^a \ket{a} Z_2 X_2^a  X_2^a \ket{b}
+        = Z_1 \ket{a} Z_2 \ket{b}
+        \\
+        R_{z,1}(\theta) C \ket{a} \ket{b}
+         & =
+        \left(\cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} Z_1 \right)\ket{a} X_2^a \ket{b}
+        =
+        X_2^a  \left(\cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} Z_1 \right)\ket{a} \ket{b}
+        =
+        C R_{z,1}(\theta)\ket{a} \ket{b}
+        \\
+        R_{x,1}(\theta) C \ket{a} \ket{b}
+         & =
+        \left(\cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} X_1 \right)\ket{a} X_2^a \ket{b}
+        =
+        X_2^a  \left(\cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} X_1 \right)\ket{a} \ket{b}
+        =
+        C R_{x,1}(\theta)\ket{a} \ket{b}
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+
+    \label{ex4.32}
+    (2.152)より,
+    \begin{align*}
+        \rho' =  (I \otimes P_0 )\rho( I \otimes P_0 )
+        + (I \otimes P_1) \rho( I \otimes P_1)
+    \end{align*}
+    \begin{align*}
+        \rho = \rho_1 \otimes \rho_2
+    \end{align*}
+    として,
+    \begin{align*}
+        \tr_2(\rho')
+         & = \tr_2
+        \left( ( I \otimes P_0 )\rho( I \otimes P_0 )
+        + (I \otimes P_1) \rho( I \otimes P_1)
+        \right)                                                                   \\
+         & = \tr_2(\rho_1 \otimes P_0 \rho_2 P_0 + \rho_1 \otimes P_1 \rho_2 P_1) \\
+         & = \rho_1 \tr(P_0 \rho_2 P_0 +  P_1 \rho_2 P_1)                         \\
+         & = \rho_1 \tr( \rho_2 P_0 P_0+  \rho_2 P_1 P_1 )                        \\
+         & = \rho_1 \tr( \rho_2 P_0+  \rho_2 P_1 )                                \\
+         & =\rho_1 \tr( \rho_2 )                                                  \\
+         & = \tr_2(\rho)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.33}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \raisebox{-3.0em}{$\ket{\beta_{xy}}$} & \lstick{} & \qw & \ctrl{1} & \gate{H} & \qw & \meter \\
+                                              & \lstick{} & \qw & \targ    & \qw      & \qw & \meter
+        }
+    \end{align*}
+    上の回路に対応すユニタリオペレータ$U$として,
+    \begin{align*}
+        U \ket{\beta_{xy}}
+         & =
+        \frac{\ket{0,y} + \ket{1,y} + (-1)^x \left(\ket{0,y} - \ket{1,y}\right)}{2}
+        \\
+         & =
+        \frac{\left(1 + (-1)^x\right)\ket{0,y} + \left(1 - (-1)^x\right)\ket{1,y}}{2}
+        \\
+         & =
+        \begin{cases}
+            \ket{00} & (x,y) = (0,0) \\
+            \ket{01} & (x,y) = (0,1) \\
+            \ket{10} & (x,y) = (1,0) \\
+            \ket{11} & (x,y) = (1,1) \\
+        \end{cases}.
+    \end{align*}
+    これは, $U$がBell基底$\ket{\beta_{xy}}$から計算基底へのユニタリ変換であることを示している.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.34}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+         & \lstick{\ket{0}}         & \qw & \gate{H} & \ctrl{1} & \gate{H} & \qw & \meter           \\
+         & \lstick{\ket{\psi_{in}}} & \qw & \qw      & \gate{U} & \qw      & \qw & \ket{\psi_{out}}
+        }
+    \end{align*}
+    $U$の固有値は$\pm1$なので,
+    \begin{align*}
+        U = \ket{+1}\bra{+1} - \ket{-1}\bra{-1}
+    \end{align*}
+    とかけ, $U$のユニタリ性より,
+    \begin{align*}
+        \braket{+1|+1} =  \braket{-1|-1} = 1,\ \braket{+1|-1} = 0
+        \to \ket{+1}\bra{+1}+  \ket{-1}\bra{-1} = I .
+    \end{align*}
+    上の回路の演算は,
+    \begin{align*}
+        \ket{0}\ket{\psi_{in}}
+         & \rightarrow
+        \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \ket{\psi_{in}} \\
+         & \rightarrow
+        \frac{ \ket{0}  \otimes\ket{\psi_{in}}}{2}
+        +
+        \frac{  \ket{1} \otimes U\ket{\psi_{in}}}{2}               \\
+         & \rightarrow
+        \frac{ \left(\ket{0} + \ket{1} \right)  \otimes\ket{\psi_{in}}}{2}
+        +
+        \frac{ \left(\ket{0} - \ket{1} \right) \otimes U\ket{\psi_{in}}}{2}
+        \\
+         & =
+        \frac{\ket{0} \otimes (1+U)\ket{\psi_{in}}}{2}
+        +
+        \frac{ \ket{1}  \otimes (1-U) \ket{\psi_{in}}}{2}
+        \\
+         & =
+        \ket{0} \otimes \ket{+1} \braket{+1|\psi_{in}}
+        +
+        \ket{1}  \otimes \ket{-1}\braket{-1|\psi_{in}}             \\
+    \end{align*}
+    となるので,
+    $\ket{\psi_{out}}$は, 第1qビットが$\ket{0}$のとき$\ket{+1}$,
+    第1qビットが$\ket{1}$のとき$\ket{-1}$を得る.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.35}
+    制御ビットが$\alpha \ket{0} + \beta \ket{1}$でかけるとき,
+    いずれの回路も確率$|\alpha|^2$, \ $|\beta|^2$で標的ビットを作用させる.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.36}
+    Toffoliゲートは1の位の桁上がりの役目を果たしており, 2つの$\CNOT$は各位の足し算に対応している.
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{x_1}} & \qw       & \qw      & \ctrl{2} & \qw \\
+        \lstick{\ket{x_2}} & \ctrl{1}  & \ctrl{2} & \qw      & \qw \\
+        \lstick{\ket{y_1}} & \targ     & \qw      & \targ    & \qw \\
+        \lstick{\ket{y_2}} & \ctrl{-1} & \targ    & \qw      & \qw
+        }
+    \end{align*}
+\end{ex}
+

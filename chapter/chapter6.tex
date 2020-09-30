@@ -1,0 +1,370 @@
+\chapter{量子探索アルゴリズム}
+
+\begin{ex}
+    \label{ex6.1}
+    \begin{align*}
+        \left( 2 \ket{0} \bra{0} - I \right)
+        \left( 2 \ket{0} \bra{0} - I \right)^\dagger
+        =
+        I.
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex6.2}
+    \begin{align*}
+        \left( 2 \ket{\psi} \bra{\psi} - I \right) \sum_k \alpha_k \ket{k}
+         & =
+        \frac{2}{N} \sum_x \sum_y \sum_k \alpha_k \ket{x} \braket{y|k}- \sum_k \alpha_k \ket{k}
+        \\
+         & =
+        \frac{2}{N} \sum_x \sum_y \sum_k \alpha_k \ket{x}
+        \delta_{yk}- \sum_k \alpha_k \ket{k}
+        \\
+         & =
+        \frac{2}{N} \sum_x \sum_k \alpha_k \ket{x}- \sum_k \alpha_k \ket{k}
+        \\
+         & =
+        2 \braket{\alpha} \sum_x \ket{x} - \sum_k \alpha_k \ket{k}
+        \\
+         & =
+        \sum_k  \left[- \alpha_k + 2 \braket{\alpha} \right] \ket{k}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex6.3}
+
+    $\ket{\alpha}, \ket{\beta}$基底で,
+    \begin{align*}
+        \begin{pmatrix}
+            \cos \theta & - \sin \theta \\
+            \sin \theta & \cos \theta
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos (\theta/2) \\
+            \sin (\theta/2)
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \cos (3\theta/2) \\
+            \sin (3\theta2)
+        \end{pmatrix}
+    \end{align*}
+    であることと
+    \begin{align*}
+        G \left( \cos \frac{\theta}{2}\ket{\alpha} + \sin \frac{\theta}{2} \ket{\beta}\right)
+        =
+        \cos \frac{3\theta}{2}\ket{\alpha} + \sin \frac{3\theta}{2} \ket{\beta}.
+    \end{align*}
+    を見比べれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.4}
+    P114の手続きと全く同様.
+\end{ex}
+\begin{ex}
+    \label{ex6.5}
+    考えたい探索問題$f(x)$, 拡張した探索問題$f'(x,q)$とかくと,
+    \begin{align*}
+        f'(x,q) =
+        \begin{cases}
+            f(x) & (q=0) \\
+            0 \  & (q=1)
+        \end{cases}
+    \end{align*}
+    なので,
+    拡張したオラクル$O'$;
+    \begin{align*}
+        \ket{q}\ket{x} \xrightarrow{O'} (-1)^{f'(x,q)}\ket{q}\ket{x}
+        =
+        \begin{cases}
+            (-1)^{f(x)}\ket{q}\ket{x} & (q=0) \\
+            \ket{q}\ket{x}            & (q=1)
+        \end{cases}
+    \end{align*}
+    を実現する量子回路は
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{q}} & \gate{X} & \ctrl{1} & \gate{X} & \qw \\
+        \lstick{\ket{x}} & {/} \qw  & \gate{O} & {/} \qw  & \qw
+        }
+    \end{align*}
+    となる.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.6}
+    点線の箱へのInputを$\ket{a} \ket{b}$として, 点線の箱のInputへの作用は
+    \begin{align*}
+        \ket{a} \ket{b} \to \ket{a}XHX^{1-a}HX\ket{b}
+         & =
+        \begin{cases}
+            \ket{a} XHXHX \ket{b} \  & (a = 0) \\
+            \ket{A} XHHX \ket{b} \   & (a=1)
+        \end{cases} \\
+         & =
+        \begin{cases}
+            - \ket{a}Z \ket{b} \  & (a = 0) \\
+            \ket{a} \ket{b} \     & (a=1)
+        \end{cases} \\
+         & =
+        \begin{cases}
+            - \ket{a}Z \ket{b} \  & (a = 0, b =0) \\
+            \ket{a}Z \ket{b} \    & (a = 0, b =1) \\
+            \ket{a} \ket{b} \     & (a=1)
+        \end{cases} \\
+         & =
+        I - 2 \ket{00} \bra{00}
+    \end{align*}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex6.7}
+    図6.4の
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{\phi}}         & {/} \qw   & \multigate{1}{O} & {/}\qw & \multigate{1}{O} & {/}\qw & \qw \\
+        \lstick{\ket{0}}            & \qw       & \ghost{O}        & \gate{
+        \begin{pmatrix}
+                1 & 0                \\
+                0 & e^{- i \Delta t}
+            \end{pmatrix}} & \ghost{O} & \qw              & \qw
+        }
+    \end{align*}
+    という回路について考える. ここで, オラクル$O$は,
+    \begin{align*}
+        \ket{\phi} \ket{0} \xrightarrow{O}
+        \begin{cases}
+            \ket{\phi} \ket{1} & (x = \phi)           \\
+            \ket{\phi} \ket{0} & (\mathrm{otherwise}) \\
+        \end{cases}
+    \end{align*}
+    と作用する.
+    すると, 上記の回路の作用は,
+    \begin{align*}
+        \ket{\phi} \ket{0}
+        \xrightarrow{O}
+        \begin{cases}
+            \ket{\phi} \ket{1} & (x = \phi)           \\
+            \ket{\phi} \ket{0} & (\mathrm{otherwise}) \\
+        \end{cases}
+        \to
+        \begin{cases}
+            e^{-i \Delta t}\ket{\phi} \ket{1} & (x = \phi)           \\
+            \ket{\phi} \ket{0}                & (\mathrm{otherwise}) \\
+        \end{cases}
+        \xrightarrow{O}
+        \begin{cases}
+            e^{-i \Delta t}\ket{\phi} \ket{0} & (x = \phi)           \\
+            \ket{\phi} \ket{0}                & (\mathrm{otherwise}) \\
+        \end{cases}
+    \end{align*}
+    第1qビットに注目すると, この回路の作用は$\exp{ \left[- i \ket{x}\bra{x} \Delta t \right]}$.
+    図6.5についても同様.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.8}
+    必要なステップ数は,
+    \begin{align*}
+        \frac{t}{\Delta t} = O \left( \frac{\sqrt{N}}{\Delta t}\right).
+    \end{align*}
+    全ステップ後の累積誤差は,
+    \begin{align*}
+        O \left( \frac{\sqrt{N}}{\Delta t} \Delta t ^r\right).
+    \end{align*}
+    累積誤差が$O(1)$になるには,
+    \begin{align*}
+        1 = O  \left( \frac{\sqrt{N}}{\Delta t} \Delta t^r\right)
+        \to O \left( \Delta t\right) = O \left( N^{ - \frac{1}{2(r-1)}}\right).
+    \end{align*}
+    よって, 高い成功率を得るには,
+    \begin{align*}
+        \frac{t}{\Delta t}
+        = O \left( \frac{\sqrt{N}}{N^{ - \frac{1}{2(r-1)}} }\right)
+        = O \left( N^{\frac{r}{2(r-1)}}\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex6.9}
+    演習\ref{ex4.15}そのまま.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.10}
+    \begin{align*}
+        \frac{t}{\Delta t } = \frac{\pi \sqrt{N}}{2 \Delta t}
+    \end{align*}
+    が$O(\sqrt{N})$かつ整数になるような$\Delta t$を選べば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.11}
+    \begin{align*}
+        H = \sum_{x =1}^m \ket{x}\bra{x} + \ket{\psi}\bra{\psi}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex6.12}
+    (1)\
+    $\ket{\psi}, \ket{x}$で張られる空間の正規直交基底$\ket{x}, \ket{y}$として,
+    $\ket{\psi} = \alpha \ket{x} + \beta \ket{y}$とかく. $\ket{x}, \ket{y}$基底で考える.
+    Hamiltonianは,
+    \begin{align*}
+        H = \ket{x}\bra{\psi} + \ket{\psi} \bra{x}
+        =
+        \alpha I + (\beta X + \alpha Z)
+    \end{align*}
+    となるので, 時間発展op.は,
+    \begin{align*}
+        e^{- i H t}
+         & =e^{- i \alpha t}e^{- i (\beta X + \alpha Z) t}                            \\
+         & = e^{- i \alpha t} \left[ I \cos t - i (\beta X + \alpha Z) \sin t\right].
+    \end{align*}
+    よって,
+    \begin{align*}
+        e^{- i H t} \ket{ \psi}
+        =
+        e^{- i \alpha t} \left[ \cos t \ket{\psi} - i  \sin t \ket{x}\right]
+    \end{align*}
+    となることから, $t = 0$で$\ket{\psi}$だった系は$t = \pi$で$\ket{x}$に時間発展する.
+    \par
+    (2)\
+\end{ex}
+
+\begin{ex}
+    \label{ex6.13}
+    $M$の推定値
+    \begin{align*}
+        S = \frac{N}{k} \sum_{j=1}^k X_j
+    \end{align*}
+    に対して,
+    \begin{align*}
+        E[S]   & = \frac{N}{k}\sum_{j=1}^k E[X_j] = \frac{N}{k}\sum_{j=1}^k \frac{M}{N} = M \\
+        E[S^2] & = \frac{N^2}{k^2} \sum_{j, l=1}^k E[ X_j X_l]
+        =\frac{N^2}{k^2}\left( \sum_{j=1}^k E[ X_j^2] +  \sum_{j\neq l} E[X_j] E[X_k]\right)
+        =\frac{N^2}{k^2} \left( k \frac{M}{N} + k(k-1) \frac{M}{N} \frac{M}{N}\right)
+        = M^2 + \frac{M(N-M)}{k}
+    \end{align*}
+    なので, $S$の標準偏差は,
+    \begin{align*}
+        \Delta S = \sqrt{E[S^2] - E[S] } = \sqrt{\frac{M(N-M)}{k}}.
+    \end{align*}
+    \par
+    精度$\sqrt{M}$以内で$M$を正確に推定する確率を$p$にするには, $p$に応じて$N$に依らない定数$\alpha$をとってきて,
+    \begin{align*}
+        \alpha \Delta S < \sqrt{M} \to k \geq \alpha^2(N-M)
+    \end{align*}
+    なる$k$を選べば良い. よって, $k = \Omega({N})$が示された.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.14}
+\end{ex}
+
+\begin{ex}
+    \label{ex6.15}
+    Cauchy-Schwarzの不等式より,
+    \begin{align*}
+        \left( \sum_x \left| \braket{\psi|x} \right| \right)^2
+        \leq
+        \left( \sum_x  \left|  \braket{\psi|x} \right|^2 \right)\left(\sum_x  1\right)
+        = N
+    \end{align*}
+    であることを用いて,
+    \begin{align*}
+        \sum_x \left\| \psi - x \right\|^2
+         & =
+        \sum_x \left\| \psi \right\|^2 +\left\| x \right\|^2 - 2 \Re \braket{\psi|x} \\
+         & =
+        2N - 2\sum_x \Re \braket{\psi|x}
+        \\
+         & \geq
+        2N - 2\sum_x \left| \braket{\psi|x} \right|
+        \\
+         & \geq
+        2N - 2\sqrt{N}.
+    \end{align*}
+\end{ex}
+\begin{ex}
+    \label{ex6.16}
+    教科書P133-P134の議論に手を加える.
+    \par
+    まず,
+    \begin{align*}
+        D_k
+        = \sum_x \left\|  \psi_k^x - \psi_k \right\|
+        \leq 4k^2
+    \end{align*}
+    であることは教科書で示した通り.
+    \par
+    $x$の可能な値に対して一様な平均をとったときの, 誤り確率が1/2以下になる;
+    \begin{align*}
+        \frac{1}{N} \sum_x \left| \braket{x|\psi_k^x} \right|^2 \leq \frac{1}{2}
+    \end{align*}
+    と仮定する. まず, $\ket{x}$の位相をうまく取り替えることで, $\braket{\psi_k^x|x} = \left| \braket{\psi_k^x|x} \right|$とできることを用いて,
+    \begin{align*}
+        E_k
+         & = \sum_x \left\| \psi_k^x - x \right\|^2
+        \\
+         & = 2N - 2 \sum_x \left| \braket{\psi_k^x|x} \right|
+        \\
+         &
+        \leq
+        2N - 2 \sqrt{\sum_x \left| \braket{\psi_k^x|x} \right|^2}
+        \leq
+        2N -  \sqrt{2N}.
+    \end{align*}
+    最後の不等号で, 仮定を用いた.
+    ここで, 演習\ref{ex6.15}の結果より,
+    \begin{align*}
+        F_k = \sum_x \left\| \psi - x \right\|^2
+        \geq 2N - 2\sqrt{N}.
+    \end{align*}
+    であるから, (6.51)式は, $N \neq 2$であれば,
+    \begin{align*}
+        D_k \geq \left( \sqrt{E_k} - \sqrt{F_k} \right)^2
+         & =
+        \left( \sqrt{2N -  \sqrt{2N}} - \sqrt{2N - 2\sqrt{N}} \right)^2
+        \\
+         & =
+        N \left( \sqrt{2 -  \sqrt{\frac{2}{N}}} - \sqrt{2 - \frac{2}{\sqrt{N}}} \right)^2
+        \geq cN
+    \end{align*}
+    となる正数$c$が存在する.
+    \par
+    以上より,
+    \begin{align*}
+        cN \leq D_k \leq 4k^2 \to k \geq \sqrt{\frac{cN}{4}}.
+    \end{align*}
+    つまり, 探索サイズ$N(\neq2)$の問題にを解くにあたり, 探索空間の元$x$に対して一様な平均をとったときの誤り確率が1/2以下になることを保証するならば, Oracleの呼び出し回数$k$は$\Omega(N)$.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.17}
+    https://arxiv.org/abs/quant-ph/9605034
+\end{ex}
+\begin{ex}
+    \label{ex6.18}
+    最小次数$l$のBoole関数$F({X_1, \dots, X_N})$の一般形は, $X_k^2 = X_k$なことに注意して,
+    \begin{align*}
+        F({X_1, \dots, X_N}) = \sum_{i = 0}^l \sum_{j=1}^{_N C _i}  \prod_{k=1}^i \alpha_{ij} X_{\beta_{ijk}}
+    \end{align*}
+    とかける. ここで, $\alpha_j$は$F({X_1, \dots, X_N})$を決めるための定数で, $\beta_{ijk}$は, 1から$n$までの数から$i$個選ぶことで得られる集合を, 全てかき集めた集合族の$j$番目の要素の小さい方から$k$番目の要素である. $F({X_1, \dots, X_N})$を一意に定めるために$2^N$本の条件式を用いて,
+    $\sum_{i=0}^{l} {}_N C_i \ (\leq 2^N)$
+    個の$\alpha_{ij}$を決める. 条件式の数の方が, 決めるべき定数$\alpha_{ij}$の総数より多いので, $\alpha_{ij}$は与えられた$F({X_1, \dots, X_N})$に対して一意に決まる.
+\end{ex}
+
+\begin{ex}
+    \label{ex6.19}
+    \begin{align*}
+        P(X) = 1 - (1 - X_0) \dots (1-X_{N-1})
+    \end{align*}
+    は, $X_0, \dots X_{N-1}$の全てが0の時のみ0になる. つまり, $P(X)$はOR.
+\end{ex}

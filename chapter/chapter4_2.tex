@@ -1,0 +1,376 @@
+\begin{ex}
+    \label{ex4.37}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex4.38}
+
+\end{ex}
+
+\begin{ex}
+    \label{ex4.39}
+    $010 \to 110 \to 111$
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \targ      & \ctrl{1}         & \targ      & \qw \\
+        \lstick{} & \ctrl{-1}  & \ctrl{1}         & \ctrl{-01} & \qw \\
+        \lstick{} & \ctrlo{-1} & \gate{\tilde{U}} & \ctrlo{-1} & \qw \\
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.40}
+    $\bm{n} = (0,0,1)$のときだけ示せばよい.
+    \begin{align*}
+        E \left( R_{\bm{n}}(\alpha) , R_{\bm{n}}(\alpha + \beta)\right)
+         & =
+        \left| R_{\bm{n}}(\alpha) - R_{\bm{n}}(\alpha + \beta)\right| \\
+         & =
+        \left|
+        e^{\frac{-i\alpha}{2}}
+        \begin{pmatrix}
+            1 - e^{\frac{i \beta}{2}} & 0                            \\
+            0                         & 1 - e^{{-\frac{i \beta}{2}}}
+        \end{pmatrix}
+        \ket{\psi}
+        \right|                                                       \\
+         & =
+        \left|
+        \left(1 - e^{\frac{i \beta}{2}}\right) \left( 1 - e^{{-\frac{i \beta}{2}}}\right)\ket{\psi}
+        \right|                                                       \\
+         & =
+        \left|
+        1 - e^{\frac{i \beta}{2}}
+        \right|.
+    \end{align*}
+    よって,任意の$\epsilon$
+    に対して,
+    \begin{align*}
+        \left| 1 - e^{i \frac{ \theta n  - \alpha}{2}} \right| < \frac{\epsilon}{3}
+    \end{align*}
+    を満たす整数$n$をとってくれば,
+    \begin{align*}
+        E \left( R_{\bm{n}}(\alpha) , R_{\bm{n}}(\theta)^n \right)
+        = E \left( R_{\bm{n}}(\alpha) , R_{\bm{n}}(n\theta) \right)
+        = E \left( R_{\bm{n}}(\alpha) , R_{\bm{n}}(\alpha + n \theta - \alpha) \right)
+        = \left| 1 - e^{i \frac{ \theta n  - \alpha}{2}} \right| < \frac{\epsilon}{3}.
+    \end{align*}
+    このような整数$n$がとってこれることを以下に示す.
+    ある任意の角度$\phi \in [0,2\pi)$を精度$\delta$で近似することを考える.
+    \begin{align*}
+        \theta_k = k \theta \ (\mathrm{mod} \ 2 \pi)
+    \end{align*}
+    とかき, 以下では角度についての等号は, $\mathrm{mod} \ 2 \pi$で考える. 任意の$\delta$に対して, $2 \pi / N < \delta$を満たす$N$が存在する.
+    すると,
+    \begin{align*}
+        \left| \theta_{k-j} \right| = \left| \theta_k - \theta_j \right| \leq \frac{2 \pi}{N} < \delta
+    \end{align*}
+    を満たす$k,j = 1, 2, ... N, \ k > j$が存在する. ここで, $\theta$が無理数なので, $\theta_{k-j} = (k-j) \theta \neq 0$であるから, 任意の異なる$l, l'$に対して,
+    \begin{align*}
+        \left| \theta_{l(k-j)} - \theta_{l'(k-j)} \right| < \delta
+    \end{align*}
+    とできる. したがって, 適当な$l$を選んでやれば, 任意の角度$\phi$を, $\theta_{l(k-j)}$とすることで, 任意の精度$\delta$で近似可能. この事実を用いてやれば, 適当な$n$を選ぶことで,
+    \begin{align*}
+        \frac{ \theta n  - \alpha}{2}
+    \end{align*}
+    を任意の精度で$0$に近似できる. つまり, 任意の$\epsilon$に対して,
+    \begin{align*}
+        \left| 1 - e^{i \frac{ \theta n  - \alpha}{2}} \right| < \frac{\epsilon}{3}
+    \end{align*}
+    を満たす整数$n$が存在する.
+\end{ex}
+
+
+\begin{ex}
+
+    \label{ex4.41}
+    まず,
+    \begin{align*}
+        \cos \alpha = \frac{3}{\sqrt{10}}, \ \sin \alpha = - \frac{3}{\sqrt{10}}
+    \end{align*}
+    なる$\alpha$を定義すると,
+    \begin{align*}
+        \frac{\theta}{2 } = \alpha + \frac{\pi}{4}
+    \end{align*}
+    が成り立ち,
+    \begin{align*}
+        XSX =
+        \begin{pmatrix}
+            i & 0 \\
+            0 & 1
+        \end{pmatrix}
+    \end{align*}
+    なので,
+    \begin{align*}
+        \frac{1}{4}S - \frac{1}{4}XSX = \frac{1-i}{4} Z
+    \end{align*}
+    や
+    \begin{align*}
+        \frac{3}{4}S +\frac{1}{4} XSX
+         & =
+        \frac{\sqrt{10}}{4}
+        \begin{pmatrix}
+            \frac{3}{\sqrt{10}} + i\frac{1}{\sqrt{10}} & 0                                          \\
+            0                                          & \frac{1}{\sqrt{10}} + i\frac{3}{\sqrt{10}}
+        \end{pmatrix}
+        =
+        \frac{\sqrt{10}}{4}
+        \begin{pmatrix}
+            \cos \alpha - i \sin \alpha & 0                            \\
+            0                           & - \sin\alpha + i \cos \alpha
+        \end{pmatrix}
+        \\
+         & =
+        \frac{\sqrt{10}}{4}
+        \begin{pmatrix}
+            e^{ - i \alpha} & 0                               \\
+            0               & e^{i ( \frac{\pi}{2} + \alpha)}
+        \end{pmatrix}
+        =
+        \frac{\sqrt{10}}{4} e^{i \frac{\pi}{4}}
+        \begin{pmatrix}
+            e^{- i ( \alpha + \frac{\pi}{4})} & 0                              \\
+            0                                 & e^{i (\alpha + \frac{\pi}{4})}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            e^{- i \frac{\theta}{2}} & 0                      \\
+            0                        & e^{i \frac{\theta}{2}}
+        \end{pmatrix}
+    \end{align*}
+    が成り立つ.
+    \par
+    問題の量子回路を$\ket{0} \ket{0} \ket{\psi}$に作用させると,
+    \begin{align*}
+        \ket{0} \ket{0} \ket{\psi}
+         & \rightarrow
+        \frac{1}{2}
+        \left(
+        \ket{0} \ket{0} \ket{\psi} +\ket{0} \ket{1} \ket{\psi}
+        +\ket{1} \ket{0} \ket{\psi}  + \ket{1} \ket{1} \ket{\psi}
+        \right)
+        \\
+         & \rightarrow
+        \frac{1}{2}
+        \left(
+        \ket{0} \ket{0} S\ket{\psi} +\ket{0} \ket{1} S\ket{\psi}
+        +\ket{1} \ket{0} S\ket{\psi}  + \ket{1} \ket{1} XSX\ket{\psi}
+        \right)
+        \\
+         & \rightarrow
+        \frac{3\ket{0} \ket{0} +\ket{0} \ket{1}
+            +\ket{1} \ket{0} - \ket{1} \ket{1} }{4} S\ket{\psi}
+        +
+        \frac{\ket{0} \ket{0} -\ket{0} \ket{1}
+            -\ket{1} \ket{0} + \ket{1} \ket{1} }{4} XSX\ket{\psi}
+        \\
+         & =
+        \ket{0} \ket{0} \left(\frac{3}{4}S +\frac{1}{4} XSX  \right)\ket{\psi}
+        +
+        \left(\ket{0}\ket{1} + \ket{1}\ket{0} - \ket{1} \ket{1}\right)
+        \left(\frac{1}{4}S - \frac{1}{4}XSX\right)\ket{\psi}
+        \\
+         & =
+        \frac{\sqrt{10}}{4} e^{i \frac{\pi}{4}}\ket{0} \ket{0} R_Z(\theta) \ket{\psi}
+        +
+        \frac{1-i}{4}\left(\ket{0}\ket{1} + \ket{1}\ket{0} - \ket{1} \ket{1}\right)
+        Z\ket{\psi}
+    \end{align*}
+    なので, 第一qビットと第二qビットが共に0になるとき第三qビットには$R_Z(\theta)$を適用し, そうでなければ$Z$を作用させることがわかった. 第一qビットと第二qビットが共に0になる確率は$10/16 = 5/8$である.
+    \par
+    第一qビットと第二qビットを測定して, 共に0でない場合の終状態は, 規格化定数をのぞいて,
+    \begin{align*}
+        \left(\ket{0}\ket{1} + \ket{1}\ket{0} - \ket{1} \ket{1}\right)
+        Z\ket{\psi}
+    \end{align*}
+    なので, 第三qビットに$Z$を作用させることで第三qビットを$\ket{\psi}$というように始状態に戻せる. こうして得た第三qビットの$\ket{\psi}$を入力として, 再び問題の量子回路に作用させる. ここまでで,
+    \begin{align*}
+        \frac{5}{8} + \left(1 - \frac{5}{8}\right) \frac{5}{8}
+    \end{align*}
+    の確率で,$R_Z(\theta)$を適用できている. 同じことを繰り返せば,
+    \begin{align*}
+        \frac{5}{8} + \left(1 - \frac{5}{8}\right) \frac{5}{8} +\left(1 - \frac{5}{8}\right)\left(1 - \frac{5}{8}\right)\frac{5}{8} + \dots = 1
+    \end{align*}
+    の確率で,$R_Z(\theta)$を適用させることができる.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.42}
+    (1) \
+    \begin{align*}
+        e^{i \theta} = \frac{3 + 4i}{5}
+    \end{align*}
+    なる$\theta$を考える.
+    $\theta$が$2\pi$の有理数倍, つまり$\theta =2 \pi p / q\ (p, q は整数)$であるとする. 正の整数$m$を
+    $m = |q|$とすると,
+    \begin{align*}
+        e^{ i m \theta} = e^{2 \pi |p|} = 1 \to (3+4i)^m = 5^m.
+    \end{align*}
+    \par
+    (2)\
+    帰納法を用いて, 任意の自然数$m$に対して,
+    \begin{align*}
+        (3+4i)^m  = 3 + 4i \ (\mathrm{mod}\ 5)
+    \end{align*}
+    であることが示せる. したがって,
+    \begin{align*}
+        (3+4i)^m  = 0\ (\mathrm{mod}\ 5)
+    \end{align*}
+    なる$m$は存在せず,
+    \begin{align*}
+        (3+4i)^m  = 5^m\ (\mathrm{mod}\ 5)
+    \end{align*}
+    なる$m$も存在しない. ゆえに, (1)と合わせて, $\theta$は$2 \pi$の無理数倍.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.43}
+    演習\ref{ex4.41}の回路$U$とする. $U$は$S,H$,CNOT, Toffoliから成る.
+    演習\ref{ex4.41}では, $Z = S^2$と$U$, つまり$S,H$,CNOT, Toffoliで$R_z(\theta)$を作れることを述べた.
+    (4.76)より, $\theta$が$2\pi$の無理数倍なので, 任意の$\epsilon > 0$ , $\alpha \in [0,2\pi)$に対して,
+    \begin{align*}
+        E \left(R_z(\alpha) , R_z(\theta)^n \right) < \epsilon
+    \end{align*}
+    成る$n$が存在する.
+    さらに, $HR_z(\theta)H = R_x(\theta)$なので, 任意の$\epsilon > 0$ , $\alpha \in [0,2\pi)$に対して,
+    \begin{align*}
+        E \left(R_x(\alpha) , R_x(\theta)^m \right) < \epsilon
+    \end{align*}
+    成る$m$も存在する. ここで, 演習\ref{ex4.10}より, 任意の単一qビットに作用するユニタリゲート$V$は,
+    \begin{align*}
+        V = R_z(\beta) R_x(\gamma) R_z(\delta)
+    \end{align*}
+    とかけるので,任意の$\epsilon>0$に対して,
+    \begin{align*}
+        E\left(V, R_z(\theta)^{n_1}R_x(\theta)^{m_1}R_z(\theta)^{n_2} \right)
+        \leq
+        E\left(R_z(\beta), R_z(\theta)^{n_1}\right)
+        +
+        E\left(R_x(\gamma), R_x(\theta)^{m_1}\right)
+        +
+        E\left(R_z(\delta), R_z(\theta)^{n_2}\right) < \epsilon
+    \end{align*}
+    を満たす自然数$n_1,n_2,m_1$が存在する. ここで(4.63)を用いた.
+    以上より,任意の単一qビットに作用するユニタリゲート$V$が任意の精度$\epsilon$で, $R_z(\theta), R_x(\theta)$だけ, つまり,\ $S,H$,CNOT, Toffoliだけで近似できることが示された.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex4.44}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.45}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.46}
+    $2^n \times 2^n$の複素行列を作るのに必要な独立な実数の個数は$2 \times 4^n$.
+    演習\ref{ex4.24}より, $\rho$はHermite;
+    \begin{align*}
+        \rho = \rho^\dagger
+    \end{align*}
+    で, この式を$\rho$の各成分と$\rho^\dagger$の各成分が等しいという条件式と読み換えると, その条件式の本数は$4^n$. このことと,  $\tr\rho = 1$なことから$\rho$を作るのに必要な独立な実数の個数は,
+    \begin{align*}
+        2 \times 4^n - 4^n - 1 = 4^n - 1.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.47}
+    グラフを書けば,
+    \begin{align*}
+        \sum_{n=0}^\infty \sum_{k=0}^{n} f(k, n-k)=  \sum_{i=0}^\infty \sum_{j=0}^{\infty} f(i,j)
+    \end{align*}
+    であることがわかる. これを用いて,
+    $[A,B] = 0$のとき,
+    \begin{align*}
+        e^{A+B} = \sum_{n=1}^\infty \frac{1}{n !}\left( A+B \right)^n
+        = \sum_{n=0}^\infty \sum_{k=0}^{n} \frac{1}{k! (n-k)!} A^k B^{n-k}
+        = \sum_{i=0}^\infty \sum_{j=0}^{\infty} \frac{1}{i! j!} A^i B^{j}
+        = e^A e^B.
+    \end{align*}
+    これを繰り返し用いて問題の等式が示せる.
+\end{ex}
+
+\begin{ex}
+    \label{ex4.48}
+    \begin{align*}
+        L = O \left(
+        \begin{pmatrix}
+            n \\ c
+        \end{pmatrix}
+        \right) = O(n^c)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.49}
+    \begin{align*}
+        e^{(A+B)\Delta t}
+         & = 1 + \left(A + B\right) \Delta t + \frac{AA + AB + BA + BB}{2}\Delta t^2 + O\left( \Delta t^3\right)                                                                          \\
+        e^{A \Delta t} e^{B \Delta t} e^{- \frac{1}{2} [A,B] \Delta t^2}
+         & = \left( 1 + A \Delta t + \frac{A^2 \Delta t^2}{2}\right) \left( 1 + B \Delta t+ \frac{B^2 \Delta t^2}{2}\right)\left( 1 - \frac{1}{2} [A,B] \Delta t^2\right) + O(\Delta t^3) \\
+         & = 1 + \left(A + B\right) \Delta t +\frac{AA + AB + BA + BB}{2}\Delta t^2 + O\left( \Delta t^3\right)                                                                           \\
+        e^{ \frac{A \Delta t}{2} } e^{B \Delta t}e^{ \frac{A \Delta t}{2} }
+         & =
+        \left( 1 + \frac{A \Delta t}{2} + \frac{A^2 \Delta t^2}{4}\right)
+        \left( 1 + B \Delta t + \frac{B^2 \Delta t^2}{2}\right)
+        \left( 1 + \frac{A \Delta t}{2} + \frac{A^2 \Delta t^2}{4}\right)                                       + O\left( \Delta t^3\right)                                               \\
+         & = 1 + \left(A + B\right) \Delta t + \frac{AA + AB + BA + BB}{2}\Delta t^2 + O\left( \Delta t^3\right)
+    \end{align*}
+    なので,
+    \begin{align*}
+        e^{(A+B)\Delta t} =e^{A \Delta t} e^{B \Delta t} e^{- \frac{1}{2} [A,B] \Delta t^2} + O\left( \Delta t^3\right) = e^{ \frac{A \Delta t}{2} } e^{B \Delta t}e^{ \frac{A \Delta t}{2} } + O\left( \Delta t^3\right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex4.50}
+    (1) \
+    式(4.104)を繰り返し用いる.
+    \par
+    (2) \
+    (1)と式(4.63)より,
+    \begin{align*}
+        E \left( U^m_{\Delta t} , e^{-2miH\Delta t} \right)
+        \leq
+        mE \left( U_{\Delta t} , e^{-2iH\Delta t} \right)
+        =
+        m \max_{\ket{\psi}} \left\| U_{\Delta t}  -  e^{-2iH\Delta t} \ket{\psi} \right\|
+        =
+        m O\left( \Delta t^3\right) \max_{\ket{\psi}} \left\| O\ket{\psi} \right\|
+        \leq
+        m \alpha \Delta t^3.
+    \end{align*}
+    ここで, $O$はあるオペレータ.
+\end{ex}
+
+\begin{ex}
+    \label{4.51}
+    \begin{align*}
+        X & = HZH                           \\
+        e^{- i \theta X } Z e^{ i \theta X }
+          & = \cos \theta Z - \sin \theta Y
+        \to Y = e^{ i \frac{\pi}{2} X } Z e^{ -i \frac{\pi}{2}X }
+    \end{align*}
+    であるので,
+    Hamiltonianは,
+    \begin{align*}
+        H =
+        \left(H \otimes R_x\left(-\frac{\pi}{2}\right) \otimes I \right)
+        \left(Z \otimes Z\otimes Z \right)
+        \left(H \otimes R_x\left(\frac{\pi}{2}\right) \otimes I \right)
+    \end{align*}
+    と書き換えられる. これをシミュレートする回路は以下のようになる.
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{}        & \gate{H}                  & \ctrl{3} & \qw      & \qw      & \qw                      & \qw      & \qw      & \ctrl{3} & \gate{H}                   & \qw                    \\
+        \lstick{}        & \gate{R_x(\frac{\pi}{2})} & \qw      & \ctrl{2} & \qw      & \qw                      & \qw      & \ctrl{2} & \qw      & \gate{R_x(-\frac{\pi}{2})} & \qw                    \\
+        \lstick{}        & \qw                       & \qw      & \qw      & \ctrl{1} & \qw                      & \ctrl{1} & \qw      & \qw      & \qw                        & \qw                    \\
+        \lstick{\ket{0}} & \qw                       & \targ    & \targ    & \targ    & \gate{e^{- i Z\Delta t}} & \targ    & \targ    & \targ    & \qw                        & \qw & \rstick{\ket{0}} \\
+        }
+    \end{align*}
+\end{ex}

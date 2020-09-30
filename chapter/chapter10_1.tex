@@ -1,0 +1,738 @@
+\chapter{量子誤り訂正}
+$F_2$は集合${0,1}$に通常の2進法の加法と乗法を入れた体.
+\begin{ex}
+    \label{ex10.1}
+    明らか.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex10.2}
+    \begin{align*}
+        \qo(\rho)
+         & =
+        \left( 1 - 2p\right) \rho + 2 p P_{+} \rho P_{+} + 2p P_{-} \rho P_{-} \\
+         & =
+        \left( 1 - 2p\right) \rho + p\left( \ket{0}\bra{0} + \ket{1}\bra{1} \right)\rho
+        \left( \ket{0}\bra{0} + \ket{1}\bra{1} \right)
+        + p \left( \ket{0}\bra{1} +  \ket{1}\bra{0} \right)\rho
+        \left( \ket{0}\bra{1} + \ket{1}\bra{0}\right)                          \\
+         & =
+        \left( 1 - 2p\right) \rho  + P \rho + p X \rho X
+        \\
+         & =
+        \left( 1 - p\right) \rho  + P \rho + p X \rho X.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.3}
+    第3qubitにビット反転が生じた後の状態, $\ket{\psi}=a\ket{001}+b\ket{110}$として,
+    $Z_1 Z_2$, $Z_2 Z_3$を測定すると,
+    \begin{align*}
+        Z_1 Z_2 \ket{\psi} = \ket{\psi} \\
+        Z_2 Z_3 \ket{\psi} = - \ket{\psi}
+    \end{align*}
+    より, 測定値はぞれぞれ$(1, -1)$, 測定後の状態$\ket{\psi}$となる. 同様に, 第1qubit, 第2qubitにビット反転が生じた場合, $Z_1 Z_2$,$Z_2 Z_3$の測定値は, それぞれ$(-1, 1)$, $(-1, -1)$. また, どのqubitにもビット反転が起らないのならば, $Z_1 Z_2$,$Z_2 Z_3$の測定値は, それぞれ$(1, 1)$.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.4}
+    (1)\
+    $P_0, P_1$ に対応する測定結果が得られればビット反転していない, $P_{2j}, P_{2j+1}$に対応する測定結果が得られれば第$j$ビットが反転した, と診断できる.
+    (2)\
+    計算基底でないと, error detection により量子状態を壊してしまう.
+    (3)\
+    ビット反転が単一qubitに起こる確率を$p$とする. 始状態が純粋状態$\ket{\psi}$として, 誤り訂正後の状態$\rho$は, (10.11)式と同様に,
+    \begin{align*}
+        \rho = \left[ (1-p)^3 + 3p(1-p)^2\right]\ket{\psi}\bra{\psi} + \left(\mathrm{positive \ operetor}\right)
+    \end{align*}
+    であり, (9.121)より最小忠実度$F$は純粋状態について考えれば十分なことから,
+    \begin{align*}
+        F = \sqrt{\braket{\psi| \rho | \psi}} \geq \sqrt{(1-p)^3 + 3p(1-p)^2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.5}
+    $X_{1:6} \equiv X_1 X_2 ... X_6, X_{4:9} \equiv X_4 X_5 ... X_9$として,
+    \begin{itemize}
+        \item 位相反転しない場合
+              \begin{align*}
+                  X_{1:6}\frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} & = \frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} \\
+                  X_{4:9}\frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} & = \frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} \\
+              \end{align*}
+        \item 第1qubitが位相反転した場合
+              \begin{align*}
+                  X_{1:6}\frac{(\ket{000}-\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} & = -\frac{(\ket{000}-\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} \\
+                  X_{4:9}\frac{(\ket{000}-\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} & = \frac{(\ket{000}-\ket{111})(\ket{000}+\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}}  \\
+              \end{align*}
+        \item 第2qubitが位相反転した場合
+              \begin{align*}
+                  X_{1:6}\frac{(\ket{000}+\ket{111})(\ket{000}-\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} & = -\frac{(\ket{000}+\ket{111})(\ket{000}-\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} \\
+                  X_{4:9}\frac{(\ket{000}+\ket{111})(\ket{000}-\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} & = -\frac{(\ket{000}+\ket{111})(\ket{000}-\ket{111})(\ket{000}+\ket{111})}{2\sqrt{2}} \\
+              \end{align*}
+        \item 第3qubitが位相反転した場合
+              \begin{align*}
+                  X_{1:6}\frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}-\ket{111})}{2\sqrt{2}} & = \frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}-\ket{111})}{2\sqrt{2}}  \\
+                  X_{4:9}\frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}-\ket{111})}{2\sqrt{2}} & = -\frac{(\ket{000}+\ket{111})(\ket{000}+\ket{111})(\ket{000}-\ket{111})}{2\sqrt{2}} \\
+              \end{align*}
+    \end{itemize}
+    となり, シンドローム測定としての役割を果たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.6}
+    \begin{align*}
+        Z_1 Z_2 Z_3 \frac{\ket{000}-\ket{111}}{\sqrt{2}} = \frac{\ket{000} + \ket{111}}{\sqrt{2}}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.7}
+    \begin{align*}
+        \alpha_{00} = (1-p)^3, \alpha_{11} = \alpha_{22} = \alpha_{33} = p(1-p)^2, \alpha_{ij} = 0 \ (i \neq j)
+    \end{align*}
+    として,
+    \begin{align*}
+        P E_i^\dagger E_j P = \alpha_{ij} P
+    \end{align*}
+    を満たすので, 3qubitビット反転符号は, 誤り訂正可能.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.8}
+    計算すると,
+    \begin{align*}
+        \alpha_{ij} = \delta_{ij}
+    \end{align*}
+    となり, $\alpha_{ij}$はHermiteなので, 量子誤り訂正条件を満たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.9}
+    $I = E_1, P_i = E_{2i}, Q_i = E_{2i+1}$として, 計算すると,
+    \begin{align*}
+        \alpha_{ij} =
+        \begin{pmatrix}
+            1   & 1/2 & 1/2 & 1/2 & 1/2 & 1/2 & 1/2 \\
+            1/2 & 1/2 & 0   & 1/4 & 1/4 & 1/4 & 1/4 \\
+            1/2 & 0   & 1/2 & 1/4 & 1/4 & 1/4 & 1/4 \\
+            1/2 & 1/4 & 1/4 & 1/2 & 0   & 1/4 & 1/4 \\
+            1/2 & 1/4 & 1/4 & 0   & 1/2 & 1/4 & 1/4 \\
+            1/2 & 1/4 & 1/4 & 1/4 & 1/4 & 1/2 & 0   \\
+            1/2 & 1/4 & 1/4 & 1/4 & 1/4 & 0   & 1/2 \\
+        \end{pmatrix}
+    \end{align*}
+    となり, $\alpha_{ij}$はHermiteなので, 量子誤り訂正条件を満たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.10}
+    定理10.1の証明と全く同様にやれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.11}
+    分極解消チャンネルで$p=1$として, その演算要素は,
+    \begin{align*}
+        \left\{ \frac{1}{2} I, \frac{1}{2}X, \frac{1}{2}Y, \frac{1}{2}Z\right\}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.12}
+    分極解消チャンネル
+    \begin{align*}
+        \qo\left( \rho\right) =
+        \left(1-p\right) \rho
+        +
+        \frac{p}{3}
+        \left(
+        X \rho X + Y \rho Y + Z \rho Z
+        \right)
+    \end{align*}
+    に対して, $\braket{0|X|0} = \braket{0|Y|0} = 0$, $\braket{0|Z|0} = 1$を用いて,
+    \begin{align*}
+        F\left( \ket{0}, \qo\left( \ket{0}\bra{0}\right)\right)
+        =
+        \sqrt{\braket{0 | \qo(\rho)|0}}
+        =
+        \sqrt{1 - \frac{2p}{3}}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.13}
+    規格化された純粋状態$\ket{\psi} = a \ket{0} + b \ket{1}$に対して, 演習\ref{ex8.22}より,
+    \begin{align*}
+        \qo_{AD}\left( \ket{\psi}\bra{\psi} \right)
+        =
+        \begin{pmatrix}
+            1- |b|^2(1 - \gamma) & ab^* \sqrt{1-\gamma}       \\
+            a^*b\sqrt{1- \gamma} & |b|^2\left(1-\gamma\right)
+        \end{pmatrix}
+    \end{align*}
+    なので,
+    \begin{align*}
+        F \left( \ket{\psi}\bra{\psi},  \qo_{AD}\left( \ket{\psi}\bra{\psi} \right)\right)
+         & =
+        \sqrt{\braket{\psi| \qo_{AD}\left( \ket{\psi}\bra{\psi} \right) | \psi}}                                             \\
+         & =
+        \sqrt{
+            |a|^4 - |a|^2 |b|^2 \left( 1 - \gamma\right) + 2 |a|^2 |b|^2 \sqrt{1 - \gamma} + |b|^4 \left( 1 - \gamma\right)} \\
+         & =
+        \sqrt{
+            2\left( 1 - \gamma - \sqrt{1 - \gamma} \right) |a|^4 + \left( 1 - 3 (1 - \gamma) + 2 \sqrt{1 - \gamma}\right) |a|^2 + 1 - \gamma}.
+    \end{align*}
+    $\left( 1 - \gamma - \sqrt{1 - \gamma} \right) \leq 0$より, $F \left( \ket{\psi}\bra{\psi},  \qo_{AD}\left( \ket{\psi}\bra{\psi} \right)\right)$の$0 \leq |a|^2 \leq 1$における最小値の候補は, $|a|^2 = 0, 1$の時に絞られる. 実際最小値は, $|a|^2 = 0$のときの$\sqrt{1 - \gamma}$. (9.121)式にあるように, 最小忠実度を考えるのには, 純粋状態を考えれば十分なので，振幅ダンピングの最小忠実度は$\sqrt{1-\gamma}$.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.14}
+    \begin{align*}
+        G =
+        \begin{pmatrix}
+            I_{k \times k} \\
+            I_{k \times k} \\
+            \vdots         \\
+            I_{k \times k}
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.15}
+    生成行列$G = \left( \bm{g}_1, \bm{g}_2, ... ,  \bm{g}_k\right), G' = \left( \bm{g}_1 +
+        \bm{g}_2, \bm{g}_2, ... ,  \bm{g}_k\right)$を用いて, $\bm{x} = \left( x_1 , ..., x_k\right)^\top$を符号化することを考えると,
+    \begin{align*}
+        G \bm{x}  & = \sum_{i=1}^k x_i \bm{g}_i                                    \\
+        G' \bm{x} & = \left(x_1 + x_2\right) \bm{g}_1 + \sum_{i=2}^k x_i \bm{g}_i.
+    \end{align*}
+    よって,
+    \begin{align*}
+        \left\{ G \bm{x} | \bm{x} \in F_2^k \right\} = \left\{ G' \bm{x} | \bm{x} \in F_2^k \right\}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.16}
+    パリティ検査行列
+    \begin{align*}
+        H =
+        \begin{pmatrix}
+            \bm{y}_1^\top     \\
+            \bm{y}_1^\top     \\
+            \vdots            \\
+            \bm{y}_{n-k}^\top \\
+        \end{pmatrix},\
+        H' =
+        \begin{pmatrix}
+            \bm{y}_1^\top                 \\
+            \bm{y}_1^\top + \bm{y}_2^\top \\
+            \vdots                        \\
+            \bm{y}_{n-k}^\top             \\
+        \end{pmatrix}
+    \end{align*}
+    として,
+    \begin{align*}
+        \Ker{H} = \left\{ \bm{x} \in F_2^k | \bm{y}_i^\top \bm{x} = 0 \ \left( i = 1, 2, ... , n-k\right)\right\} = \Ker{H'}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.17}
+    $G$の列ベクトルに直交する線型独立なベクトル$\bm{y}_i$を4本取ってきて, $\bm{y}_i$を転置した横ベクトルたちを行ベクトルとして持つのが, パリティ検査行列$H$. 例えば次のようなものが考えられる.
+    \begin{align*}
+        H =
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 & 0 & 0 \\
+            0 & 1 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 & 1 & 0 \\
+            0 & 0 & 0 & 0 & 1 & 1 \\
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.18}
+    $G$の各列$\bm{g}_i$, $H$の各行$\bm{h}_i$として,
+    \begin{align*}
+        \left( HG\right)_{ij} = \bm{h}_i^\top \bm{g}_j = 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.19}
+    パリティ検査行列の標準形$H = \left( A | I_{n-k}\right)$の$A$の各列
+    \begin{align*}
+        \bm{a}_i =
+        \begin{pmatrix}
+            a_{1,i} \\
+            a_{2,i} \\
+            \vdots  \\
+            a_{n-k, i}
+        \end{pmatrix}
+    \end{align*}
+    は互いに線型独立である. したがって, $\Ker{H}$の基底$\left\{ \bm{g}_j \right\}_{j=1}^k$として, 第$j$成分だけが1でそれ以外の成分が0のベクトル$\bm{e}_j$を用いて,
+    \begin{align*}
+        \bm{g}_j
+        =
+        \begin{pmatrix}
+            \bm{e}_j   \\
+            - a_{1, j} \\
+            - a_{2, j} \\
+            \vdots     \\
+            - a_{n-k, j}
+        \end{pmatrix}
+    \end{align*}
+    をとることができる. よって, 生成行列は,
+    \begin{align*}
+        G =
+        \begin{pmatrix}
+            \bm{g}_1, ..., \bm{g}_k
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            I_{k} \\
+            -A
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.20}
+    パリティ検査行列$H = \left( \bm{h}_1, \bm{h}_2, ... ,  \bm{h}_k\right)$, 符号化された状態$\bm{x} = \left( x_1 , ..., x_k\right)^\top$とする.
+    \par
+    ある$\bm{x}$に対して, $\wt \bm{x} \le d - 1$と仮定すると, ある$l \le d - 1$なる$l$を用いて,
+    \begin{align*}
+        H \bm{x} = \sum_{ i = i_1, i_2 , ... , i_l} \bm{h}_i
+    \end{align*}
+    となるが, $\bm{h}_{i_1} , ... , \bm{h}_{i_l}$は互いに線型独立なので, $ H \bm{x} = \bm{0}$になりえず, 矛盾. よって, 全ての$\bm{x}$に対して, $\wt \bm{x} \ge d$.
+    \par
+    ある$(i_1, ..., i_{d-1}, i_{d})$の組に対して, $\bm{h}_{i_1} , ... , \bm{h}_{i_{d-1}}, \bm{h}_{i_d}$が線型従属になり, どの$d$本も線型独立なので,
+    \begin{align*}
+        \bm{h}_{i_d} = \bm{h}_{i_1} +  ... + \bm{h}_{i_{d-1}}.
+    \end{align*}
+    よって, 成分$i = i_1, i_2 , ..., i_d$が1になる$\bm{x}$, つまり$\wt \bm{x} = d$となる$\bm{x}$が,
+    \begin{align*}
+        H \bm{x} = \sum_{ i = i_1, i_2 , ... , i_d} \bm{h}_i = \bm{h}_{i_d} + \bm{h}_{i_d} = \bm{0}
+    \end{align*}
+    を満たす. つまり, $\wt \bm{x} = d$を満たす, $H$で定義された符号$\bm{x}$が存在.
+    \par
+    以上より,
+    \begin{align*}
+        d \left(H \right) = d.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.21}
+    演習\ref{ex10.20}より,
+    \begin{align*}
+        d - 1 = ( H の任意のベクトルの組が線型独立になるときのそのベクトルの本数の最大値) \le \rank(H) = n - k.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.22}
+    Hamming codeのどの2列を見ても線型独立だが, ある3列を見ると線形従属なので, 演習\ref{ex10.20}より,  Hamming codeの距離は3.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.23}
+    $ n > 4t > 0 $のとき,
+    \begin{align*}
+        x \log \frac{2t}{n} + \left( n - x \right) \log \frac{ n - 2t}{n}
+    \end{align*}
+    は$x$について単調減少なので,
+    \begin{align*}
+        \left( \frac{2t}{n}\right)^{x} \left( \frac{ n - 2t}{n}\right)^{n - x}
+    \end{align*}
+    も$x$について単調減少. すると,  $ n > 4t > 0 $のとき,
+    \begin{align*}
+        \frac{2^{n H\left(\frac{2t}{n}\right)}}{\sum_{j=0}^t {でもない}オペレータ._n C_j}
+         & =
+        \frac{1}{\sum_{j=0}^t {}_n C_j \left( \frac{2t}{n}\right)^{2t} \left(\frac{n-2t}{n} \right)^{n-2t}}
+        \geq
+        \frac{1}{\sum_{j=0}^{2t} {}_n C_j \left( \frac{2t}{n}\right)^{2t} \left(\frac{n-2t}{n} \right)^{n-2t}}
+        \geq
+        \frac{1}{\sum_{j=0}^{2t} {}_n C_j \left( \frac{2t}{n}\right)^{j} \left(\frac{n-2t}{n} \right)^{n-j}}= 1
+    \end{align*}
+    が成立するので, 任意の$n (>4t > 0)$に対して,
+    \begin{align*}
+        2^{n H\left(\frac{2t}{n}\right)} \ge 2^{n-k} \ge \sum_{j=0}^t {}_n C_j
+    \end{align*}
+    なる$k$が存在する.
+    つまり,
+    \begin{align*}
+        \begin{cases}
+            \frac{k}{n} \ge 1 - H \left( \frac{2t}{n}\right) \\
+            \sum_{j=0}^t {}_n C_j 2^k \le 2^n
+        \end{cases}
+        \longleftrightarrow
+        \begin{cases}
+            \frac{k}{n} \ge 1 - H \left( \frac{2t}{n}\right) \\
+            t ビット以下の誤りから護る[n,k]符号が存在.
+        \end{cases}
+    \end{align*}
+    を満たす$k$が存在する.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.24}
+    \begin{align*}
+        C \subseteq C^\perp
+        \longleftrightarrow
+        \forall_{x \in F_2^k} \ G[C]x \in C^\perp
+        \longleftrightarrow
+        \forall_{x \in F_2^k} \ H[C^\perp]G[C] x =  G^\top[C]G[C] x = 0
+        \longleftrightarrow
+        G^\top[C]G[C] = O.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.25}
+    $x \in C^\perp$のとき,
+    \begin{align*}
+        \forall_{y \in C} \ x \cdot y = 0
+    \end{align*}
+    なので,
+    \begin{align*}
+        \sum_{y \in C} (-1)^{x \cdot y } = |C|.
+    \end{align*}
+    一方, $x \notin C^\perp$のとき, $C$の生成行列$G[C] = \left( g_1, g_2, ..., g_k\right)$として,
+    $x \cdot g_i = 0$となる$g_i$が存在するので, ある$l \ge 1$が存在して,
+    \begin{align*}
+        x \cdot g_1     & = ... = x \cdot g_l = 1 \\
+        x \cdot g_{l+1} & = ... = x \cdot g_k = 0
+    \end{align*}
+    と書いても, 一般性を失わない.
+    任意の$C$の符号語$y$が$ y = G[C] a = \sum_i a_i g_i$とかけるので,
+    \begin{align*}
+        \sum_{y \in C} (-1)^{x \cdot y} = \sum_{a_1, a_2, ..., a_k = 0,1}  (-1)^{\sum_i a_i x \cdot g_i}
+        = \sum_{a_1, a_2, ... , a_l = 0, 1}  (-1)^{a_1 + a_2, ... + a_l} = \prod_{i=1}^k \sum_{a_i = 0, 1} (-1)^{a_i} = 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.26}
+    始状態$\ket{x}\ket{0}$の$\ket{x}$を第1レジスタ, $\ket{0}$を第2レジスタと呼ぶ.
+    パリティ検査行列$H$の$(i,j)$成分が$H_{ij}$が$1$となる$(i,j)$に対に対して,
+    第1レジスタの第$i$ qubitを制御ビットとして, 第2レジスタの第$j$ qubitを反転させるゲートを考えれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.27}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.28}
+    \begin{align*}
+        H[C_1]
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 1 & 1 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+            0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+            1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 1 & 1 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 1
+        \end{pmatrix}
+        =
+        O
+    \end{align*}
+    なので,
+    \begin{align*}
+        G [ C_1]
+        =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 1 & 1 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 1
+        \end{pmatrix}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.29}
+    任意の$g \in S$に対して, $\ket{\psi_1}, \ket{\psi_2} \in V_S$は,
+    \begin{align*}
+        g \ket{\psi_1} = \ket{\psi_1}, g \ket{\psi_2} = \ket{\psi_2}
+    \end{align*}
+    であることと, $g$の線形性より,
+    \begin{align*}
+        g \left( c_1 \ket{\psi_1} + c_2 \ket{\psi_2}\right) = c_1 \ket{\psi_1} + c_2 \ket{\psi_2}.
+    \end{align*}
+    よって, $V_S$の任意の2つの要素の線型結合もまた$V_S$の要素. 後半の主張については明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.30}
+    \begin{align*}
+        - I \notin S
+        \longleftrightarrow
+        (\pm i I)^2 \notin S
+        \longleftrightarrow
+        (\pm i I) \notin S.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.31}
+    \ \par
+    $\longleftarrow)$ 明らか.
+    \par
+    $\longrightarrow)$
+    任意の$S$の元が, 互いに可換な$S$の生成元での積でかけるので, $S$の要素も互いに可換.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.32}
+    計算すれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.33}
+    $r(g)$の各成分と$g$は, ある係数$c$を用いて
+    \begin{align*}
+        g = c \prod_{i=1}^n X_i^{r_i} Z_i^{r_{n+i}}
+    \end{align*}
+    で対応づけられる. よって,
+    \begin{align*}
+        [g, g'] = 0
+         & \longleftrightarrow
+        \prod_{i = 1}^n X_i^{r_i}
+        Z_i^{r_{n+i}} X_i^{r'_i} Z_i^{r'_{n+i}}
+        -
+        \prod_{i = 1}^n
+        X_i^{r'_i} Z_i^{r'_{n+i}}X_i^{r_i} Z_i^{r_{n+i}}
+        =0
+        \\
+         & \longleftrightarrow
+        \prod_{i = 1}^n
+        (-1)^{r'_i r_{n+i}} X_i^{r_i} X_i^{r'_i} Z_i^{r_{n+i}}  Z_i^{r'_{n+i}}
+        -
+        \prod_{i = 1}^n
+        (-1)^{r_i r'_{n+i}} X_i^{r'_i} X_i^{r_i}Z_i^{r'_{n+i}} Z_i^{r_{n+i}}
+        =0
+        \\
+         & \longleftrightarrow
+        \prod_{i = 1}^n (-1)^{r'_i r_{n+i}} =
+        \prod_{i = 1}^n (-1)^{r_i r'_{n+i}}
+        \\
+         & \longleftrightarrow
+        \sum_{i=1}^n r'_i r_{n+i} + r_i r'_{n+i} = 0
+        \\
+         & \longleftrightarrow
+        r(g) \Lambda r(g')^\top = 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.34}
+    示すべきは
+    \begin{align*}
+        -I \in S
+        \longleftrightarrow
+        \exists_i \ g_i^2 = -I または g_i = -I
+    \end{align*}
+    \par
+    $\longleftarrow)$ 明らか.
+    \par
+    $\longrightarrow)$
+\end{ex}
+
+\begin{ex}
+    \label{ex10.35}
+    $G_n$は反HermiteまたはHermiteを要素にもち,
+    任意の$g \in S \subset G_n$
+    に対して
+    \begin{align*}
+        g^2 = \pm I^{\otimes n}
+    \end{align*}
+    なので,
+    \begin{align*}
+        - I^{\otimes n} \in S \subset G_n
+        \longrightarrow
+        \forall g  = \bigotimes_{ i = 1, 2, ... , n} g_i \in S \subset G_n \ \
+        g^2 = \bigotimes_{ i = 1, 2, ... , n} g_i^2 = I^{\otimes n} \ かつ \ g \neq  - I^{\otimes n}
+    \end{align*}
+    であるので, $\{g_i\}_{i=1}^n$のうちの偶数個が, 2乗すると$-I$になる反Hermiteであり, 残りが2乗すると$I$になるHermiteになることが言える. よって,
+    \begin{align*}
+        g  = \bigotimes_{ i = 1, 2, ... , n} g_i
+    \end{align*}
+    はHermite.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.36}
+    量子回路を考えれば明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.37}
+    \begin{align*}
+        UY_1 U^\dagger =
+        i U X_1 U^\dagger U  Z_1 U^\dagger
+        =
+        i X_1 X_2 Z_1
+        =
+        Y_1 Z_2
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.38}
+    $\Sigma = X_1, X_2, Z_1, Z_2$
+    として,
+    \begin{align*}
+        U \Sigma U^\dagger = V \Sigma V^\dagger
+        \longleftrightarrow
+        [ U^\dagger V,  \Sigma ] = 0
+    \end{align*}
+    とすると, $i, j = 0, 1,2,3$に対して,
+    \begin{align*}
+        [ U^\dagger V , \sigma_i \otimes \sigma_j ] = 0
+    \end{align*}
+    なので, $U^\dagger V$は任意のオペレータと可換. つまり, $U^\dagger V = I $. ゆえに$U = V$.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.39}
+    計算すれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.40}
+    (1)\
+    グローバルな位相を考えないので, $G_1$の要素$g$として$g = X, Y, Z$だけを考えて, $UgU \in G_1$なる$U$がHadamardゲート$H$と位相ゲート$S$でかけることを言えば良い.
+    たとえば$U=H$とすると,
+    \begin{align*}
+        HXH^\dagger = Z, HYH^\dagger = Y, HZH = X
+    \end{align*}
+    なので, グローバル位相を無視すれば$HG_1H \in G_1$. $U = S$としても同様.
+    \par
+    (2)
+
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+         & \qw    & \qw       & \ctrl{1}  & \gate{H} & \ctrl{1} & \qw \\
+         & {/}\qw & \gate{U'} & \gate{g'} & \qw      & \gate{g} & \qw
+        }
+    \end{align*}
+    の作用を, 始状態$\ket{0}\otimes \ket{\psi} + \ket{1} \otimes \ket{\phi}$
+    として考えると,
+    \begin{align*}
+        \ket{0}\otimes \ket{\psi} + \ket{1} \otimes \ket{\phi}
+         & \to
+        \ket{0}\otimes U'\ket{\psi} + \ket{1} \otimes U'\ket{\phi}                          \\
+         & \to
+        \ket{0}\otimes U'\ket{\psi} + \ket{1} \otimes g'U'\ket{\phi}                        \\
+         & \to
+        \frac{\ket{0}+\ket{1}}{\sqrt{2}}\otimes U'\ket{\psi} +
+        \frac{\ket{0}-\ket{1}}{\sqrt{2}} \otimes g'U'\ket{\phi}                             \\
+         & \to
+        \frac{\ket{0}\otimes U'\ket{\psi}+\ket{1}\otimes gU'\ket{\psi}}{\sqrt{2}} +
+        \frac{\ket{0}\otimes g'U'\ket{\phi}-\ket{1}\otimes gg'U'\ket{\phi}}{\sqrt{2}}       \\
+         & \to
+        \frac{ ( I + X_1 \otimes g)(\ket{0}\otimes U'\ket{\psi})}{\sqrt{2}} +
+        \frac{ ( I - X_1 \otimes g)(Z_1 \otimes g')(\ket{0}\otimes U'\ket{\psi})}{\sqrt{2}} \\
+         & =
+        \frac{ ( I + UZ_1 U^\dagger )(\ket{0}\otimes U'\ket{\psi})}{\sqrt{2}} +
+        \frac{ ( I - UZ_1 U^\dagger)UX_1U^\dagger(\ket{0}\otimes U'\ket{\psi})}{\sqrt{2}}   \\
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.41}
+    計算すれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.42}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+         & \lstick{\ket{\psi}} & \ctrl{1} & \gate{H} & \meter & \cw           & \control \cw  &     &                     \\
+         & \lstick{}           & \targ    & \qw      & \meter & \control \cw  & \cwx          &     &                     \\
+         & \lstick{}           & \qw      & \qw      & \qw    & \gate{X} \cwx & \gate{Z} \cwx & \qw & \rstick{\ket{\psi}}
+        \gategroup{2}{2}{3}{3}{.7em}{\{}
+        }
+    \end{align*}
+    AliceとBobに分け与えるEPR対を$\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$とする. また, Bobに届けたい状態$\ket{\psi} = \ket{+}$とする.上記の量子回路の各ゲートの作用を固定部分群形式で追っていく.
+    \par
+    \begin{enumerate}
+        \item 始状態$\ket{+}\ket{\beta_{00}}$ \par
+              $< X \otimes X \otimes I,\  I \otimes X \otimes X,\  I \otimes Z \otimes Z>$
+        \item CNOT作用後 \par
+              $< X \otimes X \otimes I,\ I \otimes X \otimes X,\ Z \otimes Z \otimes Z>$
+        \item $H$作用後 \par
+              $< Z \otimes X \otimes I,\ I \otimes X \otimes X,\ X \otimes Z \otimes Z>$
+        \item 生成元のうち1つだけ$I \otimes Z \otimes I$と反可換になるように生成元を取り替える \par
+              $< Z \otimes X \otimes I,\ Z \otimes I \otimes X,\ X \otimes Z \otimes Z>$
+        \item 2qubit目の測定($M_2$) \par
+              if $M_2 = 0$,  $< I \otimes Z \otimes I,\ Z \otimes I \otimes X,\ X \otimes Z \otimes Z>$ \\
+              if $M_2 = 1$,  $< - I \otimes Z \otimes I,\ Z \otimes I \otimes X,\ X \otimes Z \otimes Z>$
+        \item $I \otimes I \otimes X^{M_2}$ 作用後 \par
+              if $M_2 = 0$,  $< I \otimes Z \otimes I,\ Z \otimes I \otimes X,\ X \otimes Z \otimes Z>$ \\
+              if $M_2 = 1$,  $< - I \otimes Z \otimes I,\ Z \otimes I \otimes X,\ - X \otimes Z \otimes Z>$
+        \item 1qubit目の測定($M_1$)をして, $I \otimes I \otimes Z^{M_1}$ 作用後\par
+              if $(M_1, M_2) = (0,0)$,  $< I \otimes Z \otimes I,\ Z \otimes I \otimes X,\ Z \otimes I \otimes I>$ \\
+              if $(M_1, M_2) = (0,1)$,  $< -I \otimes Z \otimes I,\ Z \otimes I \otimes X,\ -Z \otimes I \otimes I>$ \\
+              if $(M_1, M_2) = (1,0)$,  $< I \otimes Z \otimes I,\ - Z \otimes I \otimes X,\ - Z \otimes I \otimes I>$ \\
+              if $(M_1, M_2) = (1,1)$,  $< -I \otimes Z \otimes I,\ -Z \otimes I \otimes X,\ - Z \otimes I \otimes I>$ \\
+    \end{enumerate}
+    終状態の固定部分群の生成元は$\ket{+}$を安定化させる. 
+\end{ex}
+
+\begin{ex}
+    \label{ex10.43}
+    $g \in S, \ket{\psi} \in V_S$とする. すると, 任意の$h \in S$に対して, 
+    \begin{align*}
+        h g \ket{\psi} = h \ket{\psi} = \ket{\psi} = g \ket{\psi}
+        \longrightarrow
+        g^{-1} h g \ket{\psi} = \ket{\psi}
+        \longrightarrow
+        g^{-1} h g \in S
+    \end{align*}
+    なので, $g \in N(S)$. つまり, $S \subset N(S)$.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.44}
+    $\longrightarrow)$
+    \begin{align*}
+        g \in N(S) \longrightarrow \forall s \in S \ gs = sg \longrightarrow gS = Sg \longrightarrow g \in N(S)
+    \end{align*}
+    \par
+    $\longleftarrow)$
+    $g \in N(S)$とする. $-I \notin S$なので, $S$の要素はだから, $\forall s \in S \ gs = sg$. よって, $g \in Z(S)$.
+
+\end{ex}
+
+\begin{ex}
+    \label{ex10.45}
+    
+\end{ex}
+
+

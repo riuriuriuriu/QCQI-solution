@@ -1,0 +1,56 @@
+\documentclass[oneside]{jsbook}
+
+\usepackage{amsmath,amssymb,braket,bm,mathtools,amsfonts,url, cancel, mathrsfs}
+\usepackage{qcircuit}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{here}
+
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+
+\newtheorem{ex}{演習}
+\newtheorem{problem}{問題}
+\numberwithin{ex}{chapter} 
+\numberwithin{problem}{chapter} 
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\NOT}{\mathrm{NOT}}
+\newcommand{\AND}{\mathrm{AND}}
+\newcommand{\NAND}{\mathrm{NAND}}
+\newcommand{\OR}{\mathrm{OR}}
+\newcommand{\XOR}{\mathrm{XOR}}
+\newcommand{\CNOT}{\mathrm{CNOT}}
+\newcommand{\Tof}{\mathrm{Toffoli}}
+\newcommand{\qo}{\mathcal{E}}
+\newcommand{\qof}{\mathcal{F}}
+
+\newcommand{\paulix}{\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} }
+
+\newcommand{\ry}[1]{ \cos \frac{#1}{2} & -\sin\frac{#1}{2} \\ \sin \frac{#1}{2} & \cos\frac{#1}{2}}
+
+\newcommand{\rot}[1]{ \cos {#1} & -\sin {#1} \\ \sin {#1} & \cos {#1}}
+
+
+\allowdisplaybreaks
+
+\begin{document}
+\input{chapter/chapter1}
+\input{chapter/chapter2}
+\input{chapter/chapter3}
+\input{chapter/chapter4_1}
+\input{chapter/chapter4_2}
+\input{chapter/chapter5}
+\input{chapter/chapter6}
+\input{chapter/chapter7_1}
+\input{chapter/chapter7_2}
+\input{chapter/chapter8}
+\input{chapter/chapter9}
+\input{chapter/chapter10_1}
+\input{chapter/chapter10_2}
+\input{chapter/chapter11}
+\input{appendix/appendix_d}
+\end{document}

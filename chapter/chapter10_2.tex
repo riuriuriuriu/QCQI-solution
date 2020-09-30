@@ -1,0 +1,248 @@
+\begin{ex}
+    \label{ex10.46}
+    $S = <X_1 X_2, X_2 X_3>$とすると, $V_S$は$\ket{+++}$と$\ket{---}$で張られる.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.47}
+    $i = 1, 2 ... , 8$に対して,
+    $g_i \ket{0_L} = \ket{0_L}$, $g_i \ket{1_L} = \ket{1_L}$を確かめれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.48}
+    計算すれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.49}
+    例えば, $X_1Z_2 \notin N(S) - S$か調べる.
+    \begin{align*}
+        \{X_1Z_2, g2\}
+        = \{ X_1 Z_2, X_2 Z_3 Z_4 X_5\}
+        = \{ X_1 Z_2 , X_2\}Z_3 Z_4 X_5
+        = (X_1 Z_2 X_2 + X_2 X_1 Z_2)Z_3 Z_4 X_5
+        = 0
+    \end{align*}
+    であり, $l = 1, 2,3,4,5$に対しても同様に$\{X_1Z_2, g_l\} = 0$なので, $X_1Z_2 \in G_n - N(S)$. よって, $X_1Z_2 \notin N(S) - S$.
+    \par
+    同様のことを任意の1 qubit誤りの積$\sigma_j \sigma_k$について調べれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.50}
+    \begin{align*}
+        2(1+3n) \leq 2^n
+    \end{align*}
+    を満たす最大の自然数$n = 5$.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.51}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.52}
+    計算すれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.53}
+    $G_z =[000|A_2^\top 0 I]$より, 明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.54}
+    $G$の検査行列の標準形
+    \begin{align*}
+        \begin{pmatrix}
+            I & A_1 & A_2 & B & 0 & C \\
+            0 & 0   & 0   & D & I & E \\
+        \end{pmatrix}
+    \end{align*}
+    とかく.
+    \par
+    $G$の生成元$g_i (i = 1, ..., r)$と$G_x = [0 E^\top I | C^\top 0 0 ]$の生成元$g_j^x$について.
+    \begin{align*}
+        r(g_i) \Lambda r(g_j^x) = ... = 2 C_{ij} = 0
+    \end{align*}
+    であることと, 演習\ref{ex10.33}より, $g_i (i = 1, ..., r)$と$g_j^x$は可換. 独立性は明らか.
+    \par
+    $G$の生成元$g_i (i = r+1, ..., n-k)$と$G_x = [0 E^\top I | C^\top 0 0 ]$の生成元$g_j^x$についても上と同様．
+    \par
+    $G_z = [0 0 0 | A_2^\top 0 I ]$の生成元$g_j^z$と$G_x = [0 E^\top I | C^\top 0 0 ]$の生成元$g_j^x$について.
+    \begin{align*}
+        r(g_i^z) \Lambda r(g_j^x) = ... = \delta_{ij}
+    \end{align*}
+    なので, $g_i^z$と$g_j^x$は, $i=j$のとき反可換, $i \neq j$のとき可換. 独立性は明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.55}
+    $G_x$の検査行列は,
+    \begin{align*}
+        \left(
+        \begin{array}{c|c|c|c|c|c}
+            000 & 110 & 1 & 000 & 000 & 0
+        \end{array}
+        \right)
+    \end{align*}
+    より, $\bar{X} = X_4 X_5 X_7$.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.56}
+    $\ket{\psi}\in V_S, g \in S$として, $g$と$\bar{X}$は可換なので,
+    \begin{align*}
+        g \bar{X} \ket{\psi} =  \bar{X} g  \ket{\psi} = \bar{X} \ket{\psi}.
+    \end{align*}
+    $\bar{Z}$についても同様.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.57}
+    \underline{5 qubit}
+    \begin{align*}
+        \left(
+        \begin{array}{c|c}
+            10001 & 11011 \\
+            01001 & 00110 \\
+            00101 & 11000 \\
+            00011 & 10111
+        \end{array}
+        \right)
+    \end{align*}
+    \underline{9 qubit}
+    \begin{align*}
+        \left(
+        \begin{array}{c|c}
+            101111001 &           \\
+            010101111 &           \\
+            \hline
+                      & 101000000 \\
+                      & 100100000 \\
+                      & 000010001 \\
+                      & 000001001 \\
+                      & 010000100 \\
+                      & 000000010
+        \end{array}
+        \right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.58}
+    説明通りに操作することは, 演習\ref{ex4.34}に示した.
+    \par
+    図10.14の回路の等価性:
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{0}}                        & \gate{H} & \ctrl{1} & \gate{H} & \meter & \raisebox{-3.0em}{=} &  &  &  &  &  &  &  & \lstick{\ket{0}}                        & \qw      & \targ     & \qw      & \meter \\
+        \lstick{\alpha \ket{0} + \beta \ket{1}} & \qw      & \targ    & \qw      & \qw    &                      &  &  &  &  &  &  &  & \lstick{\alpha \ket{0} + \beta \ket{1}} & \gate{H} & \ctrl{-1} & \gate{H} & \qw
+        }
+    \end{align*}
+    について示す.
+    演習\ref{ex4.34}より, 左辺の回路の終状態は, $\ket{\psi_{in}} = \alpha \ket{0} + \beta \ket{1}$として,
+    \begin{align*}
+        \ket{0} \otimes \ket{+} \braket{+|\psi_{in}}
+        +
+        \ket{1}  \otimes \ket{-}\braket{-|\psi_{in}}
+    \end{align*}
+    一方, 右辺の回路の終状態は,
+    \begin{align*}
+        \frac{\alpha + \beta}{\sqrt{2}} \ket{0} \ket{+} + \frac{\alpha - \beta}{\sqrt{2}} \ket{1} \ket{-}
+        =
+        \ket{0} \otimes \ket{+} \braket{+|\psi_{in}}
+        +
+        \ket{1}  \otimes \ket{-}\braket{-|\psi_{in}}.
+    \end{align*}
+    よって, 示せた.
+    図10.15の回路の等価性についても同様に示せる.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.59}
+    明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.60}
+    演習\ref{ex10.57}で求めた, 検査行列の標準形をみて, シンドローム回路を作ると以下のようになる.
+    \begin{align*}
+        \Qcircuit @C=1.5em @R=1.5em {
+        \lstick{\ket{0}} & \qw      & \targ     & \qw       & \qw       & \qw       & \targ     & \qw      & \targ     & \targ     & \qw       & \targ     & \targ     & \qw \\
+        \lstick{\ket{0}} & \qw      & \qw       & \targ     & \qw       & \qw       & \targ     & \qw      & \qw       & \qw       & \targ     & \targ     & \qw       & \qw \\
+        \lstick{\ket{0}} & \qw      & \qw       & \qw       & \targ     & \qw       & \targ     & \qw      & \targ     & \targ     & \qw       & \qw       & \qw       & \qw \\
+        \lstick{\ket{0}} & \qw      & \qw       & \qw       & \qw       & \targ     & \targ     & \qw      & \targ     & \qw       & \targ     & \targ     & \targ     & \qw \\
+        \lstick{}        & \gate{H} & \ctrl{-4} & \qw       & \qw       & \qw       & \qw       & \gate{H} & \ctrl{-4} & \qw       & \qw       & \qw       & \qw       & \qw \\
+        \lstick{}        & \gate{H} & \qw       & \ctrl{-4} & \qw       & \qw       & \qw       & \gate{H} & \qw       & \ctrl{-5} & \qw       & \qw       & \qw       & \qw \\
+        \lstick{}        & \gate{H} & \qw       & \qw       & \ctrl{-4} & \qw       & \qw       & \gate{H} & \qw       & \qw       & \ctrl{-5} & \qw       & \qw       & \qw \\
+        \lstick{}        & \gate{H} & \qw       & \qw       & \qw       & \ctrl{-4} & \qw       & \gate{H} & \qw       & \qw       & \qw       & \ctrl{-7} & \qw       & \qw \\
+        \lstick{}        & \gate{H} & \qw       & \qw       & \qw       & \qw       & \ctrl{-8} & \gate{H} & \qw       & \qw       & \qw       & \qw       & \ctrl{-8} & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.61}
+    $E_j (j=0, ..., 21)$は単一qubit誤り.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.62}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.63}
+    \begin{align*}
+        \bar{U} \ket{0_L} & = \bar{U} \bar{Z} \ket{0_L} = \bar{X} \bar{U} \ket{0_L}      \\
+        \bar{U} \ket{1_L} & = - \bar{U} \bar{Z} \ket{1_L} =  - \bar{X} \bar{U} \ket{1_L} \\
+    \end{align*}
+    より, $\bar{U} \ket{0_L}$は$\bar{X}$の固有値1の固有状態, $\bar{U} \ket{1_L}$は$\bar{X}$の固有値-1の固有状態. よって,
+    \begin{align*}
+        \bar{U} \ket{0_L} \propto \frac{\ket{0_L} + \ket{1_L}}{\sqrt{2}} \\
+        \bar{U} \ket{1_L} \propto \frac{\ket{0_L} - \ket{1_L}}{\sqrt{2}}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.64}
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \qw      & \ctrl{1} & \qw & \raisebox{-3.0em}{=} & \lstick{} & \ctrl{1} & \gate{Z} & \qw \\
+        \lstick{} & \gate{Z} & \targ    & \qw &                      & \lstick{} & \targ    & \gate{Z} & \qw
+        }
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.65}
+    $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$とかく.
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{\ket{0}}    & \targ     & \qw      & \gate{Z}    & \qw & \rstick{\ket{\psi}} \\
+        \lstick{\ket{\psi}} & \ctrl{-1} & \gate{H} & \meter \cwx &
+        }
+    \end{align*}
+    上の回路の作用は,
+    \begin{align*}
+        \alpha \ket{0} \ket{0} + \beta \ket{0} \ket{1}
+         & \longrightarrow
+        \alpha \ket{0} \ket{0} + \beta \ket{1} \ket{1}                                  \\
+         & \longrightarrow
+        \frac{\alpha}{\sqrt{2}}\ket{0} \ket{0} + \frac{\alpha}{\sqrt{2}}\ket{0} \ket{1}
+        + \frac{\beta}{\sqrt{2}}\ket{1} \ket{0} - \frac{\beta}{\sqrt{2}}\ket{1} \ket{1} \\
+         & \longrightarrow
+        Z (\alpha \ket{0} - \beta \ket{1}) = \alpha \ket{0} + \beta \ket{1} = \ket{\psi}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex10.66}
+    明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex10.67}
+    明らか.
+\end{ex}

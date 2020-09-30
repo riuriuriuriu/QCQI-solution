@@ -1,0 +1,425 @@
+\chapter{量子情報の距離測度}
+
+\begin{ex}
+    \label{ex9.1}
+    1/2, 1/4
+\end{ex}
+
+\begin{ex}
+    \label{ex9.2}
+    \begin{align*}
+        D((p, 1-p),(q, 1-q) ) = \frac{2\left| p - q\right|}{2} = \left| p - q\right|
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.3}
+    $\frac{1}{\sqrt{2}}, \frac{4 \sqrt{6} + \sqrt{3}}{12}$
+\end{ex}
+
+\begin{ex}
+    \label{ex9.4}
+    \begin{align*}
+        D\left(p_x , q_x\right)
+        =
+        \frac{1}{2} \sum_x \left| p_x - q_x \right|
+         & =
+        \frac{1}{2} \sum_{\{x|p_x \leq q_x\}} \left| p_x - q_x \right|
+        +
+        \frac{1}{2} \sum_{\{x|p_x > q_x\}} \left| p_x - q_x \right|
+        \\
+         & =
+        \frac{1}{2} \sum_{\{x|p_x \leq q_x\}}  q_x - p_x
+        +
+        \frac{1}{2} \sum_{\{x|p_x > q_x\}} p_x - q_x
+        \\
+         & =
+        \frac{1}{2} \left( 1 -\sum_{\{x|p_x > q_x\}}  q_x  \right)
+        -
+        \frac{1}{2} \left( 1 -\sum_{\{x|p_x > q_x\}}  p_x  \right)
+        +
+        \frac{1}{2} \sum_{\{x|p_x > q_x\}} p_x - q_x
+        \\
+         & =
+        \sum_{\{x|p_x > q_x\}} p_x - q_x
+        =
+        \max_S
+        \left(\sum_{x \in S} p_x - \sum_{x \in S} q_x \right).
+    \end{align*}
+    $D\left(p_x , q_x\right) = D\left(q_x , p_x\right)$なので,
+    \begin{align*}
+        D\left(p_x , q_x\right)
+        =
+        \max_S \left(\sum_{x \in S} p_x - \sum_{x \in S} q_x \right)
+        =
+        \max_S
+        \left(\sum_{x \in S} q_x - \sum_{x \in S} p_x \right)
+        =
+        \max_S
+        \left|\sum_{x \in S} p_x - \sum_{x \in S} q_x \right|.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.5}
+    演習\ref{ex9.4}参照.
+\end{ex}
+
+\begin{ex}
+    \label{ex9.6}
+    $\frac{1}{2}, \frac{\sqrt{13}}{12}$
+\end{ex}
+
+\begin{ex}
+    \label{ex9.7}
+    $\rho - \sigma$はHermiteなので, 対角化可能で, 固有状態は互いに直交する. $\rho - \sigma$の固有値を$\lambda_i$とすると,
+    \begin{align*}
+        \rho - \sigma = \sum_i \lambda_i \ket{i}\bra{i}=
+        \sum_{\{i| \lambda_i > 0\}} \lambda_i \ket{i}\bra{i}
+        +
+        \sum_{\{i| \lambda_i < 0\}} \lambda_i \ket{i}\bra{i}
+        =
+        \sum_{\{i| \lambda_i > 0\}} \lambda_i \ket{i}\bra{i}
+        -
+        \sum_{\{i| -\lambda_i > 0\}} -\lambda_i \ket{i}\bra{i}
+        =
+        Q - S.
+    \end{align*}
+    ここで,
+    \begin{align*}
+        Q = \sum_{\{i| \lambda_i > 0\}} \lambda_i \ket{i}\bra{i}, \
+        S = \sum_{\{i| - \lambda_i > 0\}} -\lambda_i \ket{i}\bra{i}
+    \end{align*}
+    で, $Q,S$の固有空間のそれぞれの任意の元は互いに直交する.
+\end{ex}
+
+\begin{ex}
+    \label{ex9.8}
+    式(9.22)より, ある直交射影オペレータ$P$が存在して,
+    \begin{align*}
+        D \left(\sum_i p_i \rho_i, \sigma\right)
+         & =
+        \tr \left( P \left( \sum_i p_i \rho_i - \sigma \right)\right)
+        \\
+         & =
+        \sum_i p_i \tr \left( P \rho_i \right)
+        -
+        \sum_i p_i \tr \left( P \sigma\right)
+        \\
+         & =
+        \sum_i p_i
+        \left(
+        \tr \left( P \left( \rho_i - \sigma \right) \right)
+        \right)
+        \\
+         & \leq
+        \sum_i p_i D\left(\rho_i, \sigma\right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.9}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.10}
+    厳密に収縮的な$\qo$が2つの不動点を持つとすると,
+    \begin{align*}
+        \qo \left( \rho\right) = \rho, \ \qo \left( \sigma\right) = \sigma
+    \end{align*}
+    となるが,
+    \begin{align*}
+        D \left( \rho , \sigma\right)
+        =
+        D \left( \qo(\rho) , \qo(\sigma)\right)
+        <
+        D \left( \rho , \sigma\right)
+    \end{align*}
+    と矛盾.
+\end{ex}
+
+\begin{ex}
+    \label{ex9.11}
+    同時凸性より,
+    \begin{align*}
+        D \left( \qo(\rho), \qo(\sigma)\right)
+         & =
+        D\left( p \rho_0 + (1-p)\qo'(\rho), p \rho_0 + (1-p)\qo'(\sigma) \right)
+        \\
+         & \leq
+        p D \left( \rho_0, \rho_0\right)
+        +
+        (1-p) D \left( \qo'(\rho), \qo'(\sigma)\right)
+        \\
+         & =
+        (1-p) D \left( \qo'(\rho), \qo'(\sigma)\right)
+        \\
+         & \geq(1-p)D\left( \rho, \sigma\right)
+        \\
+         & < D \left( \rho, \sigma\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.12}
+    \begin{align*}
+        \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2},
+        \sigma = \frac{I + \bm{s} \cdot \bm{\sigma}}{2}
+    \end{align*}
+    として,
+    \begin{align*}
+        \qo(\rho)
+        =
+        \frac{I + (1-p)\bm{r}\cdot\bm{\sigma}}{2},
+        \qo(\sigma)
+        =
+        \frac{I + (1-p)\bm{s}\cdot\bm{\sigma}}{2}
+    \end{align*}
+    なので,
+    \begin{align*}
+        D \left( \qo(\rho), \qo(\sigma)\right)
+        = (1-p)\frac{\left| \bm{r}- \bm{s} \right|}{2}
+        <\frac{\left| \bm{r}- \bm{s} \right|}{2}
+        = D \left( \rho, \sigma\right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.13}
+    ビット反転チャンネルの量子演算は,
+    \begin{align*}
+        \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2},
+        \sigma = \frac{I + \bm{s} \cdot \bm{\sigma}}{2}
+    \end{align*}
+    として,
+    \begin{align*}
+        \qo \left( \rho\right)
+         & =
+        \frac{I + (1-p) X \rho X}{2}
+        =
+        \frac{I + r_1 X + (2p-1)r_2Y + (2p-1)r_3Z}{2} \\
+        \qo \left( \sigma\right)
+         & =
+        \frac{I + s_1 X + (2p-1)s_2Y + (2p-1)s_3Z}{2}
+    \end{align*}
+    なので,
+    \begin{align*}
+        D \left( \qo(\rho), \qo(\sigma)\right)=
+        \sqrt{(r_1 - s_1)^2 + (2p-1)^2(r_2 - s_2)^2 + (2p-1)^2(r_3 - s_3)^2}.
+    \end{align*}
+    よって,
+    \begin{align*}
+        D \left( \qo(\rho), \qo(\sigma)\right)
+        \leq
+        D \left(\rho, \sigma\right).
+    \end{align*}
+    等号は, 実数$t$として,
+    \begin{align*}
+        \bm{r} = \bm{s} = t
+        \begin{pmatrix}
+            1 \\ 0\\ 0
+        \end{pmatrix}
+    \end{align*}
+    の時に成立する. 不動点の集合は, 実数$t$として,
+    \begin{align*}
+        \bm{r} = t
+        \begin{pmatrix}
+            1 \\ 0\\ 0
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.14}
+    正値オペレータ$A$はスペクトル分解可能で,
+    \begin{align*}
+        A = \sum_i \lambda_i \ket{i}\bra{i}
+    \end{align*}
+    とかけ, ユニタリ$U$を用いて
+    \begin{align*}
+        \sqrt{UAU^\dagger}
+        =
+        \sqrt{\sum_i \lambda_i U\ket{i}\bra{i}U^\dagger}
+        =
+        \sum_i\sqrt{\lambda_i} U\ket{i}\bra{i}U^\dagger
+        =
+        U \sqrt{A} U^\dagger
+    \end{align*}
+    が成立する. このことを用いて,
+    \begin{align*}
+        F \left( U \rho U^\dagger, U \sigma U^\dagger\right)
+         & =
+        \tr \sqrt{ \sqrt{U \rho U^\dagger} U \sigma U^\dagger \sqrt{U \rho U^\dagger}}
+        \\
+         & =
+        \tr \sqrt{ U \sqrt{\rho} U^\dagger U \sigma U^\dagger U \sqrt{\rho} U^\dagger}
+        \\
+         & =
+        \tr \sqrt{ U \sqrt{\rho} \sigma \sqrt{\rho} U^\dagger}
+        \\
+         & =
+        \tr U  \sqrt{\sqrt{\rho} \sigma \sqrt{\rho}} U^\dagger
+        \\
+         & =
+        \tr \sqrt{\sqrt{\rho} \sigma \sqrt{\rho}}
+        \\
+         & =
+        F \left(\rho, \sigma\right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.15}
+    定理9.4と同様.
+\end{ex}
+
+\begin{ex}
+    \label{ex9.16}
+    \begin{align*}
+        \braket{m|A \otimes B|m}
+         & =
+        \sum_{i,j}
+        \bra{i_R} \bra{i_Q}
+        A \otimes B
+        \ket{j_R} \ket{j_Q}
+        \\
+         & =
+        \sum_{i,j}
+        \bra{i_R}A\ket{j_R}
+        \bra{i_Q}B\ket{j_Q}
+        \\
+         & =
+        \sum_{i,j}
+        \bra{j_R}A^\dagger\ket{i_R}^{*}
+        \bra{i_Q}B\ket{j_Q}
+        \\
+         & =
+        \tr \left[ A^\top B\right]
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex9.17}
+    $0 \leq F\left( \rho, \sigma\right) \leq 1$なので,
+    \begin{align*}
+        0 \leq A(\rho, \sigma) =  \arccos F\left( \rho, \sigma\right) \leq \frac{\pi}{2}
+    \end{align*}
+    で, 左の等号の成立は,
+    \begin{align*}
+        F\left( \rho, \sigma\right) = 1
+        \leftrightarrow
+        \rho = \sigma
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.18}
+    定理9.6と$arccos$の単調性より示せる.
+\end{ex}
+
+\begin{ex}
+    \label{ex9.19}
+    定理9.7より,
+    \begin{align*}
+        F \left( \sum_i p_i \rho_i , \sum_i p_i \sigma_i \right)
+        \geq
+        \sum_i p_i F(\rho_i, \sigma_i)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.20}
+    演習\ref{ex9.19}で, 全ての$i$に対して,
+    \begin{align*}
+        \sigma_i = \sigma
+    \end{align*}
+    とすれば,
+    \begin{align*}
+        F \left( \sum_i p_i \rho_i , \sigma \right)
+        \geq
+        \sum_i p_i F(\rho_i, \sigma).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex9.21}
+    POVMとして,
+    \begin{align*}
+        \{E_1 = \ket{\psi}\bra{\psi}, E_2 = I - \ket{\psi}\bra{\psi}\}
+    \end{align*}
+    を考える. すると, 定理9.1より,
+    \begin{align*}
+        D \left( \ket{\psi}, \sigma\right)
+         & \geq
+        \frac{1}{2}
+        \left|
+        \tr\left( \ket{\psi}\bra{\psi}E_1\right)
+        -
+        \tr\left( \sigma E_1\right)
+        \right|
+        +
+        \frac{1}{2}
+        \left|
+        \tr\left( \ket{\psi}\bra{\psi}E_2\right)
+        -
+        \tr\left( \sigma E_2\right)
+        \right|
+        \\
+         & =
+        \frac{1}{2}
+        \left(
+        1
+        -
+        \tr\left( \sigma E_1\right)
+        +
+        \tr\left( \sigma E_2\right)
+        \right)
+        =
+        1 - \tr\left( \sigma E_1\right)
+        =
+        1 - \braket{\psi|\sigma|\psi}
+        =
+        1 - F\left( \ket{\psi}, \sigma\right)^2.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    ある$\rho$が存在して,
+    \begin{align*}
+        E\left( VU, \qof \circ \qo\right)
+         & =
+        d\left( VU\rho U^\dagger V^\dagger, \left(\qof \circ \qo\right) \left(\rho \right)\right) \\
+         & \leq
+        d\left(
+        VU\rho U^\dagger V^\dagger, \qof\left(U\rho U^\dagger\right)\right)
+        +
+        d\left(
+        \qof\left(U\rho U^\dagger\right), \left( \qof \circ \qo \right)\qo\left(\rho \right)
+        \right)                                                                                   \\
+         & \leq
+        d\left(
+        VU\rho U^\dagger V^\dagger, \qof\left(U\rho U^\dagger\right)\right)
+        +
+        d\left(
+        U\rho U^\dagger, \qo\left(\rho \right)
+        \right)                                                                                   \\
+         & \leq
+        E \left( V, \qof\right) + E\left( U, \qo\right).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    $0 \leq F \leq 1 $に注意して,
+    \begin{align*}
+        \bar{F} = 1 
+        &\longleftrightarrow
+        \sum_j p_j \left( 1 - F \left( \rho_i, \qo\left( \rho_j\right)\right)^2\right) = 0\\
+        &\longleftrightarrow
+        1 - F \left( \rho_i, \qo\left( \rho_j\right)\right)^2 = 0 \\
+        &\longleftrightarrow
+        F \left( \rho_j, \qo \left( \rho_j \right)\right) = 1 \\
+        &\longleftrightarrow
+        \rho_j =  \qo \left( \rho_j \right).
+    \end{align*} 
+\end{ex}

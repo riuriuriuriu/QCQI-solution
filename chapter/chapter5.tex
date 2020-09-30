@@ -1,0 +1,364 @@
+\chapter{量子Fourier変換とその応用}
+
+\begin{ex}
+    \label{ex5.1}
+    \begin{align*}
+        \omega = e^{ i \frac{2 \pi}{N}}
+    \end{align*}
+    とする.
+    量子Fourier変換オペレータ$U$の行列表示$U_{ij}$は, 行列のindexが0オリジンだとして,
+    \begin{align*}
+        U_{ij} = \frac{1}{\sqrt{N}}\omega^{ij}
+    \end{align*}
+    なので，
+    \begin{align*}
+        \sum_{j} U_{ij} U^\dagger_{jk}
+        =　\frac{1}{N} \sum_j \omega^{ij} \bar{\omega}^{jk}
+        = \frac{1}{N} \sum_j \omega^{ij} \omega^{-jk}
+        = \frac{1}{N} \sum_j \omega^{j(i-k)}
+        = \delta_{ik}
+    \end{align*}
+    と$U$はユニタリ.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.2}
+    \begin{align*}
+        \sum_{k=0}^{N-1} \frac{1}{\sqrt{N}} \ket{k}
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.3}
+    $N = 2^n$とする.式(5.1)
+    \begin{align*}
+        y_k = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j \omega^{jk}
+    \end{align*}
+    を実装して, 離散Fourier変換に必要な計算量は, サイズ$N \times N$の行列とサイズ$N$のベクトルの積を求める計算量$\Theta(N^2) = O(4^n)$に等しい.
+    \par
+    一方, 式(5.14)
+    \begin{align*}
+        \mathrm{QFT} \ket{j_1 j_2 \dots j_n}
+         & =
+        \mathrm{QFT} \ket{j_2 j_3 \dots j_n}
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_1 j_2 \dots j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \\
+         & =
+        \mathrm{QFT} \ket{j_3 j_4 \dots \dots j_n}
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_2 j_3 \dots j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_1 j_2 \dots j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \\
+         & \ \vdots
+        \\
+         & = \mathrm{QFT} \ket{j_n}
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_{n-1} j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \dots
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_1 j_2 \dots j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \\
+         & =
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0. j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_{n-1} j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+        \dots
+        \frac{
+            \left(\ket{0}  + e^{2\pi i 0.j_1 j_2 \dots j_n}  \ket{1}\right)
+        }{\sqrt{2}}
+    \end{align*}
+    をみると, $\ket{j_1 j_2 \dots j_n}$のForier変換を知りたければ$\ket{j_2j_3 \dots j_n}$のFourier変換を求めれば良い. $\ket{j_2 j_3 \dots j_n}$のForier変換を知りたければ$\ket{j_3j_3 \dots j_n}$のFourier変換を求めれば良い.このことを再帰的に行えば,
+    ある特定の$\ket{j} = \ket{j_1 j_2 \cdots j_n}$のFourier変換を求めるのに必要な計算量は$\Theta(\log N) = \Theta(n)$であることがわかる. よって，全ての$j = j_1 j_2 \dots j_n$に対して, Fourier変換を求めるのに必要な計算量は$\Theta(N \log N) = O(2^n n)$.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.4}
+    系4.2で,
+    \begin{align*}
+        \alpha = \frac{\pi}{2^k}, \beta = \frac{\pi}{2^{k-1}}, \gamma = \delta = 0
+    \end{align*}
+    として,
+    \begin{align*}
+        R_k
+         & = e^{i \frac{\pi}{2^k}}
+        \begin{pmatrix}
+            e^{-i \frac{\pi}{2^{k}}} & 0                       \\
+            0                        & e^{i \frac{\pi}{2^{k}}}
+        \end{pmatrix}                                  \\
+         & =
+        e^{i \frac{\pi}{2^k}} R_z\left( \frac{\pi}{2^{k-1}}\right) \\
+         & =
+        e^{i \frac{\pi}{2^k}}
+        R_z\left( \frac{\pi}{2^{k-1}}\right) X
+        R_z\left( - \frac{\pi}{2^k}\right) X
+        R_z \left( - \frac{\pi}{2^k}\right)
+    \end{align*}
+    となり,
+    \begin{align*}
+        R_z\left( \frac{\pi}{2^{k-1}}\right)
+        R_z\left( - \frac{\pi}{2^k}\right)
+        R_z \left( - \frac{\pi}{2^k}\right)
+        = I
+    \end{align*}
+    である. よって, 制御$R_k$を単一qビットとCNOTで分解すると,
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+        \lstick{} & \ctrl{1}   & \qw & \raisebox{-3.0em}{=} & \lstick{} & \qw                                         & \ctrl{1} & \qw                                        & \ctrl{1} & \gate{\begin{pmatrix}
+                e^{-i \frac{\pi}{2^{k}}} & 0                       \\
+                0                        & e^{i \frac{\pi}{2^{k}}}
+            \end{pmatrix}}          & \qw \\
+        \lstick{} & \gate{R_k} & \qw &                      & \lstick{} & \gate{R_z\left( \frac{\pi}{2^{k-1}}\right)} & \targ    & \gate{ R_z\left( - \frac{\pi}{2^k}\right)} & \targ    & \gate{ R_z\left( - \frac{\pi}{2^k}\right)} & \qw \\
+        }
+    \end{align*}
+    となる.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.5}
+    $\bm{x} = (x_0, x_1, \dots , x_{N-1})$Fourier逆変換$\bm{y} = (y_0, y_1, \dots, y_{N-1})$を,
+    \begin{align*}
+        y_k
+        = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j \bar{\omega}^{jk}
+        =\frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j {\omega}^{-jk}
+    \end{align*}
+    で定義する. すると, 量子Fourier逆変換は,
+    \begin{align*}
+        \ket{j}
+        \to
+        \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1}  {\omega}^{-jk} \ket{k}
+    \end{align*}
+    となる. 量子Fourier逆変換と量子Fourier変換
+    \begin{align*}
+        \ket{j}
+        \to
+        \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1}  {\omega}^{jk} \ket{k}
+    \end{align*}
+    を比べると, $\omega$の指数部分の符号だけが異なる. よって, 量子Fourier変換を行う量子回路で用いられている$R_k$を全て$\bar{R}_k$;
+    \begin{align*}
+        \bar{R}_k = \begin{pmatrix}
+            1 & 0                         \\
+            0 & e^{- \frac{2 \pi i}{2^k}}
+        \end{pmatrix}
+    \end{align*}
+    に置き換えれば良い.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.6}
+    量子Fourier変換回路が$O(n^2)$個の$R_k$と$O(n)$個の$H$からなることと式(4.63)より,
+    \begin{align*}
+        E(U,V) \leq O(n^2) p(n) = O(n^2 p(n)) \to E(U,V) = O(n^2p(n))
+    \end{align*}
+    なので,量子Fourier変換回路の各ゲートが多項式精度で動作可能なら, 出力状態も多項式精度が保証される.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.7}
+    \begin{align*}
+        \ket{j} U^j \ket{u}
+        =
+        e^{2 \pi i j \phi}\ket{j} \ket{u}
+        =
+        e^{2 \pi i \left( 2^{t-1}j_{t-1} + \dots 2^0 j_{0} \right) \phi}
+        \ket{j_0 j_1 \dots j_{t-1}} \ket{u}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex5.8}
+    第2レジスタでの測定結果が$u$であるときに, 第1レジスタで
+    \begin{align*}
+        t = n + \left\lceil \log\left( 2 + \frac{1}{2 \epsilon}\right) \right\rceil
+    \end{align*}
+    個のqビットを用いれば, 確率$1-\epsilon$で$\phi_u$の推定値を正しく得られる.
+    第2レジスタでの測定結果が$u$である確率は$|c_u|^2$なので, 第1レジスタで$t$個のqビットを用いれば, 確率$|c_u|^2(1-\epsilon)$で$\phi_u$の推定値を正しく得られる.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.9}
+    本問の場合, $\phi$は0または$1/2$なので第1レジスタは1つのqビットで十分である. すると, 位相推定の量子回路は演習\ref{ex4.34}と全く同じ回路になる.
+
+    \begin{align*}
+        \Qcircuit @C=1em @R=1em {
+         & \lstick{\ket{0}}    & \qw & \gate{H} & \ctrl{1} & \gate{H} & \qw & \meter \\
+         & \lstick{\ket{\psi}} & \qw & \qw      & \gate{U} & \qw      & \qw &
+        }
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.10}
+    \begin{align*}
+        5^2 = 4,\ 5^3 = 20,\ 5^4 = 16, \ 5^5 = 17, \ 5^6 = 1 \ (\mathrm{mod} \ 21)
+    \end{align*}
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.11}
+    ここで$\equiv$は, $\mathrm{mod}\  N$における等号.
+    \par
+    位数$r$が存在するとき, 任意の正の整数$n$に対して$x^n \not \equiv 0$.
+    なぜなら, $x^r \equiv 1$なる$r$が存在すると,
+    \begin{itemize}
+        \item $n_1 < r$を満たす任意の正の整数$n_1$に対して, $x^{n_1} \not \equiv 0$. なぜなら, $x^n_1 \equiv 0$なる$n_1$が存在すると, $n_1 < n_2$を満たす任意の正の整数$n_2$に対して, $x^n \equiv 0$となるから.
+        \item $n_1 > r$を満たす任意の正の整数$n_1$に対して, $x^{n_1} \equiv x^{n_1 \% r} \not \equiv 0$\ ($n_1 \% r$は$n_1$を$r$で割ったあまり).
+    \end{itemize}
+    となるから.
+    \par
+    したがって, 位数$r$が存在するとき,  任意の正の整数$n$に対して$x^n$として取りうる値は$1, 2, \dots , N-1$. よって, $1 \leq n_1< n_2 \leq N$を満たす$n_1, n_2$が存在して, $x^{n_1} \equiv x^{n_2}$. よって, $n_1 + r = n_2$なる$r$が存在する.
+    ここで, $1 \leq n_1< n_2 \leq N$なので$1 \leq r \leq N-1$となり題意が示された.
+\end{ex}
+
+
+
+\begin{ex}
+    \label{ex5.12}
+    $x$と$N$が互いに素なので, 定理D.9より$x$の逆元が存在し,
+    \begin{align*}
+        x y_1 \equiv x y_2 \Leftrightarrow y_1 \equiv y_2.
+    \end{align*}
+    よって, $0 \leq y_1, y_2 \leq N-1$に対して,
+    \begin{align*}
+        \braket{y_1 | U U^\dagger | y_2} = \braket{x y_1 \ \mathrm{mod} N| x y_2\ \mathrm{mod} N} = \braket{ y_1 \ \mathrm{mod} N|  y_2\ \mathrm{mod} N} =\braket{ y_1|  y_2}
+    \end{align*}
+    $U$は, $N \leq y_1, y_2 \leq 2^L - 1$に対しては恒等演算子として作用するよう定義されているので,
+    \begin{align*}
+        \braket{y_1 | U U^\dagger | y_2} =\braket{y_1 | I I^\dagger | y_2} = \braket{ y_1 |  y_2}.
+    \end{align*}
+    以上より, $U$はユニタリ.
+\end{ex}
+
+\begin{ex}
+    \label{ex5.13}
+    \begin{align*}
+        \sum_{s=0}^{r-1} e^{-2 \pi i s k / r}
+        =
+        \begin{cases}
+            r                                                      & (k=0)                   \\
+            \frac{1 - e^{-2 \pi i k}}{ 1 - e^{-2 \pi i k / r}} = 0 & (k = 1, 2 ,\dots , r-1)
+        \end{cases}
+    \end{align*}
+    なので,
+    \begin{align*}
+        \frac{1}{\sqrt{r}} \sum_{s=0}^{r-1} \ket{u_s}
+        = \frac{1}{r} \sum_{s=0}^{r-1} \sum_{k=0}^{r-1} e^{-\frac{2 \pi i s k }{r}} \ket{x^k \ \mathrm{mod} \ N}
+        \frac{1}{r} \sum_{k=0}^{r-1} r \delta_{k0} \ket{x^k \ \mathrm{mod} \ N}
+        = \ket{1}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex5.14}
+    \begin{align*}
+        V \ket{j} \ket{k} = \ket{j} \ket{k + x^j \ \mathrm{mod} \ N}
+    \end{align*}
+    を計算する$V$が存在すれば, 第2レジスタを$\ket{0}$で初期化してもFourier逆変換の前の状態$\ket{\psi}$は,
+    \begin{align*}
+        \ket{\psi} = \sum_j V \ket{j} \ket{0} = \sum_j \ket{j} \ket{x^j \ \mathrm{mod} \ N}
+    \end{align*}
+    とできる.
+    \par
+    コラム5.2にもあるように, 筆算の要領で, 各$j = 1, 2, \dots , t-1$に対して, $\ket{x^{2^j}}$を$O(L^2)$計算できる. したがって, 任意の$j$に対して,
+    \begin{align*}
+        \ket{x^j \ \mathrm{mod} \ N} =  \ket{ x^{j_t 2^{t-1}} x^{j_{t-1} 2^{t-2}} \dots x^{j_1 2^0} \ \mathrm{mod} \ N}
+    \end{align*}
+    を$O(L^3)$で計算できる. また, $\ket{k}$と$\ket{x^j}$がわかっていれば, $\ket{k + x^j \ \mathrm{mod} \ N}$も筆算の要領で$O(L)$で計算できる. 総じて, $\ket{k + x^j \ \mathrm{mod} \ N}$は$O(L^3)$で計算可能. つまり, $V$を$O(L^3)$個のゲートで実現可能.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex5.15}
+    付録D.2にあるように, gcd$(x,y)$は$O(L^3)$で計算できる.
+    掛け算や割り算は, それぞれ筆算の要領で$O(L^2)$で計算できる.
+    以上より,\ $xy/\mathrm{gcd}(x,y)$は$O(L^3)$で計算できる.
+\end{ex}
+\begin{ex}
+    \label{5.16}
+    $x \geq 2$に対して,
+    \begin{align*}
+        \frac{3}{2} x^2 - x(x+1) = \frac{x^2}{2} - x \geq 0
+    \end{align*}
+    なので,
+    \begin{align*}
+        \int_x^{x+1} \frac{dy}{y^2} =\frac{1}{x(x+1)} \geq \frac{2}{3 x^2}.
+    \end{align*}
+    よって,
+    \begin{align*}
+        \frac{3}{4} = \frac{3}{2} \int_{2}^{\infty} \frac{dy}{y^2}
+        \geq
+        \sum_{n=2}^{\infty} \frac{1}{n^2}
+        \geq
+        \sum_{q} \frac{1}{q^2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex5.17}
+\end{ex}
+
+\begin{ex}
+    \label{ex5.18}
+    91に対する4の位数は6. \ $4^{6/2} \neq -1 \ \mathrm{mod}\  91$ なので, $\mathrm{gcd}(4^3 - 1,91) = 7$となり, アルゴリズムは成功する.
+\end{ex}
+
+\begin{ex}
+    \label{ex5.19}
+    奇の合成数は, 小さい順に$9,15,21,\dots$. よって, ある数のべきになっていない最小の合成数は$15$.
+\end{ex}
+
+\begin{ex}
+    \label{ex5.20}
+    $N = nr$とかく.
+    \begin{align*}
+        \hat{f}(l)
+         & = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} e^{-2 \pi i l x / N} f(x)
+        \\
+         & =\frac{1}{\sqrt{nr}} \sum_{k=0}^{n-1} \sum_{x=0}^{r-1} e^{-2 \pi i l (x+kr) / nr} f(x+kr)
+        \\
+         & = \frac{1}{\sqrt{nr}} \sum_{k=0}^{n-1} e^{-2 \pi i l k / n} \sum_{x=0}^{r-1} e^{-2 \pi i l x / nr} f(x)
+        \\
+         & =
+        \begin{cases}
+            \sqrt{\frac{n}{r}} \sum_{x=0}^{r-1} e^{-2 \pi i l x / nr} f(x) & (l = n \mathbb{Z})   \\
+            0                                                              & (\mathrm{otherwise})
+        \end{cases}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex5.21}
+    (1)
+    \begin{align*}
+        U_y \ket{ \hat{f}(l)}
+         & = \frac{1}{\sqrt{r}} \sum_{x=0}^{r-1} e^{- 2 \pi i l x/r} U_y \ket{f(x)}                      \\
+         & =  e^{2 \pi i ly/r} \frac{1}{\sqrt{r}} \sum_{x=0}^{r-1} e^{- 2 \pi i l( x + y)/r}\ket{f(x+y)} \\
+         & =
+        e^{2 \pi i ly/r} \ket{ \hat{f}(l)}
+    \end{align*}
+    \par
+    (2)
+    \par
+    \begin{align*}
+        \ket{f(x_0)}= \frac{1}{\sqrt{r}} \sum_{l=0}^{r-1} e^{2 \pi i l x_0 / r} \ket{\hat{f}(l)}
+    \end{align*}
+    は$U_y$の固有状態を等しい振幅で重ね合わせた状態. したがって, $\ket{0}\ket{f(x_0)}$を初期状態として, 位相発見のアルゴリズム(日本語版の教科書p84)を用いれば, $f$の周期$r$を得る.
+\end{ex}
