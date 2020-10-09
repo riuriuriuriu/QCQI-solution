@@ -239,20 +239,7 @@
         S(A) > 0
         \longleftrightarrow
         A \mathrm{が純粋状態でない}
-        \longleftrightarrow
-        \ket{AB}\mathrm{がもつれている}
     \end{align*}
-    最後の$\longleftrightarrow$では,
-    \begin{align*}
-        \ket{AB}\mathrm{がもつれていない}
-        \longleftrightarrow
-        \ket{AB} = \ket{A} \otimes \ket{B}
-        \longleftrightarrow
-        \rho^A = \ket{A} \bra{A}
-        \longleftrightarrow
-        A\mathrm{が純粋状態}
-    \end{align*}
-    であることを用いた.
 \end{ex}
 
 \begin{ex}
@@ -321,7 +308,7 @@
         \mathrm{\ \ \ かつ\ \ \ }
         \exists \rho \ \forall i \in \{ i \ |\  \lambda_i > 0 \} \ \rho_i = \rho
     \end{align*}
-    最後の行の2つ目の主張については, \ref{ex11.18}で示す.
+    最後の行の2つ目の主張については, 演習\ref{ex11.18}で示す.
 \end{ex}
 
 \begin{ex}
@@ -360,7 +347,6 @@
 
 \begin{ex}
     \label{ex11.19}
-
     \begin{align*}
         S \left( \frac{I}{d}\right)
         =
@@ -434,8 +420,51 @@
         \left[ \left( p_i - q_i \right) p + q_i \right]
         \log \left[  \left( p_i - q_i \right) p + q_i \right]
     \end{align*}
-    なので, 
+    なので,
     \begin{align*}
         f''(p) = - \sum_i \frac{ (p_i - q_i)^2 }{p_i p + (1-p)q_i} \leq 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex11.23}
+    (11.96)式で$B_1 = B_2 = B$とすれば良い.
+\end{ex}
+
+\begin{ex}
+    \label{ex11.24}
+    $ABC$の純粋化$ABCR$として,
+    \begin{align*}
+        S(A,B) = S(C,R) , \ S(A,B,C) = S(R)
+    \end{align*}
+    なので, (11.108)式より,
+    \begin{align*}
+        S(R) + S(B) \le S(C,R) + S(B,C).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex11.25}
+\end{ex}
+
+\begin{ex}
+    \label{ex11.26}
+    強い劣加法性から,
+    \begin{align*}
+        S(A) + S(B) - S(A,B) +
+        S(A) + S(C) - S(A,C)
+        =
+        S(A:B) + S(A:C)
+        \le
+        2S(A).
+    \end{align*}
+    \par
+    たとえば, $\ket{AB}$として, EPR状態
+    \begin{align*}
+        \ket{AB} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}
+    \end{align*} 
+    を取ると, 
+    \begin{align*}
+        S(A:B) = 2 > S(A) = 1.
     \end{align*}
 \end{ex}
