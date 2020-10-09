@@ -1,0 +1,100 @@
+\renewcommand\thechapter{\Alph{chapter}}
+\setcounter{chapter}{5}
+\chapter{Liebの定理の証明}
+
+\begin{ex}
+    \label{exf.1}
+    $A \le B$とすると, 任意の状態$\ket{\psi}$に対して,
+    \begin{align*}
+        \braket{ \psi | X^\dagger (B - A) X | \psi} \ge 0
+    \end{align*}
+    なので,
+    \begin{align*}
+        X^\dagger B X \ge X^\dagger A X.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{exf.2}
+    明らか.
+\end{ex}
+
+\begin{ex}
+    \label{exf.3}
+    明らか.
+\end{ex}
+
+\begin{ex}
+    \label{exf.4}
+    (1) \par
+    (2)\
+    $A$はHermiteなので,
+    \begin{align*}
+        A = \sum_i \lambda_i \ket{i} \bra{i}
+    \end{align*}
+    として,
+    \begin{align*}
+        || A ||
+         & = \max | \braket{u | A | u} | \ \mathrm{subject \ to } \braket{u|u} = 1                      \\
+         & = \max \left|\sum_i \lambda_i |c_i|^2 \right| \ \mathrm{subject \ to \ } {\sum_i}|c_i|^2 = 1 \\
+         & = | \lambda |
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{exf.5}
+    $AB, BA$の固有多項式$f_{AB}(x), f_{BA}(x)$とかく.
+    \par
+    $A$が正則ならば,
+    \begin{align*}
+        f_{AB}(x) =
+        \det\left( xI - AB\right)
+        = \det\left( A^{-1} x I A - A^{-1} ABA\right)
+        = \det\left( xI - BA \right)
+        = f_{BA}(x).
+    \end{align*}
+    \par
+    $A$が非正則とする.
+    上に示した通り, $A(y) = A + yI$として, $\det A(y) \neq 0$なる$y$に対して,
+    \begin{align*}
+        f_{A(y)B}(x) = f_{BA(y)}(x)
+    \end{align*}
+    である. ここで,
+    $\det A(y)$は$y$に関する$n$次なので, $\det A(y) = 0$なる$y$は高々$n$個であることと固有多項式の連続性より,
+    上式で $\det A(y) = 0$なる$y$を避けるように, $y \to 0$として,
+    \begin{align*}
+        f_{AB}(x) = f_{BA}(x).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{exf.6}
+    演習\ref{exf.4},\ \ref{exf.5}より, $AB$がHermiteならば, $AB$の絶対値最大の固有値$\lambda$として,
+    \begin{align*}
+        \lambda = || AB || \le || BA ||.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{exf.7}
+    $A$が正オペレータのとき, 
+    \begin{align*}
+        A \le I
+         & \longleftrightarrow
+        \forall \ket{\psi} \ \braket{\psi| I - A | \psi} | \ge 0 \\
+         & \longleftrightarrow
+         \forall \ket{\psi} \ 0 \le \braket{\psi| A | \psi}  \le \braket{\psi|\psi} \\
+         & \longleftrightarrow
+         \forall \ket{u}:\mathrm{単位ベクトル}  \ 0 \le \braket{u| A | u}  \le 1 \\
+         & \longleftrightarrow
+         || A || \le 1. \\
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{exf.8}
+    $A,B$が正オペレータのとき, $\tr AB \ge 0$なので, 
+    \begin{align*}
+        \tr X^\dagger A X = \tr A X X^\dagger \ge 0.
+    \end{align*}
+\end{ex}
