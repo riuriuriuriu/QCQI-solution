@@ -204,6 +204,20 @@
 
 \begin{ex}
     \label{ex12.14}
+    $Q$は量子コンピュータのqubit全体, $Q_1$は$Q$のうち誤り訂正可能な符号とし, $Q_2 = Q - Q_1$と書く. この時, 定理12.10の証明で議論したように, 
+    \begin{align*}
+        Q_1 が誤り訂正可能 
+        &\longleftrightarrow
+        \rho^{R Q_2} = \rho^{R} \otimes \rho^{Q_2}  \ (\because 定理12.10の証明での議論)\\
+        &\longleftrightarrow
+        S\left( \rho^{Q_1 Q_2}\right)
+        =
+        S\left( \rho^R\right)
+        =
+        S\left( \rho^{Q_2}\right) -  S\left( \rho^{RQ_2}\right) = S\left( \rho^{Q_2}\right) -  S\left( \rho^{Q_1}\right)\\
+        &\longleftrightarrow
+        \rho^{Q_1 R} = \rho^{Q_1} \otimes \rho^R \ \ (\because 式(11.78)の等号成立)
+    \end{align*}
 \end{ex}
 
 \begin{ex}
