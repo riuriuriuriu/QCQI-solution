@@ -1,0 +1,1108 @@
+\chapter{量子力学入門}
+
+
+\begin{ex}
+    \label{ex2.1}
+    \begin{align*}
+        \begin{pmatrix}
+            1 \\ -1
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            1 \\ 2
+        \end{pmatrix}
+        -
+        \begin{pmatrix}
+            2 \\ 1
+        \end{pmatrix}
+        =
+        0
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.2}
+    入出力基底が共に,
+    \begin{align*}
+        \ket{0},\ket{1}
+    \end{align*}
+    のとき,
+    \begin{align*}
+        A
+        =
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix}
+    \end{align*}
+    上記の入出力基底を, 基底の変換行列$U$
+    \begin{align*}
+        U
+        =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 1  \\
+            1 & -1
+        \end{pmatrix}
+    \end{align*}
+    を用いて,
+    \begin{align*}
+        \frac{\ket{0}+\ket{1}}{\sqrt{2}},\frac{\ket{0}-\ket{1}}{\sqrt{2}}
+    \end{align*}
+    に取り替えると, 表現行列は,
+    \begin{align*}
+        U^{-1}AU
+        =
+        \begin{pmatrix}
+            1 & 0  \\
+            0 & -1
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.1}
+    問題文の$A,B$というオペレーターを$T_A, T_B$と書き, 問題文で与えられた基底に対するその表現行列をそれぞれ$A,B$と書くとすると,
+    \begin{align*}
+        T_B T_A \ket{v_i}
+        = T_B A_{ji}\ket{w_j}
+        = A_{ji} B_{kj} \ket{x_k}
+        = B_{kj} A_{ji} \ket{x_k}
+    \end{align*}
+    なので, $T_BT_A$の基底$\{\ket{v_i}\}$から$\{\ket{x_i}\}$への表現行列は$BA$.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.4}
+    任意の状態$\ket{\psi}$は, $V$の基底$\{\ket{v_i}\}$を用いて,
+    \begin{align*}
+        \ket{\psi} = \sum_i c_i \ket{v_i}
+    \end{align*}
+    とかけ,
+    $V \to V$の単位オペレーター$I$は, $\ket{\psi}$に対して,
+    \begin{align*}
+        I \ket{\psi} = \ket{\psi}
+    \end{align*}
+    つまり
+    \begin{align*}
+        \sum_{i,j} c_i I_{ji} \ket{v_j} = \sum_{j} c_j \ket{v_j}
+    \end{align*}
+    のように作用するので,
+    \begin{align*}
+        0 =
+        \sum_{i,j} \left( c_i I_{ji} - \frac{c_j}{\dim V} \right) \ket{v_j}
+    \end{align*}
+    が成立. よって, 基底の1次独立性から全ての$j$に対して,
+    \begin{align*}
+        c_j = \sum_i c_i I_{ji}
+    \end{align*}
+    つまり
+    \begin{align*}
+        I_{ij} = \delta_{ij}.
+    \end{align*}
+    ゆえに, $I$の表現行列は単位行列.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.5}
+    $\bm{y} = (y_1, ..., y_n), \bm{z} = (z_1, ..., z_n)$とかく.
+    \\
+    (1) \ 
+    \begin{align*}
+        \left( \bm{y}, \sum_j \lambda_j \bm{z}_j \right)
+        = \sum_{i,j} y^{*}_i \lambda_j z_{ji}
+        = \sum_j \lambda_j \sum_i y^{*}_i z_{ij}
+        = \sum_j \lambda_j (\bm{y},\bm{z}_j)
+    \end{align*} 
+    \\
+    (2) \ 
+    \begin{align*}
+        \left( \bm{y}, \bm{z}\right)^*
+        =
+        \sum_i y_i z^*_i
+        =
+        \left( \bm{z}, \bm{y}\right)
+    \end{align*}
+    \\
+    (3) \ 
+    \begin{align*}
+        \left( \bm{y}, \bm{y}\right) = \sum_i |y_i|^2 \ge 0
+    \end{align*}
+    で等号成立は$\bm{y} = \bm{0}$のときのみ.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.6}
+    \begin{align*}
+        \left(
+        \lambda_i \ket{w_i} , \ket{v}
+        \right)
+        =
+        \left(
+        \ket{v},
+        \lambda_i \ket{w_i}
+        \right)^*
+        =
+        \lambda_i^*
+        \left(
+        \ket{v},\ket{w_i}
+        \right)^*
+        =
+        \lambda_i^*
+        \left(
+        \ket{w_i},\ket{v}
+        \right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.7}
+    式(2.14)で定義された$\bm{C}^2$の標準内積を用いることにすると,
+    \begin{align*}
+        \braket{w|v}=0.
+    \end{align*}
+    $\ket{w},\ket{v}$を規格化すると, それぞれ
+    \begin{align*}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 \\ 1
+        \end{pmatrix}
+        ,\
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 \\ -1
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.8}
+    $d$次元の計量線型空間$V$の基底$\{\ket{w_k}\}_{k=1}^d$に対して,
+    \begin{align*}
+        \ket{v_{k}}
+        =
+        \begin{dcases}
+            \frac{w_{k}}{||w_{k}||} & (k=1)                \\
+            \frac{
+            \ket{w_{k}}-\sum_{i=1}^{k-1}\braket{v_i|w_{k}} \ket{v_i}
+            }{
+            ||\ket{w_{k}}-\sum_{i=1}^{k-1}\braket{v_i|w_{k}} \ket{v_i}||
+            }                       & (\mathrm{otherwise})
+        \end{dcases}
+    \end{align*}
+    で定義された$\{\ket{v_k}\}_{k=1}^d$が$V$の正規直交基底になっていること示す.
+    \par
+    正規性は, 明らかである.
+    \par
+    直交性について, 帰納法で示す.
+    $k=1$のとき,
+    \begin{align*}
+        \braket{v_1|v_2}
+        \propto
+        \braket{v_1|w_2}- \braket{v_1|w_2} \braket{v_1|v_1} = 0.
+    \end{align*}
+    また, $i \neq j\ (i,j=1,2 \dots, k)$なる任意のの$i,j$で,
+    \begin{align*}
+        \braket{v_j|v_i} = 0
+    \end{align*}
+    だと仮定すると,
+    \begin{align*}
+        \braket{v_j|v_{k+1}}
+        \propto
+        \braket{v_j|w_{k+1}}-\sum_{i=1}^k\braket{v_i|w_{k+1}} \braket{v_j|v_i}
+        =
+        \braket{v_j|w_{k+1}}-\braket{v_j|w_{k+1}}\braket{v_j|v_j}
+        =
+        0.
+    \end{align*}
+    以上より, $i,j=1,2,\dots,d$に対して,
+    \begin{align*}
+        \braket{v_i|v_j} = \delta_{ij}
+    \end{align*}
+    が言えた. したがって, $\{\ket{v_k}\}_{k=1}^d$は線形独立で, $V$を張る. つまり, $\{\ket{v_k}\}_{k=1}^d$は$V$の正規直交基底.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.9}
+    \begin{align*}
+        \sigma_0 & = \ket{0}\bra{0} + \ket{1}\bra{1}      \\
+        \sigma_1 & = \ket{0}\bra{1} + \ket{1}\bra{0}      \\
+        \sigma_2 & = -i \ket{0}\bra{1} + i \ket{1}\bra{0} \\
+        \sigma_3 & = \ket{0}\bra{0} - \ket{1}\bra{1}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.10}
+    式(2.25)より,
+    \begin{align*}
+        \ket{v_j}\bra{v_k}
+        = \sum_{i,l} \ket{v_i}\braket{v_i|v_j}\braket{v_k|v_l}\bra{v_l}
+        = \sum_{i,l} \ket{v_i}\delta_{ij}\delta_{kl}\bra{v_l}
+    \end{align*}
+    なので, 正規直交基底の下での$\ket{v_j}\bra{v_k}$表現行列$A$の成分$A_{il}$は,
+    \begin{align*}
+        A_{il} = \delta_{ij}\delta_{kl}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.11}
+    $X$の固有値は$1,-1$で, 対応する規格化された固有ベクトルはそれぞれ,
+    \begin{align*}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 \\ 1
+        \end{pmatrix}
+        ,\
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 \\ -1
+        \end{pmatrix}.
+    \end{align*}
+
+    $Y$の固有値は$1,-1$で, 対応する規格化された固有ベクトルはそれぞれ,
+    \begin{align*}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            i \\ 1
+        \end{pmatrix}
+        ,\
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            i \\ -1
+        \end{pmatrix}.
+    \end{align*}
+
+    $Z$の固有値は$1,-1$で, 対応する規格化された固有ベクトルはそれぞれ,
+    \begin{align*}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix}
+        ,\
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.12}
+    \begin{align*}
+        A =
+        \begin{pmatrix}
+            1 & 0 \\
+            1 & 1
+        \end{pmatrix}
+    \end{align*}
+    の固有方程式は,
+    \begin{align*}
+        (\lambda-1)^2=0
+    \end{align*}
+    となり, $A$の固有空間の直和$W$として,
+    \begin{align*}
+        W =
+        \left\{
+        t
+        \begin{pmatrix}
+            0 \\1
+        \end{pmatrix}
+        \middle| \ t \in \bm{C}
+        \right\}
+        \neq \bm{C}^2
+    \end{align*}
+    より, $A$は対角化不可能.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.13}
+    \begin{align*}
+        (\ket{w} \bra{v})^\dagger = \bra{v}^\dagger \ket{w}^\dagger = \ket{v} \bra{w}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.14}
+    任意の$\ket{v},\ket{w} \in V$に対して,
+    \begin{align*}
+        \left(\left(\sum_i a_i A_i \right)^\dagger
+        \ket{v}, \ket{w} \right)
+        =
+        \left(\ket{v}, \sum_i a_i A_i \ket{w} \right)
+        =
+        \sum_i a_i\left(\ket{v},  A_i \ket{w} \right)
+        =
+        \sum_i \left( a_i^* \ket{v},  A_i \ket{w} \right)
+        =
+        \left(\sum_i a_i^* A_i^\dagger \ket{v},  \ket{w} \right)
+    \end{align*}
+    であり, $\ket{w}$は任意なので,
+    \begin{align*}
+        \left(\sum_i a_i A_i \right)^\dagger = \sum_i a_i^* A_i^\dagger
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.15}
+    任意の$\ket{v},\ket{w} \in V$に対して,
+    \begin{align*}
+        \left(\ket{v}, A \ket{w} \right)
+        =
+        \left(A^\dagger \ket{v}, \ket{w} \right)
+        =
+        \left(\ket{v}, (A^\dagger)^\dagger \ket{w} \right)
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.16}
+    \begin{align*}
+        P^2
+        = \sum_i \sum_j \ket{i}\bra{i} \ket{j}\bra{j}
+        = \sum_i \sum_j \ket{i}\delta_{ij}\bra{j}
+        =　\sum_i \ket{i}\bra{i}
+        = P
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.17}
+    「正規行列$A$の固有値が実数$\Longleftrightarrow$正規行列$A$はHermite」を示す.
+    \par
+    $\Longrightarrow)$
+    スペクトル分解をすると, $a\in \mathrm{R}$として,
+    \begin{align*}
+        A = \sum_a a \ket{a} \bra{a}
+    \end{align*}
+    とかけるので,
+    \begin{align*}
+        A^\dagger =  \sum_a a^* \ket{a} \bra{a} = \sum_a a\ket{a} \bra{a} = A.
+    \end{align*}
+    \par
+    $\Longleftarrow)$
+    $A$がHermiteとする. $A$の固有値$\lambda$と対応する固有ベクトル$\ket{v}$として,
+    \begin{align*}
+        \lambda = \left(\ket{v}, A \ket{v} \right) = \left( A \ket{v}, \ket{v} \right) = \lambda^*
+    \end{align*}
+    より, $\lambda$は実数であることが言えた.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.18}
+    ユニタリ行列$U$の固有値$\lambda$と対応する固有ベクトル$\ket{v}$として,
+    \begin{align*}
+        \braket{v|v} = \left( U \ket{v}, U \ket{v} \right) = |\lambda|^2 \braket{v|v}
+    \end{align*}
+    で, $\braket{v|v}\neq 0$なので,
+    \begin{align*}
+        |\lambda| = 1.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.19}
+    Pauli行列の定義より明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.20}
+    完全性条件を挟んで,
+    \begin{align*}
+        A_{ij}^{''}
+        = \braket{w_i|A|w_j}
+        = \sum_k \sum_l \braket{w_i|v_k}\braket{v_k|A|v_l}\braket{v_l|w_j}
+        = \sum_k \sum_l \braket{w_i|v_k}A_{kl}^{'}\braket{v_l|w_j}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.21}
+    $M$がHermiteならば, $\mathrm{式}(2.37)=\mathrm{式}(2.41)$が明らか.
+\end{ex}
+
+
+\begin{ex}
+    \label{ex2.22}
+    Hermite オペレータ $A$の異なる固有値$\lambda_i, \lambda_j \ (\lambda_i \neq \lambda_j)$
+    と対応する固有ベクトル$\ket{i}, \ket{j}$とすると, $\lambda_i, \lambda_j$が実数であることに注意して,
+    \begin{align*}
+        0 = \left(\ket{i}, A \ket{j} \right) - \left( A \ket{i}, \ket{j} \right) = (\lambda_j - \lambda_i) \braket{i|j}
+        \to
+        \braket{i|j} = 0
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.23}
+    射影オペレータ $P$の固有値$\lambda$と対応する固有ベクトル$\ket{v}$とすると, \ $P^2=P$より,
+    \begin{align*}
+        0 = (P^2 - P)\ket{v} = \lambda(\lambda-1)\ket{v}.
+    \end{align*}
+    左から$\bra{v}$をかけて,
+    \begin{align*}
+        0 = \lambda(\lambda-1) \to \lambda = 0,1.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.24}
+    任意のオペレータ$A$は,
+    \begin{align*}
+        A = \frac{A + A^\dagger}{2} + i \frac{A-A^\dagger}{2i}
+    \end{align*}
+    の形でかける.
+    また, 任意の$\ket{v}$に対して, Hermite オペレータ $H$の期待値は,
+    \begin{align*}
+        \left( \ket{v}, H \ket{v} \right)
+        = \left( H^\dagger \ket{v}, \ket{v} \right)
+        = \left( H \ket{v}, \ket{v} \right)
+        = \left( \ket{v}, H \ket{v} \right)^*
+    \end{align*}
+    と実となるので,
+    \begin{align*}
+        \braket{v|\frac{A + A^\dagger}{2}|v}
+        ,\ \braket{v|\frac{A-A^\dagger}{2i}|v}
+        \in \mathbb{R}.
+    \end{align*}
+    $A$を正のオペレーターとすると, 任意の$\ket{v}$に対して, $\braket{v|A|v}$が実なので, 
+    \begin{align*}
+        \braket{v|\frac{A-A^\dagger}{2i}|v} = 0.
+    \end{align*}
+    $\ket{v}$は, 任意なので, $A = A^\dagger$が成り立つ.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.25}
+    \begin{align*}
+        \braket{v|A^\dagger A | v}
+        = \left(\ket{v}, A^\dagger A\ket{v} \right)
+        = \left(A \ket{v},A\ket{v} \right)
+        = || A \ket{v}|| ^2 \geq 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.26}
+    \begin{align*}
+        \ket{0} =
+        \begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix}
+        , \
+        \ket{1} =
+        \begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix}
+    \end{align*}
+    とする. テンソル積の形で書くと,
+    \begin{align*}
+        \ket{\psi}^{\otimes 2} & = \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} \\
+        \ket{\psi}^{\otimes 3} & = \frac{
+            \ket{000} + \ket{001} + \ket{010} + \ket{011}
+            +\ket{100} + \ket{101} + \ket{110} + \ket{111} }{2\sqrt{2}}.
+    \end{align*}
+    Kronecker積の形で書くと,
+    \begin{align*}
+        \ket{\psi}^{\otimes 2}
+         & = \frac{1}{2}
+        \begin{pmatrix}
+            1 \\ 1 \\ 1 \\ 1
+        \end{pmatrix} \\
+        \ket{\psi}^{\otimes 3}
+         & = \frac{1}{2\sqrt{2}}
+        \begin{pmatrix}
+            1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.27}
+    \begin{align*}
+        X \otimes Z
+        =
+        \begin{pmatrix}
+            0 & 0  & 1 & 0  \\
+            0 & 0  & 0 & -1 \\
+            1 & 0  & 0 & 0  \\
+            0 & -1 & 0 & 0  \\
+        \end{pmatrix}
+        , \
+        I \otimes X
+        =
+        \begin{pmatrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+        \end{pmatrix}
+        , \
+        X \otimes I
+        =
+        \begin{pmatrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 \\
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+        \end{pmatrix}.
+    \end{align*}
+    $I \otimes X \neq X \otimes I$にあるようにテンソル積は非可換.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.28}
+    テンソル積の転置共役$\left( A \otimes B \right)^\dagger$を,
+    \begin{align*}
+        \left(
+        \left(A \otimes B \right)^\dagger
+        \left( \ket{v_1} \otimes \ket{w_1}\right),
+        \ket{v_2} \otimes \ket{w_2}
+        \right)
+        =
+        \left(
+        \ket{v_1} \otimes \ket{w_1},
+        \left( A \otimes B \right) \left( \ket{v_2} \otimes \ket{w_2} \right)
+        \right)
+    \end{align*}
+    で定義すると,
+    \begin{align*}
+        \left(
+        \left(A \otimes B \right)^\dagger
+        \left( \ket{v_1} \otimes \ket{w_1}\right),
+        \ket{v_2} \otimes \ket{w_2}
+        \right)
+         & =
+        \left(
+        \ket{v_1} \otimes \ket{w_1},
+        A \ket{v_2} \otimes B \ket{w_2}
+        \right) \\
+         & =
+        \left(
+        \ket{v_1},A \ket{v_2}
+        \right)
+        \left(
+        \ket{w_2},B \ket{w_2}
+        \right) \\
+         & =
+        \left(
+        A^\dagger \ket{v_1}, \ket{v_2}
+        \right)
+        \left(
+        B^\dagger \ket{w_1}, \ket{w_2}
+        \right) \\
+         & =
+        \left(
+        \left(A^\dagger \otimes B^\dagger \right)
+        \left( \ket{v_1} \otimes \ket{w_1}\right),
+        \ket{v_2} \otimes \ket{w_2} .
+        \right)
+    \end{align*}
+    $\ket{v_1} \otimes \ket{w_1}$
+    ,
+    $\ket{v_2} \otimes \ket{w_2}$は任意なので, $ \left(A \otimes B \right)^\dagger=A^\dagger \otimes B^\dagger$を得る.
+    \par
+    テンソル積の複素共役$\left(A \otimes B \right)^*$を, オペレータ形式でどう定義すればわからないので,
+    Kronecker積の形で考える.
+    \begin{align*}
+        \left(A \otimes B \right)^*
+        =
+        \begin{pmatrix}
+            A_{11}B & A_{12}B & \dots  & A_{1n}B \\
+            A_{21}B & A_{22}B & \dots  & A_{2n}B \\
+            \vdots  & \vdots  & \vdots & \vdots  \\
+            A_{m1}B & A_{m2}B & \dots  & A_{mn}B \\
+        \end{pmatrix}^*
+        =
+        \begin{pmatrix}
+            A_{11}^* B^* & A_{12}^*B^* & \dots  & A_{1n}^*B^* \\
+            A_{21}^*B^*  & A_{22}^*B^* & \dots  & A_{2n}^*B^* \\
+            \vdots       & \vdots      & \vdots & \vdots      \\
+            A_{m1}^*B^*  & A_{m2}^*B^* & \dots  & A_{mn}^*B^* \\
+        \end{pmatrix}
+        =
+        A^* \otimes B^*
+    \end{align*}
+    \par
+    テンソル積の転置$\left(A \otimes B \right)^T$を,
+    \begin{align*}
+        \left(A \otimes B \right)^T
+        =
+        \left(A \otimes B \right)^{*\dagger}
+    \end{align*}
+    で定義すると, 上で示したテンソル積の転置共役, 複素共役に対する分配性から,
+    \begin{align*}
+        \left(A \otimes B \right)^T
+        =
+        \left(A \otimes B \right)^{*\dagger}
+        =
+        \left(A^* \otimes B^* \right)^{\dagger}
+        =
+        A^{*\dagger} \otimes B^{*\dagger}
+        =
+        A^T \otimes B^T.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.29}
+    $U_1, U_2$がユニタリのとき,
+    \begin{align*}
+        (U_1 \otimes U_2)(U_1 \otimes U_2)^\dagger
+        =
+        (U_1 \otimes U_2)(U_1^\dagger\otimes U_2^\dagger)
+        =
+        (U_1U_1^\dagger) \otimes (U_2U_2^\dagger)
+        =
+        I_1 \otimes I_2
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.30}
+    $A_1, A_2$がHetmiteのとき,
+    \begin{align*}
+        (A_1 \otimes A_2)^\dagger
+        =
+        A_1^\dagger \otimes A_2^\dagger
+        =
+        A_1 \otimes A_2
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.31}
+    $A, B$が正のオペレータのとき, 任意のベクトル$\ket{v}\otimes \ket{w}$に対して,
+    \begin{align*}
+        \left( \bra{v}\otimes \bra{w} \right)
+        (A \otimes B )
+        \left( \ket{v}\otimes \ket{w} \right)
+        =
+        \braket{v|A|v}
+        \braket{w|B|w}
+        \geq 0
+    \end{align*}
+    より, $A \otimes B$も正のオペレータ.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.32}
+    ここでは, 射影オペレータ$P$を,
+    \begin{align*}
+        P^\dagger = P , P^2 = P
+    \end{align*}
+    を満たすオペレータと定義する. この定義は, 式(2.35)と矛盾しない.
+    \par
+    $P_1, P_2$が射影オペレータのとき,
+    \begin{align*}
+        \left( P_1 \otimes P_2 \right)^\dagger
+         & =
+        P_1 \otimes P_2
+        \\
+        \left( P_1 \otimes P_2 \right) \left( P_1 \otimes P_2 \right)
+         & =
+        I_1 \otimes I_2
+    \end{align*}
+    より, $P_1 \otimes P_2$は射影オペレータ.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.33}
+    Hadamard変換$H$は,
+    \begin{align*}
+        H =
+        \frac{1}{\sqrt{2}}
+        \left(
+        \ket{0} \bra{0} + \ket{1} \bra{0} + \ket{0} \bra{1} - \ket{1} \bra{1}
+        \right).
+    \end{align*}
+    上式の最後の項の$-$符号に注意する.
+    \par
+    例えば, $n=2$のとき,
+    \begin{align*}
+        H^{\otimes 2}
+         & =
+        \frac{1}{2}
+        \big(
+        \ket{0} \bra{0} + \ket{1} \bra{0} + \ket{0} \bra{1} - \ket{1} \bra{1}
+        \big)
+        \otimes
+        \big(
+        \ket{0} \bra{0} + \ket{1} \bra{0} + \ket{0} \bra{1} - \ket{1} \bra{1}
+        \big)
+        \\
+         & =
+        \frac{1}{2}
+        \big(
+        \ket{00} \bra{00} + \ket{01} \bra{00} + \ket{00} \bra{01} - \ket{01} \bra{01}
+        +
+        \ket{10} \bra{00} + \ket{11} \bra{00} + \ket{10} \bra{01} - \ket{11} \bra{01}
+        \\
+         & \ \ \ \ \ \ \ + \ket{00} \bra{10} + \ket{01} \bra{10} + \ket{00} \bra{11} - \ket{01} \bra{11}
+        -
+        \ket{10} \bra{10} - \ket{11} \bra{10} - \ket{10} \bra{11} + \ket{11} \bra{11}
+        \big)                                                                                            \\
+         & =
+        \frac{1}{2} \sum_{x,y} (-1)^{x \cdot y}\ket{x}\bra{y} .
+    \end{align*}
+    ここで, $x,y$は各成分が0または1の2次元のベクトルで, $x \cdot y $は標準内積.
+    \par
+    一般の$n$に対しても,
+    $x,y$を各成分が0または1の$n$次元のベクトル, $x \cdot y $を標準内積として,
+    \begin{align*}
+        H^{\otimes n}
+        = \frac{1}{\sqrt{2^n}} \sum_{x,y} (-1)^{x \cdot y}\ket{x}\bra{y}
+    \end{align*}
+    を得ることは少し考えればわかる.
+    \par
+    特に, Kronecker積の形で書くと,
+    \begin{align*}
+        H
+        =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 1  \\
+            1 & -1 \\
+        \end{pmatrix}
+        ,\
+        H^{\otimes 2}
+        =
+        \frac{1}{2}
+        \begin{pmatrix}
+            1 & 1  & 1  & 1  \\
+            1 & -1 & 1  & -1 \\
+            1 & 1  & -1 & -1 \\
+            1 & -1 & -1 & 1
+        \end{pmatrix}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.34}
+    基底
+    \begin{align*}
+        \ket{0}, \ket{1}
+    \end{align*}
+    の下での表現行列が,
+    \begin{align*}
+        \begin{pmatrix}
+            4 & 3 \\
+            3 & 4
+        \end{pmatrix}
+    \end{align*}
+    なるオペレータ$A$を考える.
+    固有値問題を解くと, 基底を
+    \begin{align*}
+        \ket{+} = \frac{\ket{0}+\ket{1}}{\sqrt{2}},\ \ket{-} = \frac{\ket{0}-\ket{1}}{\sqrt{2}}
+    \end{align*}
+    取り替えることで, 表現行列$A$が
+    \begin{align*}
+        \begin{pmatrix}
+            7 & 0 \\
+            0 & 1
+        \end{pmatrix}
+    \end{align*}
+    と対角化できることがわかる. つまり,
+    \begin{align*}
+        A = 7 \ket{+}\bra{+} + 1 \ket{-}\bra{-} .
+    \end{align*}
+    ゆえに, オペレータ$A$の平方根$f(A)$を
+    \begin{align*}
+        \sqrt{A} = \sqrt{7} \ket{+}\bra{+} +  \ket{-}\bra{-}
+    \end{align*}
+    で定義できる. 同様に, オペレータ$A$の対数$\log{A}$を
+    \begin{align*}
+        \log{A} = \log{7} \ket{+}\bra{+}
+    \end{align*}
+    で定義できる.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.35}
+    \begin{align*}
+        \bm{v} \cdot \bm{\sigma}
+        =
+        \begin{pmatrix}
+            v_3         & v_1 - i v_2 \\
+            v_1 + i v_2 & - v_3
+        \end{pmatrix}
+    \end{align*}
+    の固有値$\lambda = \pm 1$の対応する固有ベクトルをそれぞれ$\ket{-1}, \ket{1}$とかくと,
+    \begin{align*}
+        \bm{v} \cdot \bm{\sigma} = \ket{1}\bra{1} - \ket{-1}\bra{-1} .
+    \end{align*}
+    よって,
+    \begin{align*}
+        \exp{\left( i \theta \bm{v} \cdot \bm{\sigma} \right)}
+         & =
+        e^{i \theta} \ket{1}\bra{1} - e^{- i \theta} \ket{-1}\bra{-1} \\
+         & =
+        \cos{\theta} \big(\ket{1}\bra{1} + \ket{-1}\bra{-1} \big)
+        + i \sin{\theta} \big(\ket{1}\bra{1} - \ket{-1}\bra{-1} \big)
+        \\
+         & =
+        (\cos{\theta}) I + i (\sin{\theta}) \bm{v} \cdot \bm{\sigma}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.36}
+    Pauli行列の定義より明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.37}
+    \begin{align*}
+        \mathrm{tr}{AB} = A_{ij}B_{ji} =  A_{ij}B_{ji} = \mathrm{tr}{BA}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.38}
+    トレースの定義と$\sum$の線型性より明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.39}
+    (1)\
+    $L_V \times L_V$上で定義された内積
+    \begin{align*}
+        \left( A, B\right) = \tr(A^\dagger B)
+    \end{align*}
+    が, 内積の定義を満たすか調べれば良い;
+    \begin{align*}
+         & \left( A, \sum_i \lambda_i B_i \right)
+        =
+        \tr\left(\sum_i \lambda_i A^\dagger B_i \right)
+        =
+        \sum_i \lambda_i  \tr \left(A^\dagger B_i \right)
+        =
+        \sum_i \lambda_i  \left( A, B_i \right)
+        \\
+         & (A, B) = \tr(A^\dagger B) = \tr( B^T A^*) = \tr( B^\dagger A)^* = (B, A)^*
+        \\
+         &
+        (A,A) = \tr(A^\dagger A)
+        =
+        \sum_{i,j} A^\dagger_{ij} A_{ji}
+        =
+        \sum_{i,j} A^*_{ji} A_{ji}
+        =
+        \sum_{i,j} | A_{ji}|^2
+        \geq 0
+        \\
+         &
+        0 = (A,A) \Leftrightarrow A = O .
+    \end{align*}
+    \par
+    (2)\ $V$が$d$次元のとき, $A: V \to V$なるオペレータ$A$は$d^2$の自由度を持つので,
+    $L_V$は$d^2$次元.
+    \par
+    (3)\ $L_V$の正規直交基底$\{A_i\}_{i=1}^{d^2}$のうち, 全ての$i$に対して$A_i$がHermiteとなる正規直交基底$\{A_i\}_{i=1}^{d^2}$を求める. $V$の正規直交基底を$\{\ket{i}\}_{i=1}^{d}$とすると, $L_V$の正規直交基底は$\{e_{ij}=\ket{i} \bra{j}\}_{i,j=1}^{d}$となる;
+    \begin{align*}
+        \left( e_{ij}, e_{kl} \right) = \tr\left(\ket{j} \braket{i|k} \bra{l} \right) = \delta_{ij} \delta_{kl}.
+    \end{align*}
+    $\{e_{ij}\}_{i,j=1}^{d}$は, $i=j$のときHermiteだが, $i \neq j$のときはHermiteではない.
+    そこで, $\{e_{ii}\}_{i=1}^{d}$で張られる$L_V$の部分空間$L_P$とその正規直交補空間$L_Q$を考える. $L_P$のHermiteな正規直交基底は, $\{e_{ii}\}_{i=1}^{d}$である. 一方, $L_Q$のHermiteな正規直交基底は,
+    \begin{align*}
+        e'_{ij} = \frac{e_{ij} + e_{ji}}{\sqrt{2}},
+        e''_{ij} = \frac{e_{ij} - e_{ji}}{\sqrt{2}i} \ (i<j)
+    \end{align*}
+    である. 以上より, $L_V = L_P \oplus L_Q$のHermiteな正規直交基底は,
+    \begin{align*}
+        \left\{
+        \ket{i} \bra{i}, \frac{\ket{i} \bra{j}+ \ket{j} \bra{i}}{\sqrt{2}}, \frac{\ket{i} \bra{j} - \ket{j} \bra{i}}{\sqrt{2}i}
+        \right\}_{i,j = 1,2,\dots d , i < j}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.40}
+    Pauli行列の定義より明らかに,
+    \begin{align*}
+        [\sigma_j , \sigma_k] = 2i \epsilon_{jkl} \sigma_l.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.41}
+    Pauli行列の定義より明らかに,
+    \begin{align*}
+        \{ \sigma_i, \sigma_j \} = 2 \delta_{ij}I.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.42}
+    \begin{align*}
+        [A,B] + \{ A,B \} = AB - BA + AB + BA = 2AB.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.43}
+    \begin{align*}
+        \sigma_j \sigma_k
+        =
+        \frac{[\sigma_j,\sigma_k] + \{\sigma_j,\sigma_k \}}{2}
+        =
+        \delta_{jk} I + i \epsilon_{jkl} \sigma_l.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.44}
+    \begin{align*}
+        B = A^{-1} A B = A^{-1} \frac{ [A,B] + \{ A,B \} }{2} = 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.45}
+    \begin{align*}
+        [A,B]^\dagger = (AB-BA)^\dagger = B^\dagger A^\dagger - A^\dagger B^\dagger = [B^\dagger, A^\dagger].
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.46}
+    \begin{align*}
+        [A,B] = - (BA - AB) = -[B,A].
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.47}
+    \begin{align*}
+        \left( i [A,B]\right)^\dagger
+        =
+        -i [B^\dagger, A^\dagger]
+        =
+        -i [B,A]
+        =
+        i [A,B].
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.48}
+    ベクトル空間$V$上で定義されたHermiteの行列$H$のスペクトル分解は, $H$の固有値$\lambda \in \mathrm{R}$として,
+    \begin{align*}
+        H = \sum_\lambda \lambda \ket{\lambda} \bra{\lambda}
+    \end{align*}
+    なので,
+    \begin{align*}
+        J & = \sqrt{H^\dagger H} = \sqrt{H H}
+        = \sqrt{\sum_\lambda \sum_{\lambda'} \lambda' \lambda \ket{\lambda}\braket{\lambda|\lambda'}  \bra{\lambda'}}
+        = \sqrt{\sum_\lambda \lambda^2 \ket{\lambda} \bra{\lambda}}
+        = \sum_\lambda |\lambda| \ket{\lambda} \bra{\lambda} \\
+        K & = \sqrt{HH^\dagger} = \sqrt{HH} = J
+    \end{align*}
+    ここで, $\{ \ket{\lambda} \}$は$V$の正規直交基底になっている. したがって,
+    Hermite行列$H$の極分解は,
+    \begin{align*}
+        H = U \sqrt{H^2} = \sqrt{H^2} U .
+    \end{align*}
+    特に, $\lambda \geq 0$なら$H$は正の行列$P$となり,
+    \begin{align*}
+        J = K = P
+    \end{align*}
+    が成立するので, $P$の極分解は,
+    \begin{align*}
+        P = I P = P I .
+    \end{align*}
+    \par
+    ユニタリ行列$U$の極分解は,
+    \begin{align*}
+        U = I U = U I .
+    \end{align*}
+    \par
+\end{ex}
+
+\begin{ex}
+    \label{ex2.49}
+    ベクトル空間$V$上で定義された正規行列$A$のスペクトル分解は,
+    $A$の固有値$a$, 対応する固有ベクトル$\ket{a}$として,
+    \begin{align*}
+        A = \sum_a a \ket{a} \bra{a} .
+    \end{align*}
+    ここで, $\{ \ket{a} \}$は$V$の正規直交基底になっている.
+    すると,
+    \begin{align*}
+        J
+        =
+        \sqrt{A^\dagger A}
+        =
+        \sqrt{\sum_a \sum_{a'} a' a^* \ket{a}\braket{a|a'}  \bra{a'}}
+        =
+        \sqrt{\sum_a |a|^2 \ket{a} \bra{a}}
+        =
+        \sum_a \sqrt{|a|} \ket{a} \bra{a} .
+    \end{align*}
+    定理2.3の証明より,
+    \begin{align*}
+        U = \sum_a \ket{e_a} \bra{a}
+    \end{align*}
+    とすれば, $A$の左極分解は,
+    \begin{align*}
+        A = UJ .
+    \end{align*}
+    \par
+    右極分解についても同様.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.50}
+    %
+    %
+    %
+    %
+    %
+    %
+    %
+    \begin{align*}
+        A
+        =
+        \begin{pmatrix}
+            1 & 0 \\
+            1 & 1 \\
+        \end{pmatrix}
+    \end{align*}
+    として, $A^\dagger A$
+    \begin{align*}
+        A^\dagger A
+        =
+        \begin{pmatrix}
+            2 & 1 \\
+            1 & 1 \\
+        \end{pmatrix}
+    \end{align*}
+    の固有値は
+    \begin{align*}
+        \lambda_{\pm} = \frac{3 \pm \sqrt{5}}{2}
+    \end{align*}
+    で, 対応する固有ベクトル$\ket{\lambda_{\pm}}$は,
+    \begin{align*}
+        \ket{\lambda_\pm}
+        =
+        \frac{1}{10\pm2\sqrt{5}}
+        \begin{pmatrix}
+            1 \pm \sqrt{5} \\ 2
+        \end{pmatrix}.
+    \end{align*}
+    よって, $J = \sqrt{A^\dagger A}$は,
+    \begin{align*}
+        J = A^\dagger A
+        = \sqrt{\lambda_+} \ket{\lambda_+} \bra{\lambda_+} + \sqrt{\lambda_-}\ket{\lambda_-} \bra{\lambda_-}
+    \end{align*}
+    %
+    %
+    %
+    %
+    %
+    %
+    %
+    あとで計算する
+\end{ex}
+

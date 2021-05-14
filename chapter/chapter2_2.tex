@@ -1,0 +1,1008 @@
+\begin{ex}
+    \label{ex2.51}
+    \begin{align*}
+        H H^\dagger = I.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.52}
+    \begin{align*}
+        H H = I.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.53}
+    \begin{align*}
+        \ket{\lambda = \pm 1}
+        =
+        \begin{pmatrix}
+            1 \\ \pm \sqrt{2} - 1
+        \end{pmatrix}
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.54}
+    $A,B$は可換なHermiteなので, 同じ正規直交基底$\{ \ket{i}\}$で同時対角化可能で,
+    \begin{align*}
+        A = \sum_i a_i \ket{i} \bra{i},
+        B = \sum_i b_i \ket{i} \bra{i}
+    \end{align*}
+    とかけるので,
+    \begin{align*}
+        \exp(A) \exp(B)
+        =
+        \sum_i \sum_j e^{a_i} \ket{i} \bra{i}
+        e^{b_j} \ket{j} \bra{j}
+        =
+        \sum_i e^{a_i+b_i} \ket{i} \bra{i}
+        =
+        \exp(A+B).
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.55}
+    $H$はHermiteなので, $H,H^\dagger$が可換だから,
+    演習\ref{ex2.54}より,
+    \begin{align*}
+        U(t_1,t_2)U^\dagger(t_1,t_2)
+        =
+        \exp{\left[ - iH(t_1 - t_2)\right]}
+        \exp{\left[ iH^\dagger(t_1 - t_2)\right]}
+        =
+        \exp{\left[ i(H^\dagger - H)(t_1 - t_2)\right]}
+        =
+        I.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.56}
+    ユニタリオペレータ$U$は正規なので, $\lambda_i=e^{i\theta_i} (\theta_i \in R)$として,
+    \begin{align*}
+        U = \sum_i \lambda_i \ket{\lambda_i} \bra{\lambda_i}
+    \end{align*}
+    とスペクトル分解できる. よって,
+    \begin{align*}
+        K = - i \log{U} = \sum_i \theta_i \ket{i} \bra{i}
+    \end{align*}
+    となり, これは明らかにHermite. したがって,
+    \begin{align*}
+        \exp(iK) = \sum_i e^{i\theta_i} \ket{i} \bra{i} = U.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.57}
+    状態$\ket{\psi}$に対して, $L_l$を測定した後の状態$\ket{\phi}$は,
+    \begin{align*}
+        \ket{\phi} = \frac{L_l \ket{\psi}}{\braket{\psi|L_l^\dagger L_l| \psi}}.
+    \end{align*}
+    さらに, この状態に対して, $M_m$を測定した後の状態は,
+    \begin{align*}
+        \frac{M_m \ket{\phi}}{\braket{\phi|M_m^\dagger M_m| \phi}}
+        =
+        \frac{M_m L_l \ket{\psi}}{\braket{\psi| L_l^\dagger M_m^\dagger M_m L_l| \psi}}
+        =
+        \frac{N_{lm} \ket{\psi}}{\braket{\psi|  N_{lm}^\dagger N_{lm}| \psi}}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.58}
+    状態$\ket{\psi}$は, 固有値$m$をもつ$M$の固有状態なので,
+    \begin{align*}
+        M \ket{\psi} = m \ket{psi}.
+    \end{align*}
+    平均測定値$E(M)$は,
+    \begin{align*}
+        E(M) = \braket{\psi| M |\psi} = m \braket{\psi | \psi} = m.
+    \end{align*}
+    標準偏差$\Delta(M)$は,
+    \begin{align*}
+        \Delta(M) = \sqrt{\braket{\psi| M^2 |\psi} - \braket{\psi| M |\psi}^2} = \sqrt{m^2 - m^2} = 0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.59}
+    \begin{align*}
+        X = \ket{0}\bra{1} + \ket{1}\bra{0}
+    \end{align*}
+    なので,
+    平均値は,
+    \begin{align*}
+        \braket{0|X|0} = 0.
+    \end{align*}
+    標準偏差$\Delta(X)$は,
+    \begin{align*}
+        \Delta(X)
+        = \sqrt{\braket{0| X^2 |0} - \braket{0| X |0}^2}
+        = \sqrt{1 - 0}
+        = 1.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.60}
+    まず, $v_3 \neq \pm 1$のときを考える.
+    \begin{align*}
+        \bm{v} \cdot \bm{\sigma}
+        =
+        \begin{pmatrix}
+            v_3         & v_1 - i v_2 \\
+            v_1 + i v_2 & - v_3
+        \end{pmatrix}
+    \end{align*}
+    より, 固有値は, $\bm{v}$が単位ベクトルなことに注意して,
+    \begin{align*}
+        0 = \lambda^2 - |\bm{v}|^2 = \lambda^2 - 1
+        \to \lambda = \pm1.
+    \end{align*}
+    対応する固有ベクトルは,
+    \begin{align*}
+        \ket{\lambda=\pm1} =
+        \frac{1}{\sqrt{2(1\mp v_3)}}
+        \begin{pmatrix}
+            -v_1 + i v_2 \\ v_3 \mp 1.
+        \end{pmatrix}
+    \end{align*}
+    よって, 射影オペレータは,
+    \begin{align*}
+        P_{\pm}
+         & = \ket{\lambda = \pm1} \bra{\lambda = \pm1} \\
+         & =
+        \frac{1}{2(1\mp v_3)}
+        \begin{pmatrix}
+            -v_1 + i v_2 \\ v_3 \mp 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            v_1 - i v_2 & v_3 \mp 1
+        \end{pmatrix}                    \\
+         & =
+        \frac{1}{2(1\mp v_3)}
+        \begin{pmatrix}
+            v_1^2 + v_2^2            & (-v_1 + i v_2)(v_3 \mp1) \\
+            (-v_1 + i v_2)(v_3 \mp1) & (v_3 \mp 1)^2
+        \end{pmatrix}                    \\
+         & =
+        \frac{1}{2(1\mp v_3)}
+        \begin{pmatrix}
+            1 - v_3^2                & (-v_1 + i v_2)(v_3 \mp1) \\
+            (-v_1 + i v_2)(v_3 \mp1) & (v_3 \mp 1)^2
+        \end{pmatrix}                    \\
+         & =
+        \frac{1}{2}
+        \begin{pmatrix}
+            1\pm v_3         & \pm(v_1 - i v_2) \\
+            \pm(v_1 - i v_2) & 1\mp v_3
+        \end{pmatrix}                    \\
+         & =
+        \frac{I \pm \bm{v} \cdot \bm{\sigma}}{2}.
+    \end{align*}
+    \par
+    一方, $v_3 = \pm 1$のとき, $v_1 = v_2 = 0$となり,
+    \begin{align*}
+        \bm{v} \cdot \bm{\sigma}
+        =
+        \pm
+        \begin{pmatrix}
+            1 & 0   \\
+            0 & - 1
+        \end{pmatrix}
+        =
+        \pm Z.
+    \end{align*}
+    よって, 射影オペレータは, $v_3 = 1$のとき, 
+    \begin{align*}
+        P_{+} = \ket{0}\bra{0},
+        P_{-} = \ket{1}\bra{1}
+        \to
+        P_{\pm} = \frac{I \pm \bm{v} \cdot \bm{\sigma}}{2},
+    \end{align*}
+    $v_3 = -1$のとき, 
+    \begin{align*}
+        P_{+} = \ket{1}\bra{1},
+        P_{-} = \ket{0}\bra{0}
+        \to
+        P_{\pm} = \frac{I \pm \bm{v} \cdot \bm{\sigma}}{2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.61}
+    $v_3\neq 1$のとき,
+    $\ket{0}$の状態を測定して$+1$を得る確率は,
+    \begin{align*}
+        \left|
+        \braket{\lambda = +1 | \bm{v} \cdot \bm{\sigma} | 0}
+        \right|^2
+        =
+        \left|
+        \braket{\lambda = +1 | 0}
+        \right|^2
+        =
+        \left|
+        \frac{-v_1 + iv_2}{\sqrt{2(1-v_3)}}
+        \right|^2
+        =
+        \frac{1+v_3}{2}.
+    \end{align*}
+    これは, $v_3 = 1$でも成立する.
+    $+1$を測定した直後の状態は,
+    \begin{align*}
+        \frac{P_+ \ket{0}}{\sqrt{\braket{0 | P_+^\dagger P_+ | 0}}}
+        =
+        \frac{\ket{\lambda = +1}\braket{\lambda = +1|0}}{\sqrt{\braket{\lambda = +1 | 0}\braket{0 | \lambda = +1}}}
+        =
+        e^{i\theta} \ket{\lambda=+1}.
+    \end{align*}
+    ここで, $\theta$は$\braket{\lambda = +1 | 0}$の偏角.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.62}
+    測定オペレータがPOVMと一致するとすると,
+    \begin{align*}
+        M_m = M_m^\dagger M_m .
+    \end{align*}
+    $M_m^\dagger M_m$は正のオペレータなので, $M_m$も正のオペレータ.
+    よって, 演習\ref{ex2.24}より$M_m$もHermite. したがって,
+    \begin{align*}
+        M_m = M_m^\dagger M_m = M_m^2.
+    \end{align*}
+    \\
+    また, 完全性条件
+    \begin{align*}
+        \sum_m M^\dagger_m M_m =  \sum_m M_m = I
+    \end{align*}
+    から,
+    \begin{align*}
+        M_m
+         & = \sum_{m'} M_{m'} M_m
+        = M_m^2 + \sum_{m'\neq m} M_{m'} M_m
+        = M_m + \sum_{m'\neq m} M_{m'} M_m
+        \\
+         & \to  \sum_{m'\neq m} M_{m'} M_m = O
+    \end{align*}
+    となり, $M_{m'} M_m (m'\neq m)$は正のオペレータゆえ,
+    \begin{align*}
+        M_{m'} M_m  = O \ (m'\neq m).
+    \end{align*}
+    先に示した$M_m^2 = M_m$と合わせて,
+    \begin{align*}
+        M_{m'} M_m  = \delta_{m m'} M_m.
+    \end{align*}
+    こうして, 測定オペレータがPOVMと一致するとすると, $M_m$が直交射影オペレータになることが言えた.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.63}
+    定理2.3より, 明らか.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.64}
+    $\{ \ket{\psi_i}\}_{i=1}^m$で張られるヒルベルト空間$V$とする. 各$j = 1, 2, \dots , m$に対して, $\{ \ket{\psi_i} \}_{i\neq j}$で張られる$V$の部分空間$W_j$, $W_j$の直交補空間$W_j^\perp$とする. $W_j^\perp$への射影オペレータ$P_j^\perp$する. すると, 
+    \begin{align*}
+        P_j^\perp \ket{\psi_j} \neq 0
+    \end{align*}
+    である. なぜなら, 
+    \begin{align*}
+        P_j^\perp \ket{\psi_j} = 0
+    \end{align*}
+    とすると, $\ket{\psi_j} \in W_j$, つまり$\ket{\psi_j}$が$\{ \ket{\psi_i} \}_{i\neq j}$の線型結合でかけることとなり, $\{ \ket{\psi_i}\}_{i=1}^m$が線型独立であることに矛盾するからである.
+    そこで,\ $\ket{\phi_j}$を
+    \begin{align*}
+        \ket{\phi_j} = \frac{P_j^\perp \ket{\psi_j}}{ \sqrt{\left| P_j^\perp \ket{\psi_j} \right|}}
+    \end{align*}
+    で定義すると, 
+    \begin{align*}
+            \braket{\psi_i|\phi_j} = \delta_{ij}
+    \end{align*}
+    を満たす. また, 
+    \begin{align*}
+        E_j
+        =
+        \begin{cases}
+            \frac{1}{2m} \ket{\phi_i} \bra{\phi_i} & (j=1,2, ...,m) \\
+            I - \sum_{k=1}^{k=m} E_k    & (j=m+1)
+        \end{cases}
+    \end{align*}
+    なる$\{ E_i\}_{i=1}^{m+1}$は,
+    \begin{align*}
+        &\sum_{i=1}^m E_m = I \\
+        &\forall i = 1, 2, ..., m 
+        \ \forall \ket{\psi} \in V
+        \ \braket{\psi | E_i | \psi} = \frac{|\braket{\psi|\phi_i}|^2}{2m} \ge 0 \\
+        &\forall \ket{\psi} \in V 
+        \ \braket{\psi | E_{m+1} | \psi} 
+        = \braket{\psi|\psi} - \frac{1}{2m}\sum_{i=1}^{m} |\braket{\psi|\phi_i}|^2
+        \ge
+        \frac{\braket{\psi|\psi}}{2} \ge 0
+    \end{align*}
+    を満たすのでPOVM.
+    \par
+    ここで構成したPOVMによる測定を考えると,
+    \begin{align*}
+        \braket{\psi_j | E_i | \psi_j} = \frac{1}{2m} \delta_{ij} 
+        \ \left( i, j = 1, 2, ... ,m \right)
+    \end{align*}
+    なので, $\{ \ket{\psi_i}\}_{i=1}^m$を与えられたBobは, 測定結果$E_i \ (i = 1,2, ..., m)$を得られれば, 測定した状態が$\ket{\psi_i}$と確定できる.
+\end{ex}
+
+\begin{ex}
+    基底を
+    \begin{align*}
+        \left\{ \frac{\ket{0}+\ket{1}}{\sqrt{2}},  \frac{\ket{0}-\ket{1}}{\sqrt{2}}\right\}
+    \end{align*}
+    ととれば良い.
+\end{ex}
+
+\begin{ex}
+    \begin{align*}
+        \frac{\bra{0}\otimes\bra{0} + \bra{1}\otimes \bra{1}}{\sqrt{2}}
+        X_1 \otimes Z_2
+        \frac{\ket{0} \otimes \ket{0} + \ket{1} \otimes \ket{1}}{\sqrt{2}}
+        =
+        \frac{\bra{0}\otimes\bra{0} + \bra{1}\otimes \bra{1}}{\sqrt{2}}
+        \frac{\ket{1} \otimes \ket{0} - \ket{0} \otimes \ket{1}}{\sqrt{2}}
+        =0.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    $W$の直交補空間$W^{\perp}$とかき, それぞれの正規直交基底を$\{ \ket{w_i}\}, \{ \ket{w^{\perp}_j}\}$とし,
+    \begin{align*}
+        U'
+        =
+        \sum_{i} U\ket{w_i} \bra{w_i}
+        +
+        \sum_{j} \ket{w^\perp_j} \bra{w^\perp_j}
+    \end{align*}
+    とすればよい.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.68}
+    あらゆる単一qビット$\ket{a},\ket{b}$は,
+    \begin{align*}
+        \ket{a} = a_0 \ket{0} + a_1 \ket{1}
+        \\
+        \ket{b} = b_0 \ket{0} + b_1 \ket{1}
+    \end{align*}
+    でかける.
+    \begin{align*}
+        \ket{\psi} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}
+    \end{align*}
+    に対して,
+    \begin{align*}
+        \ket{\psi}
+        =
+        \ket{a} \ket{b}
+    \end{align*}
+    とかけると仮定すると,
+    \begin{align*}
+        a_0 b_1 = a_1 b_0 = 0, a_0 b_0 \neq 0, a_1 b_1 \neq 0
+    \end{align*}
+    となるが, これを満たす$a_0, a_1, b_0, b_1$は存在せず矛盾.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.69}
+    Bell基底は,
+    \begin{align*}
+        \ket{\beta_{xy}} = \frac{\ket{0,y}+ (-1)^x\ket{1,\bar{y}}}{\sqrt{2}}
+    \end{align*}
+    でかけ,
+    \begin{align*}
+        \braket{\beta_{x'y'}|\beta_{xy}} = \frac{\delta_{yy'}+ (-1)^{x+x'}\delta_{\bar{y}\bar{y'}}}{2} = \delta_{xx'}\delta_{yy'}.
+    \end{align*}
+    となるので, 正規直交基底.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.70}
+    Bell状態
+    \begin{align*}
+        \ket{\beta_{xy}} = \frac{\ket{0,y}+ (-1)^x\ket{1,\bar{y}}}{\sqrt{2}}
+    \end{align*}
+    に対して, $\braket{\beta_{xy}|E \otimes I| \beta{xy}}$は,
+    \begin{align*}
+        \braket{\beta_{xy}|E \otimes I| \beta{xy}}
+        =
+        \frac{\braket{0|E|0} + \braket{1|E|1}}{2}
+    \end{align*}
+    と$x,y$に依らない. 上に示したことから, AliceがBobに送ったqビットを, Eveが観測しても得られる状態の期待値はBell状態に依らないので, EveはAliceの送りたかった情報を推論できない.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.71}
+    密度オペレータ$\rho$は, 正のオペレータなので, スペクトル定理から, $\rho$の固有空間の正規直交基底$\{ \ket{\psi_i}\}$を用いて, 
+    \begin{align*}
+        \rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}.
+    \end{align*}
+    とかけるので,
+    \begin{align*}
+        \tr{\left(\rho^2 \right)}
+         & =
+        \tr
+        \left(
+        \sum_{i,j} p_i p_j \ket{\psi_i}\braket{\psi_i|\psi_j}\bra{\psi_j}
+        \right)                                                  \\
+         & =
+        \sum_{i,j} p_i p_j
+        \tr
+        \left(
+        \ket{\psi_i}\braket{\psi_i|\psi_j}\bra{\psi_j}
+        \right)                                                  \\
+         & =
+        \sum_{i,j} p_i p_j
+        \delta_{ij}
+        \tr
+        \left(
+        \ket{\psi_i}\bra{\psi_j}
+        \right)                                                  \\
+         & =
+        \sum_{i} p_i ^2
+        \tr
+        \left(
+        \braket{\psi_i|{\psi_i}}
+        \right)                                                  \\
+         & =\sum_{i} p_i ^2 \le \sum_{i} p_i = 1.
+    \end{align*}
+    等号は,
+    \begin{align*}
+        p_i =
+        \begin{cases}
+            1 & (i=i_0)              \\
+            0 & (\mathrm{otherwise})
+        \end{cases}
+    \end{align*}
+    つまり, $\rho$が純粋状態の時にのみ成り立つ.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.71}
+    (1)\
+    \begin{align*}
+        \rho^2
+         & =
+        \frac{I + \bm{r}\cdot\bm{\sigma}}{2}
+        \frac{I + \bm{r}\cdot\bm{\sigma}}{2} \\
+         & =
+        \frac{1}{4}
+        \left(
+        I + 2 r_i \sigma_i + r_i r_j \sigma^i \sigma^j
+        \right)                              \\
+         & =
+        \frac{1}{4}
+        \left(
+        I + 2 r_i \sigma_i + r_i r_j \frac{\{\sigma^i, \sigma^j\}}{2}
+        \right)                              \\
+         & =
+        \frac{1}{4}
+        \left(
+        (1+\bm{r}^2)I + 2 \bm{r} \cdot \bm{\sigma}
+        \right)                              \\
+         & =
+        \frac{\bm{r}^2 - 1}{4}I + \rho
+    \end{align*}
+    で$\rho$は,
+    \begin{align*}
+        \rho = \rho^\dagger
+    \end{align*}
+    を満たすので, 任意の状態$\ket{\psi}$に対して, $\bm{r}^2 \le 1$なら,
+    \begin{align*}
+        \braket{\psi | \rho | \psi}
+        =
+        \braket{\psi | \rho^2 + \frac{1-\bm{r}^2}{4} | \psi}
+        =
+        \braket{\psi | \rho^\dagger \rho | \psi}
+        +
+        \braket{\psi | \frac{1-\bm{r}^2}{4} | \psi}
+        \ge 0.
+    \end{align*}
+    また, $\tr{(\sigma_i)} = 0$なので,
+    \begin{align*}
+        \tr(\rho) = 1.
+    \end{align*}
+    以上より, $\rho$は, 正かつトレースが1なので, 定理2.5より$\rho$は密度オペレータ.
+    \par
+    (2)\ $\bm{r} = \bm{0}$.
+    \par
+    (3)\
+    \begin{align*}
+        \rho \mathrm{が純粋状態}
+        \Leftrightarrow
+        \tr(\rho^2) = 1
+        \Leftrightarrow
+        \tr\left(
+        \frac{1-\bm{r}^2}{4}+\rho
+        \right)
+        \Leftrightarrow
+        |\bm{r}| =1.
+    \end{align*}
+    \par
+    (4)
+    $\bm{r} = (\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta)$として,
+    \begin{align*}
+        \rho
+        =
+        \frac{I + \bm{r}\cdot\bm{\sigma}}{2}
+        =
+        \frac{1}{2}
+        \begin{pmatrix}
+            1 + \cos\theta        & \sin\theta e^{-i\phi} \\
+            \sin\theta e^{i \phi} & 1 - \cos\theta
+        \end{pmatrix}
+        =
+        \ket{\psi} \bra{\psi}.
+    \end{align*}
+    ただし, ここで
+    \begin{align*}
+        \ket{\psi} = {\cos\frac{\theta}{2}}\ket{0}+e^{i\phi}{\sin\frac{\theta}{2}}\ket{1}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \begin{align*}
+        \rho = \sum_{i} p_i \ket{\psi_i} \bra{\psi_i}
+    \end{align*}
+    の左から$\rho^{-1}$をかけて,
+    \begin{align*}
+        1 = \sum_{i} p_i \rho^{-1} \ket{\psi_i} \bra{\psi_i}.
+    \end{align*}
+    左から$\bra{\psi_j}$, 右から$\ket{\psi_j}$をかけて,
+    \begin{align*}
+        1 = p_j \braket{\psi_j|\rho^{-1}|\psi_j} \to p_j = \frac{1}{\braket{\psi_j|\rho^{-1}|\psi_j}}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.74}
+    複合システムの密度オペレータ$\rho_{AB}$は,
+    \begin{align*}
+        \rho_{AB} = \ket{a} \bra{a} + \ket{b} \bra{b}.
+    \end{align*}
+    よって, システム$A$で縮約した密度オペレータは,
+    \begin{align*}
+        \rho^A = \ket{a} \bra{a} \tr\left(\ket{b} \bra{b}\right) = \ket{a} \bra{a}
+    \end{align*}
+    なので,
+    \begin{align*}
+        tr\left({\rho^{A}}^2\right) = 1
+    \end{align*}
+    と$\rho^A$が純粋状態であることがわかる.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.75}
+    各Bell状態
+    \begin{align*}
+        \ket{\beta_{xy}} = \frac{\ket{0,y}+ (-1)^x\ket{1,\bar{y}}}{\sqrt{2}}
+    \end{align*}
+    に対して, 密度オペレータは,
+    \begin{align*}
+        \rho
+         & =
+        \frac{\ket{0,y}+ (-1)^x\ket{1,\bar{y}}}{\sqrt{2}}
+        \frac{\bra{0,y}+ (-1)^x\bra{1,\bar{y}}}{\sqrt{2}} \\
+         & =
+        \frac{
+            \ket{0,y}\bra{0,y} + (-1)^x\ket{1,\bar{y}}\bra{0,y}
+            +
+            (-1)^x\ket{0,y}\bra{1,\bar{y}} + \ket{1,\bar{y}}\bra{1,\bar{y}}
+        }{2}.
+    \end{align*}
+    よって, 各qビットを縮約した密度オペレータは,
+    \begin{align*}
+        \rho^1 & = \frac{\ket{y}\bra{y}  + \ket{\bar{y}}\bra{\bar{y}} }{2} = \frac{I}{2} \\
+        \rho^2 & = \frac{ \ket{0}\bra{0} +  \ket{1}\bra{1}}{2} = \frac{I}{2}.
+    \end{align*}
+\end{ex}
+
+\begin{ex}
+    \label{ex2.76}
+    $m\times n$の行列$C$に対して, $m \times m$のユニタリ行列$U$, $n\times n$のユニタリ行列$V$, $m \times n$の行列$D$;
+    D =
+    \begin{align*}
+        \begin{pmatrix}
+            \lambda_1 &           &        &                          &                                        \\
+                      & \lambda_2 &        &                          &                                        \\
+                      &           & \ddots &                          &                                        \\
+                      &           &        & \lambda_{\mathrm{rank}A} &                                        \\
+                      &           &        &                          & O_{m-\mathrm{rank}A, n-\mathrm{rank}A} \\
+        \end{pmatrix}
+    \end{align*}
+    を用いて,
+    \begin{align*}
+        C = UDV
+    \end{align*}
+    とかける(特異値分解). ここで, $\lambda_i$は$C$の特異値で非負である.
+    \par
+    $A \otimes B$の任意の純粋状態$\ket{\psi}$に対して,
+    $A,B$の正規直交基底$\ket{j}, \ket{k}$を用いて,
+    \begin{align*}
+        \ket{ \psi} = \sum_{jk} C_{jk} \ket{j} \ket{k}.
+    \end{align*}
+    $C$の特異値分解を考えると, ユニタリ行列$U,V$が存在し,
+    \begin{align*}
+        \ket{ \psi} = \sum_{ijk} U_{ji} D_{ii} V_{ik}\ket{j} \ket{k}.
+    \end{align*}
+    ここで,
+    \begin{align*}
+        \ket{i_A} = \sum_j U_{ji} \ket{j}, \ket{i_B} = \sum_k V_{ik} \ket{k}
+    \end{align*}
+    とすれば, $\ket{i_A}, \ket{i_B}$は$A,B$の正規直交基底なので, $\ket{i_A}\ket{i_B}$
+    は$A \otimes B$の正規直交基底で,
+    \begin{align*}
+        \ket{ \psi} = \sum_{i} D_{ii} \ket{i_A}\ket{i_B}.
+    \end{align*}
+    ただし, $\tr\left( \ket{\psi} \bra{\psi}\right) = 1$より,
+    \begin{align*}
+        \sum_{i} D_i^2 = 1
+    \end{align*}
+    を満たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.77}
+    例えば, $\mathbb{C}^2 \otimes \mathbb{C}^2 \otimes \mathbb{C}^2$の状態$\ket{\psi}$;
+    \begin{align*}
+        \ket{\psi}= \ket{0} \left( {\ket{00} + \ket{11}}\right)
+    \end{align*}
+    は,
+    \begin{align*}
+        \ket{\psi}
+        =
+        \lambda_0 \ket{0_{A}{0_{B}}{0_{C}}}
+        +
+        \lambda_1 \ket{1_{A}{1_{B}}{1_{C}} } \\
+        \braket{i_{A} | j_{A}} = \braket{i_{B} | j_{B}} = \braket{i_{C} | j_{C}} = \delta_{ij} \
+    \end{align*}
+    の形でかけない. なぜなら, $\ket{\psi}$でかっこでくくり出された$\ket{0}$のせいである.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.78}
+    $\ket{\psi}$のSchmidt数が1なら, $A,B$の正規直交基底$\ket{i_A}, \ket{i_B}$として, $\ket{\psi}$は$\ket{ \psi } \propto \ket{i_A} \ket{i_B}$と積状態.
+    逆に, $\ket{ \psi } = \ket{a} \ket{b}$なら, $\ket{a}, \ket{b}$のそれぞれが$A,B$の正規直交基底になるような基底の変換$U_A,U_B$が存在する(Schmidtの直交化法).
+    \par
+    $\rho^A, \rho^B$が純粋状態とすると, $\rho^{AB} = \ket{a}\ket{b} \bra{a}\bra{b}$. これは, $\ket{\psi}=\ket{a}\ket{b}$が積状態であることを意味している. 逆に, $\ket{\psi}$が積状態であるとすると, $\ket{\psi}$とかけ, $\rho^A = \ket{a} \bra{a}, \rho^B = \ket{b} \bra{b}$と$\rho^A, \rho^B$が純粋状態であることを意味している.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.79}
+    (1)\
+    \begin{align*}
+        \frac{\ket{00} + \ket{11}}{\sqrt{2}}
+    \end{align*}
+    はそれ自身でSchmidt分解.
+    \par
+    (2)\
+    \begin{align*}
+        \frac{\ket{00}+\ket{01}+\ket{10}+\ket{11}}{2} = \frac{\ket{0} + \ket{1}}{\sqrt{2}} \frac{\ket{0} + \ket{1}}{\sqrt{2}} + 0 \frac{\ket{0} - \ket{1}}{\sqrt{2}} \frac{\ket{0} - \ket{1}}{\sqrt{2}} .
+    \end{align*}
+    (3)\
+    \begin{align*}
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix}
+            1 & 1 \\
+            1 & 0
+        \end{pmatrix}
+    \end{align*}
+    %
+    %
+    %
+    %
+    %
+    %
+    %
+    の特異値分解を演習\ref{ex2.50}を参考にしてやって, 定理2.7の証明に従って頑張る.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.80}
+    \begin{align*}
+        \ket{\psi} = \sum_i \lambda_i \ket{i_A}\ket{i_B}                  \\
+        \ket{\phi} = \sum_i \lambda_i \ket{\tilde{i}_A} \ket{\tilde{i}_B} \\
+    \end{align*}
+    に対して,
+    \begin{align*}
+        U = \sum_j \ket{j_A} \bra{\tilde{j}_A} \\
+        V= \sum_j \ket{j_B} \bra{\tilde{j}_B}  \\
+    \end{align*}
+    とすれば, $U,V$はユニタリで,
+    \begin{align*}
+        \ket{\psi} = (U \otimes V)\ket{\phi}
+    \end{align*}
+    を満たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.81}
+    \begin{align*}
+        \rho^A = \sum_i p_i \ket{i^A} \bra{i^A}
+    \end{align*}
+    の純粋化
+    \begin{align*}
+        \ket{AR_1} = \sum_i \sqrt{p_i} \ket{i^A} \ket{i^{R1}} \\
+        \ket{AR_2} = \sum_i \sqrt{p_i} \ket{i^A} \ket{i^{R2}}
+    \end{align*}
+    に対して,
+    \begin{align*}
+        U_R = \sum_i \ket{i^{R1}} \bra{i^{R2}}
+    \end{align*}
+    とすれば, $U_R$はユニタリで,
+    \begin{align*}
+        \ket{A R_1} = (I_A \otimes U_R) \ket{A R_2}
+    \end{align*}
+    を満たす.
+\end{ex}
+
+\begin{ex}
+    \label{ex2.82}
+    \begin{align*}
+        \rho^A = \sum_i p_i \ket{\psi_i} \bra{\psi_i}
+    \end{align*}
+    とする. \par
+    (1)\
+    (2.211)式と同様.
+    \par
+    (2)\
+    $R$を測定して, 結果$i$を得る確率は,
+    \begin{align*}
+        R_i = I \otimes \ket{i} \bra{i}
+    \end{align*}
+    として,
+    \begin{align*}
+        \tr(R_i^\dagger R_i \rho^{AR}) = \tr(R_i \rho^{AR}).
+    \end{align*}
+    結果$i$を得た後の状態は,
+    \begin{align*}
+        \frac{R_i \rho^{AR} R_i}{\tr (R_i \rho^{AR})}.
+    \end{align*}
+    (3)\
+    システム$AR$に対する$\rho^A$の任意の純粋化$\ket{AR}$とは, システム$R$上の正規直交基底を任意にとって行った純粋化の意味.
+    システム$A$の正規直交基底は,
+    システム$AR$に対する$\rho^A$の任意の純粋化$\ket{AR}$は, $R$上のユニタリオペレータ$U_R$として,
+    \begin{align*}
+        \ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i} \otimes U_R \ket{i}.
+    \end{align*}
+    純粋状態$\ket{AR} \bra{AR}$に対して, $R$を測定して$i$を得る確率は,
+    \begin{align*}
+        R_i = I \otimes U_R \ket{i} \bra{i} U_R^\dagger
+    \end{align*}
+    として,
+    \begin{align*}
+        \tr\left[R_i^\dagger R_i ( \ket{AR} \bra{AR})\right]
+         & =
+        \sum_{j,k} \sqrt{p_j} \sqrt{p_k}
+        \tr
+        \left[
+            \big(
+            I \otimes U_R \ket{i}\bra{i} U_R^\dagger
+            \big)
+            \big(
+            \ket{\psi_j} \otimes U_R\ket{j}
+            \big)
+            \big(
+            \bra{\psi_k} \otimes \bra{k} U_R^\dagger
+            \big)
+            \right]
+        \\
+         & =
+        \sum_{k} \sqrt{p_i} \sqrt{p_k}
+        \tr
+        \left[
+            \big(
+            \ket{\psi_i} \otimes U_R\ket{i}
+            \big)
+            \big(
+            \bra{\psi_k} \otimes \bra{k} U_R^\dagger
+            \big)
+            \right]
+        \\
+         & =
+        \sum_{k} \sqrt{p_i} \sqrt{p_k} \braket{\psi_k | \psi_i} \braket{i|k} \\
+         & =
+        p_i.
+    \end{align*}
+    $i$を得た後の状態は,
+    \begin{align*}
+        \frac{R_i \rho^{AR} R_i}{p_i}=
+        \left(
+        \ket{\psi_i} \otimes \ket{i}
+        \right)
+        \left(
+        \bra{\psi_i} \otimes \bra{i}
+        \right).
+    \end{align*}
+    以上より, 任意の$\rho^A$の任意の純粋化に対して,
+    $R$を測定すると確率$p_i$で, システム$A$の測定後の状態が$\ket{\psi_i}$となる
+    $R$の正規直交基底$\{ U_R \ket{i} \}$が存在することが言えた.
+\end{ex}
+
+\begin{problem}
+\label{problem2.1}
+演習\ref{ex2.35}で見たように, 単位ベクトル$\bm{n}$に対して,
+\begin{align*}
+    \left(\bm{n} \cdot \bm{\sigma} \right)^n =
+    \begin{cases}
+        \bm{n} \cdot \bm{\sigma} & (n: \mathrm{even} ) \\
+        I                        & (n: \mathrm{odd} )
+    \end{cases}.
+\end{align*}
+よって, Taylorの定理より,
+\begin{align*}
+    f(\theta \bm{n} \cdot \bm{\sigma} )
+     & =
+    I \sum_{n: \mathrm{even}} \frac{f^{(n)}(0)}{n!} \theta^n
+    +
+    \bm{n} \cdot \bm{\sigma} \sum_{n: \mathrm{odd}} \frac{f^{(n)}(0)}{n!} \theta^n
+    \\
+     & =
+    I \sum_{n: \mathrm{even}} \frac{f^{(n)}(0)}{n!} \frac{\theta^n + (-\theta)^n}{2}
+    +
+    \bm{n} \cdot \bm{\sigma} \sum_{n: \mathrm{odd}} \frac{f^{(n)}(0)}{n!} \frac{\theta^n - (-\theta)^n}{2}
+    \\
+     & =
+    I \sum_{n} \frac{f^{(n)}(0)}{n!} \frac{\theta^n + (-\theta)^n}{2}
+    +
+    \bm{n} \cdot \bm{\sigma} \sum_{n} \frac{f^{(n)}(0)}{n!} \frac{\theta^n - (-\theta)^n}{2}
+    \\
+     & =
+    \frac{f(\theta) + f(-\theta)}{2} I + \frac{f(\theta) - f(-\theta)}{2}\bm{n} \cdot \bm{\sigma}.
+\end{align*}
+\end{problem}
+
+\begin{problem}
+\label{problem2.2}
+(1)\
+$A,B$のある正規直交基底$\{\ket{i^A}\},\{ \ket{i^B} \}$を用いて, $A \otimes B$の純粋状態$\ket{\psi}$は, $\lambda_i > 0$として,
+\begin{align*}
+    \ket{\psi} = \sum_{i=1}^{\mathrm{Sch}(\psi)} \lambda_i \ket{i^A} \ket{i^B}
+\end{align*}
+とSchmidt分解可能. すると,
+\begin{align*}
+    \rho^A = \tr_B(\ket{\psi} \bra{\psi}) = \sum_{i=1}^{\mathrm{Sch}(\psi)} \lambda_i^2 \ket{i^A} \bra{i^A}
+\end{align*}
+となり, これは$\rho^A$のスペクトル分解にもなっていて, $\rho^A$の台の次元の数($\mathrm{rank}\rho^A$)が$\mathrm{Sch}(\psi)$に等しいことを意味している.
+\par
+(2)\
+\begin{align*}
+    \ket{\psi} = \sum_{i = 1}^{n} \ket{\alpha_i}\ket{\beta_i}
+\end{align*}
+とかけているとき$\{ \ket{\alpha_i} \}$は互いに一次独立になっているとする. すると, $\{ \ket{\alpha_i} \}$で張られる次元$n$のベクトル空間$V$が定義できる. ここで, (1)の結果を用いると,
+\begin{align*}
+    \mathrm{Sch}(\psi)
+    =  \mathrm{rank} \left( \tr_B(\ket{\psi} \bra{\psi}) \right)
+    =  \mathrm{rank} \left( \sum_{j,k = 1}^{n} \ket{\alpha_j}\braket{\beta_k|\beta_j} \bra{\alpha_k}\right)
+    \leq n.
+\end{align*}
+最後の不等式では, $\left( \sum_{j,k = 1}^{n} \ket{\alpha_j}\braket{\beta_k|\beta_j} \bra{\alpha_k}\right)$が, $V$上で定義されたある線形オペレータの行列表示(サイズは$n\times n$)になっていることを用いた.
+\par
+(3)\
+\begin{align*}
+    \mathrm{Sch}(\phi) \geq \mathrm{Sch}(\gamma)
+\end{align*}
+としても一般性を失わない.
+$\ket{\phi}, \ket{\gamma}$のSchmidt分解は,
+\begin{align*}
+    \ket{\phi} = \sum_{i=1}^{\mathrm{Sch}(\phi)} \lambda_i \ket{i^A} \ket{i^B} \\
+    \ket{\gamma} = \sum_{i=1}^{\mathrm{Sch}(\gamma)} \xi_i \ket{\tilde{i}^A} \ket{\tilde{i}^B} .
+\end{align*}
+$\alpha, \beta$の一方が0の時は, 明らか
+に示すべき式が成立するので,
+$\alpha \neq 0, \beta \neq = 0$として,
+\begin{align*}
+    \ket{\psi} = \alpha \ket{\phi} + \beta \ket{\gamma}
+\end{align*}
+のとき,
+(1)より,
+\begin{align*}
+    \mathrm{Sch}(\psi)
+     & =
+    \mathrm{rank} \left( \tr_B(\ket{\psi} \bra{\psi}) \right)
+    \\
+     & =
+    \mathrm{rank}
+    \left(
+    \alpha \sum_{i=1}^{\mathrm{Sch}(\phi)} \lambda_i^2 \ket{i^A} \bra{i^A}
+    +
+    \beta \sum_{i=1}^{\mathrm{Sch}(\gamma)} \xi_i^2 \ket{\tilde{i}^A} \bra{\tilde{i}^A}
+    \right)
+\end{align*}
+この右辺の最小値は,
+\begin{align*}
+    \alpha \sum_{i=1}^{\mathrm{Sch}(\phi)} \lambda_i^2 \ket{i^A} \bra{i^A}
+    +
+    \beta \sum_{i=1}^{\mathrm{Sch}(\gamma)} \xi_i^2 \ket{\tilde{i}^A} \bra{\tilde{i}^A}
+     & =
+    \sum_{i=1}^{\mathrm{Sch}(\phi) - \mathrm{Sch}(\gamma)} \alpha \lambda_i^2 \ket{i^A} \bra{i^A}
+    +
+    \sum_{i=1}^{\mathrm{Sch}(\gamma)} ( \alpha \lambda_i^2 + \beta \xi_i^2) \ket{\tilde{i}^A} \bra{\tilde{i}^A}
+\end{align*}
+で,
+\begin{align*}
+    \alpha \lambda_i^2 + \beta \xi_i^2 = 0 \ (i=1, 2, \dots \mathrm{Sch}(\gamma))
+\end{align*}
+のときに実現される. つまり,
+\begin{align*}
+    \min \mathrm{rank}
+    \left(
+    \alpha \sum_{i=1}^{\mathrm{Sch}(\phi)} \lambda_i^2 \ket{i^A} \bra{i^A}
+    +
+    \beta \sum_{i=1}^{\mathrm{Sch}(\gamma)} \xi_i^2 \ket{\tilde{i}^A} \bra{\tilde{i}^A}
+    \right)
+    =
+    \sum_{i=1}^{\mathrm{Sch}(\phi) - \mathrm{Sch}(\gamma)} \alpha \lambda_i^2 \ket{i^A} \bra{i^A}
+    =
+    \mathrm{Sch}(\phi) - \mathrm{Sch}(\gamma).
+\end{align*}
+よって,
+\begin{align*}
+    \mathrm{Sch}(\psi) =
+    \mathrm{rank}
+    \left(
+    \alpha \sum_{i=1}^{\mathrm{Sch}(\phi)} \lambda_i^2 \ket{i^A} \bra{i^A}
+    +
+    \beta \sum_{i=1}^{\mathrm{Sch}(\gamma)} \xi_i^2 \ket{\tilde{i}^A} \bra{\tilde{i}^A}
+    \right)
+    \geq  \mathrm{Sch}(\phi) - \mathrm{Sch}(\gamma).
+\end{align*}
+\end{problem}
+
+\begin{problem}
+\label{problem2.3}
+演習\ref{ex2.35}で見たように,
+\begin{align*}
+    Q^2 = R^2 = S^2 = T^2 = I.
+\end{align*}
+このことと, $Q,R,S,T$が互いに非可換なことに注意して,
+\begin{align*}
+    \left(
+    Q \otimes S + R \otimes S + R \otimes T - Q \otimes T
+    \right)^2
+    =
+    4I + [Q,R] \otimes [S,T].
+\end{align*}
+$Q,R,S,T$がHermiteなので, 式(2,107)より,
+\begin{align*}
+    \left| \ \left< [Q,R]\right> \ \right|
+     & \leq 2 \left| \left< Q^2 \right> \right| \left| \left< R^2\right> \right|  = 2 \\
+    \left| \ \left< [S,T]\right> \ \right|
+     & \leq 2 \left| \left< S^2 \right> \right| \left| \left< T^2\right> \right|  = 2
+\end{align*}
+が成り立つことと, 先に示した等式を合わせて,
+\begin{align*}
+    \left<
+    Q \otimes S + R \otimes S + R \otimes T - Q \otimes T
+    \right>^2
+     & \leq
+    \left<\
+    \left(
+    Q \otimes S + R \otimes S + R \otimes T - Q \otimes T
+    \right)^2\
+    \right>
+    \\
+     &
+    =
+    \left<\
+    4I + [Q,R] \otimes [S,T]
+    \
+    \right>
+    \leq 8.
+\end{align*}
+よって,
+\begin{align*}
+    \left<
+    Q \otimes S + R \otimes S + R \otimes T - Q \otimes T
+    \right>
+    \leq 2 \sqrt{2}.
+\end{align*}
+\end{problem}
