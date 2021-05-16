@@ -314,7 +314,7 @@
     \end{align*}
     なる$\{ E_i\}_{i=1}^{m+1}$は,
     \begin{align*}
-        &\sum_{i=1}^m E_m = I \\
+        &\sum_{i=1}^{m+1} E_m = I \\
         &\forall i = 1, 2, ..., m 
         \ \forall \ket{\psi} \in V
         \ \braket{\psi | E_i | \psi} = \frac{|\braket{\psi|\phi_i}|^2}{2m} \ge 0 \\
@@ -549,17 +549,80 @@
 \end{ex}
 
 \begin{ex}
+    \label{ex2.73}
+    密度オペレータ$\rho$の台$\mathrm{support}\left( \rho \right)$として, 
     \begin{align*}
-        \rho = \sum_{i} p_i \ket{\psi_i} \bra{\psi_i}
+        \rank \rho 
+        = (\rho^2 \mathrm{の非負固有値の数})
+        = (\rho \mathrm{の非負固有値の数})
+        = \dim \mathrm{support}\left( \rho \right).
     \end{align*}
-    の左から$\rho^{-1}$をかけて,
+    $\rho$の非負固有値${p_i} \ \left(i = 1, 2, ..., \dim \mathrm{support}\left( \rho \right) \right)$として$\rho$のスペクトル分解を
     \begin{align*}
-        1 = \sum_{i} p_i \rho^{-1} \ket{\psi_i} \bra{\psi_i}.
+        \rho 
+        = \sum_{i=1}^{\dim \mathrm{support}\left( \rho \right)} q_i \ket{\phi_i}\bra{\phi_i}
+        = \sum_{i=1}^{\rank \rho} q_i \ket{\phi_i}\bra{\phi_i} 
     \end{align*}
-    左から$\bra{\psi_j}$, 右から$\ket{\psi_j}$をかけて,
+    とする.
+    $\mathrm{support}\left( \rho \right)$の任意の状態$\ket{\psi_1}$に対して,
+    $\braket{\psi_i|\rho^{-1}|\psi_i} > 0$なので,  
     \begin{align*}
-        1 = p_j \braket{\psi_j|\rho^{-1}|\psi_j} \to p_j = \frac{1}{\braket{\psi_j|\rho^{-1}|\psi_j}}.
+        p_1 &\equiv \frac{1}{\braket{\psi_i|\rho^{-1}|\psi_i}} \\
+        u_{1j} &\equiv \sqrt{ \frac{p_1}{q_j}} \braket{\phi_j|\psi_1} \ (j = 1, 2, ..., \rank \rho) \\
     \end{align*}
+    を定義すると, 
+    \begin{align*}
+        \ket{\tilde{\psi_1}} \equiv
+        \sqrt{p_1} \ket{\psi_1} 
+        =
+        \sum_{j=1}^{\rank \rho} u_{1j}\sqrt{q_j}\ket{\phi_j}
+    \end{align*}
+    を満たす. また, 
+    \begin{align*}
+        \sum_{j=1}^{\rank \rho} \left| u_{1j} \right|^2 = 1
+    \end{align*}
+    であるから
+    \begin{align*}
+        \ket{u_1} \equiv
+        \begin{pmatrix}
+            u_{11} \\ 
+            u_{12} \\
+            \vdots \\ 
+            u_{1 \rank \rho}
+        \end{pmatrix}
+    \end{align*}
+    は正規化された$\mathbf{C}^{\rank \rho}$のベクトルなので, $\mathbf{C}^{\rank \rho}$の正規直交基底として, 
+    \begin{align*}
+        \left\{\ket{u_i}  \equiv \left( u_{i1}, u_{i2}, ..., u_{i \rank \rho}\right)^\top \right\}_{i = 1}^{\rank \rho}
+    \end{align*}
+    なるものが取れて, $u = (u_{ij})$はユニタリ行列となる. 
+    したがって, 各$i = 2, ..., \rank \rho$に対して, 
+    \begin{align*}
+        \ket{\tilde{\psi_i}} &\equiv \sum_{j=1}^{\rank \rho} u_{ij} \sqrt{q_j} \ket{\phi_j} \\
+        p_i &\equiv \braket{\tilde{\psi_i}|\tilde{\psi_i}} > 0 \\
+        \ket{\psi_i} &\equiv \frac{\ket{\tilde{\psi_i}}}{\sqrt{p_i}}
+    \end{align*}
+    とすると, 
+    各$i = 1, 2, ..., \rank \rho$に対して, 
+    \begin{align*}
+        \ket{\tilde{\psi_i}} = \sum_{j=1}^{\rank \rho} u_{ij} \sqrt{q_j} \ket{\phi_j}
+    \end{align*}
+    が成立するので, 定理2.6より,
+    \begin{align*}
+        \rho 
+        = 
+        \sum_{i=1}^{\rank \rho} \ket{\tilde{\psi_i}}\bra{\tilde{\psi_i}}
+        =
+        \sum_{i=1}^{\rank \rho} p_i \ket{\psi_i}\bra{\psi_i}
+    \end{align*}
+    が成立. 
+    つまり, 
+    $\mathrm{support}\left( \rho \right)$の任意の状態$\ket{\psi_1}$に対して,
+    $\ket{\psi_1}$を含む$\rho$の極小アンサンブル$\left\{ p_i ; \ket{\psi_i}\right\}_{i=1}^{\rank \rho}$が存在することがいえた. 特に, 
+    \begin{align*}
+        p_1 = \frac{1}{\braket{\psi_1 | \rho^{-1} | \psi_1}}
+    \end{align*}
+    である.
 \end{ex}
 
 \begin{ex}
