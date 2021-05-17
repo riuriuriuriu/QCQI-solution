@@ -790,15 +790,21 @@
 \begin{ex}
     \label{ex2.80}
     \begin{align*}
-        \ket{\psi} = \sum_i \lambda_i \ket{i_A}\ket{i_B}                  \\
-        \ket{\phi} = \sum_i \lambda_i \ket{\tilde{i}_A} \ket{\tilde{i}_B} \\
+        S \equiv \mathrm{Sch}(\psi) = \mathrm{Sch}(\phi)
     \end{align*}
-    に対して,
+    として, $\ket{\psi}, \ket{\phi}$のSchmidt分解
     \begin{align*}
-        U = \sum_j \ket{j_A} \bra{\tilde{j}_A} \\
-        V= \sum_j \ket{j_B} \bra{\tilde{j}_B}  \\
+        \ket{\psi} = \sum_{i=1}^{S} \lambda_i \ket{i_A}\ket{i_B}                  \\
+        \ket{\phi} = \sum_{i=1}^{S} {\lambda}_i \ket{\tilde{i}_A} \ket{\tilde{i}_B}.
     \end{align*}
-    とすれば, $U,V$はユニタリで,
+    ここで, $\mathcal{H}_A, \mathcal{H}_B, \tilde{\mathcal{H}}_A, \tilde{\mathcal{H}}_B$をそれぞれ
+    $\left\{ \ket{i_A}\right\}_{i = 1}^S, \left\{ \ket{i_B}\right\}_{i = 1}^S,
+    \left\{ \ket{\tilde{i}_A}\right\}_{i = 1}^S, \left\{ \ket{\tilde{i}_B}\right\}_{i = 1}^S$で張られるヒルベルト空間として, 
+    \begin{align*}
+        U = \sum_{j=1}^S \ket{j_A} \bra{\tilde{j}_A} \\
+        V= \sum_{j=1}^S \ket{j_B} \bra{\tilde{j}_B}
+    \end{align*}
+    とすれば, $U : \tilde{\mathcal{H}}_A \to \mathcal{H}_A , \ V : \tilde{\mathcal{H}}_B \to \mathcal{H}_B $は内積を保存する全単射な線型写像, つまりユニタリで,
     \begin{align*}
         \ket{\psi} = (U \otimes V)\ket{\phi}
     \end{align*}
@@ -849,13 +855,13 @@
         \frac{R_i \rho^{AR} R_i}{\tr (R_i \rho^{AR})}.
     \end{align*}
     (3)\
-    システム$AR$に対する$\rho^A$の任意の純粋化$\ket{AR}$とは, システム$R$上の正規直交基底を任意にとって行った純粋化の意味.
-    システム$A$の正規直交基底は,
-    システム$AR$に対する$\rho^A$の任意の純粋化$\ket{AR}$は, $R$上のユニタリオペレータ$U_R$として,
+    システム$A$の正規直交基底$\left\{\ket{i}\right\}_i$を固定する.
+    演習2.81より, 
+    システム$AR$に対する$\rho^A$の任意の純粋化$\ket{AR}$は, あるシステム$R$のユニタリ$U_R$を用いて
     \begin{align*}
         \ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i} \otimes U_R \ket{i}.
     \end{align*}
-    純粋状態$\ket{AR} \bra{AR}$に対して, $R$を測定して$i$を得る確率は,
+    で書ける. 純粋状態$\ket{AR} \bra{AR}$に対して, システム$R$を測定して$i$を得る確率は,
     \begin{align*}
         R_i = I \otimes U_R \ket{i} \bra{i} U_R^\dagger
     \end{align*}
@@ -906,7 +912,7 @@
     \end{align*}
     以上より, 任意の$\rho^A$の任意の純粋化に対して,
     $R$を測定すると確率$p_i$で, システム$A$の測定後の状態が$\ket{\psi_i}$となる
-    $R$の正規直交基底$\{ U_R \ket{i} \}$が存在することが言えた.
+    $R$の正規直交基底$\{ U_R \ket{i} \}_i$が存在することが言えた.
 \end{ex}
 
 \begin{problem}
