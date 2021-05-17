@@ -742,30 +742,35 @@
     \label{ex2.79}
     (1)\
     \begin{align*}
-        \frac{\ket{00} + \ket{11}}{\sqrt{2}}
+        \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
     \end{align*}
-    はそれ自身でSchmidt分解.
     \par
     (2)\
     \begin{align*}
-        \frac{\ket{00}+\ket{01}+\ket{10}+\ket{11}}{2} = \frac{\ket{0} + \ket{1}}{\sqrt{2}} \frac{\ket{0} + \ket{1}}{\sqrt{2}} + 0 \frac{\ket{0} - \ket{1}}{\sqrt{2}} \frac{\ket{0} - \ket{1}}{\sqrt{2}} .
+        \frac{\ket{00}+\ket{01}+\ket{10}+\ket{11}}{2} = \frac{\ket{0} + \ket{1}}{\sqrt{2}} \frac{\ket{0} + \ket{1}}{\sqrt{2}} .
     \end{align*}
     (3)\
     \begin{align*}
-        \frac{1}{\sqrt{3}}
-        \begin{pmatrix}
-            1 & 1 \\
-            1 & 0
-        \end{pmatrix}
+        p_{\pm} &= \frac{3 \pm \sqrt{5}}{6} \\
+        \ket{\eta_\pm} &= \frac{-1}{\sqrt{10}} 
+        \left( 
+            \sqrt{5 \pm \sqrt{5} } \ket{0}
+            \pm
+            \sqrt{5 \mp \sqrt{5} } \ket{1}
+        \right) \\
+        \ket{\zeta_\pm} &= \frac{-1}{\sqrt{10}} 
+        \left( 
+            \pm \sqrt{5 \pm \sqrt{5} } \ket{0}
+            +
+            \sqrt{5 \mp \sqrt{5} } \ket{1}
+        \right)
     \end{align*}
-    %
-    %
-    %
-    %
-    %
-    %
-    %
-    の特異値分解を演習\ref{ex2.50}を参考にしてやって, 定理2.7の証明に従って頑張る.
+    として, 
+    \begin{align*}
+        \frac{\ket{00}+\ket{01} + \ket{10}}{\sqrt{3}} =
+        \sum_{i = \pm} \sqrt{p_i} \ket{\eta_i} \otimes \ket{\zeta_i}
+    \end{align*}
+    とSchmidt分解される.
 \end{ex}
 
 \begin{ex}
