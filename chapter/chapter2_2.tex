@@ -732,10 +732,24 @@
 
 \begin{ex}
     \label{ex2.78}
-    $\ket{\psi}$のSchmidt数が1なら, $A,B$の正規直交基底$\ket{i_A}, \ket{i_B}$として, $\ket{\psi}$は$\ket{ \psi } \propto \ket{i_A} \ket{i_B}$と積状態.
-    逆に, $\ket{ \psi } = \ket{a} \ket{b}$なら, $\ket{a}, \ket{b}$のそれぞれが$A,B$の正規直交基底になるような基底の変換$U_A,U_B$が存在する(Schmidtの直交化法).
+    $\ket{\psi}$のSchmidt数が1なら, $\ket{\psi} = \ket{a} \otimes \ket{b}$とかけるので$\ket{\psi}$は積状態.
+    逆に, $\ket{\psi}$が積状態$\ket{ \psi } = \ket{a} \ket{b}$なら, 明らかに$\mathrm{Sch}(\psi) = 1$.
     \par
-    $\rho^A, \rho^B$が純粋状態とすると, $\rho^{AB} = \ket{a}\ket{b} \bra{a}\bra{b}$. これは, $\ket{\psi}=\ket{a}\ket{b}$が積状態であることを意味している. 逆に, $\ket{\psi}$が積状態であるとすると, $\ket{\psi}$とかけ, $\rho^A = \ket{a} \bra{a}, \rho^B = \ket{b} \bra{b}$と$\rho^A, \rho^B$が純粋状態であることを意味している.
+    $\rho^A$が純粋状態とする. $\ket{\psi}$のSchmidt分解
+    \begin{align*}
+        \ket{\psi} = \sum_{i = 1}^{\mathrm{Sch}(\psi)} \sqrt{p_i} \ket{\eta_i} \otimes \ket{\zeta_i}
+    \end{align*} 
+    とすると, 
+    \begin{align*}
+        \rho^A 
+        = \tr_{B} \ket{\psi}\bra{\psi} 
+        =  \sum_{i = 1}^{\mathrm{Sch}(\psi)} \ket{\eta_i}\bra{\eta_i}
+    \end{align*}
+    で$\rho^A$が純粋状態なので, ある$i_0$があって, $p_i = \delta_{i i_0}$なので, 
+    \begin{align*}
+        \ket{\psi} = \ket{\eta_{i_0}} \otimes \ket{\zeta_{i_0}}
+    \end{align*}
+    と$\ket{\psi}$は積状態. 逆に, $\ket{\psi}$が積状態であるとすると, $\ket{\psi}= \ket{a} \otimes \ket{b}$とかけ, $\rho^A = \tr_{B} \ket{\psi}\bra{\psi}= \ket{a} \bra{a}$と$\rho^A$は純粋状態.
 \end{ex}
 
 \begin{ex}
