@@ -288,16 +288,16 @@
     \label{ex2.64}
     $\{ \ket{\psi_i}\}_{i=1}^m$で張られるヒルベルト空間$V$とする. 各$j = 1, 2, \dots , m$に対して, $\{ \ket{\psi_i} \}_{i\neq j}$で張られる$V$の部分空間$W_j$, $W_j$の直交補空間$W_j^\perp$とする. $W_j^\perp$への射影オペレータ$P_j^\perp$する. すると, 
     \begin{align*}
-        P_j^\perp \ket{\psi_j} \neq 0
+        (1-P_j)^\perp \ket{\psi_j} \neq 0
     \end{align*}
     である. なぜなら, 
     \begin{align*}
-        P_j^\perp \ket{\psi_j} = 0
+        (1-P_j)^\perp \ket{\psi_j} = 0
     \end{align*}
     とすると, $\ket{\psi_j} \in W_j$, つまり$\ket{\psi_j}$が$\{ \ket{\psi_i} \}_{i\neq j}$の線型結合でかけることとなり, $\{ \ket{\psi_i}\}_{i=1}^m$が線型独立であることに矛盾するからである.
     そこで,\ $\ket{\phi_j}$を
     \begin{align*}
-        \ket{\phi_j} = \frac{P_j^\perp \ket{\psi_j}}{ \sqrt{\left| P_j^\perp \ket{\psi_j} \right|}}
+        \ket{\phi_j} = \frac{(1-P_j)^\perp \ket{\psi_j}}{ \sqrt{\left| (1-P_j^\perp) \ket{\psi_j} \right|}}
     \end{align*}
     で定義すると, 
     \begin{align*}
