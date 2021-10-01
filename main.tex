@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb,braket,bm,mathtools,amsfonts,url, cancel, mathrsfs}
 \usepackage{qcircuit}
 \usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
 \usepackage{here}
 
 \setlength{\textwidth}{\fullwidth}
@@ -27,6 +28,8 @@
 \newcommand{\Tof}{\mathrm{Toffoli}}
 \newcommand{\qo}{\mathcal{E}}
 \newcommand{\qof}{\mathcal{F}}
+\newcommand{\hilbertsp}{\mathcal{H}}
+\newcommand{\linearopset}[1]{\mathcal{L}\left({#1}\right)}
 
 \newcommand{\paulix}{\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} }
 
@@ -41,7 +44,6 @@
 \input{chapter/chapter1}
 \input{chapter/chapter2_1}
 \input{chapter/chapter2_2}
-\input{chapter/chapter3}
 \input{chapter/chapter4_1}
 \input{chapter/chapter4_2}
 \input{chapter/chapter5}
