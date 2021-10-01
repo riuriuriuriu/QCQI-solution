@@ -310,13 +310,13 @@
 
 \begin{ex}
     \label{ex8.10}
-    $d$次元ヒルベルト空間$\hilbertsp$とし, CP写像$\qo \colon \linearopset{\hilbertsp} \to \linearopset{\hilbertsp}$が有限の$M$個の演算要素$\left\{ E_i \colon \hilbertsp \to \hilbertsp \right\}_{i = 1}^{M}$を用いて, 
+    $d$次元ヒルベルト空間$\hilbertsp$とし, CP写像$\qo \colon \linearopset{\hilbertsp} \to \linearopset{\hilbertsp}$が有限の$M$個の演算要素$\left\{ E_i \colon \hilbertsp \to \hilbertsp \right\}_{i = 1}^{M}$を用いて,
     \begin{align*}
         \qo \left( A\right) = \sum_{i=1}^M E_i A E_i^\dagger
     \end{align*}
-    で定義されてるとする. 
+    で定義されてるとする.
     \par
-    $d \times d$行列の集合$\{E_i\}_{i=1}^{M}$から, できるだけ多くの線形独立な$r \left(\le d^2\right)$個の演算要素を取り出して, 適当に添字を付け替えることで, 線形独立な演算要素の集合$\{E_i\}_{i=1}^{r}$を作ることができる. 
+    $d \times d$行列の集合$\{E_i\}_{i=1}^{M}$から, できるだけ多くの線形独立な$r \left(\le d^2\right)$個の演算要素を取り出して, 適当に添字を付け替えることで, 線形独立な演算要素の集合$\{E_i\}_{i=1}^{r}$を作ることができる.
     よって, 任意の$i= 1, \dots , M$に対して, ある複素数列$\left\{ c_{ij} \right\}_{j=1}^{r}$を用いて,
     \begin{align*}
         E_i = \sum_{j=1}^{r} c_{ij} E_j
@@ -326,59 +326,60 @@
     \begin{align*}
         w_{ij} = \tr\left[E_i^\dagger E_j\right] = \sum_{k=1}^{r} c_{jk} w_{ik}
     \end{align*}
-    が成立するので, $\rank W \leq r \leq d^2$. 
-    また, 任意の$i, j = 1 , \dots, M$に対して, 
+    が成立するので, $\rank W \leq r \leq d^2$.
+    また, 任意の$i, j = 1 , \dots, M$に対して,
     \begin{align*}
         w_{jk} = \tr\left[ E_j^\dagger E_k\right]= \tr\left[ E_k^\dagger E_j\right]^*
         = w_{kj}^*
     \end{align*}
     が成立するので, 行列$W = \left(w_{ij}\right)_{i,j = 1, \dots , M}$はHermite.  したがって, $W$はユニタリ行列$U = \left(u_{ij}\right)_{i,j = 1, \dots , M}$で対角化可能で, 対角行列$u^\dagger W u$の対角成分の非ゼロ要素は$\mathrm{rank}W$個である.
     \par
-    ここで, $\{F_i \colon \hilbertsp \to \hilbertsp \}_{i=1}^{M}$を定義する. 
-    $E_{i}$の行列表示$\left( e^{i}_{jk} \right)_{j,k=1,\dots,M}$と
-    $F_{i}$の行列表示$\left( f^{i}_{jk} \right)_{j,k=1,\dots,M}$に対して, 
+    ここで, $\{F_i \colon \hilbertsp \to \hilbertsp \}_{i=1}^{M}$を
     \begin{align*}
-        f_{jk}^{i} = \frac{1}{\sqrt{M}} \sum_{l = 1}^M u_{il}^* e^l_{jk}
+        F_i = \sum_{i=1}^{M} u_{il}^{*} E_l
     \end{align*}
-    と定義する.
-    すると, $W$の非零固有値$\lambda_1, \dots , \lambda_{\rank W}$として, 
+    で定義する. この定義は
+    $E_{i}$の行列表示$\left( e^{i}_{\alpha \beta} \right)_{\alpha, \beta=1,\dots,d}$と
+    $F_{i}$の行列表示$\left( f^{i}_{\alpha \beta} \right)_{\alpha, \beta=1,\dots,d}$に対して,
     \begin{align*}
-        M \sum_{l,m=1}^M
-        \left| f_{lm}^{i} \right|^2
+        f_{\alpha \beta}^{i} = \sum_{l = 1}^M u_{il}^* e^l_{\alpha \beta}
+    \end{align*}
+    とも表せる.
+    すると, $W$の非ゼロ固有値$\lambda_1, \dots , \lambda_{\rank W}$として,
+    \begin{align*}
+        \sum_{\alpha,\beta=1}^d
+        \left| f_{\alpha \beta}^{i} \right|^2
         =
-        \sum_{j,k,l,m=1}^M
-        u_{ij} e_{lm}^{j*} e_{lm}^k u_{ik}^*
+        \sum_{i,j,k=1}^M
+        \sum_{\alpha, \beta = 1}^d
+        u_{i j} e_{\alpha \beta}^{j*} e_{\alpha \beta}^k u_{ik}^*
         =
-        \sum_{j,k=1}^M
+        \sum_{i,j,k=1}^M
         u_{ij} \tr\left[ E_j^\dagger E_k\right] u^\dagger_{ki}
-        \sum_{j,k=1}^M u_{ij} w_{jk} u^\dagger_{ki}
+        =
+        \sum_{i,j,k=1}^M u_{ij} w_{jk} u^\dagger_{ki}
         =
         \begin{cases}
-            \lambda_i  & ( i = 1, \dots, \mathrm{rank} W) \\
-            0           & ( i = \mathrm{rank} W + 1, \dots , M)
+            \lambda_i & ( i = 1, \dots, \mathrm{rank} W)      \\
+            0         & ( i = \mathrm{rank} W + 1, \dots , M)
         \end{cases}
     \end{align*}
-    であるから, 任意$i = \mathrm{rank} W + 1, \dots , M $に対して, $\qof_i = 0$.
-    よって, $\qo \left( A \right)$の$(i,j)$成分は,
+    であるから, 任意の$i = \mathrm{rank} W + 1, \dots , M $に対して, $\qof_i = 0$.
+    よって,
     \begin{align*}
-        \qo \left( A \right)_{ij}
-         & =
+        \qo \left( A \right)
+        =
+        \sum_{i=1}^M 
+        E_i A E_i^{\dagger}
+        =
+        \sum_{i,j,k=1}^M
+        u_{ki}F_k A F_j^{\dagger} u_{ji}^*
+        =
         \sum_{k=1}^M
-        \sum_{l,m = 1}^d e_{il}^k A_{lm} {e_{jm}^{k*}}                  \\
-         & =
-         \frac{1}{M}
-        \sum_{p,n, k=1}^M
-        \sum_{l,m = 1}^d e_{il}^k A_{lm} {e_{jm}^{k*}}  u_{pn} u_{pk}^* \\
-         & =
-         \frac{1}{M}
-        \sum_{p,n, k=1}^M
-        \sum_{l,m = 1}^d e_{il}^k A_{lm} {e_{jm}^{n*}}  u_{pn} u_{pk}^* \\
-         & =
-        \sum_{p=1}^{M}
-        \sum_{l,m = 1}^d f_{il}^{p} A_{lm} f_{jm}^{p*}                  \\
-         & =
-        \sum_{p=1}^{\mathrm{rank}W}
-        \sum_{l,m = 1}^d f_{il}^{p} A_{lm} f_{jm}^{p*}                  \\
+        F_k A F_j^{\dagger}
+        =
+        \sum_{k=1}^{\rank W}
+        F_k A F_k^\dagger
     \end{align*}
     を得る.
     ゆえに, CP写像$\qo \colon \linearopset{\hilbertsp} \to \linearopset{\hilbertsp}$の演算要素としては$\{F_i \colon \hilbertsp \to \hilbertsp \}_{i=1}^{\rank W}$をとることができる.
@@ -391,7 +392,7 @@
 
 \begin{ex}
     \label{ex8.12}
-   実行列$M$の極分解
+    実行列$M$の極分解
     \begin{align*}
         M = U |M|
     \end{align*}
@@ -459,7 +460,7 @@
         \begin{pmatrix}
             r_x \\
             0   \\
-            0 
+            0
         \end{pmatrix}.
     \end{align*}
 \end{ex}
