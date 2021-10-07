@@ -4,3 +4,4 @@ main.synctex.gz
 main.log
 .DS_Store
 *.ipynb
+.vscode
