@@ -148,11 +148,14 @@
     環境の初期状態$\ket{0}$として,
     \begin{align*}
         E_k
-        = \braket{k | U | 0}
-        = \braket{k | P_0 \otimes I + P_1 \otimes X | 0}
+        = \left(I \otimes \bra{k}\right)   U  \left(I \otimes \ket{0}\right)
+        = 
+        \left(I \otimes \bra{k}\right)  
+        \left( P_0 \otimes I + P_1 \otimes X  \right)
+        \left(I \otimes \ket{0}\right)
         = P_0 \braket{k|0} + P_1 \braket{k|1}.
     \end{align*}
-    なので, 量子演算は,
+    なので, オペレータ和表現は, 
     \begin{align*}
         \qo (\rho)
         = \sum_{k = 0, 1} E_k \rho E_k^\dagger
@@ -179,32 +182,14 @@
 \begin{ex}
     \label{ex8.6}
     \par
-    \underline{
-        $\qo, \mathcal{F} \in \mathcal{L}(\mathbb{C}^n)$
-        のとき
-    }
-    \par
-    演算要素$\{\qof_k \in \mathcal{L}(\mathbb{C}^n)\}, \{\qo_k \in \mathcal{L}(\mathbb{C}^n)\}$として,
+    CP写像$\qo \colon \linearopset{\mathbb{C}^m} \to \linearopset{\mathbb{C}^n}$の演算要素$\left\{E_k \colon \mathbb{C}^m \to \mathbb{C}^n \right\}_{k=1}^{l_E \le nm}$, CP写像$\qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^m}$演算要素$\left\{F_k \colon \mathbb{C}^n \to \mathbb{C}^m \right\}_{k=1}^{l_F \le nm}$とする. このとき, 合成写像$\qo \circ \qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^n}$は, $A \in \linearopset{\mathbb{C}^n}$に対して,
     \begin{align*}
-        \mathcal{F} \left( \rho \right) = \sum_k \qof_k \rho \qof_k^\dagger \in Map(\mathbb{C}^n, \mathbb{C}^n)
-    \end{align*}
-    なので,
-    \begin{align*}
-        \qo \circ \qof \left( \rho \right)
+        \qo \circ \qof \left( A\right)
         =
-        \qo \left( \qof \left( \rho \right) \right)
-        =
-        \sum_{k, l} \qo_l \qof_k \rho \qof_k^\dagger \qo_l^\dagger
+        \sum_{i = 1}^{l_E}\sum_{j=1}^{l_F}
+        E_i F_j A F_j^\dagger E_i^\dagger
     \end{align*}
-    となり, $\qo \circ \qof$は演算要素$\{ \qof_k \qo_l \}$をもつ量子演算.
-    \par
-    \underline{
-        $\qo, \mathcal{F} :
-            \mathcal{L}(\mathbb{C}^n, \mathbb{C}^m)$
-        のとき
-    }
-    \par
-
+    でかける. 演習\ref{ex8.10}より, $\qo \circ \qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^n}$の演算要素$\left\{G_i \colon \mathbb{C}^n \to \mathbb{C}^n \right\}_{i=1}^{l_G \le nm}$を作ることができる. したがって, $\qo \circ \qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^n}$もCP写像.
 \end{ex}
 
 \begin{ex}
@@ -398,8 +383,8 @@
     \end{align*}
     に対して, $U$は直交行列なので行列式が$\pm1$に限られる. そこで,
     \begin{align*}
-        det U = 1  & \to O = U, \ S = |M|   \\
-        det U = -1 & \to O = -U, \ S = -|M|
+        \det U = 1  & \rightarrow O = U, \ S = |M|   \\
+        \det U = -1 & \rightarrow O = -U, \ S = -|M|
     \end{align*}
     とすることで, 行列式が1であるように$O$を取ることができて,
     \begin{align*}
@@ -415,7 +400,7 @@
 
 \begin{ex}
     \label{ex8.14}
-    演習\ref{ex8.12}で見たように, $det S$は正とは限らない.
+    演習\ref{ex8.12}で見たように, $\det S$は正とは限らない.
 \end{ex}
 
 \begin{ex}
@@ -515,63 +500,145 @@
 
 \begin{ex}
     \label{ex8.18}
-    量子演算$\qo$;
+    CP写像$\qo　\colon \linearopset{\mathbb{C}^n} \to  \linearopset{\mathbb{C}^m}$が    \begin{align*}
+        \sum_{k=1}^l E_k^\dagger E_k \le I
+    \end{align*}
+    を満たす演算要素$\{ E_k \colon \mathbb{C}^n \to \mathbb{C}^m\}_{k=1}^{l}$を用いて, 
     \begin{align*}
         \qo \left( \rho \right)
-        = \sum_k E_k \rho E_k^\dagger
+        = \sum_{k=1}^{l} E_k \rho E_k^\dagger
     \end{align*}
-    は,
-    \begin{align*}
-        \sum_k E_k^\dagger E_k \le I
-    \end{align*}
-    を満たす演算要素$\{ E_k\}$で定義される. したがって,
+    で定義されるとすると,
     \begin{align*}
         \tr \left[ \qo \left( \rho^{n} \right)\right]
         =
-        \sum_k  \tr \left[ E_k \rho^n E_k^\dagger \right]
+        \sum_{k=1}^{l}  \tr \left[ E_k \rho^n E_k^\dagger \right]
         =
-        \sum_k  \tr \left[\rho^n E_k^\dagger E_k \right]
+        \sum_{k=1}^{l}  \tr \left[\rho^n E_k^\dagger E_k \right]
         \le \tr(\rho^n) .
     \end{align*}
 \end{ex}
 \begin{ex}
     \label{ex8.19}
-    $\rho$を対角化する$d$次元Hilbert空間の正規直交基底$\{ \ket{1}, \ket{2}, ... , \ket{d}\}$とすると,
+    $d = 2^n$とする. $\linearopset{\mathbb{C}^d}$の基底として$\left\{M_{\bm{\alpha}}\right\}_{\bm{\alpha}\in\left\{0,1,2,3\right\}^n}$をとる. ここで, $M_{\bm{\alpha}}$は,
     \begin{align*}
-        \frac{I}{d}
-        =
-        \frac{1}{d} \sum_i \ket{i}\bra{i} \tr\rho
-        =
-        \frac{1}{d} \sum_{i,j} \ket{i}\bra{i} \braket{j | \rho | j}
-        =
-        \frac{1}{d} \sum_{i,j} \ket{i}\braket{j | \rho | j}\bra{i}
+        M_{\bm{\alpha} = \left( \alpha_1, \cdots, \alpha_n \right)} = \bigotimes_{i=1}^n \sigma_{\alpha_i},\ 
+        \sigma_0 = I, \ \sigma_1 = X, \ \sigma_2 = Y,\ \sigma_3 = Z  
     \end{align*}
-    なので,
+    とした. 
+    \par
+    このとき, 
     \begin{align*}
-        \qo \left( \rho\right)
-         & =
-        p \frac{I}{d} + (1-p) \rho                           \\
-         & =
-        \frac{p}{d} \sum_{i,j} \ket{i}\braket{j | \rho | j}\bra{i}
-        +
-        (1-p) \sum_{i,j} \ket{j}\braket{j | \rho | i}\bra{i} \\
-         & =
-        \frac{p}{d} \sum_{i,j} \ket{i}\braket{j | \rho | j}\bra{i}
-        +
-        (1-p) \sum_{i} \ket{i}\braket{i | \rho | i}\bra{i}   \\
-         & =
-        \frac{p}{d} \sum_{i \neq j} \ket{i}\braket{j | \rho | j}\bra{i}
-        +
-        \left( 1 - \frac{d-1}{d}p\right) \sum_{i} \ket{i}\braket{i | \rho | i}\bra{i}
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
+        M_{\bm{\alpha}} M_{\bm{\beta}} M_{\bm{\alpha}}^\dagger
+        =
+        \begin{cases}
+            d^2 \mathbf{1} & \left(\bm{\beta} = \bm{0}\right) \\
+            0 & \left( \text{otherwise}\right)
+        \end{cases}
+        \tag{$\star$}
     \end{align*}
-    なので, 演算要素は,
+    が成り立つ. これを示す. $\bm{\beta} = \bm{0}$のときは明らか. $\bm{\beta} \neq \bm{0}$とすると, $\beta_i \neq 0 $なる$i$が存在し, 
     \begin{align*}
-        \left\{ \sqrt{\frac{p}{d} }\ket{i} \bra{j} \middle| 1 \le i, j \le d, \ i \neq j\right\}
+        \sum_{\alpha_i = 0,1,2,3}
+        \sigma_{\alpha_i} \sigma_{\beta_i}  \sigma_{\alpha_i}^\dagger
+        =
+        0
+    \end{align*}
+    であるから,
+    \begin{align*}
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
+        M_{\bm{\alpha}} M_{\bm{\beta}} M_{\bm{\alpha}}^\dagger
+        =
+        \left(
+            \sum_{\alpha_1 = 0,1,2,3}
+            \sigma_{\alpha_1} \sigma_{\beta_1}  \sigma_{\alpha_1}^\dagger
+        \right)
+        \otimes
+        \dots
+        \otimes
+        \left(
+            \sum_{\alpha_i = 0,1,2,3}
+            \sigma_{\alpha_i} \sigma_{\beta_i}  \sigma_{\alpha_i}^\dagger
+        \right)
+        \otimes
+        \dots
+        \otimes
+        \left(
+            \sum_{\alpha_n = 0,1,2,3}
+            \sigma_{\alpha_n} \sigma_{\beta_n}  \sigma_{\alpha_n}^\dagger
+        \right)
+        =
+        0
+    \end{align*}
+    が成り立つ.
+    \par
+    $A \in \linearopset{\mathbb{C}^d}$は, $\left\{c_{\bm{\alpha}}\right\}_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}$を用いて,
+    \begin{align*}
+        A = \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} c_{\bm{\alpha}} M_{\bm{\alpha}}
+    \end{align*}
+    と展開できる. すると, 
+    \begin{align*}
+        \tr\left[A\right] = \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} c_{\bm{\alpha}} \tr\left[M_{\bm{\alpha}}\right]
+        =
+        c_{\bm{0}}d
+    \end{align*}
+    が成り立つ. 一方, $(\star)$より, 
+    \begin{align*}
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
+        =
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        \sum_{\bm{\beta} \in \left\{0,1,2,3\right\}^n}
+        c_{\bm{\beta}} 
+        M_{\bm{\alpha}} M_{\bm{\beta}} M_{\bm{\alpha}}^\dagger
+        =
+        c_{\bm{0}}d^2 \mathbf{1}
+    \end{align*}
+    が成り立つ. ゆえに, 
+    \begin{align*}
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
+        =
+        d \tr\left[A\right]\mathbf{1}
+    \end{align*}
+    が成り立つ. したがって, CPTP写像
+    \begin{align*}
+        \qo \colon \linearopset{\mathbb{C}^{d}} \ni A \mapsto \frac{p \tr\left[ A\right]}{d}\mathbf{1} + \left(1-p\right)A \in \linearopset{\mathbb{C}^{d}}
+    \end{align*}
+    に対して, 
+    \begin{align*}
+        \qo \left(A\right)
+        &=
+        \frac{p \tr\left[ A\right]}{d}\mathbf{1} + \left(1-p\right)A
+        \\
+        &=
+        \frac{p}{d^2}
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
         +
+        (1-p)
+        M_{\bm{0}} A M_{\bm{0}}^\dagger
+        \\
+        &=
+        \left( 1 - p + \frac{p}{d^2}\right)
+        M_{\bm{0}} A M_{\bm{0}}^\dagger
+        +
+        \frac{p}{d^2}
+        \sum_{\bm{\alpha} \notin \bm{0}}
+        M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
+    \end{align*}
+    が成り立つ. したがって, 分極解消チャンネルの演算要素は, 
+    \begin{align*}
+        \left\{ 
+            \sqrt{1-p+\frac{p}{d^2}} M_{\bm{0}}
+        \right\}
+        \cup
         \left\{
-        \sqrt{ 1 - \frac{d-1}{d}p} \ket{i}\bra{i} \middle| 1 \le i \le d
-        \right\}.
+            \frac{\sqrt{p}}{d} M_{\bm{\alpha}}
+        \right\}_{\bm{\alpha}\neq\bm{0}}
     \end{align*}
+    となる.
 \end{ex}
 
 \begin{ex}
