@@ -432,7 +432,7 @@
         =
         \frac{I + r_x X}{2}
     \end{align*}
-    なので, この量子演算の作用をBlochk球面上で表すと,
+    なので, この量子演算の作用をBloch球面上で表すと,
     \begin{align*}
         \bm{r} =
         \begin{pmatrix}
@@ -500,23 +500,27 @@
 
 \begin{ex}
     \label{ex8.18}
-    CP写像$\qo　\colon \linearopset{\mathbb{C}^n} \to  \linearopset{\mathbb{C}^m}$が    \begin{align*}
-        \sum_{k=1}^l E_k^\dagger E_k \le I
-    \end{align*}
-    を満たす演算要素$\{ E_k \colon \mathbb{C}^n \to \mathbb{C}^m\}_{k=1}^{l}$を用いて, 
+    $\rho \in \densityopset{\complex{d}}$に対して, $\tr\left[ \rho^i\right] \ge 0 \left( i=1,2,\cdots\right)$が成立. また, 分極解消チャンネルのパラメータは$0 \le p \le \frac{d^2}{d^2-1}$であることに注意して, 
     \begin{align*}
-        \qo \left( \rho \right)
-        = \sum_{k=1}^{l} E_k \rho E_k^\dagger
-    \end{align*}
-    で定義されるとすると,
-    \begin{align*}
-        \tr \left[ \qo \left( \rho^{n} \right)\right]
+        \tr\left[ \qo \left( \rho^k\right)\right]
         =
-        \sum_{k=1}^{l}  \tr \left[ E_k \rho^n E_k^\dagger \right]
+        \tr\left[ 
+            \left(
+                \frac{p}{d} \mathbf{1} + \left(1-p\right)\rho 
+            \right)^k
+            \right]
         =
-        \sum_{k=1}^{l}  \tr \left[\rho^n E_k^\dagger E_k \right]
-        \le \tr(\rho^n) .
+        \sum_{i=0}^k
+        \comb{k}{i}
+        \left( \frac{p}{d}\right)^{k-i}
+        \left(1-p\right)^i
+        \tr\left[\rho^i\right]
+        \le
+        \left(1-p\right)^k \tr\left[\rho^k\right]
+        \le
+        \tr\left[ \rho^k\right]
     \end{align*}
+    を得る. 
 \end{ex}
 \begin{ex}
     \label{ex8.19}
