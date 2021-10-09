@@ -149,13 +149,13 @@
     \begin{align*}
         E_k
         = \left(I \otimes \bra{k}\right)   U  \left(I \otimes \ket{0}\right)
-        = 
-        \left(I \otimes \bra{k}\right)  
+        =
+        \left(I \otimes \bra{k}\right)
         \left( P_0 \otimes I + P_1 \otimes X  \right)
         \left(I \otimes \ket{0}\right)
         = P_0 \braket{k|0} + P_1 \braket{k|1}.
     \end{align*}
-    なので, オペレータ和表現は, 
+    なので, オペレータ和表現は,
     \begin{align*}
         \qo (\rho)
         = \sum_{k = 0, 1} E_k \rho E_k^\dagger
@@ -354,7 +354,7 @@
     \begin{align*}
         \qo \left( A \right)
         =
-        \sum_{i=1}^M 
+        \sum_{i=1}^M
         E_i A E_i^{\dagger}
         =
         \sum_{i,j,k=1}^M
@@ -500,13 +500,13 @@
 
 \begin{ex}
     \label{ex8.18}
-    $\rho \in \densityopset{\complex{d}}$に対して, $\tr\left[ \rho^i\right] \ge 0 \left( i=1,2,\cdots\right)$が成立. また, 分極解消チャンネルのパラメータは$0 \le p \le \frac{d^2}{d^2-1}$であることに注意して, 
+    $\rho \in \densityopset{\complex{d}}$に対して, $\tr\left[ \rho^i\right] \ge 0 \left( i=1,2,\cdots\right)$が成立. また, 分極解消チャンネルのパラメータは$0 \le p \le \frac{d^2}{d^2-1}$であることに注意して,
     \begin{align*}
         \tr\left[ \qo \left( \rho^k\right)\right]
         =
-        \tr\left[ 
+        \tr\left[
             \left(
-                \frac{p}{d} \mathbf{1} + \left(1-p\right)\rho 
+            \frac{p}{d} \mathbf{1} + \left(1-p\right)\rho
             \right)^k
             \right]
         =
@@ -520,29 +520,29 @@
         \le
         \tr\left[ \rho^k\right]
     \end{align*}
-    を得る. 
+    を得る.
 \end{ex}
 \begin{ex}
     \label{ex8.19}
     $d = 2^n$とする. $\linearopset{\mathbb{C}^d}$の基底として$\left\{M_{\bm{\alpha}}\right\}_{\bm{\alpha}\in\left\{0,1,2,3\right\}^n}$をとる. ここで, $M_{\bm{\alpha}}$は,
     \begin{align*}
-        M_{\bm{\alpha} = \left( \alpha_1, \cdots, \alpha_n \right)} = \bigotimes_{i=1}^n \sigma_{\alpha_i},\ 
-        \sigma_0 = I, \ \sigma_1 = X, \ \sigma_2 = Y,\ \sigma_3 = Z  
+        M_{\bm{\alpha} = \left( \alpha_1, \cdots, \alpha_n \right)} = \bigotimes_{i=1}^n \sigma_{\alpha_i},\
+        \sigma_0 = I, \ \sigma_1 = X, \ \sigma_2 = Y,\ \sigma_3 = Z
     \end{align*}
-    とした. 
+    とした.
     \par
-    このとき, 
+    このとき,
     \begin{align*}
         \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
         M_{\bm{\alpha}} M_{\bm{\beta}} M_{\bm{\alpha}}^\dagger
         =
         \begin{cases}
             d^2 \mathbf{1} & \left(\bm{\beta} = \bm{0}\right) \\
-            0 & \left( \text{otherwise}\right)
+            0              & \left( \text{otherwise}\right)
         \end{cases}
         \tag{$\star$}
     \end{align*}
-    が成り立つ. これを示す. $\bm{\beta} = \bm{0}$のときは明らか. $\bm{\beta} \neq \bm{0}$とすると, $\beta_i \neq 0 $なる$i$が存在し, 
+    が成り立つ. これを示す. $\bm{\beta} = \bm{0}$のときは明らか. $\bm{\beta} \neq \bm{0}$とすると, $\beta_i \neq 0 $なる$i$が存在し,
     \begin{align*}
         \sum_{\alpha_i = 0,1,2,3}
         \sigma_{\alpha_i} \sigma_{\beta_i}  \sigma_{\alpha_i}^\dagger
@@ -555,22 +555,22 @@
         M_{\bm{\alpha}} M_{\bm{\beta}} M_{\bm{\alpha}}^\dagger
         =
         \left(
-            \sum_{\alpha_1 = 0,1,2,3}
-            \sigma_{\alpha_1} \sigma_{\beta_1}  \sigma_{\alpha_1}^\dagger
+        \sum_{\alpha_1 = 0,1,2,3}
+        \sigma_{\alpha_1} \sigma_{\beta_1}  \sigma_{\alpha_1}^\dagger
         \right)
         \otimes
         \dots
         \otimes
         \left(
-            \sum_{\alpha_i = 0,1,2,3}
-            \sigma_{\alpha_i} \sigma_{\beta_i}  \sigma_{\alpha_i}^\dagger
+        \sum_{\alpha_i = 0,1,2,3}
+        \sigma_{\alpha_i} \sigma_{\beta_i}  \sigma_{\alpha_i}^\dagger
         \right)
         \otimes
         \dots
         \otimes
         \left(
-            \sum_{\alpha_n = 0,1,2,3}
-            \sigma_{\alpha_n} \sigma_{\beta_n}  \sigma_{\alpha_n}^\dagger
+        \sum_{\alpha_n = 0,1,2,3}
+        \sigma_{\alpha_n} \sigma_{\beta_n}  \sigma_{\alpha_n}^\dagger
         \right)
         =
         0
@@ -581,27 +581,27 @@
     \begin{align*}
         A = \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} c_{\bm{\alpha}} M_{\bm{\alpha}}
     \end{align*}
-    と展開できる. すると, 
+    と展開できる. すると,
     \begin{align*}
         \tr\left[A\right] = \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} c_{\bm{\alpha}} \tr\left[M_{\bm{\alpha}}\right]
         =
         c_{\bm{0}}d
     \end{align*}
-    が成り立つ. 一方, $(\star)$より, 
+    が成り立つ. 一方, $(\star)$より,
     \begin{align*}
-        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
         M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
         =
-        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
         \sum_{\bm{\beta} \in \left\{0,1,2,3\right\}^n}
-        c_{\bm{\beta}} 
+        c_{\bm{\beta}}
         M_{\bm{\alpha}} M_{\bm{\beta}} M_{\bm{\alpha}}^\dagger
         =
         c_{\bm{0}}d^2 \mathbf{1}
     \end{align*}
-    が成り立つ. ゆえに, 
+    が成り立つ. ゆえに,
     \begin{align*}
-        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
         M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
         =
         d \tr\left[A\right]\mathbf{1}
@@ -610,21 +610,21 @@
     \begin{align*}
         \qo \colon \linearopset{\mathbb{C}^{d}} \ni A \mapsto \frac{p \tr\left[ A\right]}{d}\mathbf{1} + \left(1-p\right)A \in \linearopset{\mathbb{C}^{d}}
     \end{align*}
-    に対して, 
+    に対して,
     \begin{align*}
         \qo \left(A\right)
-        &=
+         & =
         \frac{p \tr\left[ A\right]}{d}\mathbf{1} + \left(1-p\right)A
         \\
-        &=
+         & =
         \frac{p}{d^2}
-        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n} 
+        \sum_{\bm{\alpha} \in \left\{0,1,2,3\right\}^n}
         M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
         +
         (1-p)
         M_{\bm{0}} A M_{\bm{0}}^\dagger
         \\
-        &=
+         & =
         \left( 1 - p + \frac{p}{d^2}\right)
         M_{\bm{0}} A M_{\bm{0}}^\dagger
         +
@@ -632,14 +632,14 @@
         \sum_{\bm{\alpha} \notin \bm{0}}
         M_{\bm{\alpha}} A M_{\bm{\alpha}}^\dagger
     \end{align*}
-    が成り立つ. したがって, 分極解消チャンネルの演算要素は, 
+    が成り立つ. したがって, 分極解消チャンネルの演算要素は,
     \begin{align*}
-        \left\{ 
-            \sqrt{1-p+\frac{p}{d^2}} M_{\bm{0}}
+        \left\{
+        \sqrt{1-p+\frac{p}{d^2}} M_{\bm{0}}
         \right\}
         \cup
         \left\{
-            \frac{\sqrt{p}}{d} M_{\bm{\alpha}}
+        \frac{\sqrt{p}}{d} M_{\bm{\alpha}}
         \right\}_{\bm{\alpha}\neq\bm{0}}
     \end{align*}
     となる.
@@ -708,7 +708,91 @@
 
 \begin{ex}
     \label{ex8.21}
-    (1)\ \par
+    (1)\
+    $Q \equiv a^\dagger a + b^\dagger b$とすると, $\left[ Q, H\right] = 0$であるから$Q$は保存量. したがって
+    \begin{align*}
+        E_k
+         & =
+        \left( I \otimes \bra{k}\right) U \left( I \otimes \ket{k}\right)
+        \\
+         & =
+        \sum_{n=0}^\infty \sum_{m=0}^\infty
+        \bra{n}\bra{k} U \ket{m}\ket{0} \ket{n}\bra{m}
+        \\
+         & =
+        \sum_{m=k}^\infty
+        \bra{m-k}\bra{k} U \ket{m}\ket{0} \ket{m-k}\bra{m}
+        \\
+         & =
+        \sum_{m=k}^\infty
+        \frac{\sqrt{\comb{m}{k}}}{m!}
+        \bra{0}\bra{0} a^{m-k} b^k U \left(a^\dagger\right)^m \ket{0}\ket{0}
+        \ket{m-k}\bra{m}
+        \\
+        & =
+       \sum_{m=k}^\infty
+       \frac{\sqrt{\comb{m}{k}}}{m!}
+       \bra{0}\bra{0} a^{m-k} b^k U \left(a^\dagger\right)^m U^\dagger \ket{0}\ket{0}
+       \ket{m-k}\bra{m}
+        .
+    \end{align*}
+    ここで, Baker-Campbell-Hausdorfの公式より,
+    \begin{align*}
+        U \left(a^\dagger\right)^m U^\dagger
+        =
+        \left(U a^\dagger U^\dagger\right)^m
+        =
+        \left( \sqrt{1-\gamma} a^\dagger - i \sqrt{\gamma} b^\dagger\right)^m
+        =
+        \sum_{n=0}^m \comb{m}{n} \left(-i\right)^{m-n} \sqrt{\left(1-\gamma\right)^n \gamma^{m-n}}
+        \left( a^\dagger\right)^n \left(b^\dagger\right)^{m-n}
+    \end{align*}
+    であるから,
+    \begin{align*}
+        E_k
+         & =
+         \sum_{m=k}^\infty
+         \frac{\sqrt{\comb{m}{k}}}{m!}
+         \bra{0}\bra{0} a^{m-k} b^k U \left(a^\dagger\right)^m U^\dagger \ket{0}\ket{0}
+         \ket{m-k}\bra{m}
+        \\
+         & =
+        \sum_{m=k}^\infty
+        \sum_{n=0}^m
+        \comb{m}{n} \left(-i\right)^{m-n} \sqrt{\left(1-\gamma\right)^n \gamma^{m-n}}
+        \frac{\sqrt{\comb{m}{k}}}{m!}
+        \bra{0}\bra{0}
+        a^{m-k} b^k \left( a^\dagger\right)^n \left(b^\dagger\right)^{m-n}
+        \ket{0}\ket{0}
+        \ket{m-k}\bra{m}
+        \\
+         & =
+        \sum_{m=k}^\infty
+        \sum_{n=0}^m
+        \left(-i\right)^{m-n} \sqrt{\left(1-\gamma\right)^n \gamma^{m-n}}
+        \frac{\comb{m}{n} \sqrt{\comb{m}{k}}}{m!}
+        \sqrt{n!}\sqrt{\left(m-n\right)!}\sqrt{k!}\sqrt{\left(m-k\right)!}
+        \delta_{n, m-k} \delta_{m-n,k}
+        \ket{m-k}\bra{m}
+        \\
+         & =
+         \left(-i\right)^{k} 
+        \sum_{m=k}^\infty
+        \sqrt{\left(1-\gamma\right)^{m-k} \gamma^k}
+        \sqrt{\comb{m}{k}}
+        \ket{m-k}\bra{m}.
+    \end{align*}
+    定理8.2より, 
+    \begin{align*}
+        E_k
+        =
+        \sum_{m=k}^\infty
+        \sqrt{\left(1-\gamma\right)^{m-k} \gamma^k}
+        \sqrt{\comb{m}{k}}
+        \ket{m-k}\bra{m}
+    \end{align*}
+    とすることができる.
+    \par
     (2) \
     \begin{align*}
         \sum_{k=0}^{\infty} E_k^\dagger E_k
