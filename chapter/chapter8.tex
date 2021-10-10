@@ -500,28 +500,43 @@
 
 \begin{ex}
     \label{ex8.18}
-    $\rho \in \densityopset{\complex{d}}$に対して, $\tr\left[ \rho^i\right] \ge 0 \left( i=1,2,\cdots\right)$が成立. また, 分極解消チャンネルのパラメータは$0 \le p \le \frac{d^2}{d^2-1}$であることに注意して,
+    $d = 2^n$とする. 分極解消チャンネル$\qo \colon \densityopset{\complex{d}} \to \densityopset{\complex{d}}$によって, purityが減少すること, つまり, 
     \begin{align*}
-        \tr\left[ \qo \left( \rho^k\right)\right]
+        \tr\left[ \qo \left(\rho\right)^2\right] 
+        \le 
+        \tr\left[ \rho^2\right]
+    \end{align*}
+    を示す. 
+    \par
+    $\rho \in \densityopset{\complex{d}}$のスペクトル分解は, 
+    $p_i > 0,\  \sum_{i=1}^d p_i = 1$
+    を満たす$\left\{p_i\right\}_{i=1}^d$と, それに対応する$\complex{d}$の正規直交基底$\left\{\ket{i}\right\}_{i=1}^d$を用いて,
+    \begin{align*}
+        \rho = \sum_{i=1}^d p_i \ket{i}\bra{i}
+    \end{align*}
+    で表される. すると, 
+    \begin{align*}
+        \qo \left( \rho\right)
         =
-        \tr\left[
-            \left(
-            \frac{p}{d} \mathbf{1} + \left(1-p\right)\rho
-            \right)^k
-            \right]
+        \sum_{i=1}^d
+        \left( 
+            \left(1-p\right)p_i + \frac{p}{d}
+        \right)
+        \ket{i}\bra{i}
+    \end{align*}
+    となる. よって, $0 \le p \le \frac{d^2}{d^2-1}$と $\tr\left[ \rho^2\right] - \frac{1}{d} \ge 0$であることから
+    \begin{align*}
+        \tr\left[ \rho^2\right] 
+        - 
+        \tr\left[ \qo \left(\rho\right)^2\right] 
         =
-        \sum_{i=0}^k
-        \comb{k}{i}
-        \left( \frac{p}{d}\right)^{k-i}
-        \left(1-p\right)^i
-        \tr\left[\rho^i\right]
-        \le
-        \left(1-p\right)^k \tr\left[\rho^k\right]
-        \le
-        \tr\left[ \rho^k\right]
+        p \left(2-p\right)\left( \tr\left[ \rho^2\right] - \frac{1}{d}\right)
+        \ge
+        0
     \end{align*}
     を得る.
 \end{ex}
+
 \begin{ex}
     \label{ex8.19}
     $d = 2^n$とする. $\linearopset{\mathbb{C}^d}$の基底として$\left\{M_{\bm{\alpha}}\right\}_{\bm{\alpha}\in\left\{0,1,2,3\right\}^n}$をとる. ここで, $M_{\bm{\alpha}}$は,
