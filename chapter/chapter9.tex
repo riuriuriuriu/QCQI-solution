@@ -424,28 +424,32 @@
 \end{ex}
 
 \begin{ex}
-    ある$\rho$が存在して,
+    \label{ex9.22}
+    誤差$E$の定義より, 
     \begin{align*}
-        E\left( VU, \qof \circ \qo\right)
-         & =
-        d\left( VU\rho U^\dagger V^\dagger, \left(\qof \circ \qo\right) \left(\rho \right)\right) \\
-         & \leq
-        d\left(
-        VU\rho U^\dagger V^\dagger, \qof\left(U\rho U^\dagger\right)\right)
-        +
-        d\left(
-        \qof\left(U\rho U^\dagger\right), \left( \qof \circ \qo \right)\qo\left(\rho \right)
-        \right)                                                                                   \\
-         & \leq
-        d\left(
-        VU\rho U^\dagger V^\dagger, \qof\left(U\rho U^\dagger\right)\right)
-        +
-        d\left(
-        U\rho U^\dagger, \qo\left(\rho \right)
-        \right)                                                                                   \\
-         & \leq
-        E \left( V, \qof\right) + E\left( U, \qo\right).
+        E\left( VU, \qof \circ \qo\right) 
+        = d \left( VU \rho U U^\dagger V^\dagger, \qof \circ \qo \left( \rho \right)\right)
     \end{align*}
+    を満たす$\rho$が存在する. したがって, 
+    \begin{align*}
+        E\left( VU, \qof \circ \qo\right) 
+        &\le
+        d \left( VU \rho U^\dagger V^\dagger,\  \qof \circ \qo \left( \rho \right)\right)
+        \\
+        &\le 
+        d \left( VU \rho U^\dagger V^\dagger,\  V \qo\left(\rho\right) V^\dagger \right)
+        +
+        d \left(V \qo\left(\rho\right) V^\dagger,\  \qof \circ \qo \left(\rho\right) \right)
+        \\
+        &=
+        d \left( U \rho U^\dagger,\ \qo\left(\rho\right) \right)
+        +
+        d \left(V \qo\left(\rho\right) V^\dagger,\  \qof \left(\qo \left(\rho\right)\right) \right)
+        \\
+        &\le
+        E\left(U, \qo\right) + E\left(V, \qof\right)
+    \end{align*}
+    を得る.
 \end{ex}
 
 \begin{ex}
