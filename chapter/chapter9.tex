@@ -119,6 +119,45 @@
 
 \begin{ex}
     \label{ex9.9}
+    $\hilbertsp$を有限次元の複素内積空間$\mathbb{C}^n \ \left(n < \infty\right)$とする. $\mathbb{C}^{n \times n}$の位相は, ヒルベルトシュミット内積により自然に定まるノルムを備えた距離空間の位相で定める. このとき, $\mathbb{C}^{n \times n}$の部分空間$\densityopset{\mathbb{C}^{n}} = \left\{ \rho \in \mathbb{C}^{n \times n} | \tr\rho = 1,\  \rho \ge 0\right\}$が凸かつ有界閉集合であることを示す.
+
+    $\densityopset{\mathbb{C}^{n}}$が凸であることを示す. $p \in \left[0,1\right]$, $\rho, \sigma \in \densityopset{\mathbb{C}^{n}}$とすると, 
+    \begin{align*}
+        \tr\left[ p \rho + \left(1-p\right)\sigma\right] = 1
+    \end{align*}
+    が成り立ち, 任意の$\ket{\psi} \in \mathbb{C}^n$に対して, 
+    \begin{align*}
+        p \braket{\psi|\rho|\psi} + (1-p) \braket{\psi|\sigma|\psi} \ge 0
+    \end{align*}
+    が成り立つので, $\densityopset{\mathbb{C}^{n}}$は凸.
+
+    $\densityopset{\mathbb{C}^{n}}$が閉集合であることを示す. まず, $\tr \colon \mathbb{C}^{n \times n} \to \mathbb{C}$は連続. また, $x \in \mathbb{C}^{n}$に対して, $f_x \colon \mathbb{C}^{n \times n} \ni A \to x^\top A x \in \mathbb{C}$は連続. さらに, $\mathbb{C}$の部分集合$X := \{1\}$, $ Y := \{x + iy | x \ge 0\}$は閉集合なので, 
+    \begin{align}
+        \densityopset{\mathbb{C}^{n}}
+        =
+        \left\{ \rho \in \mathbb{C}^{n \times n} | \tr\rho = 1, \ \rho \ge 0\right\}
+        =
+        \tr^{-1}\left(X\right)
+        \cap
+        \bigcap_{x \in \mathbb{C}^n} f_x^{-1}\left(Y\right)
+    \end{align}
+    は閉集合. 
+
+    $\densityopset{\mathbb{C}^{n}}$が有界であることを示す. 距離空間の有界性の定義より, $\rho, \sigma \in \densityopset{\mathbb{C}^n}$に対して, 距離$d\left(\rho, \sigma\right)$が有界であることを示せばよい. $\rho, \sigma$のスペクトル分解を
+    \begin{align}
+        \rho = \sum_{i=1}^n p_i \ket{i}\bra{i}, \ \sigma = \sum_{i=1}^n q_i \ket{\tilde{i}}\bra{\tilde{i}}
+    \end{align}
+    とすれば, 
+    \begin{align}
+        d \left(\rho, \sigma\right) 
+        =
+        \tr\left[ \left(\rho-\sigma\right)\left(\rho-\sigma\right)\right] 
+        =
+        \sum_{i=1}^n p_i^2 + \sum_{i=1}^n q_i^2 - 2 \sum_{i,j = 1}^n p_i q_i \left| \braket{i|\tilde{j}}\right|^2 < \infty
+    \end{align}
+    であるから$\densityopset{\mathbb{C}^{n}}$は有界.
+
+    以上より, $\densityopset{\mathbb{C}^{n}}$が$\mathbb{C}^{n \times n}$の有界閉集合, つまりコンパクトであることが言えた. したがって, Schauderの不動点定理より, 連続なTPCP写像$\qo \colon \mathbb{C}^{n \times n} \to \mathbb{C}^{n \times n}$の$\densityopset{\mathbb{C}^n}$への制限$\qo|_{\densityopset{\mathbb{C}^n}} \colon \densityopset{\mathbb{C}^n} \to \densityopset{\mathbb{C}^n}$は不動点を持つので, $\qo \left(\rho\right) = \rho$を満たす$\rho \in \densityopset{\mathbb{C}^n}$が存在する.
 \end{ex}
 
 \begin{ex}
