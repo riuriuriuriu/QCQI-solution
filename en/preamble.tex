@@ -1,0 +1,37 @@
+\usepackage{amsmath,amssymb,braket,bm,mathtools,amsfonts,url, cancel, mathrsfs}
+\usepackage{qcircuit}
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx]{hyperref}
+\usepackage{here}
+
+%\setlength{\textwidth}{\fullwidth}
+%\setlength{\evensidemargin}{\oddsidemargin}
+\newtheorem{ex}{Exercise}
+\newtheorem{problem}{Problem}
+\numberwithin{ex}{chapter} 
+\numberwithin{problem}{chapter} 
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\NOT}{\mathrm{NOT}}
+\newcommand{\AND}{\mathrm{AND}}
+\newcommand{\NAND}{\mathrm{NAND}}
+\newcommand{\OR}{\mathrm{OR}}
+\newcommand{\XOR}{\mathrm{XOR}}
+\newcommand{\CNOT}{\mathrm{CNOT}}
+\newcommand{\Tof}{\mathrm{Toffoli}}
+\newcommand{\qo}{\mathcal{E}}
+\newcommand{\qof}{\mathcal{F}}
+\newcommand{\hilbertsp}{\mathcal{H}}
+\newcommand{\linearopset}[1]{\mathcal{L}\left({#1}\right)}
+\newcommand{\densityopset}[1]{\mathcal{S}\left({#1}\right)}
+\newcommand{\complex}[1]{\mathbb{C}^{#1}}
+\newcommand{\comb}[2]{{}_{#1}\text{C}_{#2}}
+
+\newcommand{\paulix}{\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} }
+\newcommand{\ry}[1]{ \cos \frac{#1}{2} & -\sin\frac{#1}{2} \\ \sin \frac{#1}{2} & \cos\frac{#1}{2}}
+
+\newcommand{\rot}[1]{ \cos {#1} & -\sin {#1} \\ \sin {#1} & \cos {#1}}
