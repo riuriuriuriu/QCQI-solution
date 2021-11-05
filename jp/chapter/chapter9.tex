@@ -132,7 +132,7 @@
     が成り立つので, $\densityopset{\mathbb{C}^{n}}$は凸.
 
     $\densityopset{\mathbb{C}^{n}}$が閉集合であることを示す. まず, $\tr \colon \mathbb{C}^{n \times n} \to \mathbb{C}$は連続. また, $x \in \mathbb{C}^{n}$に対して, $f_x \colon \mathbb{C}^{n \times n} \ni A \to x^\top A x \in \mathbb{C}$は連続. さらに, $\mathbb{C}$の部分集合$X := \{1\}$, $ Y := \{x + iy | x \ge 0\}$は閉集合なので, 
-    \begin{align}
+    \begin{align*}
         \densityopset{\mathbb{C}^{n}}
         =
         \left\{ \rho \in \mathbb{C}^{n \times n} | \tr\rho = 1, \ \rho \ge 0\right\}
@@ -140,7 +140,7 @@
         \tr^{-1}\left(X\right)
         \cap
         \bigcap_{x \in \mathbb{C}^n} f_x^{-1}\left(Y\right)
-    \end{align}
+    \end{align*}
     は閉集合. 
 
     $\densityopset{\mathbb{C}^{n}}$が有界であることを示す. 距離空間の有界性の定義より, $\rho, \sigma \in \densityopset{\mathbb{C}^n}$に対して, 距離$d\left(\rho, \sigma\right)$が有界であることを示せばよい. $\rho, \sigma$のスペクトル分解を
@@ -148,13 +148,13 @@
         \rho = \sum_{i=1}^n p_i \ket{i}\bra{i}, \ \sigma = \sum_{i=1}^n q_i \ket{\tilde{i}}\bra{\tilde{i}}
     \end{align}
     とすれば, 
-    \begin{align}
-        d \left(\rho, \sigma\right) 
+    \begin{align*}
+        d \left(\rho, \sigma\right)^2 
         =
         \tr\left[ \left(\rho-\sigma\right)\left(\rho-\sigma\right)\right] 
         =
         \sum_{i=1}^n p_i^2 + \sum_{i=1}^n q_i^2 - 2 \sum_{i,j = 1}^n p_i q_i \left| \braket{i|\tilde{j}}\right|^2 < \infty
-    \end{align}
+    \end{align*}
     であるから$\densityopset{\mathbb{C}^{n}}$は有界.
 
     以上より, $\densityopset{\mathbb{C}^{n}}$が$\mathbb{C}^{n \times n}$の有界閉集合, つまりコンパクトであることが言えた. したがって, Schauderの不動点定理より, 連続なTPCP写像$\qo \colon \mathbb{C}^{n \times n} \to \mathbb{C}^{n \times n}$の$\densityopset{\mathbb{C}^n}$への制限$\qo|_{\densityopset{\mathbb{C}^n}} \colon \densityopset{\mathbb{C}^n} \to \densityopset{\mathbb{C}^n}$は不動点を持つので, $\qo \left(\rho\right) = \rho$を満たす$\rho \in \densityopset{\mathbb{C}^n}$が存在する.
@@ -201,6 +201,11 @@
 
 \begin{ex}
     \label{ex9.12}
+    $0 < p < 1$として, 1量子ビット系に作用する分極解消チャンネル
+    \begin{align*}
+        \qo \left( \rho\right) = p \frac{I}{2} + \left(1-p\right)\rho
+    \end{align*}
+    を考える. 1量子ビットの量子状態$\rho$, $\sigma$のBloch球表示
     \begin{align*}
         \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2},
         \sigma = \frac{I + \bm{s} \cdot \bm{\sigma}}{2}
@@ -225,12 +230,16 @@
 
 \begin{ex}
     \label{ex9.13}
-    ビット反転チャンネルの量子演算は,
+    $0 < p < 1$として, ビット反転チャンネル
+    \begin{align*}
+        \qo\left( \rho\right) = p \rho + \left(1-p\right)X \rho X
+    \end{align*}
+    を考える. 1量子ビットの量子状態$\rho$, $\sigma$のBloch球表示
     \begin{align*}
         \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2},
         \sigma = \frac{I + \bm{s} \cdot \bm{\sigma}}{2}
     \end{align*}
-    として,
+    とすると,
     \begin{align*}
         \qo \left( \rho\right)
          & =
@@ -239,33 +248,56 @@
         \frac{I + r_1 X + (2p-1)r_2Y + (2p-1)r_3Z}{2} \\
         \qo \left( \sigma\right)
          & =
-        \frac{I + s_1 X + (2p-1)s_2Y + (2p-1)s_3Z}{2}
+        \frac{I + s_1 X + (2p-1)s_2Y + (2p-1)s_3Z}{2}.
     \end{align*}
-    なので,
+    よって, 
     \begin{align*}
-        D \left( \qo(\rho), \qo(\sigma)\right)=
+        2 D \left( \rho, \sigma\right) &= \sqrt{(r_1 - s_1)^2 + (r_2 - s_2)^2 + (r_3 - s_3)^2}, \\
+        2 D \left( \qo(\rho), \qo(\sigma)\right) &=
         \sqrt{(r_1 - s_1)^2 + (2p-1)^2(r_2 - s_2)^2 + (2p-1)^2(r_3 - s_3)^2}.
     \end{align*}
-    よって,
+    したがって, 
     \begin{align*}
         D \left( \qo(\rho), \qo(\sigma)\right)
         \leq
         D \left(\rho, \sigma\right).
     \end{align*}
-    等号は, 実数$t$として,
+    等号は成立は,
     \begin{align*}
-        \bm{r} = \bm{s} = t
-        \begin{pmatrix}
-            1 \\ 0\\ 0
-        \end{pmatrix}
+        D \left( \rho, \sigma\right) 
+        =
+        D \left( \qo(\rho), \qo(\sigma)\right)
+        \iff
+        p\left(1-p\right)
+        \left\{ 
+            \left(r_2 - s_2\right)^2 
+            +
+            \left(r_3 - s_3\right)^2 
+        \right\}
+        =
+        0
+        \iff
+        r_2 = s_2, \ r_3 = s_3
     \end{align*}
-    の時に成立する. 不動点の集合は, 実数$t$として,
+    のときのみ. ゆえに, ビット反転チャンネルは収縮的だが, 厳密に収縮的ではない. 
+    \par
+    次に, 不動点を求める. 
     \begin{align*}
-        \bm{r} = t
-        \begin{pmatrix}
-            1 \\ 0\\ 0
-        \end{pmatrix}.
+        \rho = p \rho + \left(1-p\right)X \rho X
+        \iff
+        \rho = X \rho X
+        \iff 
+        \left[ \rho, X\right] = 0
+    \end{align*} 
+    なる密度演算子$\rho$を求めれば良い. 1量子ビットの量子状態$\rho$のBloch球表示
+    \begin{align*}
+        \rho = \frac{I + \bm{r} \cdot \bm{\sigma}}{2}
     \end{align*}
+    を考えると, $\left[\rho, X\right] = 0$より, 
+    \begin{align*}
+        r_2 Z - r_3 Y = 0
+    \end{align*}
+    を得るが, $Y$, $Z$は線型独立なので, $r_2 = r_3 = 0$を得る. よって不動点の集合はBloch球表示で$(r_1, 0, 0) \ \left( \left| r_1 \right| \le 1\right)$.
 \end{ex}
 
 \begin{ex}
