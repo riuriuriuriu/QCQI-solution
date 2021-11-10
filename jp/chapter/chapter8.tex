@@ -48,8 +48,6 @@
         \frac{M_m \ket{i} \bra{i} M_m^\dagger}
         {\braket{i|M_m^\dagger M_m | i}}
         =
-        \sum_i p(i|m) \ket{i^m} \bra{i^m}
-        =
         \sum_i
         \frac{p_i M_m \ket{i} \bra{i} M_m^\dagger}{p(m)}
         =
@@ -108,7 +106,7 @@
     \end{align*}
     ただし,
     \begin{align*}
-        E_{ad} = \bra{a'} \otimes \bra{d'}
+        E_{ad} = \bra{a} \otimes \bra{d}
         U
         \ket{0_C} \otimes \ket{0_D}
     \end{align*}
@@ -119,19 +117,19 @@
         E_{ad}^\dagger
          & =
         \sum_{a,d}
-        \bra{a'} \otimes \bra{d'}
+        \bra{a} \otimes \bra{d}
         U
         \ket{0_C} \otimes \ket{0_D}
         \bra{0_C} \otimes \bra{0_D}
         U^\dagger
-        \ket{a'} \otimes \ket{d'}
+        \ket{a} \otimes \ket{d}
         \\
          & =
         \sum_{a,d}
         \bra{0_C} \otimes \bra{0_D}
         U^\dagger
-        \ket{a'} \otimes \ket{d'}
-        \bra{a'} \otimes \bra{d'}
+        \ket{a} \otimes \ket{d}
+        \bra{a} \otimes \bra{d}
         U
         \ket{0_C} \otimes \ket{0_D}
         \\
@@ -182,14 +180,14 @@
 \begin{ex}
     \label{ex8.6}
     \par
-    CP写像$\qo \colon \linearopset{\mathbb{C}^m} \to \linearopset{\mathbb{C}^n}$の演算要素$\left\{E_k \colon \mathbb{C}^m \to \mathbb{C}^n \right\}_{k=1}^{l_E \le nm}$, CP写像$\qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^m}$演算要素$\left\{F_k \colon \mathbb{C}^n \to \mathbb{C}^m \right\}_{k=1}^{l_F \le nm}$とする. このとき, 合成写像$\qo \circ \qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^n}$は, $A \in \linearopset{\mathbb{C}^n}$に対して,
+    CP写像$\qo \colon \linearopset{\mathbb{C}^l} \to \linearopset{\mathbb{C}^m}$の演算要素$\left\{E_i \colon \mathbb{C}^l \to \mathbb{C}^m \right\}_{i=1}^{d_E \le lm}$, CP写像$\qof \colon \linearopset{\mathbb{C}^m} \to \linearopset{\mathbb{C}^n}$演算要素$\left\{F_j \colon \mathbb{C}^m \to \mathbb{C}^n \right\}_{j=1}^{d_F \le mn}$とする. このとき, 合成写像$\qof \circ \qo \colon \linearopset{\mathbb{C}^l} \to \linearopset{\mathbb{C}^n}$は, $A \in \linearopset{\mathbb{C}^l}$に対して,
     \begin{align*}
-        \qo \circ \qof \left( A\right)
+        \qof \circ \qo \left( A\right)
         =
-        \sum_{i = 1}^{l_E}\sum_{j=1}^{l_F}
-        E_i F_j A F_j^\dagger E_i^\dagger
+        \sum_{i = 1}^{d_E}\sum_{j=1}^{d_F}
+        F_j E_i A E_i^\dagger F_j^\dagger
     \end{align*}
-    でかける. 演習\ref{ex8.10}より, $\qo \circ \qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^n}$の演算要素$\left\{G_i \colon \mathbb{C}^n \to \mathbb{C}^n \right\}_{i=1}^{l_G \le nm}$を作ることができる. したがって, $\qo \circ \qof \colon \linearopset{\mathbb{C}^n} \to \linearopset{\mathbb{C}^n}$もCP写像.
+    でかける. 演習\ref{ex8.10}より, $\qof \circ \qo \colon \linearopset{\mathbb{C}^l} \to \linearopset{\mathbb{C}^n}$の演算要素$\left\{G_k \colon \mathbb{C}^n \to \mathbb{C}^n \right\}_{k=1}^{d_G \le ln}$を作ることができる. したがって, $\qof \circ \qo \colon \linearopset{\mathbb{C}^l} \to \linearopset{\mathbb{C}^n}$もCP写像.
 \end{ex}
 
 \begin{ex}
@@ -266,22 +264,10 @@
         }
         \\
          & =
-        \sum_{i,k, m', k', m'', k''}
-        p_i
-        \braket{
-            m,k
-            |
-            \Big( E_{m'k'} \ket{i} \otimes \ket{m',k'} \Big)
-            \Big( \bra{i} E_{m''k''}^\dagger \otimes \bra{m'',k''} \Big)
-            |
-            m, k
-        }
-        \\
-         & =
         \sum_{i,k}
         p_i
-        E_{mi} \ket{i}
-        \bra{i} E_{mi}^\dagger
+        E_{mk} \ket{i}
+        \bra{i} E_{mk}^\dagger
         =
         \sum_{k}
         E_{mk} \rho E_{mk}^\dagger
@@ -307,7 +293,7 @@
         E_i = \sum_{j=1}^{r} c_{ij} E_j
     \end{align*}
     と表せる.
-    したがって, 任意の$i, j = r+1 , \dots, M$に対して,
+    したがって, 任意の$i, j = 1 , \dots, M$に対して,
     \begin{align*}
         w_{ij} = \tr\left[E_i^\dagger E_j\right] = \sum_{k=1}^{r} c_{jk} w_{ik}
     \end{align*}
@@ -317,11 +303,11 @@
         w_{jk} = \tr\left[ E_j^\dagger E_k\right]= \tr\left[ E_k^\dagger E_j\right]^*
         = w_{kj}^*
     \end{align*}
-    が成立するので, 行列$W = \left(w_{ij}\right)_{i,j = 1, \dots , M}$はHermite.  したがって, $W$はユニタリ行列$U = \left(u_{ij}\right)_{i,j = 1, \dots , M}$で対角化可能で, 対角行列$u^\dagger W u$の対角成分の非ゼロ要素は$\mathrm{rank}W$個である.
+    が成立するので, 行列$W = \left(w_{ij}\right)_{i,j = 1, \dots , M}$はHermite.  したがって, $W$はユニタリ行列$u = \left(u_{ij}\right)_{i,j = 1, \dots , M}$で対角化可能で, 対角行列$u^\dagger W u$の対角成分の非ゼロ要素は$\mathrm{rank}W$個である.
     \par
     ここで, $\{F_i \colon \hilbertsp \to \hilbertsp \}_{i=1}^{M}$を
     \begin{align*}
-        F_i = \sum_{i=1}^{M} u_{il}^{*} E_l
+        F_i = \sum_{l=1}^{M} u_{il}^{*} E_l
     \end{align*}
     で定義する. この定義は
     $E_{i}$の行列表示$\left( e^{i}_{\alpha \beta} \right)_{\alpha, \beta=1,\dots,d}$と
@@ -361,7 +347,7 @@
         u_{ki}F_k A F_j^{\dagger} u_{ji}^*
         =
         \sum_{k=1}^M
-        F_k A F_j^{\dagger}
+        F_k A F_k^{\dagger}
         =
         \sum_{k=1}^{\rank W}
         F_k A F_k^\dagger
