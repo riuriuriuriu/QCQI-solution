@@ -110,17 +110,17 @@
         H(X:Y)
          & = H(Y) - H(Y|X)                                                                        \\
          & = H(Y) - \sum_x p_X(x) H(Y|X=x)                                                        \\
-         & = H(Y) - H_{bin}(p)                                                                    \\
+         & = H(Y) - H_{\text{bin}}(p)                                                                    \\
          & = -q(1-p)\log q(1-p) - (1-q)(1-p)\log(1-p)(1-q) - p \log p + p \log p + (1-p)\log(1-p) \\
-         & =(1-p) H_{bin}(q) \le (1-p) H_{bin}(1/2) = 1 - p
+         & =(1-p) H_{\text{bin}}(q) \le (1-p) H_{\text{bin}}(1/2) = 1 - p
     \end{align*}
     を得るので, 消去チャンネルの容量は$1-p$.
     \par
     (2)\
     \begin{align*}
-        p = H_{bin}(p)
+        p = H_{\text{bin}}(p)
     \end{align*}
-    を満たす非ゼロの$p$を$p_0$とする. $p\le p_0$であれば, $p \le H_{bin}(p)$なので, $1 - H_{bin}(p) \le 1 - p$.
+    を満たす非ゼロの$p$を$p_0$とする. $p\le p_0$であれば, $p \le H_{\text{bin}}(p)$なので, $1 - H_{\text{bin}}(p) \le 1 - p$.
     \begin{figure}[H]
         \begin{center}
             \includegraphics[width = 80mm]{../fig/ex12_9.png}

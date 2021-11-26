@@ -14,59 +14,51 @@
     \begin{align*}
         f(x+y) = f(x) + f(y)
     \end{align*}
-    を満たす連続関数が, 定数$a$を用いて, $f(x) = ax$であることを言う. 関数方程式より,
+    を満たす連続関数$f \colon \mathbb{R}_{\ge 0} \to \mathbb{R}$が, $f(x) = f(1)x$であることを示そう. 関数方程式より, 任意の$n, \ m \in \mathbb{N}$に対して,
     \begin{align*}
-        f(x) & = - f(-x)                     \\
-        f(n) & = nf(1) \  (n \in \mathbb{N})
+        f\left( \frac{m}{n}\right) =  \frac{1}{n} f(m) = \frac{m}{n} f(1).
     \end{align*}
-    なので, 任意の整数$m$に対して,
-    \begin{align*}
-        f(m) = f(1) m.
-    \end{align*}
-    また, 任意の自然数$n$, 任意の整数$m$に対して,
-    \begin{align*}
-        f\left( \frac{m}{n}\right) =  \frac{1}{n} f(m) = \frac{m}{n} f(1)
-    \end{align*}
-    つまり, 任意の有理数$x$に対して,
+    つまり, 任意の正の有理数$x$に対して,
     \begin{align*}
         f(x) = f(1)x.
     \end{align*}
-    $f$は連続なので, 任意の実数$x$に対して,
+    ここで, $f$は連続であるから, 任意の$x \in \mathbb{R}_{\ge 0}$に対して,
     \begin{align*}
         f(x) = f(1) x.
     \end{align*}
     \par
-    $a >1, x,y < 0$に対して, $I$が,
+    さて, 情報関数$I : (0,1] \to \mathbb{R}$が, ある定数$k \in \mathbb{R}$を用いて, $I(p) = k \log p$であることを示そう.
+    $a >1$を満たす定数$a$をとると, 情報関数$I$は, $x, \  y \ge 0$に対して,
     \begin{align*}
         I ( a^{x+y}) = I(a^x) + I(a^y)
     \end{align*}
-    を満たすとすると, 上に示したことから,
+    を満たし, $x$に関する関数$I(a^x)$は連続なので, 上に示したことから,
     \begin{align*}
         I(a^x) = I(a) x
     \end{align*}
-    が言えるので, $0 < p = a^x \leq 1$として,
+    であるので, $0 < p = a^x \leq 1$として,
     \begin{align*}
-        I(p) = I(a) \log_a p.
+        I(p) = I(a) \log_a p = \frac{I(a)}{\log a} \log p.
     \end{align*}
 \end{ex}
 
 \begin{ex}
     \label{ex11.3}
-    演習\ref{ex11.4}で示す, $H_{bin}(p)$の凹性と,
+    演習\ref{ex11.4}で示す, $H_{\text{bin}}(p)$の凹性と,
     \begin{align*}
-        0 = \frac{d H_{bin}(p)}{dp} = \log \frac{1-p}{p}
-        \longrightarrow p = \frac{1}{2}
+        0 = \frac{d H_{\text{bin}}(p)}{dp} = \log \frac{1-p}{p}
+        \iff p = \frac{1}{2}
     \end{align*}
-    より, $H_{bin}(p)$の最大値は,
+    より, $H_{\text{bin}}(p)$の最大値は,
     \begin{align*}
-        H_{bin} \left( \frac{1}{2}\right) = 1.
+        H_{\text{bin}} \left( \frac{1}{2}\right) = 1.
     \end{align*}
 \end{ex}
 
 \begin{ex}
     \label{ex11.4}
     \begin{align*}
-        \frac{d^2 H_{bin}(p)}{d^2p} = - \frac{1}{p(1-p)} < 0.
+        \frac{d^2 H_{\text{bin}}(p)}{d^2p} = - \frac{1}{p(1-p)} < 0.
     \end{align*}
 \end{ex}
 
@@ -175,7 +167,7 @@
 \begin{ex}
     \label{ex11.11}
     \begin{align*}
-        0,\ 0, \ H_{bin}\left( \frac{3 + \sqrt{5}}{6}\right).
+        0,\ 0, \ H_{\text{bin}}\left( \frac{3 + \sqrt{5}}{6}\right).
     \end{align*}
 \end{ex}
 
